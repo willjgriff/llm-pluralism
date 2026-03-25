@@ -87,7 +87,8 @@ def default_model_configs() -> list[ModelConfig]:
         (
             "openai:gpt-4.1-mini,"
             "openrouter:meta-llama/llama-3.3-70b-instruct,"
-            "openrouter:anthropic/claude-3.5-haiku"
+            "openrouter:anthropic/claude-3.5-haiku,"
+            "openrouter:google/gemini-2.5-flash-lite"
         ),
     )
     model_specs = [model_spec for model_spec in env_specs.split(",") if model_spec.strip()]

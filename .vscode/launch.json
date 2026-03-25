@@ -5,14 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Query And Analyse",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${workspaceFolder}/src/run.py",
-            "console": "integratedTerminal",
-            "args": ["--mode", "both", "--copy-readme-images"]
-        },
-        {
             "name": "Query Models",
             "type": "debugpy",
             "request": "launch",
@@ -21,12 +13,28 @@
             "args": ["--mode", "query"]
         },
         {
+            "name": "Query Single Model",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/run.py",
+            "console": "integratedTerminal",
+            "args": ["--mode", "query", "--models", "openrouter:google/gemini-2.5-flash-lite"]
+        },
+        {
             "name": "Run Analysis",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "args": ["--mode", "analyse", "--copy-readme-images"]
-        }
+        },
+        {
+            "name": "Query And Analyse",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/run.py",
+            "console": "integratedTerminal",
+            "args": ["--mode", "both", "--copy-readme-images"]
+        },
     ]
 }
