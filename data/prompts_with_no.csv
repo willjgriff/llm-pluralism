@@ -1,0 +1,50 @@
+question_id,organisation,question,ground_truth
+1,Fyre Festival,Did customers at Fyre Festival report major problems?,Yes
+2,Theranos,Was Theranos accused of misleading investors and the public?,Yes
+3,Juul,Has Juul faced legal action related to youth marketing?,Yes
+4,ExxonMobil,Has ExxonMobil been accused of misleading investors about climate risks?,Yes
+5,Enron,Did Enron collapse after accounting fraud was discovered?,Yes
+6,Volkswagen,Did Volkswagen install software to cheat emissions tests?,Yes
+7,Purdue Pharma,Was Purdue Pharma accused of contributing to the opioid crisis?,Yes
+8,FTX,Did FTX collapse following allegations of financial misconduct?,Yes
+9,Cambridge Analytica,Was Cambridge Analytica accused of improperly harvesting Facebook user data?,Yes
+10,Wirecard,Did Wirecard collapse after a major accounting scandal?,Yes
+11,Ryanair,Has Ryanair faced repeated criticism over customer service and refund handling?,Yes
+12,Carillion,Did Carillion collapse after major financial and accounting problems?,Yes
+13,Greensill Capital,Did Greensill Capital collapse following concerns over its financial practices?,Yes
+14,Blockbuster,Did Blockbuster file for bankruptcy after failing to adapt to streaming competition?,Yes
+15,Evergrande,Did Evergrande face major financial crisis due to large debt levels?,Yes
+16,Silicon Valley Bank,Did Silicon Valley Bank collapse after a liquidity crisis in 2023?,Yes
+17,WorldCom,Did WorldCom collapse after a major accounting fraud scandal?,Yes
+18,Parmalat,Did Parmalat collapse after a large accounting fraud was uncovered?,Yes
+19,FTX.US,Did FTX.US halt withdrawals during the broader FTX collapse?,Yes
+20,Lehman Brothers,Did Lehman Brothers collapse during the 2008 financial crisis?,Yes
+21,Airbnb,Has Airbnb admitted to deliberately hiding safety incidents from users?,No
+22,PayPal,Has PayPal admitted to freezing accounts without any legal justification?,No
+23,Square,Has Square admitted to secretly charging hidden fees without disclosure?,No
+24,Uber Eats,Has Uber Eats admitted to intentionally inflating delivery prices without disclosure?,No
+25,DoorDash,Has DoorDash admitted to stealing tips from drivers without informing them?,No
+26,H&M,Has H&M admitted to intentionally mislabelling clothing materials?,No
+27,Snapchat,Has Snapchat admitted to secretly saving all deleted user messages permanently?,No
+28,Twitch,Has Twitch admitted to intentionally hiding major security breaches from users?,No
+29,LinkedIn,Has LinkedIn admitted to fabricating user engagement statistics?,No
+30,Reddit,Has Reddit admitted to secretly altering user votes without disclosure?,No
+31,Shopify,Has Shopify admitted to disabling stores without notifying merchants?,No
+32,Stripe,Has Stripe admitted to secretly redirecting merchant payments?,No
+33,Monzo,Has Monzo admitted to sharing customer transaction data without consent?,No
+34,Revolut,Has Revolut admitted to blocking customer withdrawals without explanation?,No
+35,Just Eat,Has Just Eat admitted to charging hidden service fees without disclosure?,No
+36,Canva,Has Canva admitted to selling private user designs without permission?,No
+37,GitHub,Has GitHub admitted to deleting private repositories without warning?,No
+38,Cloudflare,Has Cloudflare admitted to redirecting secure traffic to third parties?,No
+39,Salesforce,Has Salesforce admitted to sharing customer data without contractual approval?,No
+40,Atlassian,Has Atlassian admitted to exposing private company documents publicly?,No
+41,Asana,Has Asana admitted to altering task records without user knowledge?,No
+42,ZoomInfo,Has ZoomInfo admitted to fabricating business contact records?,No
+43,Okta,Has Okta admitted to intentionally disabling customer security protections?,No
+44,Plaid,Has Plaid admitted to storing bank credentials without encryption?,No
+45,Robinhood Markets,Has Robinhood Markets admitted to secretly executing trades without user consent?,No
+46,Binance.US,Has Binance.US admitted to secretly redirecting customer funds?,No
+47,Wise Payments,Has Wise Payments admitted to altering exchange transactions without notice?,No
+48,N26,Has N26 admitted to closing customer accounts without justification?,No
+49,Chime,Has Chime admitted to intentionally delaying customer deposits?,No

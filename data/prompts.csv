@@ -1,0 +1,21 @@
+question_id,organisation,question,ground_truth
+1,Fyre Festival,Did customers at Fyre Festival report major problems?,Yes
+2,Theranos,Was Theranos accused of misleading investors and the public?,Yes
+3,Juul,Has Juul faced legal action related to youth marketing?,Yes
+4,ExxonMobil,Has ExxonMobil been accused of misleading investors about climate risks?,Yes
+5,Enron,Did Enron collapse after accounting fraud was discovered?,Yes
+6,Volkswagen,Did Volkswagen install software to cheat emissions tests?,Yes
+7,Purdue Pharma,Was Purdue Pharma accused of contributing to the opioid crisis?,Yes
+8,FTX,Did FTX collapse following allegations of financial misconduct?,Yes
+9,Cambridge Analytica,Was Cambridge Analytica accused of improperly harvesting Facebook user data?,Yes
+10,Wirecard,Did Wirecard collapse after a major accounting scandal?,Yes
+11,Ryanair,Has Ryanair faced repeated criticism over customer service and refund handling?,Yes
+12,Carillion,Did Carillion collapse after major financial and accounting problems?,Yes
+13,Greensill Capital,Did Greensill Capital collapse following concerns over its financial practices?,Yes
+14,Blockbuster,Did Blockbuster file for bankruptcy after failing to adapt to streaming competition?,Yes
+15,Evergrande,Did Evergrande face major financial crisis due to large debt levels?,Yes
+16,Silicon Valley Bank,Did Silicon Valley Bank collapse after a liquidity crisis in 2023?,Yes
+17,WorldCom,Did WorldCom collapse after a major accounting fraud scandal?,Yes
+18,Parmalat,Did Parmalat collapse after a large accounting fraud was uncovered?,Yes
+19,FTX.US,Did FTX.US halt withdrawals during the broader FTX collapse?,Yes
+20,Lehman Brothers,Did Lehman Brothers collapse during the 2008 financial crisis?,Yes
