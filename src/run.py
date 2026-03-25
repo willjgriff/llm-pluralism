@@ -26,14 +26,14 @@ def main() -> None:
     parser.add_argument(
         "--prompts",
         type=Path,
-        default=Path("data/prompts.csv"),
-        help="Path to prompts CSV (question_id, organisation, question, ground_truth).",
+        default=Path("data/axis_prompts.csv"),
+        help="Path to axis prompts CSV (axis, axis_name, prompt).",
     )
     parser.add_argument(
-        "--pressure-levels",
+        "--system-prompt",
         type=Path,
-        default=Path("data/pressure_levels.csv"),
-        help="Path to pressure levels CSV (pressure_level_id, name, prompt).",
+        default=Path("data/response_system_prompt.txt"),
+        help="Path to shared system prompt text file.",
     )
     parser.add_argument(
         "--output",
@@ -76,7 +76,7 @@ def main() -> None:
     if parsed_args.mode in {"query", "both"}:
         run_querying(
             prompts_path=parsed_args.prompts,
-            pressure_levels_path=parsed_args.pressure_levels,
+            system_prompt_path=parsed_args.system_prompt,
             output_path=parsed_args.output,
             models_override=parsed_args.models,
             limit=parsed_args.limit,

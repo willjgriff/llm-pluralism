@@ -1,4 +1,4 @@
-"""Core query pipeline: pressure levels, parallel orchestration, responses CSV."""
+"""Core query pipeline: axis prompts, fixed system prompt, responses CSV."""
 
 from __future__ import annotations
 
@@ -9,29 +9,19 @@ from pathlib import Path
 
 from model_interaction.models import ModelConfig, default_model_configs, generate_answer, parse_model_specs
 from prompts import (
-    PressureLevel,
     PromptRow,
-    iter_prompt_pressure_pairs,
-    load_pressure_levels,
-    load_prompts,
-    resolve_system_instruction,
+    load_axis_prompts,
+    load_system_prompt,
 )
 
 RESPONSES_CSV_FIELD_NAMES = [
     "question_id",
-    "organisation",
+    "axis",
+    "axis_name",
     "model",
-    "pressure_level_id",
-    "pressure_name",
     "question",
-    "ground_truth",
     "response",
-    "label_correctness",
-    "label_uncertainty",
-    "label_fabrication",
-    "label_overconfidence",
 ]
-
 
 def write_responses_csv(
     *, output_path: Path, rows: list[dict[str, str | int | float]]
@@ -53,31 +43,27 @@ def query_single_model(
     *,
     model_config: ModelConfig,
     prompts: list[PromptRow],
-    pressure_levels: list[PressureLevel],
+    system_instruction: str,
     skip_errors: bool,
     model_index: int,
     total_models: int,
-    total_per_model: int,
+    total_per_model: int,  # number of prompt rows for this model
     progress_lock: threading.Lock,
 ) -> list[dict[str, str | int | float]]:
-    """Run all (prompt × pressure level) pairs for one model (worker-thread safe)."""
+    """Run all prompt rows for one model (worker-thread safe)."""
     model_label = f"{model_config.provider}:{model_config.model}"
     rows: list[dict[str, str | int | float]] = []
     with progress_lock:
         print(f"[parallel] Started model {model_index}/{total_models}: {model_label}")
     call_index = 0
-    for prompt_row, pressure_level in iter_prompt_pressure_pairs(prompts, pressure_levels):
+    for prompt_row in prompts:
         call_index += 1
-        system_instruction = resolve_system_instruction(
-            pressure_level, prompt_row.organisation
-        )
         with progress_lock:
             print(
                 f"[parallel] {model_label} "
                 f"({call_index}/{total_per_model}) "
                 f"question_id={prompt_row.question_id} "
-                f"org={prompt_row.organisation!r} "
-                f"pressure={pressure_level.pressure_level_id}:{pressure_level.name}"
+                f"axis={prompt_row.axis}:{prompt_row.axis_name!r} "
             )
         try:
             response_text = generate_answer(
@@ -94,17 +80,11 @@ def query_single_model(
         rows.append(
             {
                 "question_id": prompt_row.question_id,
-                "organisation": prompt_row.organisation,
+                "axis": prompt_row.axis,
+                "axis_name": prompt_row.axis_name,
                 "model": model_label,
-                "pressure_level_id": pressure_level.pressure_level_id,
-                "pressure_name": pressure_level.name,
                 "question": prompt_row.question,
-                "ground_truth": prompt_row.ground_truth,
                 "response": response_text,
-                "label_correctness": "",
-                "label_uncertainty": "",
-                "label_fabrication": "",
-                "label_overconfidence": "",
             }
         )
     with progress_lock:
@@ -118,7 +98,7 @@ def query_single_model(
 def run_querying(
     *,
     prompts_path: Path,
-    pressure_levels_path: Path,
+    system_prompt_path: Path,
     output_path: Path,
     models_override: str,
     limit: int,
@@ -126,23 +106,22 @@ def run_querying(
     sequential: bool,
 ) -> None:
     """
-    Load prompts and pressure levels, query all configured models, write CSV.
+    Load axis prompts and a shared system prompt, query all configured models, write CSV.
     """
-    prompts = load_prompts(prompts_path)
+    prompts = load_axis_prompts(prompts_path)
     if limit > 0:
         prompts = prompts[:limit]
 
-    pressure_levels = load_pressure_levels(pressure_levels_path)
+    system_instruction = load_system_prompt(system_prompt_path)
     model_configs = default_model_configs()
     if models_override.strip():
         model_configs = parse_model_specs(models_override.split(","))
 
-    total_per_model = len(prompts) * len(pressure_levels)
+    total_per_model = len(prompts)
     total_expected = total_per_model * len(model_configs)
     print(
         "Starting query run: "
-        f"{len(prompts)} prompts x {len(pressure_levels)} pressure levels x "
-        f"{len(model_configs)} models = {total_expected} API calls"
+        f"{len(prompts)} prompts x {len(model_configs)} models = {total_expected} API calls"
     )
     if sequential:
         print("Mode: sequential (one model at a time).")
@@ -160,7 +139,7 @@ def run_querying(
                 query_single_model(
                     model_config=model_config,
                     prompts=prompts,
-                    pressure_levels=pressure_levels,
+                    system_instruction=system_instruction,
                     skip_errors=skip_errors,
                     model_index=model_index,
                     total_models=len(model_configs),
@@ -177,7 +156,7 @@ def run_querying(
                         query_single_model,
                         model_config=model_config,
                         prompts=prompts,
-                        pressure_levels=pressure_levels,
+                        system_instruction=system_instruction,
                         skip_errors=skip_errors,
                         model_index=model_index,
                         total_models=len(model_configs),
@@ -187,15 +166,6 @@ def run_querying(
                 )
             for future in as_completed(submitted_futures):
                 output_rows.extend(future.result())
-
-        def sort_response_row(row: dict[str, str | int | float]) -> tuple:
-            return (
-                int(row["question_id"]),
-                int(row["pressure_level_id"]),
-                str(row["model"]),
-            )
-
-        output_rows.sort(key=sort_response_row)
 
     write_responses_csv(output_path=output_path, rows=output_rows)
     print(f"Wrote {len(output_rows)} rows to {output_path}")

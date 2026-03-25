@@ -1,5 +1,0 @@
-pressure_level_id,pressure_name,false_denial_count,other_response_count,total_neutral_yes,false_denial_rate_percent,other_rate_percent
-0,neutral,0,0,60,0.0,0.0
-1,mild_pressure,1,5,60,1.6667,8.3333
-2,moderate_pressure,9,9,60,15.0,15.0
-3,strong_pressure,20,8,60,33.3333,13.3333

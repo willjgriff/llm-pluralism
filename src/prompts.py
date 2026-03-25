@@ -1,76 +1,70 @@
-"""Prompt and pressure-level loading."""
+"""Prompt loading for axis-style evaluation runs."""
 
 from __future__ import annotations
 
 import csv
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable
-
-ORG_NAME_PLACEHOLDER = "{ORG_NAME}"
 
 
 @dataclass(frozen=True)
 class PromptRow:
     question_id: int
-    organisation: str
+    axis: int
+    axis_name: str
     question: str
-    ground_truth: str
 
 
-@dataclass(frozen=True)
-class PressureLevel:
-    """One row from data/pressure_levels.csv; column 'prompt' may contain {ORG_NAME}."""
+def load_axis_prompts(csv_path: Path) -> list[PromptRow]:
+    """
+    Load prompts from `data/axis_prompts.csv`.
 
-    pressure_level_id: int
-    name: str
-    system_instruction_template: str
+    Expected columns:
+      - question_id (int)
+      - axis (int)
+      - axis_name (str)
+      - prompt (str)
 
-
-def load_prompts(csv_path: Path) -> list[PromptRow]:
+    We map:
+      - question := prompt
+    """
     with csv_path.open(newline="", encoding="utf-8") as csv_file:
         reader = csv.DictReader(csv_file)
         prompt_rows: list[PromptRow] = []
-        for row_data in reader:
+        for row_index, row_data in enumerate(reader, start=1):
+            question_id_raw = (row_data.get("question_id") or "").strip()
+            axis_raw = (row_data.get("axis") or "").strip()
+            axis_name = (row_data.get("axis_name") or "").strip()
+            prompt_text = (row_data.get("prompt") or "").strip()
+
+            if not axis_raw:
+                raise ValueError(
+                    f"Missing required column value 'axis' in {csv_path}. "
+                    "Expected `axis` to be an integer."
+                )
+            if not prompt_text:
+                raise ValueError(
+                    f"Missing required column value 'prompt' in {csv_path}."
+                )
+            if not axis_name:
+                raise ValueError(
+                    f"Missing required column value 'axis_name' in {csv_path}."
+                )
+
+            # If older CSVs don’t include question_id, fall back to row order.
+            question_id = int(question_id_raw) if question_id_raw else row_index
+
             prompt_rows.append(
                 PromptRow(
-                    question_id=int(row_data["question_id"]),
-                    organisation=(row_data.get("organisation") or "").strip(),
-                    question=(row_data.get("question") or "").strip(),
-                    ground_truth=(row_data.get("ground_truth") or "").strip(),
+                    question_id=question_id,
+                    axis=int(axis_raw),
+                    axis_name=axis_name,
+                    question=prompt_text,
                 )
             )
     return prompt_rows
 
 
-def load_pressure_levels(csv_path: Path) -> list[PressureLevel]:
-    with csv_path.open(newline="", encoding="utf-8") as csv_file:
-        reader = csv.DictReader(csv_file)
-        levels: list[PressureLevel] = []
-        for row_data in reader:
-            levels.append(
-                PressureLevel(
-                    pressure_level_id=int(row_data["pressure_level_id"]),
-                    name=(row_data.get("name") or "").strip(),
-                    system_instruction_template=(row_data.get("prompt") or "").strip(),
-                )
-            )
-    levels.sort(key=lambda level: level.pressure_level_id)
-    return levels
-
-
-def resolve_system_instruction(
-    pressure_level: PressureLevel, organisation: str
-) -> str:
-    """Substitute organisation name into the pressure-level system prompt."""
-    return pressure_level.system_instruction_template.replace(
-        ORG_NAME_PLACEHOLDER, organisation
-    )
-
-
-def iter_prompt_pressure_pairs(
-    prompts: Iterable[PromptRow], pressure_levels: Iterable[PressureLevel]
-) -> Iterable[tuple[PromptRow, PressureLevel]]:
-    for prompt_row in prompts:
-        for pressure_level in pressure_levels:
-            yield prompt_row, pressure_level
+def load_system_prompt(txt_path: Path) -> str:
+    """Load a shared system prompt from a plain text file."""
+    return txt_path.read_text(encoding="utf-8").strip()
