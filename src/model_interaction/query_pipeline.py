@@ -10,7 +10,7 @@ from pathlib import Path
 from model_interaction.models import ModelConfig, default_model_configs, generate_answer, parse_model_specs
 from prompts import (
     PromptRow,
-    load_axis_prompts,
+    load_evaluation_prompts,
     load_system_prompt,
 )
 
@@ -108,7 +108,7 @@ def run_querying(
     """
     Load axis prompts and a shared system prompt, query all configured models, write CSV.
     """
-    prompts = load_axis_prompts(prompts_path)
+    prompts = load_evaluation_prompts(prompts_path)
     if limit > 0:
         prompts = prompts[:limit]
 

@@ -15,9 +15,9 @@ class PromptRow:
     question: str
 
 
-def load_axis_prompts(csv_path: Path) -> list[PromptRow]:
+def load_evaluation_prompts(csv_path: Path) -> list[PromptRow]:
     """
-    Load prompts from `data/axis_prompts.csv`.
+    Load prompts from an evaluation CSV.
 
     Expected columns:
       - question_id (int)

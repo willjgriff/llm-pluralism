@@ -26,13 +26,13 @@ def main() -> None:
     parser.add_argument(
         "--prompts",
         type=Path,
-        default=Path("data/axis_prompts.csv"),
-        help="Path to axis prompts CSV (axis, axis_name, prompt).",
+        default=Path("data/evaluation_prompts.csv"),
+        help="Path to evaluation prompts CSV (question_id, axis, axis_name, prompt).",
     )
     parser.add_argument(
         "--system-prompt",
         type=Path,
-        default=Path("data/response_system_prompt.txt"),
+        default=Path("data/evaluation_system_prompt.txt"),
         help="Path to shared system prompt text file.",
     )
     parser.add_argument(
