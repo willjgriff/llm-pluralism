@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 
 import config
-from model_interaction import run_querying
+from model_query import run_persona_querying, run_evaluation_querying
 
 
 def main() -> None:
@@ -21,17 +21,23 @@ def main() -> None:
     selected_modes = set(args.mode)
 
     if "evaluation_query" in selected_modes:
-        run_querying(
+        run_evaluation_querying(
             prompts_path=config.EVALUATION_PROMPTS_PATH,
             system_prompt_path=config.EVALUATION_SYSTEM_PROMPT_PATH,
             output_path=config.QUERY_OUTPUT_PATH,
-            models_override=config.EVAL_MODELS,
+            models_override=config.EVALUATION_MODELS,
             skip_errors=config.SKIP_ERRORS,
             sequential=config.SEQUENTIAL,
         )
 
     if "persona_query" in selected_modes:
-        pass
+        run_persona_querying(
+            persona_prompts_path=config.PERSONA_SYSTEM_PROMPTS_PATH,
+            evaluation_responses_path=config.PERSONA_QUERY_INPUT_PATH,
+            output_path=config.PERSONA_QUERY_OUTPUT_PATH,
+            persona_model_spec=config.PERSONA_QUERY_MODEL,
+            skip_errors=config.SKIP_ERRORS,
+        )
 
     if "analyse" in selected_modes:
         pass

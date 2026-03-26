@@ -20,12 +20,15 @@ OPENROUTER_API_KEY: str = os.getenv("OPENROUTER_API_KEY", "")
 # --- Edit in this file (not read from the environment) ---
 
 # Comma-separated model specs `provider:model`.
-EVAL_MODELS = (
+EVALUATION_MODELS = (
     "openai:gpt-4.1-mini,"
     "openrouter:meta-llama/llama-3.3-70b-instruct,"
     "openrouter:anthropic/claude-3.5-haiku,"
     "openrouter:google/gemini-2.5-flash-lite"
 )
+
+# Single model used for persona_query mode.
+PERSONA_QUERY_MODEL = "openrouter:meta-llama/llama-3.3-70b-instruct"
 
 # CSV of evaluation prompts (columns include question_id, group_id, group_name, prompt text).
 EVALUATION_PROMPTS_PATH = Path("data/evaluation_prompts.csv")
@@ -35,6 +38,15 @@ EVALUATION_SYSTEM_PROMPT_PATH = Path("data/evaluation_system_prompt.txt")
 
 # Where querying writes the responses CSV.
 QUERY_OUTPUT_PATH = Path("results/evaluation_responses.csv")
+
+# Persona-system prompts used in persona_query mode.
+PERSONA_SYSTEM_PROMPTS_PATH = Path("data/persona_system_prompts.csv")
+
+# Input CSV for persona_query mode (typically output from evaluation_query).
+PERSONA_QUERY_INPUT_PATH = Path("results/evaluation_responses.csv")
+
+# Where persona_query writes outputs.
+PERSONA_QUERY_OUTPUT_PATH = Path("results/persona_responses.csv")
 
 # When running `run.py --mode analyse`, this CSV is read (typically the last query output).
 ANALYSIS_INPUT_CSV = Path("results/evaluation_responses.csv")

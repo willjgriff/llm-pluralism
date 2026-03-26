@@ -23,6 +23,16 @@ class PersonaPromptRow:
     system_prompt: str
 
 
+@dataclass(frozen=True)
+class EvaluationResponseRow:
+    question_id: int
+    group_id: int
+    group_name: str
+    source_model: str
+    question: str
+    source_response: str
+
+
 def load_evaluation_prompts(csv_path: Path) -> list[EvaluationPromptRow]:
     """
     Load prompts from an evaluation CSV.
@@ -120,6 +130,79 @@ def load_persona_system_prompts(csv_path: Path) -> list[PersonaPromptRow]:
                 )
             )
     return persona_rows
+
+
+def load_evaluation_responses(csv_path: Path) -> list[EvaluationResponseRow]:
+    """
+    Load model responses from evaluation responses CSV.
+
+    Expected columns:
+      - question_id (int)
+      - group_id (int)
+      - group_name (str)
+      - model (str)
+      - question (str)
+      - response (str)
+    """
+    with csv_path.open(newline="", encoding="utf-8") as csv_file:
+        reader = csv.DictReader(csv_file)
+        required_columns = {
+            "question_id",
+            "group_id",
+            "group_name",
+            "model",
+            "question",
+            "response",
+        }
+        if reader.fieldnames is None:
+            raise ValueError(f"{csv_path} has no CSV header row.")
+        missing = required_columns - set(reader.fieldnames)
+        if missing:
+            raise ValueError(f"Missing required columns in {csv_path}: {sorted(missing)}")
+
+        rows: list[EvaluationResponseRow] = []
+        for row_data in reader:
+            question_id_raw = (row_data.get("question_id") or "").strip()
+            group_id_raw = (row_data.get("group_id") or "").strip()
+            group_name = (row_data.get("group_name") or "").strip()
+            source_model = (row_data.get("model") or "").strip()
+            question = (row_data.get("question") or "").strip()
+            source_response = (row_data.get("response") or "").strip()
+
+            if not question_id_raw:
+                raise ValueError(
+                    f"Missing required column value 'question_id' in {csv_path}."
+                )
+            if not group_id_raw:
+                raise ValueError(
+                    f"Missing required column value 'group_id' in {csv_path}."
+                )
+            if not group_name:
+                raise ValueError(
+                    f"Missing required column value 'group_name' in {csv_path}."
+                )
+            if not source_model:
+                raise ValueError(f"Missing required column value 'model' in {csv_path}.")
+            if not question:
+                raise ValueError(
+                    f"Missing required column value 'question' in {csv_path}."
+                )
+            if not source_response:
+                raise ValueError(
+                    f"Missing required column value 'response' in {csv_path}."
+                )
+
+            rows.append(
+                EvaluationResponseRow(
+                    question_id=int(question_id_raw),
+                    group_id=int(group_id_raw),
+                    group_name=group_name,
+                    source_model=source_model,
+                    question=question,
+                    source_response=source_response,
+                )
+            )
+    return rows
 
 
 def load_system_prompt(txt_path: Path) -> str:
