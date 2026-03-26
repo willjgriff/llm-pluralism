@@ -9,7 +9,7 @@ from pathlib import Path
 
 from model_interaction.models import ModelConfig, default_model_configs, generate_answer, parse_model_specs
 from prompts import (
-    PromptRow,
+    EvaluationPromptRow,
     load_evaluation_prompts,
     load_system_prompt,
 )
@@ -42,7 +42,7 @@ def write_responses_csv(
 def query_single_model(
     *,
     model_config: ModelConfig,
-    prompts: list[PromptRow],
+    prompts: list[EvaluationPromptRow],
     system_instruction: str,
     skip_errors: bool,
     model_index: int,
@@ -65,27 +65,13 @@ def query_single_model(
                 f"question_id={prompt_row.question_id} "
                 f"group={prompt_row.group_id}:{prompt_row.group_name!r} "
             )
-        try:
-            response_text = generate_answer(
-                instruction=system_instruction,
-                question=prompt_row.question,
-                config=model_config,
-            )
-        except Exception as exception_error:
-            if not skip_errors:
-                raise
-            response_text = (
-                f"[ERROR] {type(exception_error).__name__}: {str(exception_error)}"
-            )
         rows.append(
-            {
-                "question_id": prompt_row.question_id,
-                "group_id": prompt_row.group_id,
-                "group_name": prompt_row.group_name,
-                "model": model_label,
-                "question": prompt_row.question,
-                "response": response_text,
-            }
+            query_single_prompt(
+                model_config=model_config,
+                prompt_row=prompt_row,
+                system_instruction=system_instruction,
+                skip_errors=skip_errors,
+            )
         )
     with progress_lock:
         print(
@@ -93,6 +79,43 @@ def query_single_model(
             f"{model_label} ({call_index}/{total_per_model} calls)"
         )
     return rows
+
+
+def query_single_prompt(
+    *,
+    model_config: ModelConfig,
+    prompt_row: EvaluationPromptRow,
+    system_instruction: str,
+    skip_errors: bool,
+) -> dict[str, str | int | float]:
+    """
+    Query one prompt row with one system prompt using one model.
+
+    This is the primitive operation that can later be reused for workflows where
+    each prompt is paired with a different system prompt.
+    """
+    model_label = f"{model_config.provider}:{model_config.model}"
+    try:
+        response_text = generate_answer(
+            instruction=system_instruction,
+            question=prompt_row.question,
+            config=model_config,
+        )
+    except Exception as exception_error:
+        if not skip_errors:
+            raise
+        response_text = (
+            f"[ERROR] {type(exception_error).__name__}: {str(exception_error)}"
+        )
+
+    return {
+        "question_id": prompt_row.question_id,
+        "group_id": prompt_row.group_id,
+        "group_name": prompt_row.group_name,
+        "model": model_label,
+        "question": prompt_row.question,
+        "response": response_text,
+    }
 
 
 def run_querying(

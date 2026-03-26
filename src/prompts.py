@@ -8,14 +8,22 @@ from pathlib import Path
 
 
 @dataclass(frozen=True)
-class PromptRow:
+class EvaluationPromptRow:
     question_id: int
     group_id: int
     group_name: str
     question: str
 
 
-def load_evaluation_prompts(csv_path: Path) -> list[PromptRow]:
+@dataclass(frozen=True)
+class PersonaPromptRow:
+    persona_id: int
+    persona_name: str
+    opposite_persona_id: int
+    system_prompt: str
+
+
+def load_evaluation_prompts(csv_path: Path) -> list[EvaluationPromptRow]:
     """
     Load prompts from an evaluation CSV.
 
@@ -30,7 +38,7 @@ def load_evaluation_prompts(csv_path: Path) -> list[PromptRow]:
     """
     with csv_path.open(newline="", encoding="utf-8") as csv_file:
         reader = csv.DictReader(csv_file)
-        prompt_rows: list[PromptRow] = []
+        prompt_rows: list[EvaluationPromptRow] = []
         for row_index, row_data in enumerate(reader, start=1):
             question_id_raw = (row_data.get("question_id") or "").strip()
             group_id_raw = (row_data.get("group_id") or "").strip()
@@ -55,7 +63,7 @@ def load_evaluation_prompts(csv_path: Path) -> list[PromptRow]:
             question_id = int(question_id_raw) if question_id_raw else row_index
 
             prompt_rows.append(
-                PromptRow(
+                EvaluationPromptRow(
                     question_id=question_id,
                     group_id=int(group_id_raw),
                     group_name=group_name,
@@ -63,6 +71,55 @@ def load_evaluation_prompts(csv_path: Path) -> list[PromptRow]:
                 )
             )
     return prompt_rows
+
+
+def load_persona_system_prompts(csv_path: Path) -> list[PersonaPromptRow]:
+    """
+    Load persona system prompts from CSV.
+
+    Expected columns:
+      - persona_id (int)
+      - persona_name (str)
+      - opposite_persona_id (int)
+      - system_prompt (str)
+    """
+    with csv_path.open(newline="", encoding="utf-8") as csv_file:
+        reader = csv.DictReader(csv_file)
+        persona_rows: list[PersonaPromptRow] = []
+        for row_data in reader:
+            persona_id_raw = (row_data.get("persona_id") or "").strip()
+            persona_name = (row_data.get("persona_name") or "").strip()
+            opposite_persona_id_raw = (row_data.get("opposite_persona_id") or "").strip()
+            system_prompt = (row_data.get("system_prompt") or "").strip()
+
+            if not persona_id_raw:
+                raise ValueError(
+                    f"Missing required column value 'persona_id' in {csv_path}. "
+                    "Expected `persona_id` to be an integer."
+                )
+            if not persona_name:
+                raise ValueError(
+                    f"Missing required column value 'persona_name' in {csv_path}."
+                )
+            if not opposite_persona_id_raw:
+                raise ValueError(
+                    f"Missing required column value 'opposite_persona_id' in {csv_path}. "
+                    "Expected `opposite_persona_id` to be an integer."
+                )
+            if not system_prompt:
+                raise ValueError(
+                    f"Missing required column value 'system_prompt' in {csv_path}."
+                )
+
+            persona_rows.append(
+                PersonaPromptRow(
+                    persona_id=int(persona_id_raw),
+                    persona_name=persona_name,
+                    opposite_persona_id=int(opposite_persona_id_raw),
+                    system_prompt=system_prompt,
+                )
+            )
+    return persona_rows
 
 
 def load_system_prompt(txt_path: Path) -> str:
