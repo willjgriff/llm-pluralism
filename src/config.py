@@ -22,13 +22,12 @@ OPENROUTER_API_KEY: str = os.getenv("OPENROUTER_API_KEY", "")
 # Comma-separated model specs `provider:model`.
 EVALUATION_MODELS = (
     "openai:gpt-4.1-mini,"
-    "openrouter:meta-llama/llama-3.3-70b-instruct,"
     "openrouter:anthropic/claude-3.5-haiku,"
-    "openrouter:google/gemini-2.5-flash-lite"
+    "openrouter:x-ai/grok-4-fast"
 )
 
 # Single model used for persona_query mode.
-PERSONA_QUERY_MODEL = "openrouter:meta-llama/llama-3.3-70b-instruct"
+PERSONA_QUERY_MODEL = "openrouter:mistralai/mistral-large"
 
 # Max concurrent requests for persona_query mode.
 PERSONA_QUERY_MAX_THREADS = 4

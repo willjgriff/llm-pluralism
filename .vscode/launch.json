@@ -20,6 +20,15 @@
             "args": ["--mode", "persona_query"]
         },
         {
+            "name": "All query",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/run.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": ["--mode", "evaluation_query", "persona_query"]
+        },
+        {
             "name": "Analyse",
             "type": "debugpy",
             "request": "launch",

@@ -217,9 +217,11 @@ def run_persona_querying(
 
     write_persona_responses_csv(output_path=output_path, rows=output_rows)
     elapsed_seconds = time.perf_counter() - start_time
+    elapsed_minutes = int(elapsed_seconds // 60)
+    elapsed_remainder_seconds = int(elapsed_seconds % 60)
     print(
         f"Wrote {len(output_rows)} rows to {output_path} "
-        f"in {elapsed_seconds:.1f}s"
+        f"in {elapsed_minutes}m {elapsed_remainder_seconds}s"
     )
 
 
@@ -300,7 +302,9 @@ def run_evaluation_querying(
 
     write_evaluation_responses_csv(output_path=output_path, rows=output_rows)
     elapsed_seconds = time.perf_counter() - start_time
+    elapsed_minutes = int(elapsed_seconds // 60)
+    elapsed_remainder_seconds = int(elapsed_seconds % 60)
     print(
         f"Wrote {len(output_rows)} rows to {output_path} "
-        f"in {elapsed_seconds:.1f}s"
+        f"in {elapsed_minutes}m {elapsed_remainder_seconds}s"
     )
