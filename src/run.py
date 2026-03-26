@@ -36,6 +36,7 @@ def main() -> None:
             evaluation_responses_path=config.PERSONA_QUERY_INPUT_PATH,
             output_path=config.PERSONA_QUERY_OUTPUT_PATH,
             persona_model_spec=config.PERSONA_QUERY_MODEL,
+            max_threads=config.PERSONA_QUERY_MAX_THREADS,
             skip_errors=config.SKIP_ERRORS,
         )
 

@@ -30,6 +30,9 @@ EVALUATION_MODELS = (
 # Single model used for persona_query mode.
 PERSONA_QUERY_MODEL = "openrouter:meta-llama/llama-3.3-70b-instruct"
 
+# Max concurrent requests for persona_query mode.
+PERSONA_QUERY_MAX_THREADS = 4
+
 # CSV of evaluation prompts (columns include question_id, group_id, group_name, prompt text).
 EVALUATION_PROMPTS_PATH = Path("data/evaluation_prompts.csv")
 

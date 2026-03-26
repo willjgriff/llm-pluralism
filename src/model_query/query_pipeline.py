@@ -154,6 +154,7 @@ def run_persona_querying(
     evaluation_responses_path: Path,
     output_path: Path,
     persona_model_spec: str,
+    max_threads: int,
     skip_errors: bool,
 ) -> None:
     persona_rows = load_persona_system_prompts(persona_prompts_path)
@@ -163,6 +164,9 @@ def run_persona_querying(
     if not model_spec:
         raise ValueError("persona_model_spec must be a non-empty 'provider:model' value.")
     model_configs = parse_model_specs([model_spec])
+
+    if max_threads < 1:
+        raise ValueError("max_threads must be >= 1.")
 
     total_expected = len(persona_rows) * len(evaluation_rows)
     print(
@@ -175,37 +179,50 @@ def run_persona_querying(
     model_config = model_configs[0]
     model_label = f"{model_config.provider}:{model_config.model}"
     print(f"[persona] Using model: {model_label}")
+    print(f"[persona] Running with up to {max_threads} concurrent requests.")
+    progress_lock = threading.Lock()
     completed_calls = 0
+    tasks: list[tuple] = []
     for persona_index, persona_row in enumerate(persona_rows, start=1):
         print(
-            f"[persona] Starting persona {persona_index}/{len(persona_rows)}: "
+            f"[persona] Queued persona {persona_index}/{len(persona_rows)}: "
             f"{persona_row.persona_id} ({persona_row.persona_name})"
         )
         for evaluation_row in evaluation_rows:
-            response_text = _try_generate_response(
-                model_config=model_config,
-                system_instruction=persona_row.system_prompt,
-                question=evaluation_row.source_response,
-                skip_errors=skip_errors,
-            )
-            output_rows.append(
-                {
-                    "question_id": evaluation_row.question_id,
-                    "group_id": evaluation_row.group_id,
-                    "group_name": evaluation_row.group_name,
-                    "source_model": evaluation_row.source_model,
-                    "question": evaluation_row.question,
-                    "source_response": evaluation_row.source_response,
-                    "persona_id": persona_row.persona_id,
-                    "persona_name": persona_row.persona_name,
-                    "opposite_persona_id": persona_row.opposite_persona_id,
-                    "model": model_label,
-                    "response": response_text,
-                }
-            )
-            completed_calls += 1
-            if completed_calls % 10 == 0 or completed_calls == total_expected:
-                print(f"[persona] Progress: {completed_calls}/{total_expected} calls")
+            tasks.append((persona_row, evaluation_row))
+
+    def _run_persona_call(persona_row, evaluation_row) -> dict[str, str | int | float]:
+        response_text = _try_generate_response(
+            model_config=model_config,
+            system_instruction=persona_row.system_prompt,
+            question=evaluation_row.source_response,
+            skip_errors=skip_errors,
+        )
+        return {
+            "question_id": evaluation_row.question_id,
+            "group_id": evaluation_row.group_id,
+            "group_name": evaluation_row.group_name,
+            "source_model": evaluation_row.source_model,
+            "question": evaluation_row.question,
+            "source_response": evaluation_row.source_response,
+            "persona_id": persona_row.persona_id,
+            "persona_name": persona_row.persona_name,
+            "opposite_persona_id": persona_row.opposite_persona_id,
+            "model": model_label,
+            "response": response_text,
+        }
+
+    with ThreadPoolExecutor(max_workers=max_threads) as executor:
+        futures = [
+            executor.submit(_run_persona_call, persona_row, evaluation_row)
+            for persona_row, evaluation_row in tasks
+        ]
+        for future in as_completed(futures):
+            output_rows.append(future.result())
+            with progress_lock:
+                completed_calls += 1
+                if completed_calls % 10 == 0 or completed_calls == total_expected:
+                    print(f"[persona] Progress: {completed_calls}/{total_expected} calls")
 
     write_persona_responses_csv(output_path=output_path, rows=output_rows)
     print(f"Wrote {len(output_rows)} rows to {output_path}")
