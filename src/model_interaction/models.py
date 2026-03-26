@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-import os
 from dataclasses import dataclass
 from typing import Iterable
 
 from openai import OpenAI
+
+import config
 
 
 @dataclass(frozen=True)
@@ -18,29 +19,29 @@ class ModelConfig:
     max_retries: int = 0
 
 
-def _get_client(config: ModelConfig) -> OpenAI:
-    if config.provider == "openai":
-        api_key = os.getenv("OPENAI_API_KEY", "")
+def _get_client(model: ModelConfig) -> OpenAI:
+    if model.provider == "openai":
+        api_key = config.OPENAI_API_KEY
         if not api_key:
             raise ValueError("OPENAI_API_KEY is missing.")
         return OpenAI(
             api_key=api_key,
-            timeout=config.timeout_seconds,
-            max_retries=config.max_retries,
+            timeout=model.timeout_seconds,
+            max_retries=model.max_retries,
         )
 
-    if config.provider == "openrouter":
-        api_key = os.getenv("OPENROUTER_API_KEY", "")
+    if model.provider == "openrouter":
+        api_key = config.OPENROUTER_API_KEY
         if not api_key:
             raise ValueError("OPENROUTER_API_KEY is missing.")
         return OpenAI(
             api_key=api_key,
             base_url="https://openrouter.ai/api/v1",
-            timeout=config.timeout_seconds,
-            max_retries=config.max_retries,
+            timeout=model.timeout_seconds,
+            max_retries=model.max_retries,
         )
 
-    raise ValueError(f"Unsupported provider '{config.provider}'.")
+    raise ValueError(f"Unsupported provider '{model.provider}'.")
 
 
 def generate_answer(*, instruction: str, question: str, config: ModelConfig) -> str:
@@ -82,14 +83,7 @@ def parse_model_specs(model_specs: Iterable[str]) -> list[ModelConfig]:
 
 
 def default_model_configs() -> list[ModelConfig]:
-    env_specs = os.getenv(
-        "EVAL_MODELS",
-        (
-            "openai:gpt-4.1-mini,"
-            "openrouter:meta-llama/llama-3.3-70b-instruct,"
-            "openrouter:anthropic/claude-3.5-haiku,"
-            "openrouter:google/gemini-2.5-flash-lite"
-        ),
-    )
-    model_specs = [model_spec for model_spec in env_specs.split(",") if model_spec.strip()]
+    model_specs = [
+        model_spec for model_spec in config.EVAL_MODELS.split(",") if model_spec.strip()
+    ]
     return parse_model_specs(model_specs)

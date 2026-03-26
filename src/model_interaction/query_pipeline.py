@@ -101,7 +101,6 @@ def run_querying(
     system_prompt_path: Path,
     output_path: Path,
     models_override: str,
-    limit: int,
     skip_errors: bool,
     sequential: bool,
 ) -> None:
@@ -109,8 +108,6 @@ def run_querying(
     Load axis prompts and a shared system prompt, query all configured models, write CSV.
     """
     prompts = load_evaluation_prompts(prompts_path)
-    if limit > 0:
-        prompts = prompts[:limit]
 
     system_instruction = load_system_prompt(system_prompt_path)
     model_configs = default_model_configs()
