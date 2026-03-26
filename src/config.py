@@ -34,10 +34,10 @@ EVALUATION_PROMPTS_PATH = Path("data/evaluation_prompts.csv")
 EVALUATION_SYSTEM_PROMPT_PATH = Path("data/evaluation_system_prompt.txt")
 
 # Where querying writes the responses CSV.
-QUERY_OUTPUT_PATH = Path("results/responses.csv")
+QUERY_OUTPUT_PATH = Path("results/evaluation_responses.csv")
 
 # When running `run.py --mode analyse`, this CSV is read (typically the last query output).
-ANALYSIS_INPUT_CSV = Path("results/responses.csv")
+ANALYSIS_INPUT_CSV = Path("results/evaluation_responses.csv")
 
 # Directory for analysis outputs (figures, derived CSVs, etc.).
 ANALYSIS_OUTPUT_DIR = Path("results")
