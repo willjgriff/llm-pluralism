@@ -2,13 +2,22 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Query",
+            "name": "Evaluation Query",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "args": ["--mode", "query"]
+            "args": ["--mode", "evaluation_query"]
+        },
+        {
+            "name": "Persona Query",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/run.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": ["--mode", "persona_query"]
         },
         {
             "name": "Analyse",
@@ -20,13 +29,13 @@
             "args": ["--mode", "analyse"]
         },
         {
-            "name": "Both",
+            "name": "All (Evaluation + Persona + Analyse)",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "args": ["--mode", "both"]
+            "args": ["--mode", "evaluation_query", "persona_query", "analyse"]
         }
     ]
 }

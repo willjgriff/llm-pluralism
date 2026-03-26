@@ -27,7 +27,7 @@ EVAL_MODELS = (
     "openrouter:google/gemini-2.5-flash-lite"
 )
 
-# CSV of evaluation prompts (columns include question_id, axis, prompt text).
+# CSV of evaluation prompts (columns include question_id, group_id, group_name, prompt text).
 EVALUATION_PROMPTS_PATH = Path("data/evaluation_prompts.csv")
 
 # Shared system/instruction text prepended for every model call during querying.

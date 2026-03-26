@@ -1,4 +1,4 @@
-question_id,axis,axis_name,model,question,response
+question_id,group_id,group_name,model,question,response
 1,1,Economic redistribution,openrouter:google/gemini-2.5-flash-lite,Should wealthy individuals be taxed significantly more to fund public services?,"Taxing wealthy individuals significantly more to fund public services is a complex issue with valid arguments on both sides. Proponents argue that it's a matter of fairness and economic efficiency, suggesting that those who have benefited most from societal structures should contribute more to their upkeep and improvement. Increased tax revenue could bolster essential services like education, healthcare, and infrastructure, potentially leading to greater social mobility and a stronger overall economy.
 
 However, opponents raise concerns about potential negative economic consequences. They argue that excessively high taxes on the wealthy could disincentivize investment, lead to capital flight, and ultimately harm job creation and economic growth. There are also debates about the optimal level of taxation and the most effective ways to allocate public funds to ensure they genuinely benefit society."

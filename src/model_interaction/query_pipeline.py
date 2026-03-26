@@ -1,4 +1,4 @@
-"""Core query pipeline: axis prompts, fixed system prompt, responses CSV."""
+"""Core query pipeline: evaluation prompts, fixed system prompt, responses CSV."""
 
 from __future__ import annotations
 
@@ -16,8 +16,8 @@ from prompts import (
 
 RESPONSES_CSV_FIELD_NAMES = [
     "question_id",
-    "axis",
-    "axis_name",
+    "group_id",
+    "group_name",
     "model",
     "question",
     "response",
@@ -63,7 +63,7 @@ def query_single_model(
                 f"[parallel] {model_label} "
                 f"({call_index}/{total_per_model}) "
                 f"question_id={prompt_row.question_id} "
-                f"axis={prompt_row.axis}:{prompt_row.axis_name!r} "
+                f"group={prompt_row.group_id}:{prompt_row.group_name!r} "
             )
         try:
             response_text = generate_answer(
@@ -80,8 +80,8 @@ def query_single_model(
         rows.append(
             {
                 "question_id": prompt_row.question_id,
-                "axis": prompt_row.axis,
-                "axis_name": prompt_row.axis_name,
+                "group_id": prompt_row.group_id,
+                "group_name": prompt_row.group_name,
                 "model": model_label,
                 "question": prompt_row.question,
                 "response": response_text,
@@ -105,7 +105,7 @@ def run_querying(
     sequential: bool,
 ) -> None:
     """
-    Load axis prompts and a shared system prompt, query all configured models, write CSV.
+    Load evaluation prompts and a shared system prompt, query all configured models, write CSV.
     """
     prompts = load_evaluation_prompts(prompts_path)
 

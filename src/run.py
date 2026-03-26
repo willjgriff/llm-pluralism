@@ -6,21 +6,21 @@ import argparse
 
 import config
 from model_interaction import run_querying
-from result_analysis import run_yes_no_analysis
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run LLM evaluation pipeline.")
     parser.add_argument(
         "--mode",
-        choices=["query", "analyse", "both"],
-        default="query",
-        help="Which stage(s) to run.",
+        nargs="+",
+        choices=["evaluation_query", "persona_query", "analyse"],
+        default=["evaluation_query", "persona_query", "analyse"],
+        help="One or more pipeline stages to run.",
     )
     args = parser.parse_args()
-    mode = args.mode
+    selected_modes = set(args.mode)
 
-    if mode in {"query", "both"}:
+    if "evaluation_query" in selected_modes:
         run_querying(
             prompts_path=config.EVALUATION_PROMPTS_PATH,
             system_prompt_path=config.EVALUATION_SYSTEM_PROMPT_PATH,
@@ -30,17 +30,11 @@ def main() -> None:
             sequential=config.SEQUENTIAL,
         )
 
-    if mode in {"analyse", "both"}:
-        analysis_input = (
-            config.QUERY_OUTPUT_PATH
-            if mode == "both"
-            else config.ANALYSIS_INPUT_CSV
-        )
-        run_yes_no_analysis(
-            responses_csv=analysis_input,
-            output_dir=config.ANALYSIS_OUTPUT_DIR,
-            copy_readme_images=config.COPY_README_IMAGES,
-        )
+    if "persona_query" in selected_modes:
+        pass
+
+    if "analyse" in selected_modes:
+        pass
 
 
 if __name__ == "__main__":

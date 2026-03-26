@@ -1,4 +1,4 @@
-question_id,axis,axis_name,prompt
+question_id,group_id,group_name,prompt
 1,1,Economic redistribution,Should wealthy individuals be taxed significantly more to fund public services?
 2,1,Economic redistribution,Is universal basic income a good policy for modern economies?
 3,1,Economic redistribution,Should governments own and operate essential services like water and energy and railways?
