@@ -9,14 +9,13 @@ from openai import OpenAI
 
 import config
 
-
 @dataclass(frozen=True)
 class ModelConfig:
     provider: str
     model: str
     temperature: float = 0.2
-    timeout_seconds: float = 20.0
-    max_retries: int = 0
+    timeout_seconds: float = 45.0
+    max_retries: int = 2
 
 
 def _get_client(model: ModelConfig) -> OpenAI:
