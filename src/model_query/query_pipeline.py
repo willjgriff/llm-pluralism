@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import threading
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -16,7 +17,7 @@ from prompts import (
     load_system_prompt,
 )
 
-RESPONSES_CSV_FIELD_NAMES = [
+EVALUATION_RESPONSES_CSV_FIELD_NAMES = [
     "question_id",
     "group_id",
     "group_name",
@@ -46,7 +47,7 @@ def write_evaluation_responses_csv(
     _write_rows_csv(
         output_path=output_path,
         rows=rows,
-        field_names=RESPONSES_CSV_FIELD_NAMES,
+        field_names=EVALUATION_RESPONSES_CSV_FIELD_NAMES,
     )
 
 
@@ -117,13 +118,6 @@ def _query_single_model(
     call_index = 0
     for prompt_row in prompts:
         call_index += 1
-        with progress_lock:
-            print(
-                f"[parallel] {model_label} "
-                f"({call_index}/{total_per_model}) "
-                f"question_id={prompt_row.question_id} "
-                f"group={prompt_row.group_id}:{prompt_row.group_name!r} "
-            )
         response_text = _try_generate_response(
             model_config=model_config,
             system_instruction=system_instruction,
@@ -157,6 +151,7 @@ def run_persona_querying(
     max_threads: int,
     skip_errors: bool,
 ) -> None:
+    start_time = time.perf_counter()
     persona_rows = load_persona_system_prompts(persona_prompts_path)
     evaluation_rows = load_evaluation_responses(evaluation_responses_path)
 
@@ -183,11 +178,7 @@ def run_persona_querying(
     progress_lock = threading.Lock()
     completed_calls = 0
     tasks: list[tuple] = []
-    for persona_index, persona_row in enumerate(persona_rows, start=1):
-        print(
-            f"[persona] Queued persona {persona_index}/{len(persona_rows)}: "
-            f"{persona_row.persona_id} ({persona_row.persona_name})"
-        )
+    for persona_row in persona_rows:
         for evaluation_row in evaluation_rows:
             tasks.append((persona_row, evaluation_row))
 
@@ -221,11 +212,15 @@ def run_persona_querying(
             output_rows.append(future.result())
             with progress_lock:
                 completed_calls += 1
-                if completed_calls % 10 == 0 or completed_calls == total_expected:
+                if completed_calls % 25 == 0 or completed_calls == total_expected:
                     print(f"[persona] Progress: {completed_calls}/{total_expected} calls")
 
     write_persona_responses_csv(output_path=output_path, rows=output_rows)
-    print(f"Wrote {len(output_rows)} rows to {output_path}")
+    elapsed_seconds = time.perf_counter() - start_time
+    print(
+        f"Wrote {len(output_rows)} rows to {output_path} "
+        f"in {elapsed_seconds:.1f}s"
+    )
 
 
 def run_evaluation_querying(
@@ -240,6 +235,7 @@ def run_evaluation_querying(
     """
     Load evaluation prompts and a shared system prompt, query all configured models, write CSV.
     """
+    start_time = time.perf_counter()
     prompts = load_evaluation_prompts(prompts_path)
     system_prompt = load_system_prompt(system_prompt_path)
 
@@ -294,8 +290,17 @@ def run_evaluation_querying(
                         progress_lock=progress_lock,
                     )
                 )
+            completed_models = 0
             for future in as_completed(submitted_futures):
                 output_rows.extend(future.result())
+                completed_models += 1
+                print(
+                    f"[parallel] Progress: completed {completed_models}/{len(model_configs)} model runs"
+                )
 
     write_evaluation_responses_csv(output_path=output_path, rows=output_rows)
-    print(f"Wrote {len(output_rows)} rows to {output_path}")
+    elapsed_seconds = time.perf_counter() - start_time
+    print(
+        f"Wrote {len(output_rows)} rows to {output_path} "
+        f"in {elapsed_seconds:.1f}s"
+    )
