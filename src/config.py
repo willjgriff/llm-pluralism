@@ -44,7 +44,7 @@ PERSONA_SYSTEM_PROMPTS_PATH = DATA_DIR / "persona_system_prompts.csv"
 PERSONA_QUERY_INPUT_PATH = RESULTS_DIR / "evaluation_responses.csv"
 PERSONA_QUERY_OUTPUT_PATH = RESULTS_DIR / "persona_responses.csv"
 # Single model used for persona_query mode.
-PERSONA_QUERY_MODEL = "openrouter:mistralai/mistral-large"
+PERSONA_QUERY_MODEL = "openrouter:meta-llama/llama-3.3-70b-instruct"
 # Max concurrent requests for persona_query mode.
 PERSONA_QUERY_MAX_THREADS = 4
 
@@ -57,8 +57,8 @@ ANALYSIS_OUTPUT_DIR = RESULTS_DIR / "analysis"
 
 # If True, after ``analyse`` completes, copy ``DATA_DIR`` and ``RESULTS_DIR`` into
 # ``DOCS_RUN_DIR``/``data`` and ``DOCS_RUN_DIR``/``results`` (overwrites on repeat runs).
-COPY_RESULTS_TO_DOCS = True
-DOCS_RUN_DIR = Path("docs/run_1_3models_18prompts_MistralRater")
+COPY_RESULTS_TO_DOCS = False
+DOCS_RUN_DIR = Path("docs/run_1")
 
 # Step: bridging score analysis from persona responses.
 BRIDGING_SCORE_INPUT_PATH = RESULTS_DIR / "persona_responses.csv"
