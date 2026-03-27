@@ -32,7 +32,7 @@ QUERY_OUTPUT_PATH = Path("results/evaluation_responses.csv")
 
 # Runtime behavior for evaluation/persona query calls.
 # If True, failed API calls become `[ERROR] ...` rows instead of aborting the run.
-SKIP_ERRORS = False
+SKIP_ERRORS = True
 # If True, models are queried one after another; if False, parallel threads (one pool per model).
 SEQUENTIAL = False
 
