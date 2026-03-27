@@ -14,6 +14,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 import config
+from result_analysis.scoring.bridging_score import LAMBDA_VALUES
 
 TITLE_SIZE = 12
 LABEL_SIZE = 10
@@ -350,6 +351,51 @@ def _chart_persona_correlation_heatmap(
     _save_and_close(fig, output_path)
 
 
+def _chart_lambda_comparison(rows: list[dict[str, str]], output_path: Path) -> None:
+    models = sorted({row["response_model"] for row in rows})
+    lambda_columns = [f"bridging_score_{lambda_value:.2f}" for lambda_value in LAMBDA_VALUES]
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    x_values = np.arange(len(models), dtype=float)
+    number_of_lambdas = len(LAMBDA_VALUES)
+    bar_width = 0.22
+    bar_colors = ["#4C78A8", "#F58518", "#54A24B"]
+
+    for lambda_index, lambda_value in enumerate(LAMBDA_VALUES):
+        lambda_column = lambda_columns[lambda_index]
+        mean_values: list[float] = []
+        std_values: list[float] = []
+        for model in models:
+            values = [
+                float(row[lambda_column])
+                for row in rows
+                if row["response_model"] == model
+            ]
+            mean_value, std_value = _mean_std(values)
+            mean_values.append(mean_value)
+            std_values.append(std_value)
+
+        x_offset = (lambda_index - (number_of_lambdas - 1) / 2.0) * bar_width
+        ax.bar(
+            x_values + x_offset,
+            mean_values,
+            bar_width,
+            yerr=std_values,
+            capsize=4,
+            label=f"λ={lambda_value:.2f}",
+            color=bar_colors[lambda_index % len(bar_colors)],
+        )
+
+    ax.set_xticks(x_values)
+    ax.set_xticklabels(models, rotation=20)
+    ax.set_ylabel("Mean Bridging Score", fontsize=LABEL_SIZE)
+    ax.set_title("Model Bridging Scores Across Lambda Values", fontsize=TITLE_SIZE)
+    ax.legend(fontsize=TICK_SIZE)
+    ax.tick_params(axis="x", labelsize=TICK_SIZE)
+    ax.tick_params(axis="y", labelsize=TICK_SIZE)
+    _save_and_close(fig, output_path)
+
+
 def generate_analysis_charts(
     *,
     bridging_scores_csv: Path,
@@ -383,6 +429,9 @@ def generate_analysis_charts(
     )
     _chart_bridging_scores_ranked(
         bridging_rows, output_dir / "bridging_scores_ranked.png"
+    )
+    _chart_lambda_comparison(
+        bridging_rows, output_dir / "bridging_scores_lambda_comparison.png"
     )
 
     print(f"[analyse] Wrote charts to {output_dir}")

@@ -9,6 +9,12 @@ from statistics import mean, pstdev
 import config
 
 BRIDGING_LAMBDA = 0.5
+LAMBDA_VALUES: tuple[float, ...] = (0.25, 0.50, 0.75)
+
+
+def _bridging_column_name(lambda_value: float) -> str:
+    """Return CSV column name for a lambda value."""
+    return f"bridging_score_{lambda_value:.2f}"
 
 
 def compute_bridging_scores(
@@ -51,7 +57,7 @@ def compute_bridging_scores(
             "mean_score",
             "std_score",
             "bridging_score",
-        ]
+        ] + [_bridging_column_name(lambda_value) for lambda_value in LAMBDA_VALUES]
         writer = csv.DictWriter(output_file, fieldnames=fieldnames)
         writer.writeheader()
 
@@ -59,18 +65,21 @@ def compute_bridging_scores(
             mean_score = mean(scores)
             std_score = pstdev(scores) if len(scores) > 1 else 0.0
             bridging_score = mean_score - (lambda_penalty * std_score)
-            writer.writerow(
-                {
-                    "question_id": question_id,
-                    "group": group,
-                    "group_name": group_name,
-                    "prompt": prompt,
-                    "response_model": response_model,
-                    "mean_score": f"{mean_score:.6f}",
-                    "std_score": f"{std_score:.6f}",
-                    "bridging_score": f"{bridging_score:.6f}",
-                }
-            )
+            row_data = {
+                "question_id": question_id,
+                "group": group,
+                "group_name": group_name,
+                "prompt": prompt,
+                "response_model": response_model,
+                "mean_score": f"{mean_score:.6f}",
+                "std_score": f"{std_score:.6f}",
+                "bridging_score": f"{bridging_score:.6f}",
+            }
+            for lambda_value in LAMBDA_VALUES:
+                row_data[_bridging_column_name(lambda_value)] = (
+                    f"{(mean_score - lambda_value * std_score):.6f}"
+                )
+            writer.writerow(row_data)
 
     print(
         f"[analyse] Wrote bridging scores to {output_csv} "
