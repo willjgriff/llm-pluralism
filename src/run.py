@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+import shutil
+from pathlib import Path
 
 import config
 from model_query import run_persona_querying, run_evaluation_querying
@@ -11,6 +13,29 @@ from result_analysis.scoring import (
     compute_bridging_scores,
     compute_persona_correlations,
 )
+
+
+def copy_data_and_results_to_docs(
+    *, data_dir: Path, results_dir: Path, dest_dir: Path
+) -> None:
+    """Copy ``data_dir`` and ``results_dir`` into ``dest_dir``/``data`` and ``dest_dir``/``results``.
+
+    Uses :func:`shutil.copytree` with ``dirs_exist_ok=True`` so repeated runs refresh the
+    docs snapshot in place.
+
+    Parameters:
+        data_dir: Project ``data/`` directory to copy.
+        results_dir: Project ``results/`` directory to copy.
+        dest_dir: Run documentation folder (e.g. ``config.DOCS_RUN_DIR``); subfolders
+            ``data`` and ``results`` are created or merged.
+    """
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(data_dir, dest_dir / "data", dirs_exist_ok=True)
+    shutil.copytree(results_dir, dest_dir / "results", dirs_exist_ok=True)
+    print(
+        f"[analyse] Copied {data_dir} -> {dest_dir / 'data'} and "
+        f"{results_dir} -> {dest_dir / 'results'}"
+    )
 
 
 def main() -> None:
@@ -61,6 +86,12 @@ def main() -> None:
             persona_ratings_csv=config.BRIDGING_SCORE_INPUT_PATH,
             output_dir=config.ANALYSIS_OUTPUT_DIR,
         )
+        if config.COPY_RESULTS_TO_DOCS:
+            copy_data_and_results_to_docs(
+                data_dir=config.DATA_DIR,
+                results_dir=config.RESULTS_DIR,
+                dest_dir=config.DOCS_RUN_DIR,
+            )
 
 
 if __name__ == "__main__":
