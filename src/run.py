@@ -58,6 +58,7 @@ def main() -> None:
         generate_analysis_charts(
             bridging_scores_csv=config.BRIDGING_SCORE_OUTPUT_PATH,
             persona_correlations_csv=config.PERSONA_CORRELATIONS_OUTPUT_PATH,
+            persona_ratings_csv=config.BRIDGING_SCORE_INPUT_PATH,
             output_dir=config.ANALYSIS_OUTPUT_DIR,
         )
 
