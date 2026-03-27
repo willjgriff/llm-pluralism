@@ -257,6 +257,66 @@ an ideologically committed position rather than a pluralistically acceptable one
   Nationalist at 0.47. This validates that the rater panel is responding to ideological 
   content in the responses rather than rating randomly.
 
+### Rater Model Comparison: Mistral vs Llama
+
+A parallel run using Llama 3.3 70B as the persona rater model (with identical prompts, 
+evaluation questions, and response models) produced dramatically different results from 
+the Mistral run, providing direct evidence that rater model choice is the most significant 
+variable in the evaluation pipeline.
+
+**Score distributions**
+
+Llama produces strongly approval-biased ratings across almost all personas. Most personas 
+cluster in the 4-5 range with minimal low scores, compared to Mistral where six of eight 
+personas showed meaningful variance including genuine 1s and 2s. The Communitarian 
+Nationalist — a weak but usable rater with Mistral (IQR compressed around 3) — becomes 
+completely broken with Llama, rating almost everything 4. The Religious Traditionalist 
+shows the opposite shift: broken with Mistral (95% scores of 1-2) but producing a 
+reasonable distribution with Llama (median ~2, box spanning 2-4). This suggests persona 
+behaviour is not just prompt-dependent but fundamentally shaped by which model is being 
+prompted.
+
+**Persona correlations**
+
+The correlation structure collapses almost entirely with Llama. Where Mistral produced 
+meaningful opposition across multiple pairs, Llama produces near-zero correlations for 
+most pairs — indicating the personas are not responding to ideological content in the 
+responses but rating approximately uniformly regardless of content. The one exception is 
+Free Market Individualist vs Social Democrat (-0.71 with Llama vs -0.70 with Mistral), 
+which is strikingly consistent across both rater models. This suggests the economic axis 
+is the most robust ideological signal in the dataset — detectable even with a weak rater 
+model.
+
+**Bridging scores**
+
+With Llama, mean scores across all responses shift to the range 3.5-4.6 compared to 
+2.3-4.3 with Mistral. Bridging scores are artificially inflated because the approval 
+bias compresses persona scores toward 4-5 regardless of content, reducing variance and 
+therefore reducing the polarisation penalty. This makes Llama-based bridging scores 
+unreliable as a measure of genuine pluralistic acceptability.
+
+**Robust findings across both rater models**
+
+Two findings appear consistently regardless of rater model:
+
+- **Free Market Individualist vs Social Democrat opposition is strong** (-0.70 to -0.71 
+  across both runs), making the economic axis the most reliable signal in the evaluation.
+- **Grok is the most polarising model** — it shows the highest standard deviation in the 
+  mean vs std scatter plot in both runs, appearing at both extremes of the response 
+  distribution regardless of which rater model is used.
+
+These two findings are therefore the most robust results in the current dataset. All 
+other findings should be treated as Mistral-rater-specific until validated with additional 
+rater models or human raters.
+
+**Conclusion**
+
+Mistral is the superior rater model for this evaluation framework. Llama's approval bias 
+makes it unsuitable as a persona rater despite being a capable model for other tasks. 
+Future runs will use Mistral as the default rater model. The Llama run data is archived 
+in `docs/run_2/` for reference.
+  
+
 ---
 
 ## Limitations

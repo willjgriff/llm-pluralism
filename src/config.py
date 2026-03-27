@@ -51,14 +51,14 @@ PERSONA_QUERY_MAX_THREADS = 4
 # --- Analysis Configuration ---
 
 # Persona IDs included in bridging scores, pairwise correlations, and persona distribution charts.
-ANALYSIS_PERSONA_IDS: tuple[int, ...] = (1, 2, 5, 6, 7, 8)
+ANALYSIS_PERSONA_IDS: tuple[int, ...] = (1, 2, 3, 4, 5, 6, 7, 8)
 
 ANALYSIS_OUTPUT_DIR = RESULTS_DIR / "analysis"
 
 # If True, after ``analyse`` completes, copy ``DATA_DIR`` and ``RESULTS_DIR`` into
 # ``DOCS_RUN_DIR``/``data`` and ``DOCS_RUN_DIR``/``results`` (overwrites on repeat runs).
 COPY_RESULTS_TO_DOCS = False
-DOCS_RUN_DIR = Path("docs/run_1")
+DOCS_RUN_DIR = Path("docs/run_2")
 
 # Step: bridging score analysis from persona responses.
 BRIDGING_SCORE_INPUT_PATH = RESULTS_DIR / "persona_responses.csv"
