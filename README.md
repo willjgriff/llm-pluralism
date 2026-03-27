@@ -1,7 +1,5 @@
 # LLM Pluralism Evaluation
 
-Frontier AI models are trained to please the majority, but whose majority? This project builds an evaluation framework that measures whether LLM responses are acceptable across genuinely opposing value perspectives, not just on average. Using a panel of ideologically diverse AI personas as raters and a bridging score that penalises polarisation, it finds evidence of <to be determined> and lays the groundwork for a human-validated, pluralistic alternative to standard RLHF feedback.
-
 Frontier AI models are trained to please the majority, but whose majority? This project 
 builds an evaluation framework that measures whether LLM responses are acceptable across 
 genuinely opposing value perspectives, not just on average. Using a panel of ideologically 
