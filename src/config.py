@@ -50,6 +50,11 @@ PERSONA_QUERY_INPUT_PATH = Path("results/evaluation_responses.csv")
 # Where persona_query writes outputs.
 PERSONA_QUERY_OUTPUT_PATH = Path("results/persona_responses.csv")
 
+# Bridging score analysis input/output and penalty term.
+BRIDGING_SCORE_INPUT_PATH = Path("results/persona_responses.csv")
+BRIDGING_SCORE_OUTPUT_PATH = Path("results/bridging_scores.csv")
+BRIDGING_SCORE_LAMBDA = 0.5
+
 # When running `run.py --mode analyse`, this CSV is read (typically the last query output).
 ANALYSIS_INPUT_CSV = Path("results/evaluation_responses.csv")
 

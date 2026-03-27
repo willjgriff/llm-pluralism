@@ -6,6 +6,7 @@ import argparse
 
 import config
 from model_query import run_persona_querying, run_evaluation_querying
+from result_analysis.bridging_score import compute_bridging_scores
 
 
 def main() -> None:
@@ -41,7 +42,11 @@ def main() -> None:
         )
 
     if "analyse" in selected_modes:
-        pass
+        compute_bridging_scores(
+            input_csv=config.BRIDGING_SCORE_INPUT_PATH,
+            output_csv=config.BRIDGING_SCORE_OUTPUT_PATH,
+            lambda_penalty=config.BRIDGING_SCORE_LAMBDA,
+        )
 
 
 if __name__ == "__main__":
