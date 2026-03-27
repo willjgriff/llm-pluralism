@@ -7,6 +7,8 @@ diverse AI personas as raters and a bridging score that penalises polarisation, 
 evidence of a consistent progressive lean across Claude, GPT, and Grok, and lays the 
 groundwork for a human-validated, pluralistic alternative to standard RLHF feedback.
 
+For setup and execution instructions see [SETUP.md](SETUP.md).
+
 ## Overview
 
 A pluralistic AI evaluation framework that measures whether LLM responses are reasonable across value-diverse perspectives, using a bridging score that rewards outputs acceptable to disagreeing groups rather than just the majority.
