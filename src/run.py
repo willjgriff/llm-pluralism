@@ -7,6 +7,7 @@ import argparse
 import config
 from model_query import run_persona_querying, run_evaluation_querying
 from result_analysis.bridging_score import compute_bridging_scores
+from result_analysis.persona_correlations import compute_persona_correlations
 
 
 def main() -> None:
@@ -46,6 +47,10 @@ def main() -> None:
             input_csv=config.BRIDGING_SCORE_INPUT_PATH,
             output_csv=config.BRIDGING_SCORE_OUTPUT_PATH,
             lambda_penalty=config.BRIDGING_SCORE_LAMBDA,
+        )
+        compute_persona_correlations(
+            input_csv=config.PERSONA_CORRELATIONS_INPUT_PATH,
+            output_csv=config.PERSONA_CORRELATIONS_OUTPUT_PATH,
         )
 
 

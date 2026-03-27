@@ -1,0 +1,76 @@
+"""Compute pairwise Pearson correlations between persona rating vectors."""
+
+from __future__ import annotations
+
+import csv
+from itertools import combinations
+from pathlib import Path
+
+import numpy as np
+
+TARGET_PERSONA_IDS = {1, 2, 5, 6, 7, 8}
+OUTPUT_COLUMNS = [
+    "persona_a_id",
+    "persona_a_name",
+    "persona_b_id",
+    "persona_b_name",
+    "correlation",
+]
+
+
+def _parse_score(row: dict[str, str]) -> float:
+    response_text = row["response"]
+    for char in response_text:
+        if char in {"1", "2", "3", "4", "5"}:
+            return float(char)
+    raise ValueError("No score digit (1-5) found in response text.")
+
+
+def compute_persona_correlations(*, input_csv: Path, output_csv: Path) -> dict[str, int]:
+    print(f"[analyse] Computing persona correlations from {input_csv}")
+
+    scores_by_persona: dict[int, dict[tuple[str, str], float]] = {
+        persona_id: {} for persona_id in sorted(TARGET_PERSONA_IDS)
+    }
+    names_by_persona: dict[int, str] = {}
+
+    with input_csv.open("r", encoding="utf-8", newline="") as input_file:
+        reader = csv.DictReader(input_file)
+        for row in reader:
+            persona_id = int(row["persona_id"])
+            if persona_id not in TARGET_PERSONA_IDS:
+                continue
+
+            response_model = row["source_model"].strip()
+            response_key = (row["question_id"].strip(), response_model)
+            score = _parse_score(row)
+            scores_by_persona[persona_id][response_key] = score
+            names_by_persona[persona_id] = row["persona_name"].strip()
+
+    output_csv.parent.mkdir(parents=True, exist_ok=True)
+    row_count = 0
+    with output_csv.open("w", encoding="utf-8", newline="") as output_file:
+        writer = csv.DictWriter(output_file, fieldnames=OUTPUT_COLUMNS)
+        writer.writeheader()
+
+        for persona_a_id, persona_b_id in combinations(sorted(TARGET_PERSONA_IDS), 2):
+            persona_a_scores = scores_by_persona[persona_a_id]
+            persona_b_scores = scores_by_persona[persona_b_id]
+            common_keys = sorted(set(persona_a_scores) & set(persona_b_scores))
+            a_vec = np.array([persona_a_scores[key] for key in common_keys], dtype=float)
+            b_vec = np.array([persona_b_scores[key] for key in common_keys], dtype=float)
+            corr = float(np.corrcoef(a_vec, b_vec)[0, 1])
+
+            writer.writerow(
+                {
+                    "persona_a_id": persona_a_id,
+                    "persona_a_name": names_by_persona[persona_a_id],
+                    "persona_b_id": persona_b_id,
+                    "persona_b_name": names_by_persona[persona_b_id],
+                    "correlation": f"{corr:.3f}",
+                }
+            )
+            row_count += 1
+
+    print(f"[analyse] Wrote persona correlations to {output_csv} (rows={row_count})")
+    return {"output_rows": row_count}
