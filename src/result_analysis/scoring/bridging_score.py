@@ -6,6 +6,8 @@ import csv
 from pathlib import Path
 from statistics import mean, pstdev
 
+import config
+
 BRIDGING_LAMBDA = 0.5
 
 
@@ -24,8 +26,7 @@ def compute_bridging_scores(
         for row in reader:
             persona_id = int(row["persona_id"])
 
-            # Exclude personas 3 and 4 by design.
-            if persona_id in {3, 4}:
+            if persona_id not in config.ANALYSIS_PERSONA_IDS:
                 continue
 
             score = float(row["score"].strip())

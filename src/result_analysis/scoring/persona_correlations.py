@@ -8,7 +8,8 @@ from pathlib import Path
 
 import numpy as np
 
-TARGET_PERSONA_IDS = {1, 2, 5, 6, 7, 8}
+import config
+
 OUTPUT_COLUMNS = [
     "persona_a_id",
     "persona_a_name",
@@ -21,8 +22,9 @@ OUTPUT_COLUMNS = [
 def compute_persona_correlations(*, input_csv: Path, output_csv: Path) -> dict[str, int]:
     print(f"[analyse] Computing persona correlations from {input_csv}")
 
+    persona_ids = config.ANALYSIS_PERSONA_IDS
     scores_by_persona: dict[int, dict[tuple[str, str], float]] = {
-        persona_id: {} for persona_id in sorted(TARGET_PERSONA_IDS)
+        persona_id: {} for persona_id in persona_ids
     }
     names_by_persona: dict[int, str] = {}
 
@@ -30,7 +32,7 @@ def compute_persona_correlations(*, input_csv: Path, output_csv: Path) -> dict[s
         reader = csv.DictReader(input_file)
         for row in reader:
             persona_id = int(row["persona_id"])
-            if persona_id not in TARGET_PERSONA_IDS:
+            if persona_id not in persona_ids:
                 continue
 
             response_model = row["source_model"].strip()
@@ -44,7 +46,7 @@ def compute_persona_correlations(*, input_csv: Path, output_csv: Path) -> dict[s
         writer = csv.DictWriter(output_file, fieldnames=OUTPUT_COLUMNS)
         writer.writeheader()
 
-        for persona_a_id, persona_b_id in combinations(sorted(TARGET_PERSONA_IDS), 2):
+        for persona_a_id, persona_b_id in combinations(persona_ids, 2):
             persona_a_scores = scores_by_persona[persona_a_id]
             persona_b_scores = scores_by_persona[persona_b_id]
             common_keys = sorted(set(persona_a_scores) & set(persona_b_scores))

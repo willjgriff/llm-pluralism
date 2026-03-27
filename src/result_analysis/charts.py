@@ -13,12 +13,13 @@ from matplotlib import colors
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+import config
+
 TITLE_SIZE = 12
 LABEL_SIZE = 10
 TICK_SIZE = 9
 ANNOTATION_SIZE = 8
 DPI = 150
-TARGET_PERSONA_IDS = [1, 2, 5, 6, 7, 8]
 
 
 def _read_csv_rows(csv_path: Path) -> list[dict[str, str]]:
@@ -235,7 +236,8 @@ def _chart_mean_vs_std_scatter(rows: list[dict[str, str]], output_path: Path) ->
 def _chart_persona_score_distributions(
     rows: list[dict[str, str]], output_path: Path
 ) -> None:
-    scores_by_persona: dict[int, list[float]] = {pid: [] for pid in TARGET_PERSONA_IDS}
+    persona_ids = config.ANALYSIS_PERSONA_IDS
+    scores_by_persona: dict[int, list[float]] = {pid: [] for pid in persona_ids}
     names_by_persona: dict[int, str] = {}
 
     for row in rows:
@@ -245,9 +247,9 @@ def _chart_persona_score_distributions(
         scores_by_persona[persona_id].append(float(row["score"].strip()))
         names_by_persona[persona_id] = row["persona_name"].strip()
 
-    persona_ids = [pid for pid in TARGET_PERSONA_IDS if scores_by_persona[pid]]
-    labels = [names_by_persona[pid] for pid in persona_ids]
-    series = [scores_by_persona[pid] for pid in persona_ids]
+    persona_ids_present = [pid for pid in persona_ids if scores_by_persona[pid]]
+    labels = [names_by_persona[pid] for pid in persona_ids_present]
+    series = [scores_by_persona[pid] for pid in persona_ids_present]
 
     footnote = (
         "Note: Communitarian Nationalist outlier circles represent all non-median scores "
