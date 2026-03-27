@@ -18,14 +18,6 @@ OUTPUT_COLUMNS = [
 ]
 
 
-def _parse_score(row: dict[str, str]) -> float:
-    response_text = row["response"]
-    for char in response_text:
-        if char in {"1", "2", "3", "4", "5"}:
-            return float(char)
-    raise ValueError("No score digit (1-5) found in response text.")
-
-
 def compute_persona_correlations(*, input_csv: Path, output_csv: Path) -> dict[str, int]:
     print(f"[analyse] Computing persona correlations from {input_csv}")
 
@@ -43,8 +35,7 @@ def compute_persona_correlations(*, input_csv: Path, output_csv: Path) -> dict[s
 
             response_model = row["source_model"].strip()
             response_key = (row["question_id"].strip(), response_model)
-            score = _parse_score(row)
-            scores_by_persona[persona_id][response_key] = score
+            scores_by_persona[persona_id][response_key] = float(row["score"].strip())
             names_by_persona[persona_id] = row["persona_name"].strip()
 
     output_csv.parent.mkdir(parents=True, exist_ok=True)

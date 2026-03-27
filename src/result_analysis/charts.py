@@ -126,18 +126,6 @@ def _mean_std(values: list[float]) -> tuple[float, float]:
     return float(arr.mean()), float(arr.std(ddof=0))
 
 
-def _parse_persona_score(row: dict[str, str]) -> float:
-    raw_score = (row.get("score") or "").strip()
-    if raw_score:
-        return float(raw_score)
-
-    response_text = row["response"]
-    for char in response_text:
-        if char in {"1", "2", "3", "4", "5"}:
-            return float(char)
-    raise ValueError("No score digit (1-5) found.")
-
-
 def _chart_bridging_by_model(rows: list[dict[str, str]], output_path: Path) -> None:
     by_model: dict[str, list[float]] = {}
     for row in rows:
@@ -254,7 +242,7 @@ def _chart_persona_score_distributions(
         persona_id = int(row["persona_id"])
         if persona_id not in scores_by_persona:
             continue
-        scores_by_persona[persona_id].append(_parse_persona_score(row))
+        scores_by_persona[persona_id].append(float(row["score"].strip()))
         names_by_persona[persona_id] = row["persona_name"].strip()
 
     persona_ids = [pid for pid in TARGET_PERSONA_IDS if scores_by_persona[pid]]

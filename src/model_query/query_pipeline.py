@@ -35,10 +35,27 @@ PERSONA_RESPONSES_CSV_FIELD_NAMES = [
     "source_response",
     "persona_id",
     "persona_name",
-    "opposite_persona_id",
-    "model",
+    "score",
     "response",
 ]
+
+
+def _persona_rating_score_digit(response_text: str) -> str:
+    """Return the first score digit (1–5) found in the model output, or empty if none.
+
+    Normally the rating is the first non-space character; some outputs prefix markdown
+    (e.g. ``**3**``), so we scan left-to-right for the first ``1``..``5`` character.
+
+    Parameters:
+        response_text: Raw persona rating model output.
+
+    Returns:
+        A single character ``\"1\"``..``\"5\"``, or ``\"\"`` if no valid score digit appears.
+    """
+    for char in response_text:
+        if char in {"1", "2", "3", "4", "5"}:
+            return char
+    return ""
 
 
 def write_evaluation_responses_csv(
@@ -198,8 +215,7 @@ def run_persona_querying(
             "source_response": evaluation_row.source_response,
             "persona_id": persona_row.persona_id,
             "persona_name": persona_row.persona_name,
-            "opposite_persona_id": persona_row.opposite_persona_id,
-            "model": model_label,
+            "score": _persona_rating_score_digit(response_text),
             "response": response_text,
         }
 

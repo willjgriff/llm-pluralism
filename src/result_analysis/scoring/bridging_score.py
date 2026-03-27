@@ -9,13 +9,6 @@ from statistics import mean, pstdev
 BRIDGING_LAMBDA = 0.5
 
 
-def _parse_score(row: dict[str, str]) -> float | None:
-    first_char = row["response"].lstrip()[:1]
-    if first_char not in {"1", "2", "3", "4", "5"}:
-        return None
-    return float(first_char)
-
-
 def compute_bridging_scores(
     *,
     input_csv: Path,
@@ -35,9 +28,7 @@ def compute_bridging_scores(
             if persona_id in {3, 4}:
                 continue
 
-            score = _parse_score(row)
-            if score is None:
-                continue
+            score = float(row["score"].strip())
             question_id = row["question_id"].strip()
             group = (row.get("group") or row["group_id"]).strip()
             group_name = row["group_name"].strip()
