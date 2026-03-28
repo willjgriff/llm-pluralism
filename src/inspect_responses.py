@@ -11,8 +11,8 @@ import pandas as pd
 import config
 
 
-def _parse_question_ids(raw: str | None) -> list[int] | None:
-    """Parse a comma-separated list of question IDs, or return None for no filter.
+def _parse_comma_separated_ints(raw: str | None) -> list[int] | None:
+    """Parse a comma-separated list of integers, or return None when unset/empty.
 
     Parameters:
         raw: String like ``\"13,14,15\"`` or None/empty.
@@ -30,14 +30,16 @@ def _load_merged_frame(
     *,
     response_model: str,
     question_ids: list[int] | None,
+    persona_ids: list[int] | None,
     evaluation_path: Path,
     persona_path: Path,
 ) -> pd.DataFrame:
-    """Load evaluation and persona CSVs, filter by model and optional questions, inner-join.
+    """Load evaluation and persona CSVs, filter by model and optional questions/personas, inner-join.
 
     Parameters:
         response_model: Exact ``model`` / ``source_model`` label (e.g. ``openrouter:x-ai/grok-4-fast``).
         question_ids: If set, restrict to these ``question_id`` values.
+        persona_ids: If set, restrict to these ``persona_id`` values.
         evaluation_path: Path to ``evaluation_responses.csv``.
         persona_path: Path to ``persona_responses.csv``.
 
@@ -55,6 +57,9 @@ def _load_merged_frame(
     if question_ids is not None:
         eval_df = eval_df[eval_df["question_id"].isin(question_ids)]
         persona_df = persona_df[persona_df["question_id"].isin(question_ids)]
+
+    if persona_ids is not None:
+        persona_df = persona_df[persona_df["persona_id"].isin(persona_ids)]
 
     eval_df = eval_df.rename(
         columns={
@@ -113,6 +118,7 @@ def _write_csv(merged: pd.DataFrame, file) -> None:
             "prompt",
             "response_model",
             "response_text",
+            "persona_id",
             "persona_name",
             "score",
             "reasoning",
@@ -137,6 +143,11 @@ def main() -> None:
         help="Optional comma-separated question_ids (e.g. 13,14,15). Omit for all questions.",
     )
     parser.add_argument(
+        "--personas",
+        default=None,
+        help="Optional comma-separated persona_ids (e.g. 1,2,5). Omit for all personas.",
+    )
+    parser.add_argument(
         "--output",
         choices=("terminal", "csv"),
         default="terminal",
@@ -156,10 +167,12 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    question_ids = _parse_question_ids(args.questions)
+    question_ids = _parse_comma_separated_ints(args.questions)
+    persona_ids = _parse_comma_separated_ints(args.personas)
     merged = _load_merged_frame(
         response_model=args.model,
         question_ids=question_ids,
+        persona_ids=persona_ids,
         evaluation_path=args.evaluation_path,
         persona_path=args.persona_path,
     )
