@@ -10,7 +10,7 @@ import numpy as np
 from matplotlib import colors
 
 import config
-from result_analysis.charts.figure_utils import save_figure_with_footnote_below_x_axis
+from result_analysis.charts.figure_utils import save_and_close
 from result_analysis.charts.plot_utils import response_model_column, save_heatmap_with_colorbar
 from result_analysis.charts.style import LABEL_SIZE, TICK_SIZE, TITLE_SIZE
 
@@ -34,11 +34,6 @@ def chart_persona_score_distributions(
     labels = [names_by_persona[pid] for pid in persona_ids_present]
     series = [scores_by_persona[pid] for pid in persona_ids_present]
 
-    footnote = (
-        "Note: Communitarian Nationalist outlier circles represent all non-median scores "
-        "due to IQR compression around 3, not rare individual occurrences."
-    )
-
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.boxplot(series, labels=labels, patch_artist=True)
     ax.set_title("Score Distribution by Persona", fontsize=TITLE_SIZE)
@@ -49,7 +44,7 @@ def chart_persona_score_distributions(
     ax.tick_params(axis="y", labelsize=TICK_SIZE)
     ax.grid(True, axis="y", linestyle="--", alpha=0.3)
 
-    save_figure_with_footnote_below_x_axis(fig, ax, footnote, output_path)
+    save_and_close(fig, output_path)
 
 
 def chart_persona_scores_by_model(rows: list[dict[str, str]], output_path: Path) -> None:
