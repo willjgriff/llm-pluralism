@@ -27,10 +27,7 @@ RESULTS_DIR = Path("results")
 EVALUATION_MODELS = (
     "openai:gpt-4.1-mini,"
     "openrouter:anthropic/claude-3.5-haiku,"
-    "openrouter:x-ai/grok-4-fast,"
-    "openrouter:meta-llama/llama-3.3-70b-instruct,"
-    "openrouter:mistralai/mistral-large,"
-    "openrouter:qwen/qwen-2.5-72b-instruct"
+    "openrouter:x-ai/grok-4-fast"
 )
 EVALUATION_PROMPTS_PATH = DATA_DIR / "evaluation_prompts.csv"
 EVALUATION_SYSTEM_PROMPT_PATH = DATA_DIR / "evaluation_system_prompt.txt"
@@ -60,8 +57,8 @@ ANALYSIS_OUTPUT_DIR = RESULTS_DIR / "analysis"
 
 # If True, after ``analyse`` completes, copy ``DATA_DIR`` and ``RESULTS_DIR`` into
 # ``DOCS_RUN_DIR``/``data`` and ``DOCS_RUN_DIR``/``results`` (overwrites on repeat runs).
-COPY_RESULTS_TO_DOCS = False
-DOCS_RUN_DIR = Path("docs/run_2")
+COPY_RESULTS_TO_DOCS = True
+DOCS_RUN_DIR = Path("docs/run_2xEvalPrompts")
 
 # Step: bridging score analysis from persona responses.
 BRIDGING_SCORE_INPUT_PATH = RESULTS_DIR / "persona_responses.csv"
