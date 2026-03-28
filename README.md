@@ -183,7 +183,7 @@ artefact — GPT takes clear pro-redistribution positions on all three economic 
 Comparing responses across all three models on the same prompts revealed a consistent 
 structural pattern that explains Claude's higher bridging scores. The analysis covered 
 prompt 4 (mandatory vaccination), prompt 8 (raising children in a strict religious 
-framework), and prompt 18 (AI refusing requests on moral grounds). Selected as they had some of the highest bridge scores with one model.
+framework), and prompt 18 (AI refusing requests on moral grounds). Selected as they had some of the highest bridge scores.
 
 Two specific habits distinguish Claude's highest-scoring responses from GPT and Grok:
 
