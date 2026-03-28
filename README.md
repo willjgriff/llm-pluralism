@@ -137,6 +137,47 @@ an ideologically committed position rather than a pluralistically acceptable one
 ![Bridging Scores Ranked by Response](docs/run_1/results/analysis/bridging_scores_ranked.png)
 ![Mean vs Std Dev of Persona Scores](docs/run_1/results/analysis/mean_vs_std_scatter.png)
 
+### Qualitative Response Inspection
+
+To validate that bridging scores reflect genuine ideological content rather than 
+methodological artefacts, a sample of responses were inspected manually alongside 
+their persona ratings.
+
+**Grok on Global vs national identity (prompts 13, 14, 15)**
+
+Inspection of Grok's three responses on immigration and sovereignty confirmed that the 
+low bridging score (2.01) reflects genuine ideological commitment rather than a 
+formatting or length artefact. All three responses took strong, committed positions:
+prompt 13 (refugee acceptance) leaned progressive, opening with an unhedged pro-refugee 
+stance before adding caveats; prompt 14 (citizen prioritisation) leaned conservative, 
+making a clear nationalist argument with no both-sides framing; prompt 15 (UN binding 
+authority) leaned progressive, strongly endorsing supranational climate governance. The 
+persona scores confirmed the expected pattern — Cosmopolitan Globalist and Communitarian 
+Nationalist diverged sharply on each response in the expected direction. This confirms 
+that Grok's low bridging score on this group is driven by taking strong ideological 
+positions that divide the persona panel, not by response quality or formatting issues. 
+Notably Grok's positions are not consistently conservative — they vary by topic — but 
+they are consistently committed, which is what drives variance and penalises the 
+bridging score.
+
+**GPT on Economic redistribution (prompts 1, 2, 3)**
+
+GPT receives a mean score of 2.00 from the Free Market Individualist persona across all 
+responses — the lowest score any progressive model receives from any conservative persona 
+in the dataset, as shown in the Mean Persona Scores by Model heatmap. Inspection of 
+GPT's three responses on economic redistribution confirmed this reflects genuine 
+pro-redistribution content rather than a persona sensitivity artefact. All three 
+responses opened with affirmative pro-redistribution positions: "Yes, taxing wealthy 
+individuals significantly more can be justified", "Universal basic income can be a 
+beneficial policy", and "Governments should own and operate essential services." The 
+Free Market Individualist reasoning was substantive and specific each time, identifying 
+concrete ideological objections rather than pattern-matching on keywords — objecting to 
+"wealth redistribution through progressive taxation", "a massive expansion of state 
+redistribution", and "government ownership and control of essential services" 
+respectively. This confirms that GPT's low Free Market Individualist score on economic 
+questions is a genuine signal about GPT's ideological lean rather than a methodological 
+artefact — GPT takes clear pro-redistribution positions on all three economic prompts.
+
 ---
 
 ## Ongoing Findings
