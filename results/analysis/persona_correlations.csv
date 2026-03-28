@@ -1,26 +1,13 @@
 persona_a_id,persona_a_name,persona_b_id,persona_b_name,correlation
 1,Free Market Individualist,2,Social Democrat,-0.416
-1,Free Market Individualist,3,Religious Traditionalist,0.343
-1,Free Market Individualist,4,Secular Progressive,-0.312
 1,Free Market Individualist,5,Communitarian Nationalist,0.317
 1,Free Market Individualist,6,Cosmopolitan Globalist,-0.282
 1,Free Market Individualist,7,AI Techno-Optimist,0.257
 1,Free Market Individualist,8,AI Safety Precautionist,0.104
-2,Social Democrat,3,Religious Traditionalist,-0.129
-2,Social Democrat,4,Secular Progressive,0.456
 2,Social Democrat,5,Communitarian Nationalist,-0.053
 2,Social Democrat,6,Cosmopolitan Globalist,0.721
 2,Social Democrat,7,AI Techno-Optimist,-0.234
 2,Social Democrat,8,AI Safety Precautionist,0.399
-3,Religious Traditionalist,4,Secular Progressive,0.007
-3,Religious Traditionalist,5,Communitarian Nationalist,0.441
-3,Religious Traditionalist,6,Cosmopolitan Globalist,-0.167
-3,Religious Traditionalist,7,AI Techno-Optimist,-0.177
-3,Religious Traditionalist,8,AI Safety Precautionist,0.258
-4,Secular Progressive,5,Communitarian Nationalist,0.080
-4,Secular Progressive,6,Cosmopolitan Globalist,0.561
-4,Secular Progressive,7,AI Techno-Optimist,-0.177
-4,Secular Progressive,8,AI Safety Precautionist,0.270
 5,Communitarian Nationalist,6,Cosmopolitan Globalist,-0.082
 5,Communitarian Nationalist,7,AI Techno-Optimist,-0.099
 5,Communitarian Nationalist,8,AI Safety Precautionist,0.448

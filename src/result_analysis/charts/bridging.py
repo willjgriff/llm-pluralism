@@ -8,6 +8,7 @@ from result_analysis.charts import _backend  # noqa: F401
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import colors
+from matplotlib.colors import to_hex
 
 from result_analysis.charts.figure_utils import save_and_close
 from result_analysis.charts.plot_utils import (
@@ -18,6 +19,10 @@ from result_analysis.charts.plot_utils import (
 )
 from result_analysis.charts.style import LABEL_SIZE, TICK_SIZE, TITLE_SIZE
 from result_analysis.scoring.bridging_score import LAMBDA_VALUES
+
+# Half-width of uniform jitter on mean_score and std_score (matplotlib + Plotly scatter).
+_MEAN_STD_SCATTER_JITTER = 0.04
+_MEAN_STD_SCATTER_JITTER_SEED = 42
 
 
 def chart_bridging_by_model(rows: list[dict[str, str]], output_path: Path) -> None:
@@ -108,21 +113,29 @@ def chart_bridging_heatmap(rows: list[dict[str, str]], output_path: Path) -> Non
 
 
 def chart_mean_vs_std_scatter(rows: list[dict[str, str]], output_path: Path) -> None:
-    """Scatter: ``mean_score`` vs ``std_score`` per response, coloured by model."""
+    """Scatter: ``mean_score`` vs ``std_score`` per response, coloured by model.
+
+    Applies small uniform jitter to x/y and uses alpha 0.7 to reduce overplotting.
+    """
     models = sorted({row["response_model"] for row in rows})
     colors_map = color_by_model(models)
+    rng = np.random.default_rng(_MEAN_STD_SCATTER_JITTER_SEED)
+    jitter = _MEAN_STD_SCATTER_JITTER
 
     fig, ax = plt.subplots(figsize=(10, 6))
     for model in models:
         model_rows = [row for row in rows if row["response_model"] == model]
-        x_vals = [float(row["mean_score"]) for row in model_rows]
-        y_vals = [float(row["std_score"]) for row in model_rows]
+        n = len(model_rows)
+        x_vals = np.array([float(row["mean_score"]) for row in model_rows], dtype=float)
+        y_vals = np.array([float(row["std_score"]) for row in model_rows], dtype=float)
+        x_vals = x_vals + rng.uniform(-jitter, jitter, size=n)
+        y_vals = y_vals + rng.uniform(-jitter, jitter, size=n)
         ax.scatter(
             x_vals,
             y_vals,
             label=model,
             color=colors_map[model],
-            alpha=0.8,
+            alpha=0.7,
             edgecolors="white",
             linewidths=0.5,
             s=60,
@@ -135,6 +148,84 @@ def chart_mean_vs_std_scatter(rows: list[dict[str, str]], output_path: Path) -> 
     ax.legend(fontsize=TICK_SIZE)
     ax.tick_params(axis="both", labelsize=TICK_SIZE)
     save_and_close(fig, output_path)
+
+
+def chart_mean_vs_std_scatter_interactive(rows: list[dict[str, str]], output_path: Path) -> None:
+    """Standalone HTML scatter: same data as ``chart_mean_vs_std_scatter`` with rich hover text.
+
+    Uses the same jitter seed and half-width as the matplotlib chart. Hover shows
+    untruncated prompt and numeric fields from the CSV (not jittered coordinates).
+
+    Parameters:
+        rows: Bridging score table rows (``response_model``, ``mean_score``, ``std_score``, etc.).
+        output_path: Path for ``mean_vs_std_scatter.html`` (``include_plotlyjs=True``).
+
+    Returns:
+        Nothing; writes ``output_path``.
+    """
+    import plotly.graph_objects as go
+
+    models = sorted({row["response_model"] for row in rows})
+    colors_map = color_by_model(models)
+    rng = np.random.default_rng(_MEAN_STD_SCATTER_JITTER_SEED)
+    jitter = _MEAN_STD_SCATTER_JITTER
+
+    fig = go.Figure()
+    for model in models:
+        model_rows = [row for row in rows if row["response_model"] == model]
+        n = len(model_rows)
+        x_raw = np.array([float(row["mean_score"]) for row in model_rows], dtype=float)
+        y_raw = np.array([float(row["std_score"]) for row in model_rows], dtype=float)
+        x_j = x_raw + rng.uniform(-jitter, jitter, size=n)
+        y_j = y_raw + rng.uniform(-jitter, jitter, size=n)
+        hex_color = to_hex(colors_map[model], keep_alpha=False)
+        customdata = np.column_stack(
+            [
+                [row["prompt"] for row in model_rows],
+                [row["question_id"] for row in model_rows],
+                x_raw,
+                y_raw,
+                [float(row["bridging_score"]) for row in model_rows],
+            ]
+        )
+        fig.add_trace(
+            go.Scatter(
+                x=x_j,
+                y=y_j,
+                mode="markers",
+                name=model,
+                marker=dict(
+                    color=hex_color,
+                    size=9,
+                    opacity=0.7,
+                    line=dict(color="white", width=0.5),
+                ),
+                customdata=customdata,
+                hovertemplate=(
+                    "<b>Model name</b>: %{fullData.name}<br>"
+                    "<b>Prompt text</b>: %{customdata[0]}<br>"
+                    "<b>Question ID</b>: %{customdata[1]}<br>"
+                    "<b>Mean score</b>: %{customdata[2]:.6f}<br>"
+                    "<b>Std deviation</b>: %{customdata[3]:.6f}<br>"
+                    "<b>Bridging score</b>: %{customdata[4]:.6f}<br>"
+                    "<extra></extra>"
+                ),
+            )
+        )
+
+    fig.update_layout(
+        title="Mean vs Std Dev of Persona Scores by Response (Interactive)",
+        xaxis_title="Mean Score",
+        yaxis_title="Score Std Deviation",
+        template="plotly_white",
+        legend=dict(font=dict(size=TICK_SIZE)),
+        title_font_size=TITLE_SIZE,
+    )
+    fig.update_xaxes(tickfont=dict(size=TICK_SIZE))
+    fig.update_yaxes(tickfont=dict(size=TICK_SIZE))
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.write_html(str(output_path), include_plotlyjs=True, full_html=True)
 
 
 def chart_bridging_scores_ranked(rows: list[dict[str, str]], output_path: Path) -> None:

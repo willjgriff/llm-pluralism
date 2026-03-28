@@ -11,6 +11,7 @@ from result_analysis.charts.bridging import (
     chart_bridging_scores_ranked,
     chart_lambda_comparison,
     chart_mean_vs_std_scatter,
+    chart_mean_vs_std_scatter_interactive,
 )
 from result_analysis.charts.io import read_csv_rows
 from result_analysis.charts.persona import (
@@ -48,6 +49,9 @@ def generate_analysis_charts(
     )
     chart_mean_vs_std_scatter(
         bridging_rows, output_dir / "mean_vs_std_scatter.png"
+    )
+    chart_mean_vs_std_scatter_interactive(
+        bridging_rows, output_dir / "mean_vs_std_scatter.html"
     )
     chart_persona_score_distributions(
         persona_rating_rows, output_dir / "persona_score_distributions.png"
