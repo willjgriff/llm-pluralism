@@ -27,7 +27,10 @@ RESULTS_DIR = Path("results")
 EVALUATION_MODELS = (
     "openai:gpt-4.1-mini,"
     "openrouter:anthropic/claude-3.5-haiku,"
-    "openrouter:x-ai/grok-4-fast"
+    "openrouter:x-ai/grok-4-fast,"
+    "openrouter:meta-llama/llama-3.3-70b-instruct,"
+    "openrouter:mistralai/mistral-large,"
+    "openrouter:qwen/qwen-2.5-72b-instruct"
 )
 EVALUATION_PROMPTS_PATH = DATA_DIR / "evaluation_prompts.csv"
 EVALUATION_SYSTEM_PROMPT_PATH = DATA_DIR / "evaluation_system_prompt.txt"
@@ -44,7 +47,7 @@ PERSONA_SYSTEM_PROMPTS_PATH = DATA_DIR / "persona_system_prompts.csv"
 PERSONA_QUERY_INPUT_PATH = RESULTS_DIR / "evaluation_responses.csv"
 PERSONA_QUERY_OUTPUT_PATH = RESULTS_DIR / "persona_responses.csv"
 # Single model used for persona_query mode.
-PERSONA_QUERY_MODEL = "openrouter:meta-llama/llama-3.3-70b-instruct"
+PERSONA_QUERY_MODEL = "openrouter:mistralai/mistral-large"
 # Max concurrent requests for persona_query mode.
 PERSONA_QUERY_MAX_THREADS = 4
 

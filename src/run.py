@@ -68,6 +68,7 @@ def main() -> None:
             persona_model_spec=config.PERSONA_QUERY_MODEL,
             max_threads=config.PERSONA_QUERY_MAX_THREADS,
             skip_errors=config.SKIP_ERRORS,
+            analysis_persona_ids=config.ANALYSIS_PERSONA_IDS,
         )
 
     if "analyse" in selected_modes:

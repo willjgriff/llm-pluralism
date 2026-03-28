@@ -11,6 +11,7 @@ from pathlib import Path
 from model_query.models import ModelConfig, default_model_configs, generate_answer, parse_model_specs
 from prompts import (
     EvaluationPromptRow,
+    PersonaPromptRow,
     load_evaluation_prompts,
     load_evaluation_responses,
     load_persona_system_prompts,
@@ -41,17 +42,8 @@ PERSONA_RESPONSES_CSV_FIELD_NAMES = [
 
 
 def _persona_rating_score_digit(response_text: str) -> str:
-    """Return the first score digit (1–5) found in the model output, or empty if none.
-
-    Normally the rating is the first non-space character; some outputs prefix markdown
-    (e.g. ``**3**``), so we scan left-to-right for the first ``1``..``5`` character.
-
-    Parameters:
-        response_text: Raw persona rating model output.
-
-    Returns:
-        A single character ``\"1\"``..``\"5\"``, or ``\"\"`` if no valid score digit appears.
-    """
+    """Normally the rating is the first non-space character; some outputs prefix markdown
+    (e.g. ``**3**``), so we scan left-to-right for the first ``1``..``5`` character."""
     for char in response_text:
         if char in {"1", "2", "3", "4", "5"}:
             return char
@@ -167,18 +159,15 @@ def run_persona_querying(
     persona_model_spec: str,
     max_threads: int,
     skip_errors: bool,
+    analysis_persona_ids: tuple[int, ...],
 ) -> None:
     start_time = time.perf_counter()
-    persona_rows = load_persona_system_prompts(persona_prompts_path)
+    all_persona_rows = load_persona_system_prompts(persona_prompts_path)
+    persona_by_id = {row.persona_id: row for row in all_persona_rows}
+    persona_rows = [persona_by_id[persona_id] for persona_id in analysis_persona_ids]
+
     evaluation_rows = load_evaluation_responses(evaluation_responses_path)
-
-    model_spec = persona_model_spec.strip()
-    if not model_spec:
-        raise ValueError("persona_model_spec must be a non-empty 'provider:model' value.")
-    model_configs = parse_model_specs([model_spec])
-
-    if max_threads < 1:
-        raise ValueError("max_threads must be >= 1.")
+    model_configs = parse_model_specs([persona_model_spec.strip()])
 
     total_expected = len(persona_rows) * len(evaluation_rows)
     print(
