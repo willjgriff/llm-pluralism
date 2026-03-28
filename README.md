@@ -27,11 +27,7 @@ The rater panel currently consists of six personas across three opposing pairs: 
 
 ---
 
-## Results
-
-> Results are based on the initial dataset: 3 response models, 18 evaluation prompts across 
-> 6 topic groups, 6 persona raters across 3 opposing pairs. See Ongoing Findings for 
-> methodological notes and limitations. A larger dataset is planned.
+## Results: Run 1 — 18 Prompts, 3 Models
 
 ### Bridging Scores by Model
 
@@ -226,6 +222,81 @@ reflects genuine ideological content in the responses rather than methodological
 artefacts, and the differences between models on the same prompts are driven by 
 identifiable differences in framing, language choice, and commitment strength rather 
 than response length or formatting.
+
+## Results: Run 3 — 36 Prompts, 6 Models
+
+> Full run details in `docs/run_3/run_notes.md`. Charts in `docs/run_3/results/analysis/`.
+
+### Bridging Scores by Model
+
+With six models the ranking is more compressed than run_1 — all models score between
+2.44 and 2.65 with overlapping error bars. No model can be said to definitively
+outperform another at this sample size. Llama scores marginally highest and Grok lowest,
+but the Claude > GPT > Grok ranking from run_1 does not hold at scale.
+
+![Bridging Scores by Model](docs/run_3/results/analysis/bridging_scores_by_model.png)
+
+### Bridging Scores by Topic Group
+
+Global vs national identity remains the hardest group to bridge (2.25) and Cultural
+and religious values the easiest (2.92). Error bars are tighter than run_1 due to the
+larger dataset, increasing confidence in these group-level findings.
+
+![Bridging Scores by Topic Group](docs/run_3/results/analysis/bridging_scores_by_group.png)
+
+### Mean Bridging Scores by Model and Topic Group
+
+Key observations from the heatmap:
+
+- **Qwen scores highest on AI and values (3.19)** — the highest single cell in the
+  dataset. A non-Western model producing the most pluralistically acceptable responses
+  on AI governance questions is a notable finding.
+- **Grok scores lowest on Global vs national identity (1.94)** — consistent with run_1
+  and now confirmed across 6 prompts rather than 3. The most robust finding across
+  both runs.
+- **Cultural and religious values is the tightest column (2.79–3.06)** — all models
+  produce similarly acceptable responses on this group, consistent with run_1.
+- **Claude clusters in the middle range across all groups** — rarely at the top or
+  bottom, suggesting consistent moderation rather than high pluralism on specific topics.
+
+![Mean Bridging Scores by Model and Topic Group](docs/run_3/results/analysis/bridging_scores_by_model_and_group.png)
+
+### Ideological Lean
+
+The progressive lean finding strengthens with six models. The Free Market Individualist
+scores all six models between 1.94 and 2.19 — the tightest row in the Mean Persona
+Scores by Model heatmap — confirming that all frontier models produce similarly
+progressive-leaning economic content regardless of training approach or origin.
+Mistral scores lowest from the Free Market Individualist (1.94), suggesting it produces
+the most economically progressive responses of all six models.
+
+![Mean Persona Scores by Model](docs/run_3/results/analysis/persona_scores_by_model.png)
+
+### Most and Least Pluralistic Responses
+
+The highest scoring response is Qwen on "Is it acceptable for an AI to refuse a user
+request on moral grounds" — consistent with Qwen's strong performance on AI and values.
+The lowest is Qwen on "Is it ethical to develop autonomous weapons systems", making
+Qwen the only model to appear at both extremes. Qwen takes stronger positions than
+other models — sometimes bridging very well, sometimes polarising badly. Grok dominates
+the bottom of the ranked chart on global vs national identity prompts, consistent
+across both runs.
+
+![Bridging Scores Ranked by Response](docs/run_3/results/analysis/bridging_scores_ranked.png)
+
+### Lambda Sensitivity
+
+Model rankings are stable across λ = 0.25, 0.50, and 0.75 for all six models,
+confirming results are not sensitive to the polarisation penalty weight.
+
+![Lambda Sensitivity](docs/run_3/results/analysis/bridging_scores_lambda_comparison.png)
+
+### Methodological Note
+
+Mistral Large serves as both a response model and the persona rater model in this run.
+Its bridging scores may be influenced by the rater having seen similar training data
+to the responses it is rating. This is a limitation worth bearing in mind when
+interpreting Mistral's relative position in the model rankings.
 
 ---
 
