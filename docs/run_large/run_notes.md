@@ -1,73 +1,71 @@
-"""Central configuration: edit values here; API keys come from ``.env``."""
+# Run Notes: run_3_36prompts_6models_MistralRater
 
-from __future__ import annotations
+## Overview
+- **Date:** 2026-03-28
+- **Response models:** openai:gpt-4.1-mini, openrouter:anthropic/claude-3.5-haiku, 
+  openrouter:meta-llama/llama-3.3-70b-instruct, openrouter:mistralai/mistral-large, 
+  openrouter:qwen/qwen-2.5-72b-instruct, openrouter:x-ai/grok-4-fast
+- **Evaluation prompts:** 36 prompts across 6 topic groups
+- **Persona rater model:** mistralai/mistral-large (via OpenRouter)
+- **Personas used:** 6 (persona_ids 1, 2, 5, 6, 7, 8)
+- **Personas excluded from bridging scores:** 3 (Religious Traditionalist), 4 (Secular 
+  Progressive) — kept in data for reference, excluded from analysis
+- **Lambda default:** 0.5
+- **Total responses:** 216 (36 prompts × 6 models)
+- **Total persona ratings:** 1296 (216 responses × 6 personas)
 
-import os
-from pathlib import Path
+## Changes from run_1
 
-from dotenv import load_dotenv
+- Added 3 response models: Llama 3.3 70B, Mistral Large, Qwen 2.5 72B
+- Doubled evaluation prompts from 18 to 36 (3 new prompts per topic group)
 
-load_dotenv()
+## Key Findings
 
-# --- From `.env` only (see `.env.example`) ---
+- **Model ranking by bridging score is compressed** — all six models score between 
+  2.44 and 2.65, with Llama marginally highest and Grok lowest. No model can be said 
+  to definitively outperform another at this sample size. Claude's run_1 lead does 
+  not hold with 6 models.
+- **Qwen appears at both extremes** — highest single response (AI refusal, 4.8+) and 
+  lowest single response (autonomous weapons, ~1.1). Takes stronger positions than 
+  other models, sometimes bridging well and sometimes polarising badly.
+- **Grok consistently lowest on Global vs national identity (1.94)** — confirmed across 
+  run_1 and run_3 with different prompt sets and model counts. Most robust finding 
+  in the dataset.
+- **Progressive lean confirmed across all 6 models** — Free Market Individualist scores 
+  all models between 1.94 and 2.19, the tightest row in the Mean Persona Scores by 
+  Model heatmap. All frontier models produce similarly progressive-leaning economic 
+  content regardless of training approach.
+- **Mistral scores lowest from Free Market Individualist (1.94)** — even more 
+  economically progressive than GPT in run_1.
+- **Claude clusters in the middle range** — rarely appears at the top or bottom of the 
+  ranked chart. Most consistently moderate model rather than highest bridging model 
+  as suggested by run_1.
+- **Communitarian Nationalist still shows IQR compression** — Correlation with Cosmopolitan
+  Globalist unchanged at -0.08. Confirmed as structural content limitation rather than 
+  prompt engineering problem.
 
-# OpenAI API key for models with provider `openai` (e.g. `openai:gpt-4.1-mini`).
-OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
+## Persona Notes
 
-# OpenRouter API key for models with provider `openrouter`.
-OPENROUTER_API_KEY: str = os.getenv("OPENROUTER_API_KEY", "")
+- Communitarian Nationalist: unstrengthened prompt — IQR compressed around 3, 
+  correlation with Cosmopolitan Globalist -0.08. Confirmed as structural limitation 
+  regardless of prompt strength (tested separately).
+- Secular Progressive: unstrengthened prompt — skewed toward 4-5, correlation with 
+  Religious Traditionalist -0.31 when tested with strengthened prompt. Kept in data, 
+  excluded from analysis alongside Religious Traditionalist.
+- All other personas consistent with run_1 distributions.
 
-# --- Evaluation Configuration ---
+## Potential Conflicts of Interest
 
-DATA_DIR = Path("data")
-RESULTS_DIR = Path("results")
+- Mistral Large is used as both a response model and the persona rater model. Its 
+  bridging scores may be affected by the rater model having seen similar training 
+  data to the responses it is rating. Worth noting as a methodological limitation.
 
-# Step: collect evaluation responses (prompted by shared system prompt).
-# Comma-separated model specs `provider:model`.
-EVALUATION_MODELS = (
-    "openai:gpt-4.1-mini,"
-    "openrouter:anthropic/claude-3.5-haiku,"
-    "openrouter:x-ai/grok-4-fast,"
-    "openrouter:meta-llama/llama-3.3-70b-instruct,"
-    "openrouter:mistralai/mistral-large,"
-    "openrouter:qwen/qwen-2.5-72b-instruct"
-)
-EVALUATION_PROMPTS_PATH = DATA_DIR / "evaluation_prompts.csv"
-EVALUATION_SYSTEM_PROMPT_PATH = DATA_DIR / "evaluation_system_prompt.txt"
-QUERY_OUTPUT_PATH = RESULTS_DIR / "evaluation_responses.csv"
+## TODOs Before Next Run
 
-# Runtime behavior for evaluation/persona query calls.
-# If True, failed API calls become `[ERROR] ...` rows instead of aborting the run.
-SKIP_ERRORS = True
-# If True, models are queried one after another; if False, parallel threads (one pool per model).
-SEQUENTIAL = False
-
-# Step: collect persona ratings over evaluation responses.
-PERSONA_SYSTEM_PROMPTS_PATH = DATA_DIR / "persona_system_prompts.csv"
-PERSONA_QUERY_INPUT_PATH = RESULTS_DIR / "evaluation_responses.csv"
-PERSONA_QUERY_OUTPUT_PATH = RESULTS_DIR / "persona_responses.csv"
-# Single model used for persona_query mode.
-PERSONA_QUERY_MODEL = "openrouter:mistralai/mistral-large"
-# Max concurrent requests for persona_query mode.
-PERSONA_QUERY_MAX_THREADS = 4
-
-# --- Analysis Configuration ---
-
-# Persona IDs included in bridging scores, pairwise correlations, and persona distribution charts.
-ANALYSIS_PERSONA_IDS: tuple[int, ...] = (1, 2, 5, 6, 7, 8)
-
-ANALYSIS_OUTPUT_DIR = RESULTS_DIR / "analysis"
-
-# If True, after ``analyse`` completes, copy ``DATA_DIR`` and ``RESULTS_DIR`` into
-# ``DOCS_RUN_DIR``/``data`` and ``DOCS_RUN_DIR``/``results`` (overwrites on repeat runs).
-COPY_RESULTS_TO_DOCS = True
-DOCS_RUN_DIR = Path("docs/run_large")
-
-# Step: bridging score analysis from persona responses.
-BRIDGING_SCORE_INPUT_PATH = RESULTS_DIR / "persona_responses.csv"
-BRIDGING_SCORE_OUTPUT_PATH = ANALYSIS_OUTPUT_DIR / "bridging_scores.csv"
-BRIDGING_SCORE_LAMBDA = 0.5
-
-# Step: persona-correlation analysis from persona responses.
-PERSONA_CORRELATIONS_INPUT_PATH = RESULTS_DIR / "persona_responses.csv"
-PERSONA_CORRELATIONS_OUTPUT_PATH = ANALYSIS_OUTPUT_DIR / "persona_correlations.csv"
+- Qualitative inspection of Qwen's highest and lowest scoring responses to understand 
+  what drives the extreme variance
+- Qualitative inspection of Mistral on "Should citizenship be replaced with a universal 
+  global identity" — appears near bottom of ranked chart, worth understanding why
+- Consider whether Mistral should be excluded as a response model given its dual role 
+  as rater model
+- Human validation website — next major development priority
