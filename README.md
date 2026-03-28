@@ -53,22 +53,28 @@ persona pair. Technology and progress is the second hardest group (~2.49).
 
 ![Bridging Scores by Topic Group](docs/run_1/results/analysis/bridging_scores_by_group.png)
 
-### Bridging Scores by Model and Topic Group
+
+### Bridging Scores (Mean) by Model and Topic Group
 
 The model and group heatmap reveals interaction effects that the aggregate scores obscure:
 
-- **Claude scores highest on AI and values (3.49) and Cultural and religious values (3.29)**, 
-  notably outperforming GPT and Grok on these groups.
-- **Grok scores lowest on Global vs national identity (1.77)**, the single lowest cell in 
-  the entire heatmap. This is consistent with Grok producing more ideologically committed 
+- **Claude scores highest on Cultural and religious values (3.21) and Individual vs 
+  collective rights (3.15)**, notably outperforming GPT and Grok on these groups. Claude 
+  also leads on AI and values (2.97) and Economic redistribution (2.70).
+- **Grok scores lowest on Global vs national identity (2.01)**, the single lowest cell in 
+  the heatmap. This is consistent with Grok producing more ideologically committed 
   responses on immigration and sovereignty that the Cosmopolitan Globalist persona strongly 
   rejects while the Communitarian Nationalist approves — high variance producing a heavily 
   penalised bridging score.
-- **Individual vs collective rights produces identical scores across all three models 
-  (2.81)**, suggesting this topic group elicits similarly structured responses regardless 
-  of model.
-- **GPT scores lowest on Technology and progress (1.94)**, which is unexpected given its 
-  otherwise mid-range performance and warrants qualitative inspection of the raw responses.
+- **Claude notably outperforms GPT and Grok on Individual vs collective rights (3.15 vs 
+  2.50 and 2.70)**, suggesting Claude produces more pluralistically acceptable responses 
+  on questions about the balance between personal freedom and collective obligations.
+- **All models score similarly on Economic redistribution (2.47, 2.70, 2.60)** — the 
+  narrowest spread across models of any group, suggesting economic questions produce 
+  similarly polarising responses regardless of model.
+- **GPT scores lowest on Technology and progress (2.38)**, which warrants qualitative 
+  inspection of the raw responses to determine whether this reflects genuine ideological 
+  commitment or a different pattern.
 
 ![Bridging Scores by Model and Topic Group](docs/run_1/results/analysis/bridging_scores_by_model_and_group.png)
 

@@ -112,7 +112,7 @@ def chart_bridging_heatmap(rows: list[dict[str, str]], output_path: Path) -> Non
         row_labels=models,
         col_labels=groups,
         norm=norm,
-        title="Bridging Score by Model and Topic Group",
+        title="Mean Bridging Score by Model and Topic Group",
         xlabel=None,
         ylabel=None,
         output_path=output_path,
