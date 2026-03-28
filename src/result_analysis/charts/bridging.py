@@ -80,20 +80,30 @@ def chart_bridging_by_group(rows: list[dict[str, str]], output_path: Path) -> No
 
 
 def chart_bridging_heatmap(rows: list[dict[str, str]], output_path: Path) -> None:
-    """Heatmap: bridging score for each model × topic group (diverging norm from data range)."""
+    """Heatmap: mean bridging score per model × topic group across all prompts in that cell."""
     models = sorted({row["response_model"] for row in rows})
     groups = sorted({row["group_name"] for row in rows})
-    value_map = {
-        (row["response_model"], row["group_name"]): float(row["bridging_score"])
-        for row in rows
-    }
+    bridging_scores_by_model_and_group: dict[tuple[str, str], list[float]] = {}
+    for row in rows:
+        cell_key = (row["response_model"], row["group_name"])
+        bridging_scores_by_model_and_group.setdefault(cell_key, []).append(
+            float(row["bridging_score"])
+        )
 
     matrix = np.array(
-        [[value_map[(model, group)] for group in groups] for model in models],
+        [
+            [
+                float(np.mean(bridging_scores_by_model_and_group[(model, group)]))
+                if (model, group) in bridging_scores_by_model_and_group
+                else float("nan")
+                for group in groups
+            ]
+            for model in models
+        ],
         dtype=float,
     )
-    vmin = float(matrix.min())
-    vmax = float(matrix.max())
+    vmin = float(np.nanmin(matrix))
+    vmax = float(np.nanmax(matrix))
     midpoint = (vmin + vmax) / 2.0
     norm = colors.TwoSlopeNorm(vmin=vmin, vcenter=midpoint, vmax=vmax)
 

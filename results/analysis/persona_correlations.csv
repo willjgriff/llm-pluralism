@@ -1,16 +1,16 @@
 persona_a_id,persona_a_name,persona_b_id,persona_b_name,correlation
-1,Free Market Individualist,2,Social Democrat,-0.416
-1,Free Market Individualist,5,Communitarian Nationalist,0.317
-1,Free Market Individualist,6,Cosmopolitan Globalist,-0.282
-1,Free Market Individualist,7,AI Techno-Optimist,0.257
-1,Free Market Individualist,8,AI Safety Precautionist,0.104
-2,Social Democrat,5,Communitarian Nationalist,-0.053
-2,Social Democrat,6,Cosmopolitan Globalist,0.721
-2,Social Democrat,7,AI Techno-Optimist,-0.234
-2,Social Democrat,8,AI Safety Precautionist,0.399
-5,Communitarian Nationalist,6,Cosmopolitan Globalist,-0.082
-5,Communitarian Nationalist,7,AI Techno-Optimist,-0.099
-5,Communitarian Nationalist,8,AI Safety Precautionist,0.448
-6,Cosmopolitan Globalist,7,AI Techno-Optimist,-0.145
-6,Cosmopolitan Globalist,8,AI Safety Precautionist,0.310
-7,AI Techno-Optimist,8,AI Safety Precautionist,-0.225
+1,Free Market Individualist,2,Social Democrat,-0.700
+1,Free Market Individualist,5,Communitarian Nationalist,0.470
+1,Free Market Individualist,6,Cosmopolitan Globalist,-0.416
+1,Free Market Individualist,7,AI Techno-Optimist,0.342
+1,Free Market Individualist,8,AI Safety Precautionist,-0.184
+2,Social Democrat,5,Communitarian Nationalist,-0.330
+2,Social Democrat,6,Cosmopolitan Globalist,0.718
+2,Social Democrat,7,AI Techno-Optimist,-0.262
+2,Social Democrat,8,AI Safety Precautionist,0.473
+5,Communitarian Nationalist,6,Cosmopolitan Globalist,-0.231
+5,Communitarian Nationalist,7,AI Techno-Optimist,0.197
+5,Communitarian Nationalist,8,AI Safety Precautionist,0.101
+6,Cosmopolitan Globalist,7,AI Techno-Optimist,-0.228
+6,Cosmopolitan Globalist,8,AI Safety Precautionist,0.440
+7,AI Techno-Optimist,8,AI Safety Precautionist,-0.246

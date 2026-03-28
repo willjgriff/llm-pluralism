@@ -57,8 +57,8 @@ ANALYSIS_OUTPUT_DIR = RESULTS_DIR / "analysis"
 
 # If True, after ``analyse`` completes, copy ``DATA_DIR`` and ``RESULTS_DIR`` into
 # ``DOCS_RUN_DIR``/``data`` and ``DOCS_RUN_DIR``/``results`` (overwrites on repeat runs).
-COPY_RESULTS_TO_DOCS = True
-DOCS_RUN_DIR = Path("docs/run_2xEvalPrompts")
+COPY_RESULTS_TO_DOCS = False
+DOCS_RUN_DIR = Path("docs/run_1")
 
 # Step: bridging score analysis from persona responses.
 BRIDGING_SCORE_INPUT_PATH = RESULTS_DIR / "persona_responses.csv"
