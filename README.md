@@ -178,6 +178,55 @@ respectively. This confirms that GPT's low Free Market Individualist score on ec
 questions is a genuine signal about GPT's ideological lean rather than a methodological 
 artefact — GPT takes clear pro-redistribution positions on all three economic prompts.
 
+**What high bridging scores look like: Claude vs GPT vs Grok on prompts 4, 8, and 18**
+
+Comparing responses across all three models on the same prompts revealed a consistent 
+structural pattern that explains Claude's higher bridging scores. The analysis covered 
+prompt 4 (mandatory vaccination), prompt 8 (raising children in a strict religious 
+framework), and prompt 18 (AI refusing requests on moral grounds). Selected as they had some of the highest bridge scores with one model.
+
+Two specific habits distinguish Claude's highest-scoring responses from GPT and Grok:
+
+*Avoiding strong opening commitments.* Claude rarely opens with a clear yes or no. 
+Instead it opens with a qualified position that acknowledges both sides before settling 
+on a conclusion. For example on vaccination Claude opens with "vaccination should be 
+strongly encouraged but not strictly mandated" — a position reachable from both a 
+public health and an individual autonomy starting point. GPT opens with "vaccination 
+should be mandatory" and Grok opens with "mandatory vaccination...is essential", both 
+of which alienate the Free Market Individualist persona in the first sentence before any 
+caveats can recover the score.
+
+*Genuinely naming the opposing concern using its own vocabulary.* Claude explicitly uses 
+the language of the other side — "personal medical autonomy", "philosophical exemption 
+pathways", "overly restrictive censorship" — rather than just acknowledging that 
+concerns exist in the abstract. This signals to the persona holding those concerns that 
+their position has been understood rather than merely tolerated. GPT and Grok acknowledge 
+opposing concerns but tend to use neutral or dismissive framing rather than the 
+vocabulary of the opposing value system.
+
+This pattern appeared consistently across all three prompts and both Claude responses 
+examined, suggesting it reflects a systematic difference in Claude's response style 
+rather than a coincidence on a single question.
+
+*Note on prompt 8:* The highest single bridging score in the dataset is Claude on prompt 
+8 (raising children in a strict religious framework, bridging score 4.10). However this 
+result should be interpreted cautiously — the Religious Traditionalist and Secular 
+Progressive personas were excluded from the analysis, meaning the score reflects how 
+economic, national identity, and technology personas react to a religious question rather 
+than the most directly relevant perspectives. The cross-model comparison on this prompt 
+(Claude 4.10, GPT 3.20, Grok 2.72) is still informative as a language and framing 
+analysis but the absolute bridging score is less meaningful than for prompts where all 
+active personas are directly relevant to the topic.
+
+**Overall conclusion from qualitative inspection**
+
+High bridging scores are not achieved by avoiding positions — they are achieved by taking 
+positions that are reachable from multiple value starting points. The persona scoring 
+reflects genuine ideological content in the responses rather than methodological 
+artefacts, and the differences between models on the same prompts are driven by 
+identifiable differences in framing, language choice, and commitment strength rather 
+than response length or formatting.
+
 ---
 
 ## Ongoing Findings
