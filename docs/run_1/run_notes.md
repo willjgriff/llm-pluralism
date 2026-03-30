@@ -16,7 +16,7 @@
 
 - Personas 3 and 4 excluded after three independent runs produced structurally broken 
 score distributions. See Excluded Personas section in readme for full details.
-- Communitarian Nationalist (persona 5) shows limited discrimination — IQR compressed 
+- Nationalist (persona 5) shows limited discrimination — IQR compressed 
 around 3. Included in analysis but flagged as weak rater.
 - All personas use adversarial framing (see data/personas.csv for full prompts).
 - Weak non-adversarial persona prompts archived in personas_weak.csv for reference.
@@ -35,11 +35,10 @@ rate responses lower than progressive personas
 ## TODOs Before Next Run
 
 - Inspect raw Grok responses on prompts 13, 14, 15 to confirm nationalist tone hypothesis
-- Inspect raw GPT responses on economic redistribution prompts (low Free Market 
-Individualist scores)
+- Inspect raw GPT responses on economic redistribution prompts (low Individualist scores)
 - Inspect raw GPT responses on technology prompts 10, 11, 12 (unexpectedly low bridging)
 - Identify Claude's two highest bridging score responses and analyse what makes them 
 structurally different
-- Revise Communitarian Nationalist persona prompt to improve discrimination
+- Revise Nationalist persona prompt to improve discrimination
 - Consider replacing religious/secular persona pair with a better-calibrated axis
 

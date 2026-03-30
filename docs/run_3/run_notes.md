@@ -31,23 +31,23 @@
 - **Grok consistently lowest on Global vs national identity (1.94)** — confirmed across 
   run_1 and run_3 with different prompt sets and model counts. Most robust finding 
   in the dataset.
-- **Progressive lean confirmed across all 6 models** — Free Market Individualist scores 
+- **Progressive lean confirmed across all 6 models** — Individualist scores 
   all models between 1.94 and 2.19, the tightest row in the Mean Persona Scores by 
   Model heatmap. All frontier models produce similarly progressive-leaning economic 
   content regardless of training approach.
-- **Mistral scores lowest from Free Market Individualist (1.94)** — even more 
+- **Mistral scores lowest from Individualist (1.94)** — even more 
   economically progressive than GPT in run_1.
 - **Claude clusters in the middle range** — rarely appears at the top or bottom of the 
   ranked chart. Most consistently moderate model rather than highest bridging model 
   as suggested by run_1.
-- **Communitarian Nationalist still shows IQR compression** — Correlation with Cosmopolitan
+- **Nationalist still shows IQR compression** — Correlation with
   Globalist unchanged at -0.08. Confirmed as structural content limitation rather than 
   prompt engineering problem.
 
 ## Persona Notes
 
-- Communitarian Nationalist: unstrengthened prompt — IQR compressed around 3, 
-  correlation with Cosmopolitan Globalist -0.08. Confirmed as structural limitation 
+- Nationalist: unstrengthened prompt — IQR compressed around 3, 
+  correlation with Globalist -0.08. Confirmed as structural limitation 
   regardless of prompt strength (tested separately).
 - Secular Progressive: unstrengthened prompt — skewed toward 4-5, correlation with 
   Religious Traditionalist -0.31 when tested with strengthened prompt. Kept in data, 

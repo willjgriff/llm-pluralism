@@ -22,7 +22,7 @@ choice meaningfully affects results.
   of content, making bridging scores artificially inflated and unreliable
 - Persona correlation structure collapses almost entirely — most pairs show near-zero 
   correlation compared to meaningful opposition in the Mistral run
-- Exception: Free Market Individualist vs Social Democrat correlation holds at -0.71, 
+- Exception: Individualist vs Collectivist correlation holds at -0.71, 
   consistent with Mistral run (-0.70), confirming the economic axis is robust across 
   rater models
 - Grok remains the most polarising model in the mean vs std scatter plot, consistent 
@@ -30,7 +30,7 @@ choice meaningfully affects results.
 - Religious Traditionalist behaves differently with Llama — produces reasonable 
   distribution (median ~2, box spanning 2-4) vs broken distribution with Mistral 
   (95% scores of 1-2)
-- Communitarian Nationalist breaks in opposite direction with Llama — rates almost 
+- Nationalist breaks in opposite direction with Llama — rates almost 
   everything 4, vs compressed around 3 with Mistral
 
 ## Conclusion
@@ -39,7 +39,7 @@ Mistral Large is the preferred rater model. This run is archived for reference a
 comparison only. See Ongoing Findings in readme for full analysis.
 
 ## Robust Findings (consistent across both rater models)
-- Free Market Individualist vs Social Democrat opposition: -0.70 to -0.71
+- Individualist vs Collectivist opposition: -0.70 to -0.71
 - Grok is the most polarising response model by std deviation
 
 ## Notes
