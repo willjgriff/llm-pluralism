@@ -23,7 +23,7 @@ This project takes a different approach, inspired by Audrey Tang's argument that
 
 A set of contested prompts spanning six value-laden topic groups are submitted to multiple frontier LLMs. Each response is then evaluated by a panel of value-diverse persona raters, LLMs prompted to inhabit specific ideological perspectives, who score each response for reasonableness from their own worldview. These scores are aggregated into a bridging score that rewards high average approval and penalises high variance across disagreeing personas. A response that everyone finds adequate scores higher than one that half the personas love and half hate, even if the raw average is the same.
 
-The rater panel currently consists of six personas across three opposing pairs: Individualist vs Collectivist, Nationalist vs Globalist, and Techno-Optimist vs Safety Precautionist. Two personas, Religious Traditionalist and Secular Progressive, were excluded after three independent runs produced structurally broken score distributions, likely because frontier models avoid taking strong positions on religion, leaving the religious/secular axis underrepresented in the evaluated responses.
+The rater panel currently consists of six personas across three opposing pairs: Free Market vs Collectivist, Nationalist vs Globalist, and Tech Optimist vs Tech Sceptic. Two personas, Religious and Secularist, were excluded after three independent runs produced structurally broken score distributions, likely because frontier models avoid taking strong positions on religion, leaving the religious/secular axis underrepresented in the evaluated responses.
 
 ---
 
@@ -75,10 +75,10 @@ The model and group heatmap reveals interaction effects that the aggregate score
 
 The persona correlation heatmap validates the core methodological assumption that personas 
 disagree with each other in the expected directions. The strongest opposition is between 
-Individualist and Collectivist (-0.70), confirming the economic axis is the 
+Free Market and Collectivist (-0.70), confirming the economic axis is the 
 most cleanly captured by the rater panel. Globalist and Collectivist show 
 strong positive correlation (0.72), confirming progressive persona alignment. The technology 
-axis is weakest — Techno-Optimist and Safety Precautionist correlate at only -0.25 — 
+axis is weakest — Tech Optimist and Tech Sceptic correlate at only -0.25 — 
 meaning bridging scores on technology prompts should be interpreted with more caution than 
 those on economic or global identity prompts.
 
@@ -87,18 +87,18 @@ those on economic or global identity prompts.
 ### Ideological Lean in Model Outputs
 
 The mean persona scores by model heatmap directly visualises an ideological lean across all 
-three evaluated models. Conservative-leaning personas (Individualist, 
+three evaluated models. Conservative-leaning personas (Free Market, 
 Nationalist) give consistently lower scores than progressive-leaning personas 
-(Globalist, Collectivist, Techno-Optimist) across all three models. This 
+(Globalist, Collectivist, Tech Optimist) across all three models. This 
 pattern is consistent with frontier models trained on RLHF producing outputs that align more 
 naturally with progressive value frameworks.
 
 Key model-specific observations:
 
-- **GPT scores lowest with the Individualist (2.00)**, the single coolest 
+- **GPT scores lowest with the Free Market (2.00)**, the single coolest 
   non-Grok cell in the chart, suggesting GPT produces the most economically progressive 
   responses of the three models.
-- **Grok scores lowest with the Safety Precautionist (2.50)**, suggesting its responses 
+- **Grok scores lowest with the Tech Sceptic (2.50)**, suggesting its responses 
   are more dismissive of AI risk concerns than Claude or GPT — consistent with xAI's stated 
   positioning as a less filtered model.
 - **Claude scores highest or joint highest with every progressive persona**, driving the 
@@ -168,7 +168,7 @@ bridging score.
 
 **GPT on Economic redistribution (prompts 1, 2, 3)**
 
-GPT receives a mean score of 2.00 from the Individualist persona across all 
+GPT receives a mean score of 2.00 from the Free Market persona across all 
 responses — the lowest score any progressive model receives from any conservative persona 
 in the dataset, as shown in the Mean Persona Scores by Model heatmap. Inspection of 
 GPT's three responses on economic redistribution confirmed this reflects genuine 
@@ -176,11 +176,11 @@ pro-redistribution content rather than a persona sensitivity artefact. All three
 responses opened with affirmative pro-redistribution positions: "Yes, taxing wealthy 
 individuals significantly more can be justified", "Universal basic income can be a 
 beneficial policy", and "Governments should own and operate essential services." The 
-Individualist reasoning was substantive and specific each time, identifying 
+Free Market reasoning was substantive and specific each time, identifying 
 concrete ideological objections rather than pattern-matching on keywords — objecting to 
 "wealth redistribution through progressive taxation", "a massive expansion of state 
 redistribution", and "government ownership and control of essential services" 
-respectively. This confirms that GPT's low Individualist score on economic 
+respectively. This confirms that GPT's low Free Market score on economic 
 questions is a genuine signal about GPT's ideological lean rather than a methodological 
 artefact — GPT takes clear pro-redistribution positions on all three economic prompts.
 
@@ -199,7 +199,7 @@ on a conclusion. For example on vaccination Claude opens with "vaccination shoul
 strongly encouraged but not strictly mandated" — a position reachable from both a 
 public health and an individual autonomy starting point. GPT opens with "vaccination 
 should be mandatory" and Grok opens with "mandatory vaccination...is essential", both 
-of which alienate the Individualist persona in the first sentence before any 
+of which alienate the Free Market persona in the first sentence before any 
 caveats can recover the score.
 
 *Genuinely naming the opposing concern using its own vocabulary.* Claude explicitly uses 
@@ -216,7 +216,7 @@ rather than a coincidence on a single question.
 
 *Note on prompt 8:* The highest single bridging score in the dataset is Claude on prompt 
 8 (raising children in a strict religious framework, bridging score 4.10). However this 
-result should be interpreted cautiously — the Religious Traditionalist and Secular 
+result should be interpreted cautiously — the Religious and Secular 
 Progressive personas were excluded from the analysis, meaning the score reflects how 
 economic, national identity, and technology personas react to a religious question rather 
 than the most directly relevant perspectives. The cross-model comparison on this prompt 
@@ -273,11 +273,11 @@ Key observations from the heatmap:
 
 ### Ideological Lean
 
-The progressive lean finding strengthens with six models. The Individualist
+The progressive lean finding strengthens with six models. The Free Market
 scores all six models between 1.94 and 2.19 — the tightest row in the Mean Persona
 Scores by Model heatmap — confirming that all frontier models produce similarly
 progressive-leaning economic content regardless of training approach or origin.
-Mistral scores lowest from the Individualist (1.94), suggesting it produces
+Mistral scores lowest from the Free Market (1.94), suggesting it produces
 the most economically progressive responses of all six models.
 
 ![Mean Persona Scores by Model](docs/run_3/results/analysis/persona_scores_by_model.png)
@@ -319,10 +319,10 @@ interpreting Mistral's relative position in the model rankings.
 
 - **Ideological asymmetry in rater scores (weak personas):** When using non-adversarial 
   persona prompts (see `data/run_1/personas_weak.csv`), conservative-leaning personas (Free 
-  Market Individualist, Religious Traditionalist, Nationalist, AI 
-  Techno-Optimist) showed meaningful score variance including genuine low scores of 1-2, 
-  while progressive-leaning personas (Collectivist, Secular Progressive, Cosmopolitan 
-  Globalist, Safety Precautionist) rated almost all responses 4-5. This asymmetry 
+  Market Free Market, Religious, Nationalist, AI 
+  Tech Optimist) showed meaningful score variance including genuine low scores of 1-2, 
+  while progressive-leaning personas (Collectivist, Secularist, Cosmopolitan 
+  Globalist, Tech Sceptic) rated almost all responses 4-5. This asymmetry 
   persisted across multiple runs and survived initial prompt strengthening attempts, 
   suggesting it reflects a genuine ideological lean in frontier model outputs stemming 
   from RLHF training data demographics rather than a prompt engineering artefact. This 
@@ -338,10 +338,10 @@ interpreting Mistral's relative position in the model rankings.
   heavily RLHF'd models.
 
 - **Religious/secular axis excluded after three reproducible runs:** Personas 3 
-  (Religious Traditionalist) and 4 (Secular Progressive) were excluded from bridging 
+  (Religious) and 4 (Secularist) were excluded from bridging 
   score analysis after three independent runs produced consistent but unusable 
-  distributions. Religious Traditionalist rated ~95% of responses 1 or 2 regardless of 
-  content — too hostile to discriminate meaningfully. Secular Progressive rated ~85% of 
+  distributions. Religious rated ~95% of responses 1 or 2 regardless of 
+  content — too hostile to discriminate meaningfully. Secularist rated ~85% of 
   responses 4 or 5 regardless of content — too approving to discriminate meaningfully. 
   Both patterns were stable across all three runs confirming the issue is structural 
   rather than random. Frontier models appear to avoid taking strong positions on religion, 
@@ -358,7 +358,7 @@ interpreting Mistral's relative position in the model rankings.
 
 ![Score Distribution by Persona](docs/run_1/results/analysis/persona_score_distributions.png)
 
-- **Technology axis personas show weak opposition:** Techno-Optimist and Safety 
+- **Technology axis personas show weak opposition:** Tech Optimist and Safety 
   Precautionist show a Pearson correlation of only -0.25, much weaker than the economic 
   pair at -0.70. This means the technology axis is generating less meaningful opposition 
   than other pairs and bridging scores on technology and progress prompts should be 
@@ -380,13 +380,13 @@ interpreting Mistral's relative position in the model rankings.
 
 ![Bridging Scores Ranked by Response](docs/run_1/results/analysis/bridging_scores_ranked.png)
 
-- **Grok scores lowest with Safety Precautionist (2.50):** The mean persona scores by 
-  model heatmap shows Grok receiving a notably lower score from the Safety Precautionist 
+- **Grok scores lowest with Tech Sceptic (2.50):** The mean persona scores by 
+  model heatmap shows Grok receiving a notably lower score from the Tech Sceptic 
   than Claude (3.44) or GPT (2.94). This is the clearest model-specific ideological signal 
   in the dataset and is consistent with xAI's stated positioning as a less filtered model 
   being more dismissive of AI risk framing.
 
-- **GPT scores lowest with Individualist (2.00):** The single coolest 
+- **GPT scores lowest with Free Market (2.00):** The single coolest 
   non-Grok cell in the persona scores by model heatmap. Suggests GPT produces the most 
   economically progressive responses of the three models, which is somewhat unexpected 
   given its reputation for neutrality. TODO: inspect raw GPT responses on economic 
@@ -398,7 +398,7 @@ interpreting Mistral's relative position in the model rankings.
   signal about GPT's technology framing.
 
 - **Claude scores highest or joint highest with every progressive persona:** Cosmopolitan 
-  Globalist (4.11), Safety Precautionist (3.44), Collectivist (3.28). This drives 
+  Globalist (4.11), Tech Sceptic (3.44), Collectivist (3.28). This drives 
   the progressive lean finding more strongly than GPT despite — or perhaps because of — 
   Anthropic's safety-focused training approach.
 
@@ -419,9 +419,9 @@ interpreting Mistral's relative position in the model rankings.
   variation in model outputs.
 
 - **Persona correlations confirm expected ideological structure:** The strongest opposition 
-  is Individualist vs Collectivist (-0.70). Progressive personas cluster 
+  is Free Market vs Collectivist (-0.70). Progressive personas cluster 
   positively — Collectivist and Globalist at 0.72. Conservative personas 
-  show weaker but positive clustering — Individualist and Communitarian 
+  show weaker but positive clustering — Free Market and Communitarian 
   Nationalist at 0.47. This validates that the rater panel is responding to ideological 
   content in the responses rather than rating randomly.
 
@@ -438,7 +438,7 @@ Llama produces strongly approval-biased ratings across almost all personas. Most
 cluster in the 4-5 range with minimal low scores, compared to Mistral where six of eight 
 personas showed meaningful variance including genuine 1s and 2s. The Communitarian 
 Nationalist — a weak but usable rater with Mistral (IQR compressed around 3) — becomes 
-completely broken with Llama, rating almost everything 4. The Religious Traditionalist 
+completely broken with Llama, rating almost everything 4. The Religious 
 shows the opposite shift: broken with Mistral (95% scores of 1-2) but producing a 
 reasonable distribution with Llama (median ~2, box spanning 2-4). This suggests persona 
 behaviour is not just prompt-dependent but fundamentally shaped by which model is being 
@@ -450,7 +450,7 @@ The correlation structure collapses almost entirely with Llama. Where Mistral pr
 meaningful opposition across multiple pairs, Llama produces near-zero correlations for 
 most pairs — indicating the personas are not responding to ideological content in the 
 responses but rating approximately uniformly regardless of content. The one exception is 
-Individualist vs Collectivist (-0.71 with Llama vs -0.70 with Mistral), 
+Free Market vs Collectivist (-0.71 with Llama vs -0.70 with Mistral), 
 which is strikingly consistent across both rater models. This suggests the economic axis 
 is the most robust ideological signal in the dataset — detectable even with a weak rater 
 model.
@@ -467,7 +467,7 @@ unreliable as a measure of genuine pluralistic acceptability.
 
 Two findings appear consistently regardless of rater model:
 
-- **Individualist vs Collectivist opposition is strong** (-0.70 to -0.71 
+- **Free Market vs Collectivist opposition is strong** (-0.70 to -0.71 
   across both runs), making the economic axis the most reliable signal in the evaluation.
 - **Grok is the most polarising model** — it shows the highest standard deviation in the 
   mean vs std scatter plot in both runs, appearing at both extremes of the response 

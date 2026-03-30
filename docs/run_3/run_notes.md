@@ -8,7 +8,7 @@
 - **Evaluation prompts:** 36 prompts across 6 topic groups
 - **Persona rater model:** mistralai/mistral-large (via OpenRouter)
 - **Personas used:** 6 (persona_ids 1, 2, 5, 6, 7, 8)
-- **Personas excluded from bridging scores:** 3 (Religious Traditionalist), 4 (Secular 
+- **Personas excluded from bridging scores:** 3 (Religious), 4 (Secular 
   Progressive) — kept in data for reference, excluded from analysis
 - **Lambda default:** 0.5
 - **Total responses:** 216 (36 prompts × 6 models)
@@ -31,11 +31,11 @@
 - **Grok consistently lowest on Global vs national identity (1.94)** — confirmed across 
   run_1 and run_3 with different prompt sets and model counts. Most robust finding 
   in the dataset.
-- **Progressive lean confirmed across all 6 models** — Individualist scores 
+- **Progressive lean confirmed across all 6 models** — Free Market scores 
   all models between 1.94 and 2.19, the tightest row in the Mean Persona Scores by 
   Model heatmap. All frontier models produce similarly progressive-leaning economic 
   content regardless of training approach.
-- **Mistral scores lowest from Individualist (1.94)** — even more 
+- **Mistral scores lowest from Free Market (1.94)** — even more 
   economically progressive than GPT in run_1.
 - **Claude clusters in the middle range** — rarely appears at the top or bottom of the 
   ranked chart. Most consistently moderate model rather than highest bridging model 
@@ -49,9 +49,9 @@
 - Nationalist: unstrengthened prompt — IQR compressed around 3, 
   correlation with Globalist -0.08. Confirmed as structural limitation 
   regardless of prompt strength (tested separately).
-- Secular Progressive: unstrengthened prompt — skewed toward 4-5, correlation with 
-  Religious Traditionalist -0.31 when tested with strengthened prompt. Kept in data, 
-  excluded from analysis alongside Religious Traditionalist.
+- Secularist: unstrengthened prompt — skewed toward 4-5, correlation with 
+  Religious -0.31 when tested with strengthened prompt. Kept in data, 
+  excluded from analysis alongside Religious.
 - All other personas consistent with run_1 distributions.
 
 ## Potential Conflicts of Interest

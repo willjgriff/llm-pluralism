@@ -7,7 +7,7 @@
 - **Evaluation prompts:** 18 prompts across 6 topic groups
 - **Persona rater model:** mistralai/mistral-large (via OpenRouter)
 - **Personas used:** 6 (persona_ids 1, 2, 5, 6, 7, 8)
-- **Personas excluded:** 3 (Religious Traditionalist), 4 (Secular Progressive)
+- **Personas excluded:** 3 (Religious), 4 (Secularist)
 - **Lambda default:** 0.5
 - **Total responses:** 54 (18 prompts × 3 models)
 - **Total persona ratings:** 324 (54 responses × 6 personas)
@@ -35,7 +35,7 @@ rate responses lower than progressive personas
 ## TODOs Before Next Run
 
 - Inspect raw Grok responses on prompts 13, 14, 15 to confirm nationalist tone hypothesis
-- Inspect raw GPT responses on economic redistribution prompts (low Individualist scores)
+- Inspect raw GPT responses on economic redistribution prompts (low Free Market scores)
 - Inspect raw GPT responses on technology prompts 10, 11, 12 (unexpectedly low bridging)
 - Identify Claude's two highest bridging score responses and analyse what makes them 
 structurally different
