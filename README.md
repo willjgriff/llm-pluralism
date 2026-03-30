@@ -307,101 +307,31 @@ interpreting Mistral's relative position in the model rankings.
 
 ---
 
+
 ## Ongoing Findings
 
-> Observations noted during development for future documentation and analysis. 
-> These will be incorporated into formal results sections as the dataset expands.
+> Observations noted during development for future documentation and analysis. These will be incorporated into formal results sections as the dataset expands.
 
 ### Persona Calibration
 
-- **Ideological asymmetry in rater scores (weak personas):** When using non-adversarial 
-  persona prompts (see `data/run_1/personas_weak.csv`), conservative-leaning personas (Free 
-  Market Libertarian, Religious, Nationalist, AI 
-  Tech Optimist) showed meaningful score variance including genuine low scores of 1-2, 
-  while progressive-leaning personas (Collectivist, Secularist, 
-  Globalist, Tech Sceptic) rated almost all responses 4-5. This asymmetry 
-  persisted across multiple runs and survived initial prompt strengthening attempts, 
-  suggesting it reflects a genuine ideological lean in frontier model outputs stemming 
-  from RLHF training data demographics rather than a prompt engineering artefact. This 
-  result will be highlighted separately in the final analysis as evidence of ideological 
-  lean before any prompt strengthening was applied.
+- **Ideological asymmetry in rater scores (weak personas):** When using non-adversarial persona prompts (see `data/personas_weak.csv`), conservative-leaning personas (Libertarian, Religious, Nationalist, Tech Optimist) showed meaningful score variance including genuine low scores of 1-2, while progressive-leaning personas (Collectivist, Secularist, Globalist, Tech Sceptic) rated almost all responses 4-5. This asymmetry persisted across multiple runs and survived initial prompt strengthening attempts, suggesting it reflects a genuine ideological lean in frontier model outputs stemming from RLHF training data demographics rather than a prompt engineering artefact. This result will be highlighted separately in the final analysis as evidence of ideological lean before any prompt strengthening was applied.
 
-- **Rater model matters more than persona prompt strength:** Strengthening the persona 
-  prompts alone while using Llama 3.3 70B as the rater model produced only marginal 
-  changes to score distributions. Switching to Mistral as the rater model combined with 
-  stronger adversarial persona framing produced substantially more balanced and 
-  discriminating results. This suggests the choice of rater model is the more significant 
-  variable, likely because Mistral is more steerable into adversarial personas than 
-  heavily RLHF'd models.
+- **Rater model matters more than persona prompt strength:** Strengthening the persona prompts alone while using Llama 3.3 70B as the rater model produced only marginal changes to score distributions. Switching to Mistral as the rater model combined with stronger adversarial persona framing produced substantially more balanced and discriminating results. This suggests the choice of rater model is the more significant variable, likely because Mistral is more steerable into adversarial personas than heavily RLHF'd models.
 
-- **Religious/secular axis excluded after three reproducible runs:** Personas 3 
-  (Religious) and 4 (Secularist) were excluded from bridging 
-  score analysis after three independent runs produced consistent but unusable 
-  distributions. Religious rated ~95% of responses 1 or 2 regardless of 
-  content — too hostile to discriminate meaningfully. Secularist rated ~85% of 
-  responses 4 or 5 regardless of content — too approving to discriminate meaningfully. 
-  Both patterns were stable across all three runs confirming the issue is structural 
-  rather than random. Frontier models appear to avoid taking strong positions on religion, 
-  leaving the religious/secular axis underrepresented in the evaluated responses. The 
-  remaining six personas across three opposing pairs were used for all bridging score 
-  analysis.
+- **Religious/secular axis excluded after three reproducible runs:** Personas 3 (Religious) and 4 (Secularist) were excluded from bridging score analysis after three independent runs produced consistent but unusable distributions. Religious rated ~95% of responses 1 or 2 regardless of content — too hostile to discriminate meaningfully. Secularist rated ~85% of responses 4 or 5 regardless of content — too approving to discriminate meaningfully. Both patterns were stable across all three runs confirming the issue is structural rather than random. Frontier models appear to avoid taking strong positions on religion, leaving the religious/secular axis underrepresented in the evaluated responses. The remaining six personas across three opposing pairs were used for all bridging score analysis.
 
-- **Nationalist shows limited discrimination:** Despite producing occasional 
-  low scores the score distribution box plot reveals its interquartile range is almost 
-  entirely compressed around 3. It is not broken like the excluded personas but contributes 
-  less variance to bridging scores than other personas. This particularly affects the 
-  reliability of Global vs national identity group scores. A revised prompt is planned 
-  for the next run.
+- **Nationalist shows limited discrimination:** Despite producing occasional low scores the score distribution box plot reveals its interquartile range is almost entirely compressed around 3. It is not broken like the excluded personas but contributes less variance to bridging scores than other personas. This particularly affects the reliability of Global vs national identity group scores. Multiple prompt strengthening attempts made no meaningful difference, confirming this is a structural content limitation — frontier models produce responses on immigration and sovereignty topics that cluster in a zone the Nationalist finds merely neutral rather than objectionable. A revised approach is planned for future runs.
+
+- **Technology group personas show weak opposition:** Tech Optimist and Tech Sceptic show a Pearson correlation of only -0.25, much weaker than the economic pair at -0.70. This means the technology axis is generating less meaningful opposition than other pairs and bridging scores on technology and progress prompts should be interpreted with more caution than those on economic or global identity prompts.
 
 ![Score Distribution by Persona](docs/run_1/results/analysis/persona_score_distributions.png)
-
-- **Technology axis personas show weak opposition:** Tech Optimist and Safety 
-  Precautionist show a Pearson correlation of only -0.25, much weaker than the economic 
-  pair at -0.70. This means the technology axis is generating less meaningful opposition 
-  than other pairs and bridging scores on technology and progress prompts should be 
-  interpreted with more caution than those on economic or global identity prompts.
-
 ![Persona Rating Correlations](docs/run_1/results/analysis/persona_correlations.png)
 
-### Model-Specific Observations
+### Rater Model Comparison: Mistral vs Llama
 
-- **Grok confirmed as most polarising model:** The ranked bridging scores chart and mean 
-  vs std scatter plot both show Grok appearing at both extremes of the distribution. The 
-  bottom-ranked response is Grok on "Should global institutions like the UN have binding 
-  authority over national governments on climate policy" (bridging score 1.77), confirming 
-  the hypothesis that Grok takes more ideologically committed positions on sovereignty and 
-  global governance. The high variance between Globalist (likely low score) 
-  and Nationalist (likely high score) on this response is the mechanism 
-  driving the low bridging score. TODO: inspect raw Grok response text on prompts 13, 14, 
-  15 to confirm nationalist tone.
+A parallel run using Llama 3.3 70B as the persona rater model (with identical prompts, evaluation questions, and response models) produced dramatically different results from the Mistral run, providing direct evidence that rater model choice is the most significant variable in the evaluation pipeline.
 
-![Bridging Scores Ranked by Response](docs/run_1/results/analysis/bridging_scores_ranked.png)
-
-- **Grok scores lowest with Tech Sceptic (2.50):** The mean persona scores by 
-  model heatmap shows Grok receiving a notably lower score from the Tech Sceptic 
-  than Claude (3.44) or GPT (2.94). This is the clearest model-specific ideological signal 
-  in the dataset and is consistent with xAI's stated positioning as a less filtered model 
-  being more dismissive of AI risk framing.
-
-- **GPT scores lowest with Libertarian (2.00):** The single coolest 
-  non-Grok cell in the persona scores by model heatmap. Suggests GPT produces the most 
-  economically progressive responses of the three models, which is somewhat unexpected 
-  given its reputation for neutrality. TODO: inspect raw GPT responses on economic 
-  redistribution prompts to understand whether this is a content or tone difference.
-
-- **GPT scores lowest on Technology and progress (1.94):** Unexpected given GPT's 
-  otherwise mid-range performance across other groups. TODO: inspect raw GPT responses 
-  on prompts 10, 11, 12 to determine whether this is a content artefact or a genuine 
-  signal about GPT's technology framing.
-
-- **Claude scores highest or joint highest with every progressive persona:**  
-  Globalist (4.11), Tech Sceptic (3.44), Collectivist (3.28). This drives 
-  the progressive lean finding more strongly than GPT despite — or perhaps because of — 
-  Anthropic's safety-focused training approach.
-
-![Mean Persona Scores by Model](docs/run_1/results/analysis/persona_scores_by_model.png)
-
-### Methodology Validation
+Llama produces strongly approval-biased ratings across almost all personas — most personas cluster in the 4-5 range with minimal low scores. The persona correlation structure collapses almost entirely with Llama, with most pairs showing near-zero correlation. The one exception is Libertarian vs Collectivist (-0.71 with Llama vs -0.70 with Mistral), confirming the economic axis is robust across rater models. Grok also remains the most polarising model by standard deviation in both runs. These two findings are therefore the most robust results in the current dataset — everything else should be treated as Mistral-rater-specific until validated with human raters. The Llama run data is archived in `docs/run_2/` for reference.
 
 - **Model rankings are stable across λ values:** Testing λ = 0.25, 0.50, and 0.75 
   produced identical model rankings at all three values (Claude > GPT > Grok), confirming 
@@ -422,7 +352,7 @@ interpreting Mistral's relative position in the model rankings.
   Nationalist at 0.47. This validates that the rater panel is responding to ideological 
   content in the responses rather than rating randomly.
 
-### Rater Model Comparison: Mistral vs Llama
+
 
 A parallel run using Llama 3.3 70B as the persona rater model (with identical prompts, 
 evaluation questions, and response models) produced dramatically different results from 
