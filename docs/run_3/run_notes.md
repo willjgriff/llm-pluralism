@@ -31,11 +31,11 @@
 - **Grok consistently lowest on Global vs national identity (1.94)** — confirmed across 
   run_1 and run_3 with different prompt sets and model counts. Most robust finding 
   in the dataset.
-- **Progressive lean confirmed across all 6 models** — Free Market scores 
+- **Progressive lean confirmed across all 6 models** — Libertarian scores 
   all models between 1.94 and 2.19, the tightest row in the Mean Persona Scores by 
   Model heatmap. All frontier models produce similarly progressive-leaning economic 
   content regardless of training approach.
-- **Mistral scores lowest from Free Market (1.94)** — even more 
+- **Mistral scores lowest from Libertarian (1.94)** — even more 
   economically progressive than GPT in run_1.
 - **Claude clusters in the middle range** — rarely appears at the top or bottom of the 
   ranked chart. Most consistently moderate model rather than highest bridging model 

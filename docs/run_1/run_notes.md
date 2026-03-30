@@ -35,7 +35,7 @@ rate responses lower than progressive personas
 ## TODOs Before Next Run
 
 - Inspect raw Grok responses on prompts 13, 14, 15 to confirm nationalist tone hypothesis
-- Inspect raw GPT responses on economic redistribution prompts (low Free Market scores)
+- Inspect raw GPT responses on economic redistribution prompts (low Libertarian scores)
 - Inspect raw GPT responses on technology prompts 10, 11, 12 (unexpectedly low bridging)
 - Identify Claude's two highest bridging score responses and analyse what makes them 
 structurally different

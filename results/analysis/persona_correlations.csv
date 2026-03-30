@@ -1,9 +1,9 @@
 persona_a_id,persona_a_name,persona_b_id,persona_b_name,correlation
-1,Free Market,2,Collectivist,-0.416
-1,Free Market,5,Nationalist,0.317
-1,Free Market,6,Globalist,-0.282
-1,Free Market,7,Tech Optimist,0.257
-1,Free Market,8,Tech Sceptic,0.104
+1,Libertarian,2,Collectivist,-0.416
+1,Libertarian,5,Nationalist,0.317
+1,Libertarian,6,Globalist,-0.282
+1,Libertarian,7,Tech Optimist,0.257
+1,Libertarian,8,Tech Sceptic,0.104
 2,Collectivist,5,Nationalist,-0.053
 2,Collectivist,6,Globalist,0.721
 2,Collectivist,7,Tech Optimist,-0.234
