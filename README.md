@@ -58,19 +58,16 @@ The model and group heatmap reveals interaction effects that the aggregate score
   collective rights (3.15)**, notably outperforming GPT and Grok on these groups. Claude 
   also leads on AI and values (2.97) and Economic redistribution (2.70).
 - **Grok scores lowest on Global vs national identity (2.01)**, the single lowest cell in 
-  the heatmap. This is consistent with Grok producing more ideologically committed 
-  responses on immigration and sovereignty that the Cosmopolitan Globalist persona strongly 
-  rejects while the Communitarian Nationalist approves — high variance producing a heavily 
-  penalised bridging score.
+  the heatmap. Qualitative inspection confirmed this is driven by taking strong committed 
+  positions that vary in direction by question, pro-refugee on Q13, nationalist on Q14, 
+  pro-UN on Q15, producing high variance across the persona panel regardless of which 
+  side Grok lands on.
 - **Claude notably outperforms GPT and Grok on Individual vs collective rights (3.15 vs 
   2.50 and 2.70)**, suggesting Claude produces more pluralistically acceptable responses 
   on questions about the balance between personal freedom and collective obligations.
 - **All models score similarly on Economic redistribution (2.47, 2.70, 2.60)** — the 
   narrowest spread across models of any group, suggesting economic questions produce 
   similarly polarising responses regardless of model.
-- **GPT scores lowest on Technology and progress (2.38)**, which warrants qualitative 
-  inspection of the raw responses to determine whether this reflects genuine ideological 
-  commitment or a different pattern.
 
 ![Bridging Scores by Model and Topic Group](docs/run_1/results/analysis/bridging_scores_by_model_and_group.png)
 
@@ -131,6 +128,19 @@ Globalist personas — a direct example of a response that bridges poorly becaus
 an ideologically committed position rather than a pluralistically acceptable one.
 
 ![Bridging Scores Ranked by Response](docs/run_1/results/analysis/bridging_scores_ranked.png)
+
+### Response Distribution: Mean vs Variance
+
+The scatter plot maps every response by mean persona score (x axis) and score standard 
+deviation (y axis), revealing how models distribute across the four response archetypes.
+Claude (orange) clusters toward the bottom right — higher mean, lower variance — 
+indicating consistently moderate approval across personas rather than polarising 
+responses. Grok (green) is the most dispersed, appearing across all quadrants including 
+the top left (low mean, high variance) where the most divisive responses sit. Two Claude 
+responses in the bottom right corner (mean ~3.8, std ~0.37) represent the closest 
+examples in the dataset to genuinely pluralistic responses — high approval with near 
+consensus across all personas.
+
 ![Mean vs Std Dev of Persona Scores](docs/run_1/results/analysis/mean_vs_std_scatter.png)
 
 ### Qualitative Response Inspection
@@ -369,15 +379,6 @@ interpreting Mistral's relative position in the model rankings.
   15 to confirm nationalist tone.
 
 ![Bridging Scores Ranked by Response](docs/run_1/results/analysis/bridging_scores_ranked.png)
-
-- **Claude's two most pluralistic responses warrant qualitative inspection:** Two Claude 
-  responses achieve high mean scores (~3.8-4.3) with very low standard deviation (~0.37), 
-  indicating genuine pluralistic acceptability rather than moderate approval. These are 
-  the closest examples in the dataset to responses that all personas find reasonable. 
-  TODO: identify by question_id and analyse what makes them structurally different from 
-  lower-scoring responses.
-
-![Mean vs Std Dev of Persona Scores](docs/run_1/results/analysis/mean_vs_std_scatter.png)
 
 - **Grok scores lowest with AI Safety Precautionist (2.50):** The mean persona scores by 
   model heatmap shows Grok receiving a notably lower score from the AI Safety Precautionist 
