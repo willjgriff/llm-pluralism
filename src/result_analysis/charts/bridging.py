@@ -257,11 +257,13 @@ def chart_bridging_scores_ranked(rows: list[dict[str, str]], output_path: Path) 
     values = [float(row["bridging_score"]) for row in sorted_rows]
     bar_colors = [colors_map[row["response_model"]] for row in sorted_rows]
 
-    fig_height = max(8, len(sorted_rows) * 0.28)
+    fig_height = max(8, len(sorted_rows) * 0.20)
     fig, ax = plt.subplots(figsize=(14, fig_height))
     y_positions = np.arange(len(sorted_rows))
     ax.barh(y_positions, values, color=bar_colors)
     ax.set_yticks(y_positions, labels=labels)
+    ax.set_ylim(-0.5, len(sorted_rows) - 0.5)
+    ax.margins(y=0)
     ax.invert_yaxis()
     ax.set_title("Bridging Scores Ranked by Response", fontsize=TITLE_SIZE)
     ax.set_xlabel("Bridging Score", fontsize=LABEL_SIZE)
@@ -280,7 +282,11 @@ def chart_bridging_scores_ranked(rows: list[dict[str, str]], output_path: Path) 
         )
         for model in models
     ]
-    ax.legend(handles=legend_handles, fontsize=TICK_SIZE, loc="lower right")
+    ax.legend(
+        handles=legend_handles,
+        fontsize=TICK_SIZE,
+        loc="lower right",
+    )
 
     save_and_close(fig, output_path)
 
