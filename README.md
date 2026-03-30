@@ -324,8 +324,6 @@ interpreting Mistral's relative position in the model rankings.
 
 - **Technology group personas show weak opposition:** Tech Optimist and Tech Sceptic show a Pearson correlation of only -0.25, much weaker than the economic pair at -0.70. This means the technology axis is generating less meaningful opposition than other pairs and bridging scores on technology and progress prompts should be interpreted with more caution than those on economic or global identity prompts.
 
-![Score Distribution by Persona](docs/run_1/results/analysis/persona_score_distributions.png)
-![Persona Rating Correlations](docs/run_1/results/analysis/persona_correlations.png)
 
 ### Rater Model Comparison: Mistral vs Llama
 
@@ -418,34 +416,29 @@ in `docs/run_2/` for reference.
 
 - **LLM personas are imperfect proxies for real human value diversity.** The rater personas are prompts applied to a single model (Mistral) and may not faithfully represent the worldviews they describe. Whether LLM persona scores correlate with real human ratings from people who hold those values is an open empirical question and a planned extension of this project.
 - **The bridging score penalises all variance equally.** A response that is divisive because it takes a principled position scores the same as one that is divisive because it is poorly reasoned. The score measures pluralistic acceptability, not quality.
-- **Three response models is a small sample.** Claude 3.5 Haiku, GPT-4.1 mini, and Grok 4 Fast represent three labs but not the full landscape of frontier models.
-- **The prompt set reflects the designer's assumptions about what counts as contested.** The 18 evaluation prompts span six topic groups and may not represent the most important groups of value disagreement globally.
-- **λ = 0.5 is an arbitrary default.** The weighting of the polarisation penalty in the bridging score formula has not been empirically validated. Different values of λ would produce different rankings.
+- **Six response models may still be insufficient for robust model ranking.** All six models in run_3 score within a narrow band (2.44–2.65) with overlapping error bars, meaning no model can be said to definitively outperform another at this sample size.
+- **The prompt set reflects the designer's assumptions about what counts as contested.** The 36 evaluation prompts span six topic groups and may not represent the most important groups of value disagreement globally.
+- **The rater panel has structural limitations on two of three groups.** The Nationalist persona shows IQR compression around 3 and the technology group pair correlates at only -0.25, meaning bridging scores on global identity and technology prompts are less reliable than those on economic prompts.
+- **Mistral serves as both rater model and response model in run_3.** Its bridging scores may be influenced by the rater having seen similar training data to the responses it is rating.
 
 ---
 
 ## Planned Extensions
 
 ### Human validation
-
 The most important next step is validating whether LLM persona scores correlate with real human ratings. A web interface is planned that presents model responses to real users, collects a short values questionnaire to loosely assign them to a persona cluster, and records their reasonableness ratings. The correlation between LLM persona scores and human persona scores is the key empirical question this project has not yet answered.
 
 ### Matrix factorisation bridging score
-
 The current bridging score formula is a simple proxy. The Community Notes algorithm uses matrix factorisation to discover which raters cluster together ideologically from the data itself, rather than relying on predefined opposing pairs. Implementing this would remove the need to manually define persona pairs and would allow the ideological structure of the rater panel to emerge from the ratings data.
 
 ### Expanded model coverage
+Future runs should include more models from non-Western labs and models trained with different alignment approaches — particularly those with less aggressive RLHF filtering — to test whether the progressive lean finding holds across a broader landscape.
 
-Adding more response generator models — particularly open source models like Llama and Mistral — would allow comparison between models trained with different alignment approaches and different degrees of RLHF filtering.
-
-### Expanded persona coverage
-
-Replacing the religious/secular persona pair with a better-calibrated axis, and adding non-Western cultural perspectives, would make the evaluation more genuinely global rather than primarily reflecting Western political divisions.
+### Improved persona coverage
+The religious/secular axis has proven structurally resistant to calibration across multiple runs and prompt strengths, likely because frontier models avoid strong positions on religion. Future work should explore alternative value axes that produce cleaner opposition, and should incorporate non-Western cultural perspectives to make the evaluation more genuinely global.
 
 ### BrightID-based sybil resistance for human raters
-
-The human validation website extensions raises a sybil attack problem — what stops a motivated actor from flooding the platform with fake ratings that manipulate the bridging scores? I have prior experience with BrightID-based sybil resistance from the 1Hive project, which used proof of unique personhood to fairly distribute voting power in a decentralised community. Integrating BrightID or a similar primitive into the human rater platform would ensure each rating comes from a unique individual, making the human validation results robust to manipulation and potentially pointing toward a production-grade pluralistic alignment feedback system.
+The human validation website raises a sybil attack problem — what stops a motivated actor from flooding the platform with fake ratings that manipulate the bridging scores? I have prior experience with BrightID-based sybil resistance from the 1Hive project, which used proof of unique personhood to fairly distribute voting power in a decentralised community. Integrating BrightID or a similar primitive into the human rater platform would ensure each rating comes from a unique individual, making the human validation results robust to manipulation and potentially pointing toward a production-grade pluralistic alignment feedback system.
 
 ### Reinforcement learning from community feedback
-
 The longer term vision is using validated bridging scores as a training signal — rewarding models for producing outputs that bridge value-diverse groups rather than optimising for majority approval. This would require a human validation dataset large enough to fine-tune a model, but the evaluation framework built here is a natural precursor to that work.
