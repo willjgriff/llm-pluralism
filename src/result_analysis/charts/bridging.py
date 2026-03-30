@@ -13,6 +13,7 @@ from matplotlib.colors import to_hex
 from result_analysis.charts.figure_utils import save_and_close
 from result_analysis.charts.plot_utils import (
     color_by_model,
+    display_model_name,
     mean_std,
     save_bar_chart_with_error_bars,
     save_heatmap_with_colorbar,
@@ -39,9 +40,10 @@ def chart_bridging_by_model(rows: list[dict[str, str]], output_path: Path) -> No
         mean_val, std_val = mean_std(by_model[model])
         means.append(mean_val)
         stds.append(std_val)
+    model_display_labels = [display_model_name(model) for model in models]
 
     save_bar_chart_with_error_bars(
-        categories=models,
+        categories=model_display_labels,
         means=means,
         stds=stds,
         color="#4C78A8",
@@ -106,10 +108,11 @@ def chart_bridging_heatmap(rows: list[dict[str, str]], output_path: Path) -> Non
     vmax = float(np.nanmax(matrix))
     midpoint = (vmin + vmax) / 2.0
     norm = colors.TwoSlopeNorm(vmin=vmin, vcenter=midpoint, vmax=vmax)
+    row_labels = [display_model_name(model) for model in models]
 
     save_heatmap_with_colorbar(
         matrix=matrix,
-        row_labels=models,
+        row_labels=row_labels,
         col_labels=groups,
         norm=norm,
         title="Mean Bridging Score by Model and Topic Group",
@@ -143,7 +146,7 @@ def chart_mean_vs_std_scatter(rows: list[dict[str, str]], output_path: Path) -> 
         ax.scatter(
             x_vals,
             y_vals,
-            label=model,
+            label=display_model_name(model),
             color=colors_map[model],
             alpha=0.7,
             edgecolors="white",
@@ -203,7 +206,7 @@ def chart_mean_vs_std_scatter_interactive(rows: list[dict[str, str]], output_pat
                 x=x_j,
                 y=y_j,
                 mode="markers",
-                name=model,
+                name=display_model_name(model),
                 marker=dict(
                     color=hex_color,
                     size=9,
@@ -247,7 +250,8 @@ def chart_bridging_scores_ranked(rows: list[dict[str, str]], output_path: Path) 
     def short_label(row: dict[str, str]) -> str:
         prompt = row["prompt"].strip()
         prompt_short = (prompt[:40] + "...") if len(prompt) > 40 else prompt
-        return f"{row['response_model']} | {prompt_short}"
+        model_display_name = display_model_name(row["response_model"])
+        return f"{model_display_name} | {prompt_short}"
 
     labels = [short_label(row) for row in sorted_rows]
     values = [float(row["bridging_score"]) for row in sorted_rows]
@@ -266,7 +270,14 @@ def chart_bridging_scores_ranked(rows: list[dict[str, str]], output_path: Path) 
     ax.grid(True, axis="x", linestyle="--", alpha=0.3)
 
     legend_handles = [
-        plt.Line2D([0], [0], marker="s", linestyle="", color=colors_map[model], label=model)
+        plt.Line2D(
+            [0],
+            [0],
+            marker="s",
+            linestyle="",
+            color=colors_map[model],
+            label=display_model_name(model),
+        )
         for model in models
     ]
     ax.legend(handles=legend_handles, fontsize=TICK_SIZE, loc="lower right")
@@ -311,7 +322,7 @@ def chart_lambda_comparison(rows: list[dict[str, str]], output_path: Path) -> No
         )
 
     ax.set_xticks(x_values)
-    ax.set_xticklabels(models, rotation=20)
+    ax.set_xticklabels([display_model_name(model) for model in models], rotation=20)
     ax.set_ylabel("Mean Bridging Score", fontsize=LABEL_SIZE)
     ax.set_title("Model Bridging Scores Across Lambda Values", fontsize=TITLE_SIZE)
     ax.legend(fontsize=TICK_SIZE)

@@ -36,6 +36,15 @@ EVALUATION_PROMPTS_PATH = DATA_DIR / "evaluation_prompts.csv"
 EVALUATION_SYSTEM_PROMPT_PATH = DATA_DIR / "evaluation_system_prompt.txt"
 QUERY_OUTPUT_PATH = RESULTS_DIR / "evaluation_responses.csv"
 
+MODEL_DISPLAY_NAMES = {
+    "openai:gpt-4.1-mini": "GPT-4.1 Mini",
+    "openrouter:anthropic/claude-3.5-haiku": "Claude 3.5 Haiku",
+    "openrouter:meta-llama/llama-3.3-70b-instruct": "Llama 3.3 70B",
+    "openrouter:mistralai/mistral-large": "Mistral Large",
+    "openrouter:qwen/qwen-2.5-72b-instruct": "Qwen 2.5 72B",
+    "openrouter:x-ai/grok-4-fast": "Grok 4 Fast",
+}
+
 # Runtime behavior for evaluation/persona query calls.
 # If True, failed API calls become `[ERROR] ...` rows instead of aborting the run.
 SKIP_ERRORS = True

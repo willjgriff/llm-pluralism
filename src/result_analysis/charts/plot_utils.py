@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import colors
 
+import config
 from result_analysis.charts.figure_utils import save_and_close
 from result_analysis.charts.style import ANNOTATION_SIZE, LABEL_SIZE, TICK_SIZE, TITLE_SIZE
 
@@ -99,3 +100,8 @@ def save_heatmap_with_colorbar(
 def response_model_column(row: dict[str, str]) -> str:
     """Return ``response_model`` if set, else ``source_model``, stripped."""
     return (row.get("response_model") or row["source_model"]).strip()
+
+
+def display_model_name(model_string: str) -> str:
+    """Return display name for a model label, or the raw label if unmapped."""
+    return config.MODEL_DISPLAY_NAMES.get(model_string, model_string)

@@ -11,7 +11,11 @@ from matplotlib import colors
 
 import config
 from result_analysis.charts.figure_utils import save_and_close
-from result_analysis.charts.plot_utils import response_model_column, save_heatmap_with_colorbar
+from result_analysis.charts.plot_utils import (
+    display_model_name,
+    response_model_column,
+    save_heatmap_with_colorbar,
+)
 from result_analysis.charts.style import LABEL_SIZE, TICK_SIZE, TITLE_SIZE
 
 
@@ -77,6 +81,7 @@ def chart_persona_scores_by_model(rows: list[dict[str, str]], output_path: Path)
         scores_by_persona_model.setdefault(key, []).append(float(row["score"].strip()))
 
     models = sorted(models_set)
+    model_display_labels = [display_model_name(model) for model in models]
     row_labels = [name_by_id[pid] for pid in persona_ids if pid in name_by_id]
     if not models or not row_labels:
         return
@@ -97,7 +102,7 @@ def chart_persona_scores_by_model(rows: list[dict[str, str]], output_path: Path)
     save_heatmap_with_colorbar(
         matrix=matrix,
         row_labels=row_labels,
-        col_labels=models,
+        col_labels=model_display_labels,
         norm=norm,
         title="Mean Persona Scores by Model",
         xlabel="Response Model",
