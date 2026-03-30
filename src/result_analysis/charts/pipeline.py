@@ -9,6 +9,7 @@ from result_analysis.charts.bridging import (
     chart_bridging_by_model,
     chart_bridging_heatmap,
     chart_bridging_scores_ranked,
+    chart_bridging_scores_ranked_trimmed,
     chart_lambda_comparison,
     chart_mean_vs_std_scatter,
     chart_mean_vs_std_scatter_interactive,
@@ -61,6 +62,9 @@ def generate_analysis_charts(
     )
     chart_bridging_scores_ranked(
         bridging_rows, output_dir / "bridging_scores_ranked.png"
+    )
+    chart_bridging_scores_ranked_trimmed(
+        bridging_rows, output_dir / "bridging_scores_ranked_trimmed.png"
     )
     chart_lambda_comparison(
         bridging_rows, output_dir / "bridging_scores_lambda_comparison.png"

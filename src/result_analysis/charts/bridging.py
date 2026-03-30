@@ -291,6 +291,83 @@ def chart_bridging_scores_ranked(rows: list[dict[str, str]], output_path: Path) 
     save_and_close(fig, output_path)
 
 
+def chart_bridging_scores_ranked_trimmed(
+    rows: list[dict[str, str]], output_path: Path
+) -> None:
+    """Horizontal bars: top 15 and bottom 15 responses by ``bridging_score``.
+
+    Inserts a visual separator row labelled ``· · · middle responses omitted · · ·``.
+    """
+    sorted_rows = sorted(rows, key=lambda row: float(row["bridging_score"]), reverse=True)
+    if len(sorted_rows) <= 30:
+        chart_bridging_scores_ranked(sorted_rows, output_path)
+        return
+
+    models = sorted({row["response_model"] for row in sorted_rows})
+    colors_map = color_by_model(models)
+
+    def short_label(row: dict[str, str]) -> str:
+        prompt = row["prompt"].strip()
+        prompt_short = (prompt[:40] + "...") if len(prompt) > 40 else prompt
+        model_display_name = display_model_name(row["response_model"])
+        return f"{model_display_name} | {prompt_short}"
+
+    top_rows = sorted_rows[:15]
+    bottom_rows = sorted_rows[-15:]
+    separator_label = "· · · middle responses omitted · · ·"
+
+    y_tick_labels = [short_label(row) for row in top_rows] + [separator_label] + [
+        short_label(row) for row in bottom_rows
+    ]
+    y_positions = np.arange(len(y_tick_labels))
+    top_positions = np.arange(len(top_rows))
+    bottom_start_index = len(top_rows) + 1
+    bottom_positions = np.arange(bottom_start_index, bottom_start_index + len(bottom_rows))
+
+    top_values = [float(row["bridging_score"]) for row in top_rows]
+    bottom_values = [float(row["bridging_score"]) for row in bottom_rows]
+    top_colors = [colors_map[row["response_model"]] for row in top_rows]
+    bottom_colors = [colors_map[row["response_model"]] for row in bottom_rows]
+
+    fig_height = max(8, len(y_tick_labels) * 0.24)
+    fig, ax = plt.subplots(figsize=(14, fig_height))
+    ax.barh(top_positions, top_values, color=top_colors)
+    ax.barh(bottom_positions, bottom_values, color=bottom_colors)
+    ax.set_yticks(y_positions, labels=y_tick_labels)
+    ax.set_ylim(-0.5, len(y_tick_labels) - 0.5)
+    ax.margins(y=0)
+    ax.invert_yaxis()
+    ax.set_title("Bridging Scores Ranked by Response (Trimmed)", fontsize=TITLE_SIZE)
+    ax.set_xlabel("Bridging Score", fontsize=LABEL_SIZE)
+    ax.tick_params(axis="x", labelsize=TICK_SIZE)
+    ax.tick_params(axis="y", labelsize=7)
+    ax.grid(True, axis="x", linestyle="--", alpha=0.3)
+
+    separator_ticklabel = ax.get_yticklabels()[len(top_rows)]
+    separator_ticklabel.set_fontstyle("italic")
+    separator_ticklabel.set_fontsize(8)
+    separator_ticklabel.set_color("#555555")
+
+    legend_handles = [
+        plt.Line2D(
+            [0],
+            [0],
+            marker="s",
+            linestyle="",
+            color=colors_map[model],
+            label=display_model_name(model),
+        )
+        for model in models
+    ]
+    ax.legend(
+        handles=legend_handles,
+        fontsize=TICK_SIZE,
+        loc="lower right",
+    )
+
+    save_and_close(fig, output_path)
+
+
 def chart_lambda_comparison(rows: list[dict[str, str]], output_path: Path) -> None:
     """Grouped bars: mean per-model bridging score at each λ column (with std across prompts)."""
     models = sorted({row["response_model"] for row in rows})

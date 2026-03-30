@@ -127,7 +127,7 @@ driven by high variance (std 1.80) between the Nationalist and
 Globalist personas — a direct example of a response that bridges poorly because it takes 
 an ideologically committed position rather than a pluralistically acceptable one.
 
-![Bridging Scores Ranked by Response](docs/run_1/results/analysis/bridging_scores_ranked.png)
+![Bridging Scores Ranked by Response](docs/run_1/results/analysis/bridging_scores_ranked_trimmed.png)
 
 ### Response Distribution: Mean vs Variance
 
@@ -289,7 +289,7 @@ other models — sometimes bridging very well, sometimes polarising badly. Grok 
 the bottom of the ranked chart on global vs national identity prompts, consistent
 across both runs.
 
-![Bridging Scores Ranked by Response](docs/run_3/results/analysis/bridging_scores_ranked.png)
+![Bridging Scores Ranked by Response](docs/run_3/results/analysis/bridging_scores_ranked_trimmed.png)
 
 ### Lambda Sensitivity
 
