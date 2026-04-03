@@ -8,7 +8,8 @@
             "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "args": ["--mode", "evaluation_query"]
+            "args": ["--mode", "evaluation_query"],
+            "python": "/usr/bin/python3"
         },
         {
             "name": "Persona Query",
@@ -17,7 +18,8 @@
             "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "args": ["--mode", "persona_query"]
+            "args": ["--mode", "persona_query"],
+            "python": "/usr/bin/python3"
         },
         {
             "name": "All query",
@@ -26,7 +28,8 @@
             "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "args": ["--mode", "evaluation_query", "persona_query"]
+            "args": ["--mode", "evaluation_query", "persona_query"],
+            "python": "/usr/bin/python3"
         },
         {
             "name": "Analyse",
@@ -35,7 +38,8 @@
             "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "args": ["--mode", "analyse"]
+            "args": ["--mode", "analyse"],
+            "python": "/usr/bin/python3"
         },
         {
             "name": "All (Evaluation + Persona + Analyse)",
@@ -44,7 +48,8 @@
             "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "args": ["--mode", "evaluation_query", "persona_query", "analyse"]
+            "args": ["--mode", "evaluation_query", "persona_query", "analyse"],
+            "python": "/usr/bin/python3"
         }
     ]
 }

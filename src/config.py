@@ -28,10 +28,10 @@ EVALUATION_MODELS = (
     "openai:gpt-4.1-mini,"
     "openrouter:anthropic/claude-3.5-haiku,"
     "openrouter:x-ai/grok-4-fast,"
-    "openrouter:meta-llama/llama-3.3-70b-instruct,"
-    "openrouter:mistralai/mistral-large,"
-    "openrouter:qwen/qwen-2.5-72b-instruct"
 )
+#     "openrouter:meta-llama/llama-3.3-70b-instruct,"
+#     "openrouter:mistralai/mistral-large,"
+#     "openrouter:qwen/qwen-2.5-72b-instruct"
 EVALUATION_PROMPTS_PATH = DATA_DIR / "evaluation_prompts.csv"
 EVALUATION_SYSTEM_PROMPT_PATH = DATA_DIR / "evaluation_system_prompt.txt"
 QUERY_OUTPUT_PATH = RESULTS_DIR / "evaluation_responses.csv"
@@ -47,7 +47,7 @@ MODEL_DISPLAY_NAMES = {
 
 # Runtime behavior for evaluation/persona query calls.
 # If True, failed API calls become `[ERROR] ...` rows instead of aborting the run.
-SKIP_ERRORS = True
+SKIP_ERRORS = False
 # If True, models are queried one after another; if False, parallel threads (one pool per model).
 SEQUENTIAL = False
 
@@ -59,6 +59,10 @@ PERSONA_QUERY_OUTPUT_PATH = RESULTS_DIR / "persona_responses.csv"
 PERSONA_QUERY_MODEL = "openrouter:mistralai/mistral-large"
 # Max concurrent requests for persona_query mode.
 PERSONA_QUERY_MAX_THREADS = 4
+# If the model returns blank text, persona_query retries up to this many API calls total.
+PERSONA_QUERY_EMPTY_RESPONSE_MAX_ATTEMPTS = 3
+# Seconds to wait before each retry after an empty response (skipped before the first call).
+PERSONA_QUERY_EMPTY_RESPONSE_RETRY_DELAY_SECONDS = 0.5
 
 # --- Analysis Configuration ---
 

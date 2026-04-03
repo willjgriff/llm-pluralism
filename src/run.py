@@ -69,6 +69,8 @@ def main() -> None:
             max_threads=config.PERSONA_QUERY_MAX_THREADS,
             skip_errors=config.SKIP_ERRORS,
             analysis_persona_ids=config.ANALYSIS_PERSONA_IDS,
+            empty_response_max_attempts=config.PERSONA_QUERY_EMPTY_RESPONSE_MAX_ATTEMPTS,
+            empty_response_retry_delay_seconds=config.PERSONA_QUERY_EMPTY_RESPONSE_RETRY_DELAY_SECONDS,
         )
 
     if "analyse" in selected_modes:

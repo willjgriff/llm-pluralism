@@ -108,6 +108,49 @@ def _try_generate_response(
         return f"[ERROR] {type(exception_error).__name__}: {str(exception_error)}"
 
 
+def _try_generate_persona_response(
+    *,
+    model_config: ModelConfig,
+    system_instruction: str,
+    question: str,
+    skip_errors: bool,
+    max_attempts: int,
+    retry_delay_seconds: float,
+) -> str:
+    """Call the chat API up to ``max_attempts`` times until the reply is non-empty (after strip).
+
+    Parameters
+    ----------
+    model_config:
+        Provider and model for :func:`generate_answer`.
+    system_instruction, question, skip_errors:
+        Passed through to :func:`_try_generate_response`.
+    max_attempts:
+        Total number of API calls to attempt (at least 1).
+    retry_delay_seconds:
+        Seconds to sleep before each retry after an empty response (not before the first call).
+
+    Returns
+    -------
+    str
+        First non-empty response, or the last response (possibly still empty) after all attempts.
+    """
+    last_text = ""
+    attempts = max(1, max_attempts)
+    for attempt_index in range(attempts):
+        if attempt_index > 0 and retry_delay_seconds > 0:
+            time.sleep(retry_delay_seconds)
+        last_text = _try_generate_response(
+            model_config=model_config,
+            system_instruction=system_instruction,
+            question=question,
+            skip_errors=skip_errors,
+        )
+        if last_text.strip():
+            return last_text
+    return last_text
+
+
 def _query_single_model(
     *,
     model_config: ModelConfig,
@@ -160,7 +203,14 @@ def run_persona_querying(
     max_threads: int,
     skip_errors: bool,
     analysis_persona_ids: tuple[int, ...],
+    empty_response_max_attempts: int = 3,
+    empty_response_retry_delay_seconds: float = 0.5,
 ) -> None:
+    """Load evaluation rows and persona prompts, query the persona model concurrently, write CSV.
+
+    Empty model replies (whitespace only) are retried up to ``empty_response_max_attempts`` times
+    with ``empty_response_retry_delay_seconds`` between attempts.
+    """
     start_time = time.perf_counter()
     all_persona_rows = load_persona_system_prompts(persona_prompts_path)
     persona_by_id = {row.persona_id: row for row in all_persona_rows}
@@ -189,11 +239,13 @@ def run_persona_querying(
             tasks.append((persona_row, evaluation_row))
 
     def _run_persona_call(persona_row, evaluation_row) -> dict[str, str | int | float]:
-        response_text = _try_generate_response(
+        response_text = _try_generate_persona_response(
             model_config=model_config,
             system_instruction=persona_row.system_prompt,
             question=evaluation_row.source_response,
             skip_errors=skip_errors,
+            max_attempts=empty_response_max_attempts,
+            retry_delay_seconds=empty_response_retry_delay_seconds,
         )
         return {
             "question_id": evaluation_row.question_id,
