@@ -17,6 +17,10 @@ OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
 # OpenRouter API key for models with provider `openrouter`.
 OPENROUTER_API_KEY: str = os.getenv("OPENROUTER_API_KEY", "")
 
+# HTTP Basic password for the Railway ``/export/all`` endpoint (username ``admin``).
+# Used by ``scripts/fetch_railway_export.py``.
+EXPORT_PASSWORD: str = os.getenv("EXPORT_PASSWORD", "")
+
 # --- Evaluation Configuration ---
 
 DATA_DIR = Path("data")
