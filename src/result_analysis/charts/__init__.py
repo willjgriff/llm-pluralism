@@ -1,4 +1,4 @@
-"""Analysis chart generation (PNG outputs under ``results/analysis``)."""
+"""Analysis chart generation (PNG outputs under ``output/analysis``)."""
 
 from __future__ import annotations
 

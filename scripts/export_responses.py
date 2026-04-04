@@ -1,8 +1,8 @@
 """Export evaluation responses to a JSON file suitable for serving from a website backend.
 
-Reads from docs/run_1/results/evaluation_responses.csv and
+Reads from docs/run_1/output/evaluation_responses.csv and
 docs/run_1/data/evaluation_prompts.csv, then writes a flat JSON array to
-results/web_formatted_responses.json.
+output/scripts/web_formatted_responses.json.
 """
 
 from __future__ import annotations
@@ -13,9 +13,9 @@ from pathlib import Path
 
 import pandas
 
-RESPONSES_CSV_PATH = Path("docs/run_1/results/evaluation_responses.csv")
+RESPONSES_CSV_PATH = Path("docs/run_1/output/evaluation_responses.csv")
 PROMPTS_CSV_PATH = Path("docs/run_1/data/evaluation_prompts.csv")
-OUTPUT_JSON_PATH = Path("results/web_formatted_responses.json")
+OUTPUT_JSON_PATH = Path("output/scripts/web_formatted_responses.json")
 
 
 def _import_config_module():

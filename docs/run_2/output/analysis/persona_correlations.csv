@@ -1,0 +1,16 @@
+persona_a_id,persona_a_name,persona_b_id,persona_b_name,correlation
+1,Libertarian,2,Collectivist,-0.707
+1,Libertarian,5,Nationalist,0.362
+1,Libertarian,6,Globalist,-0.053
+1,Libertarian,7,Tech Optimist,0.216
+1,Libertarian,8,Tech Sceptic,0.013
+2,Collectivist,5,Nationalist,-0.295
+2,Collectivist,6,Globalist,0.199
+2,Collectivist,7,Tech Optimist,-0.311
+2,Collectivist,8,Tech Sceptic,0.041
+5,Nationalist,6,Globalist,-0.224
+5,Nationalist,7,Tech Optimist,-0.176
+5,Nationalist,8,Tech Sceptic,0.243
+6,Globalist,7,Tech Optimist,-0.083
+6,Globalist,8,Tech Sceptic,0.254
+7,Tech Optimist,8,Tech Sceptic,-0.169

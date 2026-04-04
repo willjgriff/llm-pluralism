@@ -37,12 +37,12 @@ All defaults live in **`src/config.py`** (paths are relative to the **project ro
 
 - **`PERSONA_QUERY_MODEL`** — One `provider:model` string used for all persona ratings in `persona_query` mode (e.g. `openrouter:meta-llama/llama-3.3-70b-instruct`).
 - **`PERSONA_QUERY_MAX_THREADS`** — Concurrency for persona API calls.
-- **`PERSONA_QUERY_INPUT_PATH`** — Defaults to `RESULTS_DIR / "evaluation_responses.csv"`; must exist before `persona_query`.
+- **`PERSONA_QUERY_INPUT_PATH`** — Defaults to `OUTPUT_DIR / "evaluation_responses.csv"`; must exist before `persona_query`.
 - **`PERSONA_QUERY_OUTPUT_PATH`** — `persona_responses.csv` output.
 
 ### Bridging score λ (polarisation penalty)
 
-- **`BRIDGING_SCORE_LAMBDA`** — Weight used for the primary **`bridging_score`** column in `results/analysis/bridging_scores.csv`: `mean_score - λ * std_score` (population std across included personas per response).
+- **`BRIDGING_SCORE_LAMBDA`** — Weight used for the primary **`bridging_score`** column in `output/analysis/bridging_scores.csv`: `mean_score - λ * std_score` (population std across included personas per response).
 - Additional columns for λ ∈ `{0.25, 0.50, 0.75}` are always written for the **λ comparison chart**; those values are defined in `src/result_analysis/scoring/bridging_score.py` as **`LAMBDA_VALUES`** (not the config file).
 
 ### Which personas enter analysis
@@ -58,11 +58,11 @@ Point these at different files to swap prompts or personas without code changes:
 | **`EVALUATION_PROMPTS_PATH`** | `data/evaluation_prompts.csv` — evaluation prompt rows |
 | **`EVALUATION_SYSTEM_PROMPT_PATH`** | `data/evaluation_system_prompt.txt` — shared system prompt for response models |
 | **`PERSONA_SYSTEM_PROMPTS_PATH`** | `data/persona_system_prompts.csv` — persona definitions for the rater |
-| **`DATA_DIR`** / **`RESULTS_DIR`** | Roots for `data/` and `results/` trees |
+| **`DATA_DIR`** / **`OUTPUT_DIR`** | Roots for `data/` and `output/` trees |
 
 ### Optional: copy a run into `docs/`
 
-- **`COPY_RESULTS_TO_DOCS`** — If `True`, after `analyse` finishes, copies **`DATA_DIR`** → **`DOCS_RUN_DIR/data`** and **`RESULTS_DIR`** → **`DOCS_RUN_DIR/results`** (`src/run.py` uses `shutil.copytree(..., dirs_exist_ok=True)`).
+- **`COPY_RESULTS_TO_DOCS`** — If `True`, after `analyse` finishes, copies **`DATA_DIR`** → **`DOCS_RUN_DIR/data`** and **`OUTPUT_DIR`** → **`DOCS_RUN_DIR/output`** (`src/run.py` uses `shutil.copytree(..., dirs_exist_ok=True)`).
 - **`DOCS_RUN_DIR`** — Example: `Path("docs/run_1")`.
 
 ### Runtime toggles
@@ -88,8 +88,8 @@ There are no other CLI flags; models, paths, and λ are configured in **`src/con
 
 ### Stages (actual order in `run.py`)
 
-1. **`evaluation_query`** — Reads `EVALUATION_PROMPTS_PATH` and `EVALUATION_SYSTEM_PROMPT_PATH`, calls each model in `EVALUATION_MODELS`, writes **`QUERY_OUTPUT_PATH`** (`results/evaluation_responses.csv`).
-2. **`persona_query`** — Reads `PERSONA_QUERY_INPUT_PATH` (evaluation responses) and `PERSONA_SYSTEM_PROMPTS_PATH`, calls **`PERSONA_QUERY_MODEL`** for each (prompt × response × persona) cell, writes **`PERSONA_QUERY_OUTPUT_PATH`** (`results/persona_responses.csv`).
+1. **`evaluation_query`** — Reads `EVALUATION_PROMPTS_PATH` and `EVALUATION_SYSTEM_PROMPT_PATH`, calls each model in `EVALUATION_MODELS`, writes **`QUERY_OUTPUT_PATH`** (`output/evaluation_responses.csv`).
+2. **`persona_query`** — Reads `PERSONA_QUERY_INPUT_PATH` (evaluation responses) and `PERSONA_SYSTEM_PROMPTS_PATH`, calls **`PERSONA_QUERY_MODEL`** for each (prompt × response × persona) cell, writes **`PERSONA_QUERY_OUTPUT_PATH`** (`output/persona_responses.csv`).
 3. **`analyse`** — Reads persona ratings, writes **`BRIDGING_SCORE_OUTPUT_PATH`**, **`PERSONA_CORRELATIONS_OUTPUT_PATH`**, generates charts under **`ANALYSIS_OUTPUT_DIR`**, then optionally copies to **`DOCS_RUN_DIR`** if **`COPY_RESULTS_TO_DOCS`** is `True`.
 
 ### Example commands
@@ -118,7 +118,7 @@ Both query steps, no analysis:
 python3 src/run.py --mode evaluation_query persona_query
 ```
 
-Analyse only (requires existing `results/persona_responses.csv` and any inputs those steps need):
+Analyse only (requires existing `output/persona_responses.csv` and any inputs those steps need):
 
 ```bash
 python3 src/run.py --mode analyse
@@ -135,23 +135,23 @@ VS Code / Cursor: see **`.vscode/launch.json`** for debug configurations that pa
 
 ## Interpreting outputs
 
-### `results/evaluation_responses.csv`
+### `output/evaluation_responses.csv`
 
 One row per (prompt × evaluation model). Columns: `question_id`, `group_id`, `group_name`, `model`, `question`, `response` (`src/model_query/query_pipeline.py` — `EVALUATION_RESPONSES_CSV_FIELD_NAMES`).
 
-### `results/persona_responses.csv`
+### `output/persona_responses.csv`
 
 One row per (evaluation row × persona). Columns: `question_id`, `group_id`, `group_name`, `source_model`, `question`, `source_response`, `persona_id`, `persona_name`, `score`, `response` (`PERSONA_RESPONSES_CSV_FIELD_NAMES`). Analysis code also accepts `response_model` as an alias for `source_model` where noted in chart code.
 
-### `results/analysis/bridging_scores.csv`
+### `output/analysis/bridging_scores.csv`
 
 Per aggregated response (question / group / prompt / response model): `mean_score`, `std_score`, `bridging_score` (uses **`BRIDGING_SCORE_LAMBDA`**), plus `bridging_score_0.25`, `bridging_score_0.50`, `bridging_score_0.75` for the λ comparison chart.
 
-### `results/analysis/persona_correlations.csv`
+### `output/analysis/persona_correlations.csv`
 
 Pairwise Pearson correlations between persona rating vectors (`persona_a_id`, `persona_a_name`, `persona_b_id`, `persona_b_name`, `correlation`).
 
-### Charts (`results/analysis/*.png`)
+### Charts (`output/analysis/*.png`)
 
 Generated by `result_analysis.charts.pipeline.generate_analysis_charts`:
 
@@ -173,18 +173,18 @@ Convention:
 
 1. Create a dedicated directory for the run, e.g. **`docs/run_1/`**, **`docs/run_2/`**, …
 2. Set **`DOCS_RUN_DIR`** in `src/config.py` to that path (e.g. `Path("docs/run_1")`).
-3. Set **`COPY_RESULTS_TO_DOCS = True`** and run **`analyse`** (or the full pipeline so results exist). The code copies:
+3. Set **`COPY_RESULTS_TO_DOCS = True`** and run **`analyse`** (or the full pipeline so outputs exist). The code copies:
    - **`data/`** → **`docs/run_N/data/`**
-   - **`results/`** → **`docs/run_N/results/`**
+   - **`output/`** → **`docs/run_N/output/`**
 
-So archived charts and CSVs live under **`docs/run_N/results/analysis/`**; prompts and personas under **`docs/run_N/data/`**.
+So archived charts and CSVs live under **`docs/run_N/output/analysis/`**; prompts and personas under **`docs/run_N/data/`**.
 
 To archive manually without re-running, copy the same two trees:
 
 ```bash
 mkdir -p docs/run_1
 cp -R data docs/run_1/data
-cp -R results docs/run_1/results
+cp -R output docs/run_1/output
 ```
 
-Adjust `run_N` and use the same layout so it matches what `copy_data_and_results_to_docs` produces.
+Adjust `run_N` and use the same layout so it matches what `copy_data_and_output_to_docs` produces.

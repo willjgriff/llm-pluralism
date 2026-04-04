@@ -1,6 +1,6 @@
 """Mean persona rating score per persona_name from persona_responses.csv.
 
-Reads results/persona_responses.csv and writes results/persona_score_means.json.
+Reads output/persona_responses.csv and writes output/scripts/persona_score_means.json.
 """
 
 from __future__ import annotations
@@ -10,8 +10,8 @@ from pathlib import Path
 
 import pandas as pd
 
-PERSONA_RESPONSES_CSV_PATH = Path("results/persona_responses.csv")
-PERSONA_SCORE_MEANS_JSON_PATH = Path("results/persona_score_means.json")
+PERSONA_RESPONSES_CSV_PATH = Path("output/persona_responses.csv")
+PERSONA_SCORE_MEANS_JSON_PATH = Path("output/scripts/persona_score_means.json")
 
 
 def main() -> None:
