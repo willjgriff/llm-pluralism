@@ -13,8 +13,8 @@ from pathlib import Path
 
 import pandas
 
-RESPONSES_CSV_PATH = Path("docs/run_1/output/evaluation_responses.csv")
-PROMPTS_CSV_PATH = Path("docs/run_1/data/evaluation_prompts.csv")
+RESPONSES_CSV_PATH = Path("output/evaluation_responses.csv")
+PROMPTS_CSV_PATH = Path("data/evaluation_prompts.csv")
 OUTPUT_JSON_PATH = Path("output/scripts/web_formatted_responses.json")
 
 

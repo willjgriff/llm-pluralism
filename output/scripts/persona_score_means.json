@@ -1,19 +1,19 @@
 [
   {
     "persona": "Collectivist",
-    "mean_score": 3.11
+    "mean_score": 3.39
   },
   {
     "persona": "Globalist",
-    "mean_score": 3.83
+    "mean_score": 4.15
   },
   {
     "persona": "Libertarian",
-    "mean_score": 2.1
+    "mean_score": 2.24
   },
   {
     "persona": "Nationalist",
-    "mean_score": 2.93
+    "mean_score": 2.94
   },
   {
     "persona": "Religious",
@@ -21,14 +21,14 @@
   },
   {
     "persona": "Secularist",
-    "mean_score": 4.3
+    "mean_score": 4.67
   },
   {
     "persona": "Tech Optimist",
-    "mean_score": 3.19
+    "mean_score": 3.5
   },
   {
     "persona": "Tech Sceptic",
-    "mean_score": 3.22
+    "mean_score": 3.31
   }
 ]
