@@ -1,4 +1,4 @@
-# Run Notes: run_1_3models_18prompts_80words_MistralRater
+# Run Notes: run_1
 
 ## Overview
 
