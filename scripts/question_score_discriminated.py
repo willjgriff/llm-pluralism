@@ -28,7 +28,7 @@ ALL_PERSONAS = [
 ]
 
 INPUT_CSV_PATH = Path("output/persona_responses.csv")
-OUTPUT_JSON_PATH = Path("output/scripts/response_persona_scores.json")
+OUTPUT_JSON_PATH = Path("output/scripts/question_score_discriminated.json")
 
 
 def _to_float_or_none(value) -> float | None:
