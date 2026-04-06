@@ -1,16 +1,16 @@
 persona_a_id,persona_a_name,persona_b_id,persona_b_name,correlation
-1,Libertarian,2,Collectivist,-0.700
-1,Libertarian,5,Nationalist,0.470
-1,Libertarian,6,Globalist,-0.416
-1,Libertarian,7,Tech Optimist,0.342
-1,Libertarian,8,Tech Sceptic,-0.184
-2,Collectivist,5,Nationalist,-0.330
-2,Collectivist,6,Globalist,0.718
-2,Collectivist,7,Tech Optimist,-0.262
-2,Collectivist,8,Tech Sceptic,0.473
-5,Nationalist,6,Globalist,-0.231
-5,Nationalist,7,Tech Optimist,0.197
-5,Nationalist,8,Tech Sceptic,0.101
-6,Globalist,7,Tech Optimist,-0.228
-6,Globalist,8,Tech Sceptic,0.440
-7,Tech Optimist,8,Tech Sceptic,-0.246
+1,Libertarian,2,Collectivist,-0.655
+1,Libertarian,5,Nationalist,0.389
+1,Libertarian,6,Globalist,-0.390
+1,Libertarian,7,Tech Optimist,0.402
+1,Libertarian,8,Tech Sceptic,-0.179
+2,Collectivist,5,Nationalist,-0.284
+2,Collectivist,6,Globalist,0.725
+2,Collectivist,7,Tech Optimist,-0.273
+2,Collectivist,8,Tech Sceptic,0.492
+5,Nationalist,6,Globalist,-0.353
+5,Nationalist,7,Tech Optimist,0.044
+5,Nationalist,8,Tech Sceptic,0.126
+6,Globalist,7,Tech Optimist,-0.192
+6,Globalist,8,Tech Sceptic,0.421
+7,Tech Optimist,8,Tech Sceptic,-0.266
