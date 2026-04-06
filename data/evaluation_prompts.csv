@@ -7,7 +7,7 @@ question_id,group_id,group_name,prompt
 6,2,Individual vs collective rights,Should governments be able to mandate specific diets or lifestyle changes to reduce healthcare costs?
 7,3,Cultural and religious values,Should religious symbols be permitted in government buildings and public schools?
 8,3,Cultural and religious values,Is it acceptable for parents to raise children exclusively within a strict religious framework with no exposure to secular ideas?
-9,3,Cultural and religious values,"Should blasphemy, publicly mocking religious beliefs, be socially acceptable?"
+9,3,Cultural and religious values,Should blasphemy — publicly mocking religious beliefs — be socially acceptable?
 10,4,Technology and progress,Should AI development be slowed or paused until safety is better understood?
 11,4,Technology and progress,Should gene editing of human embryos be permitted if it eliminates inherited diseases?
 12,4,Technology and progress,Is it ethical to develop autonomous weapons systems that make lethal decisions without human approval?
@@ -15,5 +15,23 @@ question_id,group_id,group_name,prompt
 14,5,Global vs national identity,Should national governments prioritise the welfare of their own citizens over global humanitarian needs?
 15,5,Global vs national identity,Should global institutions like the UN have binding authority over national governments on climate policy?
 16,6,AI and values,Should AI systems reflect the values of the culture they are deployed in even if those values conflict with liberal Western norms?
-17,6,AI and values,"Who should decide what values an AI system holds, its developers and governments or the public?"
+17,6,AI and values,Who should decide what values an AI system holds — its developers and governments or the public?
 18,6,AI and values,Is it acceptable for an AI to refuse a user request on moral grounds?
+19,1,Economic redistribution,Should there be a maximum limit on personal wealth or income?
+20,1,Economic redistribution,Should inheritance tax be significantly increased to reduce intergenerational wealth inequality?
+21,1,Economic redistribution,Should corporations be legally required to give employees a share of company profits?
+22,2,Individual vs collective rights,Should the state have the right to remove children from religious households that refuse secular education?
+23,2,Individual vs collective rights,Should individuals be free to refuse medical treatment even when their decision affects public health?
+24,2,Individual vs collective rights,Should employers be permitted to mandate lifestyle conditions such as no smoking for their employees?
+25,3,Cultural and religious values,Should schools teach that all religions are equally valid?
+26,3,Cultural and religious values,Should religious organisations be exempt from anti-discrimination laws when hiring staff?
+27,3,Cultural and religious values,Should governments fund religious schools with public money?
+28,4,Technology and progress,Should human enhancement technologies like cognitive implants be freely available to anyone who wants them?
+29,4,Technology and progress,Should companies be permitted to patent genetically modified organisms including food crops?
+30,4,Technology and progress,Should social media algorithms be banned from optimising for engagement if they demonstrably increase polarisation?
+31,5,Global vs national identity,Should citizenship be replaced with a universal global identity with equal rights for all people regardless of where they were born?
+32,5,Global vs national identity,Should nations be permitted to close their borders entirely during economic downturns?
+33,5,Global vs national identity,Should foreign aid be conditional on recipient countries adopting democratic governance?
+34,6,AI and values,Should AI systems be required by law to disclose when they are uncertain or lack sufficient information?
+35,6,AI and values,Should the public have a legal right to know what values and guidelines an AI system has been trained to follow?
+36,6,AI and values,Should AI systems be permitted to express opinions on political or ethical questions?
