@@ -8,22 +8,8 @@ from pathlib import Path
 
 import pandas
 
-
-def _import_config_module():
-    """Import project config so defaults work when running from repository root."""
-    try:
-        import config  # type: ignore
-
-        return config
-    except ModuleNotFoundError:
-        repository_root = Path(__file__).resolve().parents[1]
-        sys.path.insert(0, str(repository_root / "src"))
-        import config  # type: ignore
-
-        return config
-
-
-config = _import_config_module()
+PERSONA_RESPONSES_PATH = Path("output/persona_responses.csv")
+BRIDGING_SCORES_PATH = Path("output/analysis/bridging_scores.csv")
 
 
 def _parse_comma_separated_tokens(raw_value: str | None) -> list[str]:
@@ -237,18 +223,6 @@ def _build_argument_parser() -> argparse.ArgumentParser:
         default="terminal",
         help='Output mode: "terminal" (default) or "csv".',
     )
-    argument_parser.add_argument(
-        "--persona-path",
-        type=Path,
-        default=config.PERSONA_QUERY_OUTPUT_PATH,
-        help="Path to persona_responses.csv (default: config.PERSONA_QUERY_OUTPUT_PATH).",
-    )
-    argument_parser.add_argument(
-        "--bridging-scores-path",
-        type=Path,
-        default=config.BRIDGING_SCORE_OUTPUT_PATH,
-        help="Path to bridging_scores.csv (default: config.BRIDGING_SCORE_OUTPUT_PATH).",
-    )
     return argument_parser
 
 
@@ -262,7 +236,7 @@ def main() -> None:
     persona_identifiers, hide_persona_details = _parse_persona_filter(arguments.personas)
 
     response_table = _load_and_filter_persona_rows(
-        persona_responses_path=arguments.persona_path,
+        persona_responses_path=PERSONA_RESPONSES_PATH,
         model_labels=model_labels,
         question_identifiers=question_identifiers,
         persona_identifiers=persona_identifiers,
@@ -270,7 +244,7 @@ def main() -> None:
     )
     response_table = _attach_bridging_scores(
         response_table=response_table,
-        bridging_scores_path=arguments.bridging_scores_path,
+        bridging_scores_path=BRIDGING_SCORES_PATH,
     )
     response_table = _sort_output_rows(response_table)
 
