@@ -1,7 +1,0 @@
-id,created_at,is_repeat,primary_persona,economic_score,identity_score,technology_score,society_score
-73bed34a-52c5-4837-8ce8-6108aac31166,2026-04-03 23:07:52.085232,False,Centrist,0,0,0,0
-71e23b0a-dc6e-48ca-b8c7-a9d498d4d85a,2026-04-03 23:15:54.970151,False,Collectivist,-3,1,2,-2
-e0c6d357-936f-45ff-ada7-53d50fcdbc9f,2026-04-03 23:31:49.381854,True,Centrist,1,-1,-1,1
-1f5f0a61-9205-44e2-8eae-f9983a201e1f,2026-04-03 23:32:24.185592,True,Centrist,0,0,0,0
-92107537-41e7-4667-b7a4-03753935efa3,2026-04-03 23:34:42.727367,True,Tech Sceptic,1,-1,-2,1
-40dd164f-f2dd-4923-8dbb-96b00e7c9f74,2026-04-04 00:44:06.225040,True,Tech Optimist,1,1,4,4

@@ -1,4 +1,4 @@
-"""Download combined sessions and ratings JSON from the Railway export API and save two CSVs.
+"""Download combined sessions and ratings JSON from the web export API and save two CSVs.
 
 HTTP Basic auth: user ``admin``, password from :data:`config.EXPORT_PASSWORD` (``EXPORT_PASSWORD`` in ``.env``).
 """
@@ -30,10 +30,10 @@ def _import_config_module():
 config = _import_config_module()
 
 EXPORT_ALL_URL = (
-    "https://sparkling-vitality-production-370c.up.railway.app/export/all"
+    "https://api.makesafeai.org/export/all"
 )
-SESSIONS_CSV_PATH = Path("output/scripts/railway_export_sessions.csv")
-RATINGS_CSV_PATH = Path("output/scripts/railway_export_ratings.csv")
+SESSIONS_CSV_PATH = Path("output/scripts/web_export_sessions.csv")
+RATINGS_CSV_PATH = Path("output/scripts/web_export_ratings.csv")
 
 
 def _fetch_export_payload(url: str) -> dict:
