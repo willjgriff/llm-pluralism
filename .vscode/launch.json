@@ -50,6 +50,16 @@
             "cwd": "${workspaceFolder}",
             "args": ["--mode", "evaluation_query", "persona_query", "analyse"],
             "python": "/usr/bin/python3"
-        }
+        },
+        {
+            "name": "Fetch survey results",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/fetch_survey_data.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [],
+            "python": "/usr/bin/python3"
+        },
     ]
 }

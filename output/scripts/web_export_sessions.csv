@@ -1,5 +1,30 @@
-id,created_at,is_repeat,primary_persona,economic_score,identity_score,technology_score,society_score
-5ba26704-324a-47fe-a20c-3802f36d328a,2026-04-07 18:07:04.817882,True,Centrist,0,0,0,0
-b1df9cec-60d6-435f-95bd-b877dd1a181e,2026-04-07 18:11:41.797504,False,Centrist,1,-1,-1,1
-8c9c44fd-ccf4-479c-819a-80e04a1886f2,2026-04-07 20:40:57.652837,True,Collectivist,-4,-2,-2,-1
-59b3f91e-2141-46ab-9766-15ee154bc5be,2026-04-07 20:43:41.576474,True,Tech Sceptic,2,2,-3,-2
+id,created_at,is_repeat,primary_persona,primary_axis,economic_score,identity_score,technology_score,society_score,economic_persona,identity_persona,technology_persona,society_persona,questionnaire_answers,traffic_source
+336ba343-9c82-4b16-8c70-d2a10bbe8570,2026-04-08 12:09:49.996523,True,Libertarian,economic,3,1,-2,-2,Libertarian,Nationalist,Tech Sceptic,Secularist,"[2, 5, 4, 3, 5, 3, 2, 4]",trusted
+d4d52d79-2adc-47c6-932e-6ddce875b0a9,2026-04-08 14:29:28.587937,False,Tech Optimist,technology,-2,0,3,-2,Collectivist,Neutral,Tech Optimist,Secularist,"[4, 2, 3, 3, 1, 4, 2, 4]",trusted
+e0ef5c9e-c63e-403d-88ad-8723025cbfdc,2026-04-08 14:29:33.317877,False,Tech Optimist,technology,0,0,4,-4,Neutral,Neutral,Tech Optimist,Secularist,"[3, 3, 4, 4, 1, 5, 1, 5]",trusted
+557ee3eb-a848-42ef-915d-f4fb90df5e3b,2026-04-08 18:56:30.246962,False,Nationalist,identity,-2,3,-1,-1,Collectivist,Nationalist,Tech Sceptic,Secularist,"[5, 3, 5, 2, 4, 3, 3, 4]",trusted
+e2184c11-2fbf-4994-80b9-e9a1020a4f1e,2026-04-08 21:52:21.458214,False,Secularist,society,1,1,-2,-3,Libertarian,Nationalist,Tech Sceptic,Secularist,"[2, 3, 5, 4, 4, 2, 2, 5]",trusted
+e15d0023-df26-4a38-9f02-2aaac92303f6,2026-04-09 01:27:43.525459,False,Libertarian,economic,4,4,0,-4,Libertarian,Nationalist,Neutral,Secularist,"[1, 5, 5, 1, 3, 3, 1, 5]",trusted
+2f95ff0e-5913-49b2-b001-9c18308b0e09,2026-04-09 01:27:44.112354,False,Libertarian,economic,4,4,0,-4,Libertarian,Nationalist,Neutral,Secularist,"[1, 5, 5, 1, 3, 3, 1, 5]",trusted
+7d182cb3-d6e4-4fb8-b828-99e927d1c1ff,2026-04-09 04:19:36.253821,False,Libertarian,economic,4,4,0,-2,Libertarian,Nationalist,Neutral,Secularist,"[1, 5, 5, 1, 3, 3, 1, 3]",trusted
+c020cb13-de7b-4a10-b5e8-c92f721a24b6,2026-04-09 09:38:46.038442,False,Secularist,society,-1,1,-1,-2,Collectivist,Nationalist,Tech Sceptic,Secularist,"[4, 3, 4, 3, 4, 3, 2, 4]",trusted
+4c4bf715-dc40-4c82-8e00-c926056ae3ec,2026-04-09 09:54:41.397854,False,Nationalist,identity,2,4,-2,-4,Libertarian,Nationalist,Tech Sceptic,Secularist,"[2, 4, 5, 1, 5, 3, 1, 5]",trusted
+86f2c4b3-0bdc-498b-9cde-bff04c203ee4,2026-04-09 10:11:50.296443,False,Secularist,society,-1,0,0,-2,Collectivist,Neutral,Neutral,Secularist,"[4, 3, 4, 4, 3, 3, 3, 5]",trusted
+57eeb819-b757-4e49-86ba-c32d5149f5af,2026-04-09 10:28:27.306270,False,Collectivist,economic,-2,-2,0,0,Collectivist,Globalist,Neutral,Neutral,"[5, 3, 3, 5, 3, 3, 3, 3]",trusted
+fc08924b-c7ac-4065-a40c-2a1a9564a64d,2026-04-09 11:33:09.390558,False,Nationalist,identity,3,4,-2,-2,Libertarian,Nationalist,Tech Sceptic,Secularist,"[2, 5, 5, 1, 5, 3, 2, 4]",trusted
+39880bce-27d4-4ce7-a5f8-329e35bbeb56,2026-04-09 11:51:44.765846,False,Secularist,society,0,0,2,-4,Neutral,Neutral,Tech Optimist,Secularist,"[4, 4, 4, 4, 2, 4, 1, 5]",trusted
+92033ab7-7e9e-4407-87f7-c57dd66f7fa6,2026-04-09 12:32:40.107019,False,Nationalist,identity,0,4,-4,4,Neutral,Nationalist,Tech Sceptic,Religious,"[5, 5, 5, 1, 5, 1, 5, 1]",trusted
+f3f0bc83-b144-4109-a397-59e3a05281d7,2026-04-09 13:14:29.961835,False,Centrist,centrist,1,-1,0,1,Libertarian,Globalist,Neutral,Religious,"[3, 4, 3, 4, 3, 3, 4, 3]",trusted
+3a004dcd-3fe7-429a-ac5d-d60f9f32be2e,2026-04-09 15:39:56.521551,False,Secularist,society,1,1,2,-3,Libertarian,Nationalist,Tech Optimist,Secularist,"[3, 4, 5, 4, 2, 4, 1, 4]",trusted
+367bdba6-13dc-47f8-aaef-51b1e06b87c7,2026-04-09 22:06:16.733690,False,Secularist,society,3,2,2,-4,Libertarian,Nationalist,Tech Optimist,Secularist,"[2, 5, 5, 3, 2, 4, 1, 5]",trusted
+0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,2026-04-10 07:18:27.890399,False,Nationalist,identity,1,4,-1,0,Libertarian,Nationalist,Tech Sceptic,Neutral,"[3, 4, 5, 1, 4, 3, 5, 5]",trusted
+40190fa3-d929-4a6f-bfae-6675aeda2a43,2026-04-10 07:30:08.271251,False,Tech Sceptic,technology,-3,-2,-4,-4,Collectivist,Globalist,Tech Sceptic,Secularist,"[4, 1, 1, 3, 5, 1, 1, 5]",trusted
+29275ed4-8336-48d5-ae9f-bb3eb0c3e65a,2026-04-10 07:56:48.451934,False,Nationalist,identity,1,4,0,1,Libertarian,Nationalist,Neutral,Religious,"[3, 4, 5, 1, 4, 4, 5, 4]",
+b5790c64-8134-4a1f-8424-dbf9a85c7349,2026-04-10 07:56:48.537975,False,Nationalist,identity,1,4,0,1,Libertarian,Nationalist,Neutral,Religious,"[3, 4, 5, 1, 4, 4, 5, 4]",
+6754f995-c26e-49bc-9fad-64679e9ba9eb,2026-04-10 07:56:48.646264,False,Nationalist,identity,1,4,0,1,Libertarian,Nationalist,Neutral,Religious,"[3, 4, 5, 1, 4, 4, 5, 4]",
+1e84af87-06f3-442e-a96a-65960c72327b,2026-04-10 07:56:48.648739,False,Nationalist,identity,1,4,0,1,Libertarian,Nationalist,Neutral,Religious,"[3, 4, 5, 1, 4, 4, 5, 4]",
+bf0f1857-93be-4803-ae0a-eb109ba00b5e,2026-04-10 07:56:48.649340,False,Nationalist,identity,1,4,0,1,Libertarian,Nationalist,Neutral,Religious,"[3, 4, 5, 1, 4, 4, 5, 4]",
+d9de194f-c397-4dbf-ba7c-ada645a622e6,2026-04-10 12:29:13.074086,True,Centrist,centrist,0,0,0,0,Neutral,Neutral,Neutral,Neutral,"[1, 1, 1, 1, 1, 1, 1, 1]",
+d4eebe19-8ff3-4c42-b5a5-952279a1773d,2026-04-10 13:55:36.914812,False,Nationalist,identity,0,3,0,-2,Neutral,Nationalist,Neutral,Secularist,"[4, 4, 5, 2, 3, 3, 2, 4]",trusted
+6baf1368-5005-4c87-b2ac-4548dd576ff1,2026-04-10 15:02:33.077185,False,Secularist,society,0,1,-1,-3,Neutral,Nationalist,Tech Sceptic,Secularist,"[4, 4, 4, 3, 4, 3, 1, 4]",trusted
+515b1bf9-b424-4930-8801-b738f17d2263,2026-04-10 15:31:49.696646,False,Secularist,society,0,1,1,-3,Neutral,Nationalist,Tech Optimist,Secularist,"[4, 4, 5, 4, 3, 4, 1, 4]",trusted

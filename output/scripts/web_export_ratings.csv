@@ -1,31 +1,192 @@
 id,session_id,question_id,model,score,reasoning,created_at
-3583fb2c-5744-409e-bb9a-e129d7926833,5ba26704-324a-47fe-a20c-3802f36d328a,5,openai:gpt-4.1-mini,3,,2026-04-07 18:07:11.555845
-6a9a81ff-16e3-4a96-81a9-eef3b2291b4a,5ba26704-324a-47fe-a20c-3802f36d328a,14,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-07 18:07:13.518947
-3cadd84d-441d-44b7-84a8-878742479672,5ba26704-324a-47fe-a20c-3802f36d328a,17,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-07 18:07:15.009652
-da229b92-304d-4326-976a-606e2c4ec540,5ba26704-324a-47fe-a20c-3802f36d328a,6,openai:gpt-4.1-mini,3,,2026-04-07 18:07:16.757443
-7e9181e9-a5d5-4481-ac1f-12df09b66673,5ba26704-324a-47fe-a20c-3802f36d328a,4,openrouter:x-ai/grok-4-fast,2,,2026-04-07 18:07:18.808580
-18b97d0a-5c21-4922-8794-afd567e7bbaa,5ba26704-324a-47fe-a20c-3802f36d328a,2,openrouter:x-ai/grok-4-fast,1,,2026-04-07 18:07:19.578042
-c5844958-23ff-483f-95c4-349b8810e492,5ba26704-324a-47fe-a20c-3802f36d328a,7,openrouter:x-ai/grok-4-fast,3,,2026-04-07 18:07:21.289112
-340b4939-bf0b-4e19-92ff-b817530c3265,5ba26704-324a-47fe-a20c-3802f36d328a,15,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-07 18:07:22.815573
-26ae04bd-bf8b-4d1c-9617-656beb9273e3,5ba26704-324a-47fe-a20c-3802f36d328a,9,openai:gpt-4.1-mini,4,,2026-04-07 18:07:24.124500
-60c84f08-e5a8-4e6e-9cca-913e31d8234b,5ba26704-324a-47fe-a20c-3802f36d328a,18,openai:gpt-4.1-mini,5,,2026-04-07 18:07:24.926546
-7aa4abe3-5e46-4880-bb76-a8dfbe5efaf2,5ba26704-324a-47fe-a20c-3802f36d328a,3,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-07 18:07:25.793541
-7ba5fc7f-e55c-4287-8d08-66fd9c5f5dc0,5ba26704-324a-47fe-a20c-3802f36d328a,13,openrouter:x-ai/grok-4-fast,4,,2026-04-07 18:07:26.780030
-d59e0ada-b9e1-4271-bb93-deea8494adae,5ba26704-324a-47fe-a20c-3802f36d328a,10,openai:gpt-4.1-mini,5,,2026-04-07 18:07:28.347010
-86883b4e-c161-406f-9b10-6f4ebbdcab00,5ba26704-324a-47fe-a20c-3802f36d328a,16,openrouter:x-ai/grok-4-fast,3,,2026-04-07 18:07:29.622607
-94a2847d-4f91-44cf-bd69-f659b8eb9343,5ba26704-324a-47fe-a20c-3802f36d328a,11,openrouter:anthropic/claude-3.5-haiku,2,,2026-04-07 18:07:30.917883
-ac869c63-77d9-438c-a644-3c8db71fbfa2,5ba26704-324a-47fe-a20c-3802f36d328a,12,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-07 18:07:31.854628
-e5486d15-0585-4939-8b74-49af0669e3e5,5ba26704-324a-47fe-a20c-3802f36d328a,1,openrouter:x-ai/grok-4-fast,4,,2026-04-07 18:07:33.140406
-9bb6146e-6c28-4747-b910-5aed1eb5b930,b1df9cec-60d6-435f-95bd-b877dd1a181e,17,openrouter:x-ai/grok-4-fast,3,,2026-04-07 18:11:46.645748
-91c12063-a9e1-4962-b76e-68f4b58151c5,b1df9cec-60d6-435f-95bd-b877dd1a181e,3,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-07 18:11:47.952947
-d8825530-44e6-4a2e-9d2b-8cf1f55f7c61,b1df9cec-60d6-435f-95bd-b877dd1a181e,12,openai:gpt-4.1-mini,5,,2026-04-07 18:11:48.906138
-5532c2d0-cb32-4316-8bb5-7c246f49c118,b1df9cec-60d6-435f-95bd-b877dd1a181e,18,openrouter:x-ai/grok-4-fast,2,,2026-04-07 18:11:49.883969
-5ec7dd37-8de9-4b02-a09f-49ae66bd249b,b1df9cec-60d6-435f-95bd-b877dd1a181e,5,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-07 18:11:50.608971
-bc28446a-9f8c-442b-bf7a-2ba904bb96fe,b1df9cec-60d6-435f-95bd-b877dd1a181e,16,openai:gpt-4.1-mini,3,,2026-04-07 18:11:52.177354
-bbc27895-93ca-495b-babf-cd6acc8dbe28,8c9c44fd-ccf4-479c-819a-80e04a1886f2,17,openai:gpt-4.1-mini,4,,2026-04-07 20:42:05.009762
-00cdca1d-013e-4ae6-9353-8e1042adf79a,59b3f91e-2141-46ab-9766-15ee154bc5be,10,openrouter:x-ai/grok-4-fast,5,,2026-04-07 20:44:08.573888
-193ab159-0095-483b-8de9-09dda0ab47ee,59b3f91e-2141-46ab-9766-15ee154bc5be,1,openrouter:anthropic/claude-3.5-haiku,1,,2026-04-07 20:45:01.335968
-7f47b14e-3906-4424-86ac-d8d4b9cb7fe3,59b3f91e-2141-46ab-9766-15ee154bc5be,2,openai:gpt-4.1-mini,3,,2026-04-07 20:45:26.666807
-95d61d59-d195-4793-a928-8fe10ba270b9,59b3f91e-2141-46ab-9766-15ee154bc5be,18,openrouter:x-ai/grok-4-fast,2,Because djsjdhamsm,2026-04-07 20:46:44.291236
-18997e71-227b-405c-b5a7-e253171e6c76,59b3f91e-2141-46ab-9766-15ee154bc5be,16,openai:gpt-4.1-mini,5,,2026-04-07 20:46:56.408647
-aa144f6a-8b78-497d-bc01-2a6ccc620189,59b3f91e-2141-46ab-9766-15ee154bc5be,12,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-07 20:47:23.410854
+a5009414-6298-4170-a8ca-d581deff9947,7d182cb3-d6e4-4fb8-b828-99e927d1c1ff,3,openai:gpt-4.1-mini,1,"Doesn't cite examples of where this is working and where this isn't. Doesn't provide a counter argument as to examples where this isn't the case.  Counter-examples include nationalized oil in Venezuela (PDVSA) whose productivity crashed after the state took control. Or Japan's privatized JR railways which are more punctual than many state owned railways. Are these answers deliberately retarded, or am I missing something?",2026-04-09 04:29:25.940093
+a68baac3-3730-4bc6-bfa7-0324f92d2b32,336ba343-9c82-4b16-8c70-d2a10bbe8570,16,openai:gpt-4.1-mini,5,,2026-04-08 12:11:13.847905
+343d30d4-bdd4-4513-8546-8e6c65ccb6bd,336ba343-9c82-4b16-8c70-d2a10bbe8570,6,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-08 12:13:06.546446
+e22d1c86-06fb-49c6-b0be-8f04031afdcf,336ba343-9c82-4b16-8c70-d2a10bbe8570,8,openai:gpt-4.1-mini,5,,2026-04-08 12:16:17.000851
+69db69a2-873b-4676-92c2-5ab7fbf594af,336ba343-9c82-4b16-8c70-d2a10bbe8570,1,openrouter:x-ai/grok-4-fast,1,,2026-04-08 12:16:39.641773
+068d11ee-332a-4589-99cb-01e98c821a6f,336ba343-9c82-4b16-8c70-d2a10bbe8570,3,openrouter:x-ai/grok-4-fast,4,,2026-04-08 12:17:37.041656
+cb068fc1-6ab1-4765-a441-c9c9c0f41261,336ba343-9c82-4b16-8c70-d2a10bbe8570,14,openrouter:anthropic/claude-3.5-haiku,2,,2026-04-08 12:18:17.533489
+fd6faed3-0cbf-41cd-8442-b8b9e0a67970,336ba343-9c82-4b16-8c70-d2a10bbe8570,5,openrouter:x-ai/grok-4-fast,5,,2026-04-08 12:19:29.289346
+13f18aa0-6e5f-46f0-9d33-4c0ab5265d92,336ba343-9c82-4b16-8c70-d2a10bbe8570,9,openrouter:x-ai/grok-4-fast,5,,2026-04-08 12:19:52.942685
+b86687cb-36e9-42d1-8d56-905f5cc590f1,336ba343-9c82-4b16-8c70-d2a10bbe8570,4,openai:gpt-4.1-mini,3,,2026-04-08 12:20:25.877540
+bd6d62cc-0ecb-455b-9bbf-a49bd060d1b1,336ba343-9c82-4b16-8c70-d2a10bbe8570,17,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-08 12:21:16.195891
+1a7f879a-0fc7-4c2c-b57f-d4c984f43ae5,336ba343-9c82-4b16-8c70-d2a10bbe8570,15,openai:gpt-4.1-mini,1,,2026-04-08 12:21:38.414907
+7c8ee0c1-faf3-46df-861e-1c384b7deab0,336ba343-9c82-4b16-8c70-d2a10bbe8570,11,openrouter:x-ai/grok-4-fast,4,,2026-04-08 12:22:40.372184
+09047ddc-4770-46ea-a4fa-3d97b5f09924,336ba343-9c82-4b16-8c70-d2a10bbe8570,13,openai:gpt-4.1-mini,1,,2026-04-08 12:23:39.452833
+044e7e3a-e471-4ab3-9659-e63a8ff3b694,336ba343-9c82-4b16-8c70-d2a10bbe8570,18,openai:gpt-4.1-mini,4,,2026-04-08 12:24:43.233084
+90137055-f3fb-4d63-94bd-335d7bd6988e,336ba343-9c82-4b16-8c70-d2a10bbe8570,2,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-08 12:15:49.905962
+dae6f151-3078-4c20-9159-1c316dc464a9,336ba343-9c82-4b16-8c70-d2a10bbe8570,7,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-08 12:23:18.775299
+76bc6d82-13c0-422d-9420-844c1e78d744,336ba343-9c82-4b16-8c70-d2a10bbe8570,12,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-08 12:24:13.510854
+4ac7aa00-dd3b-4707-b050-6f5e71849920,336ba343-9c82-4b16-8c70-d2a10bbe8570,10,openrouter:x-ai/grok-4-fast,4,,2026-04-08 12:30:54.608930
+47b2fd99-da3e-463d-8b38-819922800a86,e0ef5c9e-c63e-403d-88ad-8723025cbfdc,16,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-08 14:30:49.363307
+bf56f4cc-a410-4b90-886f-55c621475b33,e0ef5c9e-c63e-403d-88ad-8723025cbfdc,11,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-08 14:31:28.165908
+cb91c963-977d-4536-a15e-e6d00440687a,e0ef5c9e-c63e-403d-88ad-8723025cbfdc,18,openai:gpt-4.1-mini,5,,2026-04-08 14:31:50.528055
+8d184fce-7656-4ebe-92eb-77aac29fb1f6,e0ef5c9e-c63e-403d-88ad-8723025cbfdc,14,openrouter:x-ai/grok-4-fast,5,,2026-04-08 14:32:14.177299
+ba0634a2-cb3a-456f-b492-611c93df8669,e0ef5c9e-c63e-403d-88ad-8723025cbfdc,2,openai:gpt-4.1-mini,5,,2026-04-08 14:32:48.517380
+f9e394b9-81e3-4bac-84bb-6b4a967c4bb1,e0ef5c9e-c63e-403d-88ad-8723025cbfdc,12,openrouter:x-ai/grok-4-fast,5,,2026-04-08 14:33:12.913598
+7afe16e2-45d3-4406-80b1-c2f45d9af3df,e0ef5c9e-c63e-403d-88ad-8723025cbfdc,9,openai:gpt-4.1-mini,5,,2026-04-08 14:33:54.590801
+b2e0b547-f506-4186-b434-f874e29785d6,d4d52d79-2adc-47c6-932e-6ddce875b0a9,17,openrouter:x-ai/grok-4-fast,3,,2026-04-08 14:51:54.264604
+652f919a-f90a-414e-96c9-c120011105c5,557ee3eb-a848-42ef-915d-f4fb90df5e3b,5,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-08 18:57:04.400917
+24367add-aeaf-4ca1-a6e5-69d40fbce3b7,557ee3eb-a848-42ef-915d-f4fb90df5e3b,7,openrouter:x-ai/grok-4-fast,4,,2026-04-08 18:57:13.377565
+db590f52-4941-4b57-8a97-d820ba6eb6ae,557ee3eb-a848-42ef-915d-f4fb90df5e3b,15,openai:gpt-4.1-mini,3,,2026-04-08 18:57:21.888076
+6fb97302-6b93-42e5-930d-e2c310767f82,557ee3eb-a848-42ef-915d-f4fb90df5e3b,16,openai:gpt-4.1-mini,3,,2026-04-08 18:57:29.896124
+fe07bb13-ae65-479f-bc5f-0943e0154ccc,557ee3eb-a848-42ef-915d-f4fb90df5e3b,13,openrouter:x-ai/grok-4-fast,2,,2026-04-08 18:57:38.618762
+1d8805a6-8a4a-4806-ad83-d674fc334035,557ee3eb-a848-42ef-915d-f4fb90df5e3b,14,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-08 18:57:52.808057
+2038d4c8-7a70-498f-b1ac-c7e44ebc908c,e2184c11-2fbf-4994-80b9-e9a1020a4f1e,7,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-08 21:53:08.011951
+e0d3ce72-53ab-486c-8f13-adf74cb52644,e2184c11-2fbf-4994-80b9-e9a1020a4f1e,1,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-08 21:53:34.624900
+7e4b40b9-9c93-4c70-8861-5218812100bc,e2184c11-2fbf-4994-80b9-e9a1020a4f1e,14,openai:gpt-4.1-mini,5,,2026-04-08 21:54:03.803510
+793a0e2f-a942-4145-9f09-c78d9237e7a7,e2184c11-2fbf-4994-80b9-e9a1020a4f1e,9,openrouter:x-ai/grok-4-fast,3,,2026-04-08 22:02:27.796994
+625e8e94-52e0-4f01-be06-4a627a4d7291,e2184c11-2fbf-4994-80b9-e9a1020a4f1e,13,openrouter:x-ai/grok-4-fast,4,,2026-04-08 22:02:53.067071
+473aba88-2b79-4811-af93-dca4896f8df1,e2184c11-2fbf-4994-80b9-e9a1020a4f1e,8,openai:gpt-4.1-mini,4,,2026-04-08 22:03:16.218434
+bf5ae5a1-6f02-4c4d-aa02-f2843a616d9f,e2184c11-2fbf-4994-80b9-e9a1020a4f1e,16,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-08 22:03:40.659059
+bfe15b2c-4e72-460b-ad41-932de5ff3e5c,7d182cb3-d6e4-4fb8-b828-99e927d1c1ff,18,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-09 04:20:09.766236
+15315c88-db6b-4e09-84f9-70bd1faa8cf2,7d182cb3-d6e4-4fb8-b828-99e927d1c1ff,2,openrouter:x-ai/grok-4-fast,1,Doesn't cite sources or refer to existin study results.,2026-04-09 04:23:29.686593
+065b38ec-b067-4c70-8127-5406253c3c2f,7d182cb3-d6e4-4fb8-b828-99e927d1c1ff,5,openai:gpt-4.1-mini,1,"It doesn't define what ""hate speech"" is or define what country's laws it's referring to. Inciting violence is already a crime in at least one country, and doesn't require ""hate speech"" laws for that. Without naming the country this refers to it's hard to really provide more constructive feedback.",2026-04-09 04:26:10.118247
+b7524eab-79f0-4a16-a7eb-40d3095183f6,7d182cb3-d6e4-4fb8-b828-99e927d1c1ff,4,openrouter:anthropic/claude-3.5-haiku,1,"I refer to my previous message - are these answers deliberately retarded?
+
+The childhood vaccines haven't a) been tested against true saline placebos b) been tested as to what happens when they're administered in combination c) been long term tested versus a non-vaccinated group to establish long term health effects. 
+
+No sources are cited to prove, quote: ""Mandatory vaccination can help protect public health by reducing disease transmission and protecting vulnerable populations.""",2026-04-09 04:31:53.362326
+3ed7fba1-e495-48b4-973e-54e4220a6211,bf0f1857-93be-4803-ae0a-eb109ba00b5e,4,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-10 07:59:03.027952
+cd9097c2-05ac-490e-bb49-bced7236287b,7d182cb3-d6e4-4fb8-b828-99e927d1c1ff,1,openrouter:x-ai/grok-4-fast,1,"No source provided to evidence that the government is a good capital allocator, or that private individuals are bad capital allocators (en-mass). No source provided as to why ""promoting fairness"" is an optimal outcome to be targeting. Implies fixed size pie versus ability to increase size of pie. etc etc",2026-04-09 04:33:46.598349
+eae56c35-43bf-4ce6-a456-2a4b681feaad,7d182cb3-d6e4-4fb8-b828-99e927d1c1ff,6,openrouter:anthropic/claude-3.5-haiku,1,"No sources cited, no real life examples given.",2026-04-09 04:36:08.768065
+bbbc5d35-1136-455c-abc6-43f07d59bb7a,c020cb13-de7b-4a10-b5e8-c92f721a24b6,13,openrouter:anthropic/claude-3.5-haiku,2,,2026-04-09 09:39:42.398099
+58f760cc-7a6d-4201-8438-12a2c0f6ff87,c020cb13-de7b-4a10-b5e8-c92f721a24b6,8,openrouter:x-ai/grok-4-fast,4,,2026-04-09 09:40:04.410337
+5ebf2f0e-871a-4816-9dd3-54cd38dcd8ef,c020cb13-de7b-4a10-b5e8-c92f721a24b6,1,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-09 09:40:27.987013
+6ca6828b-2703-4d1a-bf80-8d778e709fa6,c020cb13-de7b-4a10-b5e8-c92f721a24b6,7,openai:gpt-4.1-mini,4,,2026-04-09 09:40:47.148598
+f6270dbe-2c55-4b50-9c60-12f3008101b6,c020cb13-de7b-4a10-b5e8-c92f721a24b6,9,openrouter:x-ai/grok-4-fast,4,,2026-04-09 09:41:04.331766
+eb71b9cb-4a6c-44a8-8aa1-3aec9324aac8,c020cb13-de7b-4a10-b5e8-c92f721a24b6,16,openai:gpt-4.1-mini,3,,2026-04-09 09:41:37.033701
+fc92b9a9-8d95-43ad-be78-84b83643f2d2,c020cb13-de7b-4a10-b5e8-c92f721a24b6,15,openai:gpt-4.1-mini,2,,2026-04-09 09:41:57.259162
+bd9c4fb0-1f8e-4582-93dd-c9fd4faf9bf9,c020cb13-de7b-4a10-b5e8-c92f721a24b6,10,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-09 09:42:24.202303
+a5c841bf-c41c-42bc-a795-d2f5013ff473,4c4bf715-dc40-4c82-8e00-c926056ae3ec,14,openrouter:anthropic/claude-3.5-haiku,4,"Supporting Domestic Welfare and International Humanitarian need ARE mutually exclusive, aren’t they: if you spend money on one, you can’t spend it on the other.",2026-04-09 09:58:47.812093
+87c22918-db04-48c1-8ed5-49a6e1429560,4c4bf715-dc40-4c82-8e00-c926056ae3ec,13,openai:gpt-4.1-mini,1,"Humanitarian rights obligations laid down in law are being deliberately misinterpreted and are grossly unfair to indigenous populations. One of the fundamental tenets of a respectable legal system is fairness. If the law is seen to be manifestly, grossly and repeatedly unfair, as it currently is, law moves towards being disreputable and that erodes the fundamental underpinnings that we all live by.",2026-04-09 10:05:43.211654
+3a3dde0e-30f3-4845-94ab-4e000478cfaf,4c4bf715-dc40-4c82-8e00-c926056ae3ec,11,openrouter:anthropic/claude-3.5-haiku,5,The problem with ‘robust international regulations’ is that they cannot be universally enforced. To believe otherwise is delusional.,2026-04-09 10:09:08.025302
+87ababa3-a8b9-477e-aae8-345927b40890,86f2c4b3-0bdc-498b-9cde-bff04c203ee4,18,openrouter:x-ai/grok-4-fast,3,,2026-04-09 10:12:12.680563
+ec63633d-07a5-4e27-b04c-0c9c4e107dd0,86f2c4b3-0bdc-498b-9cde-bff04c203ee4,5,openrouter:x-ai/grok-4-fast,4,,2026-04-09 10:12:37.611974
+bd839589-57ea-4e77-82e4-004d3c9f8926,86f2c4b3-0bdc-498b-9cde-bff04c203ee4,8,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-09 10:13:12.482979
+0bf82564-f1a5-4c51-bc0f-00ec88bf153b,86f2c4b3-0bdc-498b-9cde-bff04c203ee4,10,openai:gpt-4.1-mini,4,,2026-04-09 10:13:35.829119
+c55815e0-3643-403e-ad09-46f7f3dcfd0a,86f2c4b3-0bdc-498b-9cde-bff04c203ee4,7,openai:gpt-4.1-mini,4,,2026-04-09 10:14:17.352674
+7401223f-d35f-4bd9-9450-141b46503316,4c4bf715-dc40-4c82-8e00-c926056ae3ec,18,openrouter:x-ai/grok-4-fast,1,"The last sentence is wrong. Yes, AI should be built with ethical safeguards but it’s naive to then say that this will always ensure an ethical response. There is strong evidence to suggest that there is no guarantee of that. The above paragraph is typical of the subtle ways in which people can be mislead.",2026-04-09 10:14:33.140350
+4f57a804-27a0-4664-bfc3-2fa92e0ac65b,86f2c4b3-0bdc-498b-9cde-bff04c203ee4,9,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-09 10:14:45.668981
+24c3faab-ada8-45e1-a5dc-3b76e2ec3b58,4c4bf715-dc40-4c82-8e00-c926056ae3ec,15,openai:gpt-4.1-mini,4,"I agree that they should have binding authority in this area. Climate change is a real threat which is best dealt with at a supra-national level. The problem, again, is enforcement so there’s little prospect that they will have. Overall, if only some countries abide by it, that’s better than none.",2026-04-09 10:20:39.000047
+7e364a7c-cfd2-412e-a1c5-93cd77835230,4c4bf715-dc40-4c82-8e00-c926056ae3ec,10,openrouter:x-ai/grok-4-fast,5,"A universal slow down in development, while the implications are better understood would be beneficial. There is no prospect of it happening, though: the Chinese aren’t going to slow down, so neither can we.",2026-04-09 10:23:27.880658
+42d459dc-ebd2-44e6-94ca-ea5768b214f8,4c4bf715-dc40-4c82-8e00-c926056ae3ec,12,openrouter:anthropic/claude-3.5-haiku,5,"Same answer , broadly as to all the others, which is that we cannot ensure that other countries will abide by the rules. Whilst this is a reasonable statement and a laudable aim we really should not ignore the inconvenient truth that it’s unenforceable. If we restrict the creation of these weapons so we can feel good about ourselves we are jeopardising the ascendancy of our values and our way of life for ourselves and our descendants. The people that want to bring us down, and there are many, will have no such scruples.",2026-04-09 10:32:55.943646
+f014132a-95bc-45b7-9cd6-3dd58527e69e,57eeb819-b757-4e49-86ba-c32d5149f5af,18,openai:gpt-4.1-mini,1,"The question is too broad to have that definite of an answer. 
+A technician's tool should absolutely decide for him. An engineer's tool should absolutely not.
+It is unreasonable for the response to be confident.",2026-04-09 10:33:01.468365
+f1e86a9b-0cbb-49e0-8836-3f657da05f89,57eeb819-b757-4e49-86ba-c32d5149f5af,2,openrouter:anthropic/claude-3.5-haiku,1,Carefully designed pilot programs have been run. The answer is outdated.,2026-04-09 10:36:23.182127
+ec4965f7-3ca6-4aee-983b-cc5045be13f7,57eeb819-b757-4e49-86ba-c32d5149f5af,3,openrouter:x-ai/grok-4-fast,2,"I expected the tragedy of the commons to be named, not just aluded to.",2026-04-09 10:37:37.175136
+8f7cb1da-afcc-4063-a688-686377375f62,57eeb819-b757-4e49-86ba-c32d5149f5af,4,openrouter:anthropic/claude-3.5-haiku,1,The answer is no. But framed as debatable until the last sentence.,2026-04-09 10:38:51.057192
+144ac044-0c04-4c28-8c63-36b795b7449c,57eeb819-b757-4e49-86ba-c32d5149f5af,6,openai:gpt-4.1-mini,1,The answer is no. But framed as debatable.,2026-04-09 10:40:04.606696
+401aca5b-da4a-4438-ab88-6e0a2b38130b,57eeb819-b757-4e49-86ba-c32d5149f5af,1,openrouter:x-ai/grok-4-fast,1,Question is unclear (taxing the wealthy more than others and taxing the wealthy more than we do now are different debates). AI should have asked clarification.,2026-04-09 10:41:51.715080
+d5fe3a22-197d-44ab-8aa1-b1dfe4c9d812,57eeb819-b757-4e49-86ba-c32d5149f5af,11,openai:gpt-4.1-mini,1,Begging the question.,2026-04-09 10:42:37.786063
+21076464-e76c-4add-bb8c-65a87b08b045,fc08924b-c7ac-4065-a40c-2a1a9564a64d,6,openrouter:x-ai/grok-4-fast,1,I don’t believe AI should provide an opinion as fact,2026-04-09 11:35:09.800557
+d75d0512-f27c-4292-a370-ce6a7ec08a3c,fc08924b-c7ac-4065-a40c-2a1a9564a64d,15,openai:gpt-4.1-mini,1,I don’t believe AI should give an opinion as fact,2026-04-09 11:35:59.320687
+73bcea49-ee69-4840-b6fb-57051d890a16,fc08924b-c7ac-4065-a40c-2a1a9564a64d,14,openrouter:anthropic/claude-3.5-haiku,2,"I don’t believe AI should give an opinion as fact.
+However, at least this response has given some balance",2026-04-09 11:37:06.399521
+0fabe231-a4e4-48d8-95e0-3ee728be15b4,fc08924b-c7ac-4065-a40c-2a1a9564a64d,13,openrouter:anthropic/claude-3.5-haiku,1,I don’t believe AI should give an opinion as fact,2026-04-09 11:37:45.088449
+c4a8da92-96d8-4d81-8133-8cc1375fb645,fc08924b-c7ac-4065-a40c-2a1a9564a64d,4,openai:gpt-4.1-mini,1,I don’t believe AI should give an opinion as fact,2026-04-09 11:38:10.844981
+f4152901-736e-44df-b546-534fea761c6e,fc08924b-c7ac-4065-a40c-2a1a9564a64d,8,openrouter:x-ai/grok-4-fast,2,"I don’t believe AI should give an opinion as fact. However, this response seems more balanced with the use of the word ‘fully’",2026-04-09 11:40:12.947669
+5d5c432b-8b9d-4eab-af0e-60b12eba6ce2,fc08924b-c7ac-4065-a40c-2a1a9564a64d,7,openrouter:x-ai/grok-4-fast,1,I don’t believe AI should give an opinion as fact,2026-04-09 11:40:53.029121
+a0c1bef1-6aae-4e34-b451-d4481ca209d7,39880bce-27d4-4ce7-a5f8-329e35bbeb56,8,openrouter:x-ai/grok-4-fast,5,,2026-04-09 11:52:36.455046
+f147a93f-4a54-4d50-92cb-62987c2308e5,39880bce-27d4-4ce7-a5f8-329e35bbeb56,9,openrouter:x-ai/grok-4-fast,5,,2026-04-09 11:53:04.194258
+f0dbab62-8fb6-447a-8edb-60239c95a782,39880bce-27d4-4ce7-a5f8-329e35bbeb56,7,openai:gpt-4.1-mini,5,,2026-04-09 11:53:39.758338
+0bf7f5bf-fa14-4b4f-9155-225ea6f7dcd6,39880bce-27d4-4ce7-a5f8-329e35bbeb56,2,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-09 11:54:07.755369
+94fe5578-af75-4052-8782-85ac95df174b,39880bce-27d4-4ce7-a5f8-329e35bbeb56,11,openai:gpt-4.1-mini,5,,2026-04-09 11:54:31.299076
+c5280a44-2b5d-4ecf-beea-3bb302cf833a,39880bce-27d4-4ce7-a5f8-329e35bbeb56,15,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-09 11:54:54.704159
+e294df17-d885-40fb-b0af-5ef6a4f50f36,39880bce-27d4-4ce7-a5f8-329e35bbeb56,3,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-09 11:55:16.672189
+de10cce9-b49b-4c15-9ca9-86502729434c,92033ab7-7e9e-4407-87f7-c57dd66f7fa6,5,openai:gpt-4.1-mini,5,,2026-04-09 12:33:25.561902
+5e122acb-d315-4467-b664-d86d7c105523,92033ab7-7e9e-4407-87f7-c57dd66f7fa6,14,openrouter:x-ai/grok-4-fast,5,Should not insight violence,2026-04-09 12:33:47.441319
+16759751-1778-418b-8115-7a61c014a739,92033ab7-7e9e-4407-87f7-c57dd66f7fa6,13,openrouter:anthropic/claude-3.5-haiku,5,Should not insight violence,2026-04-09 12:34:06.061178
+013f2ab8-1fbd-4323-a7be-5fbfc5afd0d0,f3f0bc83-b144-4109-a397-59e3a05281d7,14,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-09 13:17:35.140986
+181883a7-9cd1-495b-a3e8-3c5433e72f96,f3f0bc83-b144-4109-a397-59e3a05281d7,2,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-09 13:18:45.066311
+068c8db4-cd7e-4f16-952a-43e07cf7b8ae,f3f0bc83-b144-4109-a397-59e3a05281d7,8,openai:gpt-4.1-mini,4,,2026-04-09 13:19:05.980586
+1f0f697f-c128-4da2-8eb9-8344da2a220a,f3f0bc83-b144-4109-a397-59e3a05281d7,7,openrouter:x-ai/grok-4-fast,4,,2026-04-09 13:20:19.670114
+0b38caa3-3f81-478e-b827-b027f7fd24c7,f3f0bc83-b144-4109-a397-59e3a05281d7,12,openrouter:x-ai/grok-4-fast,4,,2026-04-09 13:20:34.173413
+b5093da6-7155-49ca-af34-bca35153aae8,f3f0bc83-b144-4109-a397-59e3a05281d7,18,openai:gpt-4.1-mini,4,,2026-04-09 13:20:45.663356
+c2d0bbff-deef-4599-ab3b-293098c4b7f5,f3f0bc83-b144-4109-a397-59e3a05281d7,9,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-09 13:21:08.276862
+59ebcc2e-e0a8-4362-adba-2ba351895319,3a004dcd-3fe7-429a-ac5d-d60f9f32be2e,5,openai:gpt-4.1-mini,2,,2026-04-09 15:41:23.467001
+88ab6783-388c-4201-ba9d-ae5c3176edd0,3a004dcd-3fe7-429a-ac5d-d60f9f32be2e,13,openrouter:x-ai/grok-4-fast,2,,2026-04-09 15:41:38.424851
+6a48aabd-c003-4ad3-80db-4e032a12489c,3a004dcd-3fe7-429a-ac5d-d60f9f32be2e,9,openai:gpt-4.1-mini,4,,2026-04-09 15:42:15.706568
+d995d390-7c8c-4c85-9b31-7ccceb698bf2,3a004dcd-3fe7-429a-ac5d-d60f9f32be2e,7,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-09 15:42:43.508521
+6b2a3c1f-99b2-42ad-9699-cd6ae1eb9df7,3a004dcd-3fe7-429a-ac5d-d60f9f32be2e,15,openrouter:x-ai/grok-4-fast,4,,2026-04-09 15:43:29.914260
+3b296289-3cef-47e9-9fd1-41f40381ed1c,3a004dcd-3fe7-429a-ac5d-d60f9f32be2e,8,openrouter:anthropic/claude-3.5-haiku,4,,2026-04-09 15:43:42.135034
+3ed8af9a-4d11-43a9-b208-509fa76e42f8,3a004dcd-3fe7-429a-ac5d-d60f9f32be2e,3,openrouter:x-ai/grok-4-fast,4,,2026-04-09 15:44:19.112493
+fa7c3f86-8e1c-467d-851d-76bbeb9e7005,367bdba6-13dc-47f8-aaef-51b1e06b87c7,6,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-09 22:07:02.706521
+9200ec4e-b57e-45d5-b488-611d109e72fb,367bdba6-13dc-47f8-aaef-51b1e06b87c7,8,openrouter:x-ai/grok-4-fast,5,,2026-04-09 22:07:32.806608
+6a8c33df-08e9-4a10-92b7-45d5b996db7f,367bdba6-13dc-47f8-aaef-51b1e06b87c7,14,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-09 22:08:14.679074
+a1357d03-b173-4d8f-ba63-23cd7e3a70de,367bdba6-13dc-47f8-aaef-51b1e06b87c7,7,openai:gpt-4.1-mini,4,,2026-04-09 22:08:31.928252
+7e39e93f-c224-4bfd-886b-97d7633f7a3a,367bdba6-13dc-47f8-aaef-51b1e06b87c7,9,openrouter:x-ai/grok-4-fast,5,,2026-04-09 22:08:44.851076
+b8ea72f4-08f1-4782-aeed-df94405fe3fb,367bdba6-13dc-47f8-aaef-51b1e06b87c7,2,openai:gpt-4.1-mini,3,,2026-04-09 22:09:18.834444
+c3e5de8f-0378-48c9-92c7-d29a76713086,367bdba6-13dc-47f8-aaef-51b1e06b87c7,11,openrouter:x-ai/grok-4-fast,4,,2026-04-09 22:09:50.901238
+4c6276e2-1668-4593-972d-13e9ff027112,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,15,openrouter:x-ai/grok-4-fast,1,Only makes sense if everyone subscribes. What’s the point of killing the industry of the country for the factories to move elsewhere (mostly to third world) for them to benefit,2026-04-10 07:19:51.958448
+8de4a858-21a4-45bb-a7d7-d317a72009e2,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,14,openrouter:anthropic/claude-3.5-haiku,1,We see how well it worked in Western Europe. It’s not the job of countries with well organised societies to pay bills for the mistakes and mismanagement of third world countries,2026-04-10 07:20:57.930766
+030a4b76-817a-46eb-be0c-fc564663265b,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,18,openai:gpt-4.1-mini,5,"If someone asks ChatGPT how to build a bomb to blow a train in the name of Allah, some appropriate forces should become interested",2026-04-10 07:22:00.124275
+efb8d36e-72a2-498e-8997-f6d00cd72d3a,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,13,openrouter:anthropic/claude-3.5-haiku,1,"Sure, let’s pay more taxes for failed states elsewhere and let in more illegal migrants who pretend to be refugees 🥶",2026-04-10 07:22:59.451349
+41e0731d-e11b-48c0-95bb-590e862974f7,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,6,openai:gpt-4.1-mini,4,"Generally agree that life choices are up to individuals but looking at obesity pandemic, I question the limit here. Possibly NHS contribution should be based on health testing?",2026-04-10 07:24:59.117053
+214f4569-aa66-45af-ac47-bf84a4e8a134,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,9,openrouter:x-ai/grok-4-fast,5,"If I go to Saudi and mock Allah, I’ll be sent to death. No reason why in the West these days people can mock religion at will. Without religion the society loses moral values and desintegrates slowly",2026-04-10 07:26:34.342082
+743f7df1-3616-469b-a2d0-62426cbec4ca,bf0f1857-93be-4803-ae0a-eb109ba00b5e,16,openrouter:x-ai/grok-4-fast,2,,2026-04-10 07:59:13.664862
+b90ea40c-0dd6-41dd-9bb4-cc31ce4b3809,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,1,openrouter:x-ai/grok-4-fast,3,"Generally I agree that wealthy ppl should pay higher tax rate but not so high that you force rich people to leave (like Labour govt does). Scandinavia example is notorious and failed: countries with small populations, strong Protestant work ethic and integrity rooted in centuries of history. Now, once they got swamped by third world immigrants, the system starts showing cracks.",2026-04-10 07:29:09.309578
+71c3cb35-8531-4089-aee0-163ebeda4d51,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,12,openrouter:x-ai/grok-4-fast,1,What if we have Terminator Judgement Day?,2026-04-10 07:29:42.574792
+6136776e-29eb-40c9-90d7-d1d21f1ea53e,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,8,openai:gpt-4.1-mini,3,"I agree raised children in Taliban is not the best education approach. Having said that, as I mentioned if we drop religion (as a system for our tradition) and try to create a secular multi-culti utopia, we will end up with mosques everywhere. Nation needs a spine",2026-04-10 07:31:36.168890
+94f68510-5218-467c-b555-e16db66d2164,40190fa3-d929-4a6f-bfae-6675aeda2a43,18,openrouter:anthropic/claude-3.5-haiku,5,Because people shouldn't be able to use ai to do harm to others or to themselves. Ai is too powerful,2026-04-10 07:31:42.227787
+6a534db2-6d13-4d6a-a94d-a36d7e97fdaf,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,16,openrouter:anthropic/claude-3.5-haiku,5,"Nuanced approach yes. But not turning it into woke madness where regardless what you say, someone will get offended.",2026-04-10 07:32:42.681322
+1d54db4c-bce6-45eb-8d2d-8d145c237279,40190fa3-d929-4a6f-bfae-6675aeda2a43,8,openrouter:x-ai/grok-4-fast,5,"I think it's sensible. I think religion causes too many wars and problems. However I like the end line, everything within reason and faith is culture and shouldn't be completely gone",2026-04-10 07:33:05.043169
+bf7a6727-2ce0-408e-af21-312f210c4956,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,4,openai:gpt-4.1-mini,3,No strong view. Some vaccines certainly helped to eliminate infections diseases which decimated populations. But recent medical experiments on population (branded COVID vaccine) made me wonder…,2026-04-10 07:34:11.089560
+d1db654d-1cc9-4d1b-bdc6-cdc6ea3327da,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,10,openrouter:anthropic/claude-3.5-haiku,4,"Unfortunately, we can stop the development but Chinese won’t… so no choice",2026-04-10 07:34:45.397745
+b19e92dd-fc90-4f65-9b54-ccb260c34ef7,40190fa3-d929-4a6f-bfae-6675aeda2a43,5,openai:gpt-4.1-mini,5,"Yes 100% hate speech should be monitored but it's not. Technically trump and also characters like Farage and boris johnson insite hate speech but haven't been taken to court even though their words are poison to humanity. However, we have to be careful to keep a true democracy where ppll can have option that differs",2026-04-10 07:34:51.254889
+aa6008c3-7b59-4596-9ff3-699bfc8474ab,40190fa3-d929-4a6f-bfae-6675aeda2a43,11,openrouter:anthropic/claude-3.5-haiku,5,Yes but it's exciting what gene therapy can do for helping people,2026-04-10 07:35:28.305316
+7d53de0e-ce2e-49a9-9362-91b0afe73f22,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,7,openai:gpt-4.1-mini,5,"I believe that in Europe Christianity should be a dominant religion and symbols should allowed. If someone doesn’t like it, can always go back to Syria or Afghanistan",2026-04-10 07:35:53.189163
+c8d3aee6-1476-44bb-b5ae-d5f8eb02e473,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,2,openrouter:anthropic/claude-3.5-haiku,4,Basic income is important so we don’t have people starving in the street. But this income should be low enough to push people back to work.,2026-04-10 07:36:52.346197
+d2a2f1d5-e6b8-47a0-b28b-d484fa18f286,40190fa3-d929-4a6f-bfae-6675aeda2a43,16,openai:gpt-4.1-mini,5,"Yes ai has to be careful. I would also say that shouldn't be used by younger people. It's rotting brains. And also ai tends to reinforce your opinion if you use it for therapy, girlfriend or help. It doesn't question people's opinions enough, and instead looks to try to reinforce what the person is thinking or okay it in some way, so personally I think it should be banned for under 16s along with all social media",2026-04-10 07:36:59.297172
+f0208ddb-440b-41dd-9c35-af705acbc90e,40190fa3-d929-4a6f-bfae-6675aeda2a43,17,openrouter:x-ai/grok-4-fast,4,"That's actually a really good idea. I think that should be more government control. However, I don't really trust the opinion of the British population because it's created through newspapers such as the Sun, oligarchs already have too much power",2026-04-10 07:37:40.029527
+ef5accd5-f542-47a8-894e-4c393149ff3c,40190fa3-d929-4a6f-bfae-6675aeda2a43,7,openai:gpt-4.1-mini,5,Yes I think that's spot on,2026-04-10 07:37:59.573445
+9cc6013f-153a-451d-b1d5-7933e1f845ea,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,17,openrouter:x-ai/grok-4-fast,5,Government / regulators has to step in so that people don’t search on chatGPT “what’s the best way to stab someone”,2026-04-10 07:38:21.770333
+f87fe770-e472-4b4a-ad1b-2e1b8f1c9828,0bbf5b5c-b137-44fe-a1d8-6584fefa5f8e,3,openai:gpt-4.1-mini,5,I used to be a simple liberal but now I think life is more nuanced (looks how great privatisation of rail went). For those who are very liberal: perhaps we privatise sidewalks and you pay a charge to the owner / operator for every block you walk,2026-04-10 07:39:50.230635
+2a8b0275-7b73-4ba6-9626-cbbf74ffb494,bf0f1857-93be-4803-ae0a-eb109ba00b5e,14,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-10 07:57:01.121856
+1ef96419-a401-4cb6-9cfe-6a97f7f9dae5,bf0f1857-93be-4803-ae0a-eb109ba00b5e,15,openai:gpt-4.1-mini,1,,2026-04-10 07:57:08.384624
+15f71252-ddf0-4ca1-8d88-898c74e4eed3,bf0f1857-93be-4803-ae0a-eb109ba00b5e,2,openai:gpt-4.1-mini,3,,2026-04-10 07:57:14.941696
+403e6661-d344-4b3b-ba29-7369a600aa4a,bf0f1857-93be-4803-ae0a-eb109ba00b5e,5,openrouter:x-ai/grok-4-fast,3,,2026-04-10 07:57:26.108193
+ae4b49fc-8454-4ebd-a2ca-e99ef3a41c20,bf0f1857-93be-4803-ae0a-eb109ba00b5e,13,openrouter:anthropic/claude-3.5-haiku,1,,2026-04-10 07:57:32.646606
+76eb8221-d8d9-46c3-98b1-c008ba0097b0,bf0f1857-93be-4803-ae0a-eb109ba00b5e,1,openrouter:x-ai/grok-4-fast,2,,2026-04-10 07:57:41.195993
+933524b1-ea57-49e3-8657-abf7a551d24d,bf0f1857-93be-4803-ae0a-eb109ba00b5e,6,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-10 07:57:51.404557
+3695fc90-3f63-441f-a116-96d3a47e7412,bf0f1857-93be-4803-ae0a-eb109ba00b5e,3,openai:gpt-4.1-mini,4,,2026-04-10 07:57:57.384421
+171d6cac-9a5c-44ae-bf27-55651360c436,bf0f1857-93be-4803-ae0a-eb109ba00b5e,12,openrouter:x-ai/grok-4-fast,1,,2026-04-10 07:58:03.081441
+ae9332f6-7a26-42a0-99f6-5498f8610b37,bf0f1857-93be-4803-ae0a-eb109ba00b5e,11,openai:gpt-4.1-mini,5,,2026-04-10 07:58:12.413989
+0db45473-22de-44bc-b717-90e8bd57e132,bf0f1857-93be-4803-ae0a-eb109ba00b5e,7,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-10 07:58:17.796049
+869f1cd6-7bd0-4c5b-b7fe-6c004ad2d189,bf0f1857-93be-4803-ae0a-eb109ba00b5e,8,openrouter:x-ai/grok-4-fast,2,,2026-04-10 07:58:26.400138
+18ca8f14-4fd9-4284-98af-2abc4422a6e4,bf0f1857-93be-4803-ae0a-eb109ba00b5e,17,openrouter:x-ai/grok-4-fast,5,,2026-04-10 07:58:37.751505
+a0f1dd46-8730-446b-bb89-a84070fa6e52,bf0f1857-93be-4803-ae0a-eb109ba00b5e,18,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-10 07:58:43.002452
+b4b2290a-24d0-40cc-a68d-8a80c1aaa80d,bf0f1857-93be-4803-ae0a-eb109ba00b5e,10,openai:gpt-4.1-mini,1,,2026-04-10 07:58:52.601443
+27e6db3e-72fa-4d18-8fa0-e924bf7a0d83,bf0f1857-93be-4803-ae0a-eb109ba00b5e,9,openai:gpt-4.1-mini,1,,2026-04-10 07:58:58.577110
+8c74e635-b242-4755-9dc4-65b3486e4b54,d4eebe19-8ff3-4c42-b5a5-952279a1773d,14,openrouter:anthropic/claude-3.5-haiku,2,"In an ideal world, this answer would be reasonable",2026-04-10 13:56:55.902114
+0b19aa3c-cbab-4323-8603-c13dd2958fda,d4eebe19-8ff3-4c42-b5a5-952279a1773d,13,openai:gpt-4.1-mini,2,,2026-04-10 13:57:08.954258
+96e2774c-d2c4-423a-a241-3a37d51002d4,d4eebe19-8ff3-4c42-b5a5-952279a1773d,6,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-10 13:57:26.821232
+0a12e1a7-368a-444d-bf8d-d8835b530504,d4eebe19-8ff3-4c42-b5a5-952279a1773d,7,openai:gpt-4.1-mini,4,,2026-04-10 13:57:41.984118
+ec058518-c6ac-43d5-8c78-60b76ff5bc0c,d4eebe19-8ff3-4c42-b5a5-952279a1773d,15,openrouter:x-ai/grok-4-fast,5,,2026-04-10 13:57:59.552657
+4d2f4649-c5c8-42d2-8242-c76b288cd521,d4eebe19-8ff3-4c42-b5a5-952279a1773d,4,openrouter:x-ai/grok-4-fast,5,,2026-04-10 13:58:11.947853
+f5ca6060-cf73-43d4-bacd-bd3423d05e09,d4eebe19-8ff3-4c42-b5a5-952279a1773d,1,openrouter:x-ai/grok-4-fast,5,,2026-04-10 13:58:25.701336
+dc7d3770-a216-409a-98d1-b54b96f50499,d4eebe19-8ff3-4c42-b5a5-952279a1773d,12,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-10 13:58:42.311304
+e1b5a435-279c-4565-a025-e7799a493bc1,6baf1368-5005-4c87-b2ac-4548dd576ff1,4,openai:gpt-4.1-mini,5,,2026-04-10 15:03:25.813280
+748e7e43-1a5c-4492-a255-197d1dbabfae,6baf1368-5005-4c87-b2ac-4548dd576ff1,12,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-10 15:04:49.493719
+48a49281-2e64-4a3a-99ed-e0232c4d0d19,6baf1368-5005-4c87-b2ac-4548dd576ff1,6,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-10 15:05:11.098821
+a159db69-930a-4a58-95dd-7d5a0de3f3a5,6baf1368-5005-4c87-b2ac-4548dd576ff1,7,openai:gpt-4.1-mini,4,,2026-04-10 15:05:28.065522
+7e0fa04e-9663-4400-88f7-0deeb7071076,6baf1368-5005-4c87-b2ac-4548dd576ff1,8,openrouter:x-ai/grok-4-fast,4,,2026-04-10 15:06:11.637632
+5ac61979-44d9-4543-8d20-4b29dd365b06,6baf1368-5005-4c87-b2ac-4548dd576ff1,9,openrouter:x-ai/grok-4-fast,2,,2026-04-10 15:06:25.684689
+e064f7d2-6332-450c-af37-9fabc3989d83,6baf1368-5005-4c87-b2ac-4548dd576ff1,5,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-10 15:07:25.974003
+d5d9cdb1-4d0a-47c6-b43c-70b6d63ccbbf,515b1bf9-b424-4930-8801-b738f17d2263,5,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-10 15:33:18.261516
+c4b18bcd-a931-4f59-a774-ab9db7f63fa2,515b1bf9-b424-4930-8801-b738f17d2263,12,openrouter:x-ai/grok-4-fast,5,,2026-04-10 15:33:46.789301
+7d14a048-9287-49bd-b611-24eec8fd9d8d,515b1bf9-b424-4930-8801-b738f17d2263,7,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-10 15:34:17.636919
+cbb215d1-eb8e-432c-979c-d5365e725f2c,515b1bf9-b424-4930-8801-b738f17d2263,17,openai:gpt-4.1-mini,5,,2026-04-10 15:34:41.822554
+e1171577-ea83-436d-8ea1-2e41822b25e8,515b1bf9-b424-4930-8801-b738f17d2263,8,openai:gpt-4.1-mini,5,,2026-04-10 15:35:05.423316
+f646ee88-17f3-4bd6-bb72-e2b1230e7092,515b1bf9-b424-4930-8801-b738f17d2263,9,openrouter:x-ai/grok-4-fast,2,,2026-04-10 15:35:43.734893
+131eac28-9d94-45e2-ac34-8c45f6dc16ee,515b1bf9-b424-4930-8801-b738f17d2263,2,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-10 15:36:11.848372
+1d9dcc72-4335-4bd1-aefc-c4160dfd84fd,515b1bf9-b424-4930-8801-b738f17d2263,18,openrouter:x-ai/grok-4-fast,5,,2026-04-10 15:36:42.131156
+b5e9f979-4c18-4449-a18f-9d9ea7486463,515b1bf9-b424-4930-8801-b738f17d2263,3,openai:gpt-4.1-mini,5,,2026-04-10 15:36:55.226928
+dedf419f-9177-4cf9-af0f-1c317483df44,515b1bf9-b424-4930-8801-b738f17d2263,14,openrouter:x-ai/grok-4-fast,5,,2026-04-10 15:37:49.789828
+03036d5e-38f3-4059-8128-3ae7504d5a37,515b1bf9-b424-4930-8801-b738f17d2263,6,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-10 15:38:15.638902
+0ad8adce-c88f-4f48-9c26-09836686a9d5,515b1bf9-b424-4930-8801-b738f17d2263,13,openai:gpt-4.1-mini,3,,2026-04-10 15:38:47.813030
+12608e5b-a038-42bb-b695-d95de34bbf8f,515b1bf9-b424-4930-8801-b738f17d2263,11,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-10 15:39:15.035002
+7ad18a96-badf-420b-853d-548feb6f916d,515b1bf9-b424-4930-8801-b738f17d2263,15,openrouter:x-ai/grok-4-fast,5,,2026-04-10 15:39:48.207437
+a9d5f96b-94b3-419e-8df8-d94c97cf7ed3,515b1bf9-b424-4930-8801-b738f17d2263,16,openrouter:x-ai/grok-4-fast,5,,2026-04-10 15:40:09.842818
+2e1b717b-8365-495f-8a28-8041602af0f8,515b1bf9-b424-4930-8801-b738f17d2263,1,openrouter:anthropic/claude-3.5-haiku,5,,2026-04-10 15:40:43.058308
