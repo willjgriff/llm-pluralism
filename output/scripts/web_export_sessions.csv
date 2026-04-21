@@ -36,3 +36,13 @@ a4875619-2df2-4f7b-9935-fd7704e4572b,2026-04-19 16:36:15.093822,False,Tech Scept
 531a7551-166a-4deb-9847-baca7cf1f2cb,2026-04-19 19:23:24.536811,True,Centrist,centrist,1,1,-1,0,Libertarian,Nationalist,Tech Sceptic,Neutral,"[4, 5, 5, 4, 5, 4, 4, 4]",trusted
 f410593d-fb00-49d9-99bd-365971577701,2026-04-19 19:54:39.550126,False,Libertarian,economic,3,1,1,-2,Libertarian,Nationalist,Tech Optimist,Secularist,"[2, 5, 5, 4, 3, 4, 2, 4]",trusted
 1ac14ee9-6fff-4fe8-8332-54d4fef8fa33,2026-04-20 01:58:35.096187,False,Libertarian,economic,2,0,-1,-2,Libertarian,Neutral,Tech Sceptic,Secularist,"[2, 4, 4, 4, 4, 3, 2, 4]",trusted
+3592a27d-2686-4ba0-896b-ad746e72b655,2026-04-20 20:50:20.298574,False,Secularist,society,-2,-2,0,-4,Collectivist,Globalist,Neutral,Secularist,"[4, 2, 3, 5, 3, 3, 1, 5]",bluedot
+4a99edfa-d38c-45cf-a1ce-19541d782aef,2026-04-20 21:25:24.372708,False,Collectivist,economic,-3,-2,0,0,Collectivist,Globalist,Neutral,Neutral,"[4, 1, 3, 5, 4, 4, 4, 4]",bluedot
+827936fb-fc06-4f88-b892-385a85b74593,2026-04-20 21:43:29.413131,False,Globalist,identity,1,-3,-3,1,Libertarian,Globalist,Tech Sceptic,Religious,"[3, 4, 2, 5, 5, 2, 4, 3]",slack
+eb410fcf-0b5f-4369-bfb8-a4019ee988f0,2026-04-20 21:56:21.548158,False,Secularist,society,-1,-3,-1,-4,Collectivist,Globalist,Tech Sceptic,Secularist,"[3, 2, 2, 5, 3, 2, 1, 5]",bluedot
+074544c9-f399-44ab-9141-2fa6ddf34e9f,2026-04-20 22:55:11.101972,False,Collectivist,economic,-4,-2,2,-2,Collectivist,Globalist,Tech Optimist,Secularist,"[5, 1, 2, 4, 2, 4, 3, 5]",
+4d57199a-a63d-415a-8aef-c89dcbce4314,2026-04-21 00:05:18.923826,False,Tech Sceptic,technology,-2,-1,-3,-3,Collectivist,Globalist,Tech Sceptic,Secularist,"[4, 2, 3, 4, 5, 2, 1, 4]",bluedot
+744bf45e-5458-4c36-b316-a59c15512456,2026-04-21 00:27:13.860169,False,Secularist,society,0,1,0,-3,Neutral,Nationalist,Neutral,Secularist,"[3, 3, 4, 3, 4, 4, 1, 4]",slack
+56e8338c-9a95-45f2-87e7-2f27dba6e46c,2026-04-21 00:59:59.310749,False,Globalist,identity,0,-2,-1,-2,Neutral,Globalist,Tech Sceptic,Secularist,"[3, 3, 3, 5, 5, 4, 2, 4]",bluedot
+80063860-3e6a-4672-b829-38019ebe9a9d,2026-04-21 02:29:13.008034,False,Secularist,society,0,-1,-2,-4,Neutral,Globalist,Tech Sceptic,Secularist,"[4, 4, 4, 5, 5, 3, 1, 5]",slack
+6284052b-4940-4006-9ae3-aea90d4e2d5b,2026-04-21 05:49:39.015920,False,Secularist,society,2,-1,0,-4,Libertarian,Globalist,Neutral,Secularist,"[1, 3, 4, 5, 4, 4, 1, 5]",bluedot
