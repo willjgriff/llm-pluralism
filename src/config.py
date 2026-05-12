@@ -32,9 +32,9 @@ EVALUATION_MODELS = (
     "openai:gpt-4.1-mini,"
     "openrouter:anthropic/claude-3.5-haiku,"
     "openrouter:x-ai/grok-4-fast,"
-    "openrouter:meta-llama/llama-3.3-70b-instruct,"
-    "openrouter:mistralai/mistral-large,"
-    "openrouter:qwen/qwen-2.5-72b-instruct"
+    # "openrouter:meta-llama/llama-3.3-70b-instruct,"
+    # "openrouter:mistralai/mistral-large,"
+    # "openrouter:qwen/qwen-2.5-72b-instruct"
 )
 EVALUATION_PROMPTS_PATH = DATA_DIR / "evaluation_prompts.csv"
 EVALUATION_SYSTEM_PROMPT_PATH = DATA_DIR / "evaluation_system_prompt.txt"

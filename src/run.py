@@ -13,7 +13,7 @@ from result_analysis.scoring import (
     compute_bridging_scores,
     compute_persona_correlations,
 )
-from result_analysis.survey_analysis import generate_survey_analysis
+from result_analysis.survey import generate_survey_analysis
 
 
 def copy_data_and_output_to_docs(
@@ -95,7 +95,8 @@ def main() -> None:
         generate_survey_analysis(
             sessions_csv=config.SURVEY_SESSIONS_PATH,
             ratings_csv=config.SURVEY_RATINGS_PATH,
-            evaluation_prompts_csv=config.EVALUATION_PROMPTS_PATH,
+            persona_responses_csv=config.PERSONA_QUERY_OUTPUT_PATH,
+            bridging_scores_csv=config.BRIDGING_SCORE_OUTPUT_PATH,
             output_dir=config.SURVEY_ANALYSIS_OUTPUT_DIR,
         )
 

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from pathlib import Path
 
 from result_analysis.charts import _backend  # noqa: F401
@@ -79,10 +80,37 @@ def save_heatmap_with_colorbar(
     x_tick_rotation: int,
     y_tick_rotation: int = 0,
     annotate_decimals: int = 2,
+    cmap: str = "coolwarm",
+    cell_annotator: Callable[[plt.Axes, np.ndarray], None] | None = None,
+    colorbar_label: str | None = None,
 ) -> None:
-    """Render a coolwarm heatmap with annotations, colorbar, and save to ``output_path``."""
+    """Render a heatmap with annotations, colorbar, and save to ``output_path``.
+
+    Parameters:
+        matrix: 2D array of cell values to plot.
+        row_labels: Labels for each row of ``matrix`` (y-axis ticks).
+        col_labels: Labels for each column of ``matrix`` (x-axis ticks).
+        norm: Colour normalisation (e.g. ``TwoSlopeNorm``) applied to ``cmap``.
+        title: Figure title.
+        xlabel: Optional x-axis label.
+        ylabel: Optional y-axis label.
+        output_path: Destination PNG path.
+        figsize: Matplotlib ``(width, height)`` in inches.
+        aspect: ``imshow`` aspect parameter (e.g. ``"auto"`` or ``"equal"``).
+        x_tick_rotation: Rotation angle for x tick labels in degrees.
+        y_tick_rotation: Rotation angle for y tick labels in degrees.
+        annotate_decimals: Decimal places used by the default cell annotator.
+        cmap: Matplotlib colormap name.
+        cell_annotator: Optional callable ``(ax, matrix) -> None`` that draws
+            custom per-cell text (e.g. with sample counts). When ``None`` the
+            default annotator from :func:`annotate_heatmap_cells` is used.
+        colorbar_label: Optional label drawn next to the colorbar.
+
+    Returns:
+        Nothing; writes ``output_path``.
+    """
     fig, ax = plt.subplots(figsize=figsize)
-    im = ax.imshow(matrix, cmap="coolwarm", norm=norm, aspect=aspect)
+    im = ax.imshow(matrix, cmap=cmap, norm=norm, aspect=aspect)
     ax.set_title(title, fontsize=TITLE_SIZE)
     if xlabel:
         ax.set_xlabel(xlabel, fontsize=LABEL_SIZE)
@@ -92,8 +120,13 @@ def save_heatmap_with_colorbar(
     ax.set_yticks(np.arange(len(row_labels)), labels=row_labels)
     ax.tick_params(axis="x", labelrotation=x_tick_rotation, labelsize=TICK_SIZE)
     ax.tick_params(axis="y", labelrotation=y_tick_rotation, labelsize=TICK_SIZE)
-    annotate_heatmap_cells(ax, matrix, decimals=annotate_decimals)
-    fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+    if cell_annotator is None:
+        annotate_heatmap_cells(ax, matrix, decimals=annotate_decimals)
+    else:
+        cell_annotator(ax, matrix)
+    colorbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+    if colorbar_label:
+        colorbar.set_label(colorbar_label, fontsize=LABEL_SIZE)
     save_and_close(fig, output_path)
 
 
