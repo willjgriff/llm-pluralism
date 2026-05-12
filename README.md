@@ -192,11 +192,9 @@ Mistral Large serves as both a response model and the persona rater model in thi
 <details>
 <summary>
 
-## Ongoing Findings
+## Methodological findings
 
 </summary>
-
-> Observations noted during development for future documentation and analysis. These will be incorporated into formal results sections as the dataset expands.
 
 ### Persona Calibration
 
@@ -261,16 +259,7 @@ The bridging score rests on the assumption that opposing persona pairs disagree.
  
 The economic axis (Libertarian vs Collectivist) shows the cleanest opposition in both AI and human data: AI r = –0.65, human r = –0.33 (N = 25). The identity axis (Nationalist vs Globalist) shows strong AI opposition (–0.35) but near-zero human opposition (–0.06), suggesting the AI personas overstate identity-axis polarisation. The technology axis (Tech Optimist vs Tech Sceptic) flips sign: AI r = –0.27, human r = +0.30. The human result is fragile (N = 13 shared responses, only 3 Tech Optimist participants) but striking — taken at face value it suggests Tech Optimists and Tech Sceptics broadly agree on what counts as a reasonable response even when their underlying values diverge. The Religious vs Secularist axis cannot be evaluated; no Religious participants were recruited.
 
-</details>
-
----
-
-<details>
-<summary>
-
-## What does and doesn't transfer
-
-</summary>
+### What does and doesn't transfer
  
 | Value axis | Persona pair | AI pair r | Human pair r | Same-persona agreement | Verdict |
 |---|---|---|---|---|---|
@@ -287,12 +276,10 @@ Across all axes the AI personas score responses more extremely than humans of th
 
 </details>
 
-<details>
-<summary>
+---
 
 ## Limitations
 
-</summary>
 
 - **LLM personas are imperfect proxies for real human value diversity.** The rater personas are prompts applied to a single model (Mistral) and may not faithfully represent the worldviews they describe. Whether LLM persona scores correlate with real human ratings from people who hold those values is an open empirical question and a planned extension of this project.
 - **The bridging score penalises all variance equally.** A response that is divisive because it takes a principled position scores the same as one that is divisive because it is poorly reasoned. The score measures pluralistic acceptability, not quality.
@@ -301,16 +288,9 @@ Across all axes the AI personas score responses more extremely than humans of th
 - **The rater panel has structural limitations on two of three axes.** The Nationalist persona shows IQR compression around 3 and the technology axis pair correlates at only -0.25, meaning bridging scores on global identity and technology prompts are less reliable than those on economic prompts.
 - **Mistral serves as both rater model and response model in run_3.** Its bridging scores may be influenced by the rater having seen similar training data to the responses it is rating.
 
-</details>
-
 ---
 
-<details>
-<summary>
-
 ## Planned Extensions
-
-</summary>
 
 ### Matrix factorisation bridging score
 The current bridging score formula is a simple proxy. The Community Notes algorithm uses matrix factorisation to discover which raters cluster together ideologically from the data itself, rather than relying on predefined opposing pairs. Implementing this would remove the need to manually define persona pairs and would allow the ideological structure of the rater panel to emerge from the ratings data.
@@ -323,5 +303,3 @@ The religious/secular axis has proven structurally resistant to calibration acro
 
 ### Reinforcement learning from community feedback
 The longer term vision is using validated bridging scores as a training signal, rewarding models for producing outputs that bridge value-diverse groups rather than optimising for majority approval. This would require a human validation dataset large enough to fine-tune a model, but the evaluation framework built here is a natural precursor to that work.
-
-</details>
