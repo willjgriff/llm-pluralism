@@ -19,6 +19,8 @@ The rater panel currently consists of six personas across three opposing pairs: 
 
 ## Results: Run 1 — 18 Prompts, 3 Models
 
+Full bridging score breakdowns by model, topic group, and persona for the first complete run, including model × group heatmaps, persona correlation structure, lambda sensitivity, and qualitative inspection of the most and least pluralistic responses. Headline result: Claude leads on pluralistic acceptability across all three models, a consistent progressive lean is visible across all personas, and qualitative inspection confirms the bridging score reflects genuine ideological content rather than methodological artefacts.
+
 </summary>
 
 ### Bridging Scores by Model
@@ -119,6 +121,8 @@ High bridging scores are not achieved by avoiding positions, they are achieved b
 
 ## Results: Run 3 — 36 Prompts, 6 Models
 
+The same analysis pipeline scaled to six models and 36 prompts, testing whether Run 1's findings hold with broader model coverage including Llama, Mistral, and Qwen alongside Claude, GPT, and Grok. Headline result: the progressive lean strengthens with more models, Grok remains the worst performer on global vs national identity prompts, and no model definitively outperforms another.
+
 </summary>
 
 ### Bridging Scores by Model
@@ -185,6 +189,8 @@ Mistral Large serves as both a response model and the persona rater model in thi
 
 ## Methodological findings
 
+Observations about the evaluation pipeline itself. Persona panel calibration issues, the comparison between Mistral and Llama as rater models, and how response length affects bridging scores. Headline result: rater model choice is the most significant variable in the pipeline, the religious/secular axis is structurally uncalibrated and excluded from analysis, and the economic axis is robust across rater model changes while other axes are not.
+
 </summary>
 
 ### Persona Calibration
@@ -209,12 +215,12 @@ Earlier runs that asked responses to be 3–5 sentences rather than max 80 words
 <summary>
 
 ## Human Validation
- 
-The AI persona panel is the engine of this evaluation, but its core assumption — that personas of opposing worldviews behave like real humans of those worldviews — is not self-evidently true. To test it, a small web platform was built to recruit real participants, assign them a primary value persona through a short questionnaire, and ask them to rate the same model responses the AI personas had rated. The validation was conducted against the Run 1 prompt set; Run 3 inherits this validation for the questions carried over from Run 1, and adds further questions whose persona scores are plausible but not directly human-validated.
- 
-The recruited panel comprised 74 participants producing 656 ratings across 18 prompts and 3 models. Persona coverage is uneven — Secularist participants are over-represented at 228 ratings, Tech Optimists thin at 16, and no Religious participants were recruited — so per-persona results carry varying confidence and the smaller cells should be read cautiously.
+
+A 74-participant web study testing whether the AI persona panel's ratings actually predict how value-diverse humans rate the same model responses, covering 656 ratings across the Run 1 prompt set. Headline result: the economic value axis is the only one that partially transfers to real humans, the identity axis is weak, the technology axis appears to flip sign, and the AI personas systematically over-discriminate relative to humans of the same worldview.
 
 </summary>
+
+The validation was conducted against the Run 1 prompt set, so Run 3 inherits this validation only for the questions carried over from Run 1; further Run 3 questions have persona scores that are plausible but not directly human-validated. Persona coverage is also uneven - Secularist participants are over-represented at 228 ratings, Tech Optimists thin at 16, and no Religious participants were recruited — so per-persona results carry varying confidence and the smaller cells should be read cautiously.
  
 ### Human rating distribution by persona
  
