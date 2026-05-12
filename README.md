@@ -206,10 +206,9 @@ Earlier runs that asked responses to be 3–5 sentences rather than max 80 words
 </details>
 
 <details>
+<summary>
 
 ## Human Validation
-
-<summary>
  
 The AI persona panel is the engine of this evaluation, but its core assumption — that personas of opposing worldviews behave like real humans of those worldviews — is not self-evidently true. To test it, a small web platform was built to recruit real participants, assign them a primary value persona through a short questionnaire, and ask them to rate the same model responses the AI personas had rated. The validation was conducted against the Run 1 prompt set; Run 3 inherits this validation for the questions carried over from Run 1, and adds further questions whose persona scores are plausible but not directly human-validated.
  
