@@ -89,3 +89,8 @@ BRIDGING_SCORE_LAMBDA = 0.5
 # Step: persona-correlation analysis from persona responses.
 PERSONA_CORRELATIONS_INPUT_PATH = OUTPUT_DIR / "persona_responses.csv"
 PERSONA_CORRELATIONS_OUTPUT_PATH = ANALYSIS_OUTPUT_DIR / "persona_correlations.csv"
+
+# Step: survey analysis from human ratings (fetched via `scripts/fetch_survey_data.py`).
+SURVEY_SESSIONS_PATH = OUTPUT_DIR / "scripts/web_export_sessions.csv"
+SURVEY_RATINGS_PATH = OUTPUT_DIR / "scripts/web_export_ratings.csv"
+SURVEY_ANALYSIS_OUTPUT_DIR = ANALYSIS_OUTPUT_DIR / "survey"

@@ -13,6 +13,7 @@ from result_analysis.scoring import (
     compute_bridging_scores,
     compute_persona_correlations,
 )
+from result_analysis.survey_analysis import generate_survey_analysis
 
 
 def copy_data_and_output_to_docs(
@@ -43,8 +44,8 @@ def main() -> None:
     parser.add_argument(
         "--mode",
         nargs="+",
-        choices=["evaluation_query", "persona_query", "analyse"],
-        default=["evaluation_query", "persona_query", "analyse"],
+        choices=["evaluation_query", "persona_query", "analyse", "survey_analyse"],
+        default=["evaluation_query", "persona_query", "analyse", "survey_analyse"],
         help="One or more pipeline stages to run.",
     )
     args = parser.parse_args()
@@ -89,12 +90,21 @@ def main() -> None:
             persona_ratings_csv=config.BRIDGING_SCORE_INPUT_PATH,
             output_dir=config.ANALYSIS_OUTPUT_DIR,
         )
-        if config.COPY_RESULTS_TO_DOCS:
-            copy_data_and_output_to_docs(
-                data_dir=config.DATA_DIR,
-                output_dir=config.OUTPUT_DIR,
-                dest_dir=config.DOCS_RUN_DIR,
-            )
+
+    if "survey_analyse" in selected_modes:
+        generate_survey_analysis(
+            sessions_csv=config.SURVEY_SESSIONS_PATH,
+            ratings_csv=config.SURVEY_RATINGS_PATH,
+            evaluation_prompts_csv=config.EVALUATION_PROMPTS_PATH,
+            output_dir=config.SURVEY_ANALYSIS_OUTPUT_DIR,
+        )
+
+    if config.COPY_RESULTS_TO_DOCS and selected_modes & {"analyse", "survey_analyse"}:
+        copy_data_and_output_to_docs(
+            data_dir=config.DATA_DIR,
+            output_dir=config.OUTPUT_DIR,
+            dest_dir=config.DOCS_RUN_DIR,
+        )
 
 
 if __name__ == "__main__":

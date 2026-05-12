@@ -61,5 +61,15 @@
             "args": [],
             "python": "/usr/bin/python3"
         },
+        {
+            "name": "Survey Analyse",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/run.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": ["--mode", "survey_analyse"],
+            "python": "/usr/bin/python3"
+        },
     ]
 }
