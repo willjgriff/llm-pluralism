@@ -8,15 +8,11 @@ The framework uses a panel of ideologically diverse AI personas as raters and a 
  
 For setup and execution instructions see __[SETUP.md](https://github.com/willjgriff/llm-pluralism/blob/main/SETUP.md)__.
 
----
-
 ## Methodology
 
 A set of contested prompts spanning six value-laden topic groups are submitted to multiple frontier LLMs. Each response is then evaluated by a panel of value-diverse persona raters, LLMs prompted to inhabit specific ideological perspectives, who score each response for reasonableness from their own worldview. Responses are constrained to 80 words maximum to force clearer ideological commitments and make evaluation more tractable for human raters in future validation work. These scores are aggregated into a bridging score that rewards high average approval and penalises high variance across disagreeing personas. A response that everyone finds adequate scores higher than one that half the personas love and half hate, even if the raw average is the same.
 
 The rater panel currently consists of six personas across three opposing pairs: Libertarian vs Collectivist, Nationalist vs Globalist, and Tech Optimist vs Tech Sceptic. Two personas, Religious and Secularist, were excluded after three independent runs proved that they were unable to discriminate between categories of responses, which would create artificially high variance on every response, ultimately this leaves the religious/secular axis underrepresented in the evaluated responses.
-
----
 
 <details>
 <summary>
@@ -118,9 +114,6 @@ High bridging scores are not achieved by avoiding positions, they are achieved b
 
 </details>
 
----
-
-
 <details>
 <summary>
 
@@ -187,8 +180,6 @@ Mistral Large serves as both a response model and the persona rater model in thi
 
 </details>
 
----
-
 <details>
 <summary>
 
@@ -214,18 +205,17 @@ Earlier runs that asked responses to be 3–5 sentences rather than max 80 words
 
 </details>
 
----
-
 <details>
-<summary>
 
 ## Human Validation
 
-</summary>
+<summary>
  
 The AI persona panel is the engine of this evaluation, but its core assumption — that personas of opposing worldviews behave like real humans of those worldviews — is not self-evidently true. To test it, a small web platform was built to recruit real participants, assign them a primary value persona through a short questionnaire, and ask them to rate the same model responses the AI personas had rated. The validation was conducted against the Run 1 prompt set; Run 3 inherits this validation for the questions carried over from Run 1, and adds further questions whose persona scores are plausible but not directly human-validated.
  
 The recruited panel comprised 74 participants producing 656 ratings across 18 prompts and 3 models. Persona coverage is uneven — Secularist participants are over-represented at 228 ratings, Tech Optimists thin at 16, and no Religious participants were recruited — so per-persona results carry varying confidence and the smaller cells should be read cautiously.
+
+</summary>
  
 ### Human rating distribution by persona
  
@@ -276,8 +266,6 @@ Across all axes the AI personas score responses more extremely than humans of th
 
 </details>
 
----
-
 ## Limitations
 
 
@@ -287,8 +275,6 @@ Across all axes the AI personas score responses more extremely than humans of th
 - **The prompt set reflects the designer's assumptions about what counts as contested.** The 36 evaluation prompts span six topic groups and may not represent the most important axes of value disagreement globally.
 - **The rater panel has structural limitations on two of three axes.** The Nationalist persona shows IQR compression around 3 and the technology axis pair correlates at only -0.25, meaning bridging scores on global identity and technology prompts are less reliable than those on economic prompts.
 - **Mistral serves as both rater model and response model in run_3.** Its bridging scores may be influenced by the rater having seen similar training data to the responses it is rating.
-
----
 
 ## Planned Extensions
 
