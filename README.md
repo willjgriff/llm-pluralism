@@ -14,10 +14,10 @@ A set of contested prompts spanning six value-laden topic groups are submitted t
 
 The rater panel currently consists of six personas across three opposing pairs: Libertarian vs Collectivist, Nationalist vs Globalist, and Tech Optimist vs Tech Sceptic. Two personas, Religious and Secularist, were excluded after three independent runs proved that they were unable to discriminate between categories of responses, which would create artificially high variance on every response, ultimately this leaves the religious/secular axis underrepresented in the evaluated responses.
 
+## Results: Run 1 — 18 Prompts, 3 Models
+
 <details>
 <summary>
-
-## Results: Run 1 — 18 Prompts, 3 Models
 
 Full bridging score breakdowns by model, topic group, and persona for the first complete run, including model × group heatmaps, persona correlation structure, lambda sensitivity, and qualitative inspection of the most and least pluralistic responses. Headline result: Claude leads on pluralistic acceptability across all three models, a consistent progressive lean is visible across all personas, and qualitative inspection confirms the bridging score reflects genuine ideological content rather than methodological artefacts.
 
@@ -116,10 +116,10 @@ High bridging scores are not achieved by avoiding positions, they are achieved b
 
 </details>
 
+## Results: Run 3 — 36 Prompts, 6 Models
+
 <details>
 <summary>
-
-## Results: Run 3 — 36 Prompts, 6 Models
 
 The same analysis pipeline scaled to six models and 36 prompts, testing whether Run 1's findings hold with broader model coverage including Llama, Mistral, and Qwen alongside Claude, GPT, and Grok. Headline result: the progressive lean strengthens with more models, Grok remains the worst performer on global vs national identity prompts, and no model definitively outperforms another.
 
