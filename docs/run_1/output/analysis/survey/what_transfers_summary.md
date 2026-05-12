@@ -1,0 +1,6 @@
+| Axis       | Pair                          |   AI pair r | Human pair r   | Diagonal agreement r (mean)   | Verdict   |
+|:-----------|:------------------------------|------------:|:---------------|:------------------------------|:----------|
+| Economic   | Libertarian vs Collectivist   |       -0.65 | -0.33 (N=25)   | +0.32 (N=68)                  | Validates |
+| Identity   | Nationalist vs Globalist      |       -0.35 | -0.06 (N=31)   | +0.26 (N=81)                  | Partial   |
+| Technology | Tech Optimist vs Tech Sceptic |       -0.27 | +0.30 (N=13)   | +0.32 (N=53)                  | Partial   |
+| Society    | Religious vs Secularist       |       -0.48 | n/a (N=0)      | +0.12 (N=53)                  | Untested  |
