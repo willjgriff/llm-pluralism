@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Evaluation Query",
+            "name": "Fetch Evaluation Responses",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
@@ -12,7 +12,7 @@
             "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "Persona Query",
+            "name": "Fetch Persona Responses",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
@@ -22,7 +22,7 @@
             "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "All query",
+            "name": "Fetch All Responses",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
@@ -32,7 +32,7 @@
             "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "Persona Response Analyse",
+            "name": "Persona Response Analysis",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
@@ -42,7 +42,7 @@
             "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "All, pre-survey analysis",
+            "name": "All Pre-Survey Fetch + Analysis",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
@@ -52,7 +52,7 @@
             "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "Fetch survey results",
+            "name": "Fetch Survey Responses",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/scripts/fetch_survey_data.py",
@@ -62,7 +62,7 @@
             "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "Survey Response Analyse",
+            "name": "Survey Response Analysis",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",

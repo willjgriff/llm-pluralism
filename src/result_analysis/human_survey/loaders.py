@@ -16,10 +16,9 @@ class SurveyFrames:
     """Cleaned and joined frames used across every survey chart.
 
     Attributes:
-        humans: One row per human rating with session persona joined in,
-            ``is_repeat`` rows already filtered out. Columns include
-            ``session_id``, ``question_id``, ``ai_model``, ``model_short``,
-            ``human_persona``, ``score``.
+        humans: One row per human rating with session persona joined in.
+            Columns include ``session_id``, ``question_id``, ``ai_model``,
+            ``model_short``, ``human_persona``, ``score``.
         human_means: Mean human ``score`` per ``(question_id, ai_model,
             human_persona)`` with sample count in ``n_humans``. Score column
             is renamed to ``human_score``.
@@ -61,12 +60,11 @@ def load_survey_frames(
     bridging = pd.read_csv(bridging_scores_csv)
 
     humans = ratings.merge(
-        sessions[["id", "primary_persona", "is_repeat"]],
+        sessions[["id", "primary_persona"]],
         left_on="session_id",
         right_on="id",
         suffixes=("", "_session"),
     )
-    humans = humans[~humans["is_repeat"]].copy()
     humans = humans.rename(
         columns={"primary_persona": "human_persona", "model": "ai_model"}
     )

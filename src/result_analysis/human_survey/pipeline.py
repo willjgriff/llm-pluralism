@@ -50,7 +50,7 @@ def generate_survey_analysis(
         bridging_scores_csv=bridging_scores_csv,
     )
     print(
-        f"[survey_response_analyse] Loaded {len(frames.humans)} non-repeat ratings "
+        f"[survey_response_analyse] Loaded {len(frames.humans)} ratings "
         f"across {frames.humans['session_id'].nunique()} sessions"
     )
 
