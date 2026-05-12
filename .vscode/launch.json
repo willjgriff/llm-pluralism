@@ -9,7 +9,7 @@
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "args": ["--mode", "evaluation_query"],
-            "python": "/usr/bin/python3"
+            "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
             "name": "Persona Query",
@@ -19,7 +19,7 @@
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "args": ["--mode", "persona_query"],
-            "python": "/usr/bin/python3"
+            "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
             "name": "All query",
@@ -29,27 +29,27 @@
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "args": ["--mode", "evaluation_query", "persona_query"],
-            "python": "/usr/bin/python3"
+            "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "Analyse",
+            "name": "Persona Response Analyse",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "args": ["--mode", "analyse"],
-            "python": "/usr/bin/python3"
+            "args": ["--mode", "persona_response_analyse"],
+            "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "All (Evaluation + Persona + Analyse)",
+            "name": "All, pre-survey analysis",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "args": ["--mode", "evaluation_query", "persona_query", "analyse"],
-            "python": "/usr/bin/python3"
+            "args": [ "--mode", "evaluation_query", "persona_query", "persona_response_analyse"],
+            "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
             "name": "Fetch survey results",
@@ -59,17 +59,17 @@
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "args": [],
-            "python": "/usr/bin/python3"
+            "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "Survey Analyse",
+            "name": "Survey Response Analyse",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "args": ["--mode", "survey_analyse"],
-            "python": "/usr/bin/python3"
+            "args": ["--mode", "survey_response_analyse"],
+            "python": "${workspaceFolder}/.venv/bin/python"
         },
     ]
 }

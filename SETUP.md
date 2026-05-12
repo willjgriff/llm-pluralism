@@ -43,7 +43,7 @@ All defaults live in **`src/config.py`** (paths are relative to the **project ro
 ### Bridging score λ (polarisation penalty)
 
 - **`BRIDGING_SCORE_LAMBDA`** — Weight used for the primary **`bridging_score`** column in `output/analysis/bridging_scores.csv`: `mean_score - λ * std_score` (population std across included personas per response).
-- Additional columns for λ ∈ `{0.25, 0.50, 0.75}` are always written for the **λ comparison chart**; those values are defined in `src/result_analysis/scoring/bridging_score.py` as **`LAMBDA_VALUES`** (not the config file).
+- Additional columns for λ ∈ `{0.25, 0.50, 0.75}` are always written for the **λ comparison chart**; those values are defined in `src/result_analysis/model_personas/scoring/bridging_score.py` as **`LAMBDA_VALUES`** (not the config file).
 
 ### Which personas enter analysis
 
@@ -62,7 +62,7 @@ Point these at different files to swap prompts or personas without code changes:
 
 ### Optional: copy a run into `docs/`
 
-- **`COPY_RESULTS_TO_DOCS`** — If `True`, after `analyse` finishes, copies **`DATA_DIR`** → **`DOCS_RUN_DIR/data`** and **`OUTPUT_DIR`** → **`DOCS_RUN_DIR/output`** (`src/run.py` uses `shutil.copytree(..., dirs_exist_ok=True)`).
+- **`COPY_RESULTS_TO_DOCS`** — If `True`, after either `persona_response_analyse` or `survey_response_analyse` finishes, copies **`DATA_DIR`** → **`DOCS_RUN_DIR/data`** and **`OUTPUT_DIR`** → **`DOCS_RUN_DIR/output`** (`src/run.py` uses `shutil.copytree(..., dirs_exist_ok=True)`).
 - **`DOCS_RUN_DIR`** — Example: `Path("docs/run_1")`.
 
 ### Runtime toggles
@@ -82,7 +82,7 @@ python3 src/run.py [--mode MODE [MODE ...]]
 
 | Flag | Description |
 |------|-------------|
-| **`--mode`** | One or more of: `evaluation_query`, `persona_query`, `analyse`. Default: all three in order. |
+| **`--mode`** | One or more of: `evaluation_query`, `persona_query`, `persona_response_analyse`, `survey_response_analyse`. Default: all four in order. |
 
 There are no other CLI flags; models, paths, and λ are configured in **`src/config.py`**.
 
@@ -90,7 +90,10 @@ There are no other CLI flags; models, paths, and λ are configured in **`src/con
 
 1. **`evaluation_query`** — Reads `EVALUATION_PROMPTS_PATH` and `EVALUATION_SYSTEM_PROMPT_PATH`, calls each model in `EVALUATION_MODELS`, writes **`QUERY_OUTPUT_PATH`** (`output/evaluation_responses.csv`).
 2. **`persona_query`** — Reads `PERSONA_QUERY_INPUT_PATH` (evaluation responses) and `PERSONA_SYSTEM_PROMPTS_PATH`, calls **`PERSONA_QUERY_MODEL`** for each (prompt × response × persona) cell, writes **`PERSONA_QUERY_OUTPUT_PATH`** (`output/persona_responses.csv`).
-3. **`analyse`** — Reads persona ratings, writes **`BRIDGING_SCORE_OUTPUT_PATH`**, **`PERSONA_CORRELATIONS_OUTPUT_PATH`**, generates charts under **`ANALYSIS_OUTPUT_DIR`**, then optionally copies to **`DOCS_RUN_DIR`** if **`COPY_RESULTS_TO_DOCS`** is `True`.
+3. **`persona_response_analyse`** — Reads persona ratings, writes **`BRIDGING_SCORE_OUTPUT_PATH`**, **`PERSONA_CORRELATIONS_OUTPUT_PATH`**, generates model-persona charts under **`ANALYSIS_OUTPUT_DIR`**.
+4. **`survey_response_analyse`** — Reads `web_export_sessions.csv`, `web_export_ratings.csv`, plus the model-persona outputs from step 3, and writes human-vs-AI charts and the "what transfers" summary under **`SURVEY_ANALYSIS_OUTPUT_DIR`**.
+
+After either analysis stage, **`COPY_RESULTS_TO_DOCS`** can copy results to **`DOCS_RUN_DIR`**.
 
 ### Example commands
 
@@ -103,7 +106,7 @@ python3 src/run.py
 Equivalent explicit modes:
 
 ```bash
-python3 src/run.py --mode evaluation_query persona_query analyse
+python3 src/run.py --mode evaluation_query persona_query persona_response_analyse survey_response_analyse
 ```
 
 Query only (no scoring or charts):
@@ -118,20 +121,27 @@ Both query steps, no analysis:
 python3 src/run.py --mode evaluation_query persona_query
 ```
 
-Analyse only (requires existing `output/persona_responses.csv` and any inputs those steps need):
+Persona-response analysis only (requires existing `output/persona_responses.csv`):
 
 ```bash
-python3 src/run.py --mode analyse
+python3 src/run.py --mode persona_response_analyse
+```
+
+Survey-response analysis only (requires `output/scripts/web_export_*.csv` and the persona-response analysis outputs):
+
+```bash
+python3 src/run.py --mode survey_response_analyse
 ```
 
 ### Gotchas and common errors
 
 - **`OPENAI_API_KEY is missing.`** / **`OPENROUTER_API_KEY is missing.`** — Raised from `model_query.models._get_client` if a configured model uses that provider and the env var is empty.
 - **`persona_query` before evaluation output** — `PERSONA_QUERY_INPUT_PATH` must point to a populated `evaluation_responses.csv` (run `evaluation_query` first or supply your own CSV with the expected columns).
-- **`analyse` without persona data** — Bridging and correlations read **`BRIDGING_SCORE_INPUT_PATH`** / **`PERSONA_CORRELATIONS_INPUT_PATH`** (`persona_responses.csv` by default). Missing or empty files will yield empty or useless outputs.
+- **`persona_response_analyse` without persona data** — Bridging and correlations read **`BRIDGING_SCORE_INPUT_PATH`** / **`PERSONA_CORRELATIONS_INPUT_PATH`** (`persona_responses.csv` by default). Missing or empty files will yield empty or useless outputs.
+- **`survey_response_analyse` without bridging scores** — The survey stage joins to `bridging_scores.csv`; run `persona_response_analyse` first (or include both modes).
 - **`SKIP_ERRORS: True`** — Failures appear as `[ERROR] ...` in `response` / model output fields; downstream analysis may still run but scores can be invalid—inspect CSVs before trusting charts.
 
-VS Code / Cursor: see **`.vscode/launch.json`** for debug configurations that pass `--mode` (e.g. `evaluation_query`, `persona_query`, `analyse`, or combined).
+VS Code / Cursor: see **`.vscode/launch.json`** for debug configurations that pass `--mode` (e.g. `evaluation_query`, `persona_query`, `persona_response_analyse`, `survey_response_analyse`, or combined).
 
 ## Interpreting outputs
 
@@ -153,7 +163,7 @@ Pairwise Pearson correlations between persona rating vectors (`persona_a_id`, `p
 
 ### Charts (`output/analysis/*.png`)
 
-Generated by `result_analysis.charts.pipeline.generate_analysis_charts`:
+Generated by `result_analysis.model_personas.pipeline.generate_model_persona_analysis` (and `result_analysis.human_survey.pipeline.generate_survey_analysis` for the survey set under `output/analysis/survey/`):
 
 | File | Content |
 |------|---------|
@@ -173,7 +183,7 @@ Convention:
 
 1. Create a dedicated directory for the run, e.g. **`docs/run_1/`**, **`docs/run_2/`**, …
 2. Set **`DOCS_RUN_DIR`** in `src/config.py` to that path (e.g. `Path("docs/run_1")`).
-3. Set **`COPY_RESULTS_TO_DOCS = True`** and run **`analyse`** (or the full pipeline so outputs exist). The code copies:
+3. Set **`COPY_RESULTS_TO_DOCS = True`** and run **`persona_response_analyse`** (or the full pipeline so outputs exist). The code copies:
    - **`data/`** → **`docs/run_N/data/`**
    - **`output/`** → **`docs/run_N/output/`**
 

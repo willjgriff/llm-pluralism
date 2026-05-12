@@ -76,7 +76,8 @@ ANALYSIS_PERSONA_IDS: tuple[int, ...] = (1, 2, 5, 6, 7, 8)
 
 ANALYSIS_OUTPUT_DIR = OUTPUT_DIR / "analysis"
 
-# If True, after ``analyse`` completes, copy ``DATA_DIR`` and ``OUTPUT_DIR`` into
+# If True, after ``persona_response_analyse`` or ``survey_response_analyse`` completes,
+# copy ``DATA_DIR`` and ``OUTPUT_DIR`` into
 # ``DOCS_RUN_DIR``/``data`` and ``DOCS_RUN_DIR``/``output`` (overwrites on repeat runs).
 COPY_RESULTS_TO_DOCS = False
 DOCS_RUN_DIR = Path("docs/run_x")

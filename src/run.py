@@ -8,12 +8,8 @@ from pathlib import Path
 
 import config
 from model_query import run_persona_querying, run_evaluation_querying
-from result_analysis.charts import generate_analysis_charts
-from result_analysis.scoring import (
-    compute_bridging_scores,
-    compute_persona_correlations,
-)
-from result_analysis.survey import generate_survey_analysis
+from result_analysis.human_survey import generate_survey_analysis
+from result_analysis.model_personas import generate_model_persona_analysis
 
 
 def copy_data_and_output_to_docs(
@@ -34,7 +30,7 @@ def copy_data_and_output_to_docs(
     shutil.copytree(data_dir, dest_dir / "data", dirs_exist_ok=True)
     shutil.copytree(output_dir, dest_dir / "output", dirs_exist_ok=True)
     print(
-        f"[analyse] Copied {data_dir} -> {dest_dir / 'data'} and "
+        f"[docs] Copied {data_dir} -> {dest_dir / 'data'} and "
         f"{output_dir} -> {dest_dir / 'output'}"
     )
 
@@ -44,8 +40,18 @@ def main() -> None:
     parser.add_argument(
         "--mode",
         nargs="+",
-        choices=["evaluation_query", "persona_query", "analyse", "survey_analyse"],
-        default=["evaluation_query", "persona_query", "analyse", "survey_analyse"],
+        choices=[
+            "evaluation_query",
+            "persona_query",
+            "persona_response_analyse",
+            "survey_response_analyse",
+        ],
+        default=[
+            "evaluation_query",
+            "persona_query",
+            "persona_response_analyse",
+            "survey_response_analyse",
+        ],
         help="One or more pipeline stages to run.",
     )
     args = parser.parse_args()
@@ -74,24 +80,16 @@ def main() -> None:
             empty_response_retry_delay_seconds=config.PERSONA_QUERY_EMPTY_RESPONSE_RETRY_DELAY_SECONDS,
         )
 
-    if "analyse" in selected_modes:
-        compute_bridging_scores(
-            input_csv=config.BRIDGING_SCORE_INPUT_PATH,
-            output_csv=config.BRIDGING_SCORE_OUTPUT_PATH,
-            lambda_penalty=config.BRIDGING_SCORE_LAMBDA,
-        )
-        compute_persona_correlations(
-            input_csv=config.PERSONA_CORRELATIONS_INPUT_PATH,
-            output_csv=config.PERSONA_CORRELATIONS_OUTPUT_PATH,
-        )
-        generate_analysis_charts(
+    if "persona_response_analyse" in selected_modes:
+        generate_model_persona_analysis(
+            persona_responses_csv=config.PERSONA_QUERY_OUTPUT_PATH,
             bridging_scores_csv=config.BRIDGING_SCORE_OUTPUT_PATH,
             persona_correlations_csv=config.PERSONA_CORRELATIONS_OUTPUT_PATH,
-            persona_ratings_csv=config.BRIDGING_SCORE_INPUT_PATH,
+            bridging_score_lambda=config.BRIDGING_SCORE_LAMBDA,
             output_dir=config.ANALYSIS_OUTPUT_DIR,
         )
 
-    if "survey_analyse" in selected_modes:
+    if "survey_response_analyse" in selected_modes:
         generate_survey_analysis(
             sessions_csv=config.SURVEY_SESSIONS_PATH,
             ratings_csv=config.SURVEY_RATINGS_PATH,
@@ -100,7 +98,11 @@ def main() -> None:
             output_dir=config.SURVEY_ANALYSIS_OUTPUT_DIR,
         )
 
-    if config.COPY_RESULTS_TO_DOCS and selected_modes & {"analyse", "survey_analyse"}:
+    analysis_modes_selected = selected_modes & {
+        "persona_response_analyse",
+        "survey_response_analyse",
+    }
+    if config.COPY_RESULTS_TO_DOCS and analysis_modes_selected:
         copy_data_and_output_to_docs(
             data_dir=config.DATA_DIR,
             output_dir=config.OUTPUT_DIR,
