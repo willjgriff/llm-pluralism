@@ -10,6 +10,7 @@ import config
 from model_query import run_persona_querying, run_evaluation_querying
 from result_analysis.human_survey import generate_survey_analysis
 from result_analysis.model_personas import generate_model_persona_analysis
+from survey_query import run_survey_export_fetch
 
 
 def copy_data_and_output_to_docs(
@@ -43,12 +44,14 @@ def main() -> None:
         choices=[
             "evaluation_query",
             "persona_query",
+            "survey_query",
             "persona_response_analyse",
             "survey_response_analyse",
         ],
         default=[
             "evaluation_query",
             "persona_query",
+            "survey_query",
             "persona_response_analyse",
             "survey_response_analyse",
         ],
@@ -78,6 +81,14 @@ def main() -> None:
             analysis_persona_ids=config.ANALYSIS_PERSONA_IDS,
             empty_response_max_attempts=config.PERSONA_QUERY_EMPTY_RESPONSE_MAX_ATTEMPTS,
             empty_response_retry_delay_seconds=config.PERSONA_QUERY_EMPTY_RESPONSE_RETRY_DELAY_SECONDS,
+        )
+
+    if "survey_query" in selected_modes:
+        run_survey_export_fetch(
+            export_url=config.SURVEY_EXPORT_URL,
+            export_password=config.EXPORT_PASSWORD,
+            sessions_csv=config.SURVEY_SESSIONS_PATH,
+            ratings_csv=config.SURVEY_RATINGS_PATH,
         )
 
     if "persona_response_analyse" in selected_modes:

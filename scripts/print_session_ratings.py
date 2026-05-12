@@ -10,9 +10,9 @@ from pathlib import Path
 
 # Paths are relative to the repository root (parent of this file's directory).
 _REPO_ROOT = Path(__file__).resolve().parent.parent
-RATINGS_CSV = _REPO_ROOT / "output/scripts/web_export_ratings.csv"
+RATINGS_CSV = _REPO_ROOT / "output/survey_responses_ratings.csv"
 PROMPTS_CSV = _REPO_ROOT / "data/evaluation_prompts.csv"
-SESSIONS_CSV = _REPO_ROOT / "output/scripts/web_export_sessions.csv"
+SESSIONS_CSV = _REPO_ROOT / "output/survey_responses_sessions.csv"
 EVALUATION_RESPONSES_CSV = _REPO_ROOT / "output/evaluation_responses.csv"
 
 
@@ -132,7 +132,7 @@ def format_rating_block(
     Parameters:
         index: One-based index among ratings for this session.
         total: Total number of ratings for this session.
-        rating_row: Row from web_export_ratings.csv.
+        rating_row: Row from survey_responses_ratings.csv.
         prompt_row: Matching evaluation_prompts row, or None if question_id is missing.
         evaluation_response_text: Baseline model answer from evaluation_responses.csv
             for this question_id and model, or a placeholder if the row was missing.

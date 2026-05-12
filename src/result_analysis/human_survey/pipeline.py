@@ -30,8 +30,8 @@ def generate_survey_analysis(
     and writes a per-axis summary table as CSV and Markdown.
 
     Parameters:
-        sessions_csv: Path to ``web_export_sessions.csv``.
-        ratings_csv: Path to ``web_export_ratings.csv``.
+        sessions_csv: Path to ``survey_responses_sessions.csv``.
+        ratings_csv: Path to ``survey_responses_ratings.csv``.
         persona_responses_csv: Path to AI persona ratings CSV.
         bridging_scores_csv: Path to bridging-score CSV (produced by the
             ``persona_response_analyse`` stage).

@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Fetch Evaluation Responses",
+            "name": "Evaluation Responses Query",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
@@ -12,7 +12,7 @@
             "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "Fetch Persona Responses",
+            "name": "Persona Responses Query",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
@@ -22,7 +22,7 @@
             "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "Fetch All Responses",
+            "name": "All Responses Query",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
@@ -42,7 +42,7 @@
             "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "All Pre-Survey Fetch + Analysis",
+            "name": "All Pre-Survey Query + Analysis",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/run.py",
@@ -52,13 +52,13 @@
             "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
-            "name": "Fetch Survey Responses",
+            "name": "Survey Responses Query",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/scripts/fetch_survey_data.py",
+            "program": "${workspaceFolder}/src/run.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "args": [],
+            "args": ["--mode", "survey_query"],
             "python": "${workspaceFolder}/.venv/bin/python"
         },
         {

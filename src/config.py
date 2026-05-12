@@ -17,8 +17,8 @@ OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
 # OpenRouter API key for models with provider `openrouter`.
 OPENROUTER_API_KEY: str = os.getenv("OPENROUTER_API_KEY", "")
 
-# HTTP Basic password for the Railway ``/export/all`` endpoint (username ``admin``).
-# Used by ``scripts/fetch_railway_export.py``.
+# HTTP Basic password for the survey ``/export/all`` endpoint (username ``admin``).
+# Used by ``survey_query`` mode.
 EXPORT_PASSWORD: str = os.getenv("EXPORT_PASSWORD", "")
 
 # --- Evaluation Configuration ---
@@ -91,7 +91,10 @@ BRIDGING_SCORE_LAMBDA = 0.5
 PERSONA_CORRELATIONS_INPUT_PATH = OUTPUT_DIR / "persona_responses.csv"
 PERSONA_CORRELATIONS_OUTPUT_PATH = ANALYSIS_OUTPUT_DIR / "persona_correlations.csv"
 
-# Step: survey analysis from human ratings (fetched via `scripts/fetch_survey_data.py`).
-SURVEY_SESSIONS_PATH = OUTPUT_DIR / "scripts/web_export_sessions.csv"
-SURVEY_RATINGS_PATH = OUTPUT_DIR / "scripts/web_export_ratings.csv"
+# Step: fetch survey export (sessions + ratings) from the deployed survey API.
+SURVEY_EXPORT_URL = "https://api.makesafeai.org/export/all"
+SURVEY_SESSIONS_PATH = OUTPUT_DIR / "survey_responses_sessions.csv"
+SURVEY_RATINGS_PATH = OUTPUT_DIR / "survey_responses_ratings.csv"
+
+# Step: survey analysis from human ratings (fetched via ``survey_query`` mode).
 SURVEY_ANALYSIS_OUTPUT_DIR = ANALYSIS_OUTPUT_DIR / "survey"

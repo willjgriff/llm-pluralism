@@ -45,8 +45,8 @@ def load_survey_frames(
     """Read the four input CSVs and return cleaned, joined dataframes.
 
     Parameters:
-        sessions_csv: Path to ``web_export_sessions.csv``.
-        ratings_csv: Path to ``web_export_ratings.csv``.
+        sessions_csv: Path to ``survey_responses_sessions.csv``.
+        ratings_csv: Path to ``survey_responses_ratings.csv``.
         persona_responses_csv: Path to AI persona ratings CSV (e.g.
             ``persona_responses.csv``).
         bridging_scores_csv: Path to per-response bridging score CSV.

@@ -8,6 +8,7 @@ Developer-oriented notes for cloning, configuring, and running the LLM pluralism
 - **API keys** (loaded via `python-dotenv` from a `.env` file in the project root):
   - **`OPENAI_API_KEY`** — Required if any evaluation or persona model uses provider `openai`. Create at [OpenAI API keys](https://platform.openai.com/api-keys).
   - **`OPENROUTER_API_KEY`** — Required if any model uses provider `openrouter`. Create at [OpenRouter](https://openrouter.ai/) (Settings → Keys). Billing and model access are managed there.
+  - **`EXPORT_PASSWORD`** — Required only if running `survey_query`. HTTP Basic password (username `admin`) for the deployed survey API at **`SURVEY_EXPORT_URL`**.
 - **Python packages** — See `requirements.txt`: `openai`, `matplotlib`, `python-dotenv`, `numpy`. The OpenAI SDK is used for both OpenAI and OpenRouter (OpenRouter uses the OpenAI-compatible endpoint `https://openrouter.ai/api/v1`).
 
 Supported **providers** are only `openai` and `openrouter` (`src/model_query/models.py`). Anything else raises `ValueError` at client creation.
@@ -39,6 +40,11 @@ All defaults live in **`src/config.py`** (paths are relative to the **project ro
 - **`PERSONA_QUERY_MAX_THREADS`** — Concurrency for persona API calls.
 - **`PERSONA_QUERY_INPUT_PATH`** — Defaults to `OUTPUT_DIR / "evaluation_responses.csv"`; must exist before `persona_query`.
 - **`PERSONA_QUERY_OUTPUT_PATH`** — `persona_responses.csv` output.
+
+### Survey export (human ratings)
+
+- **`SURVEY_EXPORT_URL`** — Full URL of the survey export endpoint hit by `survey_query` mode. Authentication is HTTP Basic (username `admin`, password from **`EXPORT_PASSWORD`**).
+- **`SURVEY_SESSIONS_PATH`** / **`SURVEY_RATINGS_PATH`** — Where `survey_query` writes the two CSV files and where `survey_response_analyse` reads them from.
 
 ### Bridging score λ (polarisation penalty)
 
@@ -82,7 +88,7 @@ python3 src/run.py [--mode MODE [MODE ...]]
 
 | Flag | Description |
 |------|-------------|
-| **`--mode`** | One or more of: `evaluation_query`, `persona_query`, `persona_response_analyse`, `survey_response_analyse`. Default: all four in order. |
+| **`--mode`** | One or more of: `evaluation_query`, `persona_query`, `survey_query`, `persona_response_analyse`, `survey_response_analyse`. Default: all five in order. |
 
 There are no other CLI flags; models, paths, and λ are configured in **`src/config.py`**.
 
@@ -90,8 +96,9 @@ There are no other CLI flags; models, paths, and λ are configured in **`src/con
 
 1. **`evaluation_query`** — Reads `EVALUATION_PROMPTS_PATH` and `EVALUATION_SYSTEM_PROMPT_PATH`, calls each model in `EVALUATION_MODELS`, writes **`QUERY_OUTPUT_PATH`** (`output/evaluation_responses.csv`).
 2. **`persona_query`** — Reads `PERSONA_QUERY_INPUT_PATH` (evaluation responses) and `PERSONA_SYSTEM_PROMPTS_PATH`, calls **`PERSONA_QUERY_MODEL`** for each (prompt × response × persona) cell, writes **`PERSONA_QUERY_OUTPUT_PATH`** (`output/persona_responses.csv`).
-3. **`persona_response_analyse`** — Reads persona ratings, writes **`BRIDGING_SCORE_OUTPUT_PATH`**, **`PERSONA_CORRELATIONS_OUTPUT_PATH`**, generates model-persona charts under **`ANALYSIS_OUTPUT_DIR`**.
-4. **`survey_response_analyse`** — Reads `web_export_sessions.csv`, `web_export_ratings.csv`, plus the model-persona outputs from step 3, and writes human-vs-AI charts and the "what transfers" summary under **`SURVEY_ANALYSIS_OUTPUT_DIR`**.
+3. **`survey_query`** — HTTP GETs **`SURVEY_EXPORT_URL`** with HTTP Basic auth (user `admin`, password **`EXPORT_PASSWORD`**), splits the JSON payload into sessions and ratings, and writes **`SURVEY_SESSIONS_PATH`** and **`SURVEY_RATINGS_PATH`**.
+4. **`persona_response_analyse`** — Reads persona ratings, writes **`BRIDGING_SCORE_OUTPUT_PATH`**, **`PERSONA_CORRELATIONS_OUTPUT_PATH`**, generates model-persona charts under **`ANALYSIS_OUTPUT_DIR`**.
+5. **`survey_response_analyse`** — Reads `survey_responses_sessions.csv`, `survey_responses_ratings.csv`, plus the model-persona outputs from step 4, and writes human-vs-AI charts and the "what transfers" summary under **`SURVEY_ANALYSIS_OUTPUT_DIR`**.
 
 After either analysis stage, **`COPY_RESULTS_TO_DOCS`** can copy results to **`DOCS_RUN_DIR`**.
 
@@ -106,7 +113,7 @@ python3 src/run.py
 Equivalent explicit modes:
 
 ```bash
-python3 src/run.py --mode evaluation_query persona_query persona_response_analyse survey_response_analyse
+python3 src/run.py --mode evaluation_query persona_query survey_query persona_response_analyse survey_response_analyse
 ```
 
 Query only (no scoring or charts):
@@ -115,10 +122,16 @@ Query only (no scoring or charts):
 python3 src/run.py --mode evaluation_query
 ```
 
-Both query steps, no analysis:
+All ingestion steps, no analysis:
 
 ```bash
-python3 src/run.py --mode evaluation_query persona_query
+python3 src/run.py --mode evaluation_query persona_query survey_query
+```
+
+Fetch latest survey export only:
+
+```bash
+python3 src/run.py --mode survey_query
 ```
 
 Persona-response analysis only (requires existing `output/persona_responses.csv`):
@@ -127,7 +140,7 @@ Persona-response analysis only (requires existing `output/persona_responses.csv`
 python3 src/run.py --mode persona_response_analyse
 ```
 
-Survey-response analysis only (requires `output/scripts/web_export_*.csv` and the persona-response analysis outputs):
+Survey-response analysis only (requires `output/survey_responses_sessions.csv`, `output/survey_responses_ratings.csv`, and the persona-response analysis outputs):
 
 ```bash
 python3 src/run.py --mode survey_response_analyse
@@ -137,11 +150,12 @@ python3 src/run.py --mode survey_response_analyse
 
 - **`OPENAI_API_KEY is missing.`** / **`OPENROUTER_API_KEY is missing.`** — Raised from `model_query.models._get_client` if a configured model uses that provider and the env var is empty.
 - **`persona_query` before evaluation output** — `PERSONA_QUERY_INPUT_PATH` must point to a populated `evaluation_responses.csv` (run `evaluation_query` first or supply your own CSV with the expected columns).
+- **`survey_query` 401 / connection failure** — Confirm **`EXPORT_PASSWORD`** is set in `.env` and **`SURVEY_EXPORT_URL`** is reachable from your network.
 - **`persona_response_analyse` without persona data** — Bridging and correlations read **`BRIDGING_SCORE_INPUT_PATH`** / **`PERSONA_CORRELATIONS_INPUT_PATH`** (`persona_responses.csv` by default). Missing or empty files will yield empty or useless outputs.
 - **`survey_response_analyse` without bridging scores** — The survey stage joins to `bridging_scores.csv`; run `persona_response_analyse` first (or include both modes).
 - **`SKIP_ERRORS: True`** — Failures appear as `[ERROR] ...` in `response` / model output fields; downstream analysis may still run but scores can be invalid—inspect CSVs before trusting charts.
 
-VS Code / Cursor: see **`.vscode/launch.json`** for debug configurations that pass `--mode` (e.g. `evaluation_query`, `persona_query`, `persona_response_analyse`, `survey_response_analyse`, or combined).
+VS Code / Cursor: see **`.vscode/launch.json`** for debug configurations that pass `--mode` (e.g. `evaluation_query`, `persona_query`, `survey_query`, `persona_response_analyse`, `survey_response_analyse`, or combined).
 
 ## Interpreting outputs
 
