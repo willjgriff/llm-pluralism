@@ -20,6 +20,9 @@ The rater panel currently consists of six personas across three opposing pairs: 
 
 ## Results: Run 1 — 18 Prompts, 3 Models
 
+<details>
+<summary>Discussion</summary>
+
 ### Bridging Scores by Model
 
 Claude 3.5 Haiku scores highest on pluralistic acceptability (mean bridging score ~~2.86), followed by GPT-4.1 Mini (~~2.63) and Grok 4 Fast (~2.60). The differences are modest and error bars overlap, so strong claims about model ranking are not warranted at this sample size. However the ranking is stable across all three tested λ values (0.25, 0.50, 0.75), meaning it is not an artefact of the polarisation penalty weight.
@@ -111,10 +114,15 @@ Prompt 8 is the instructive exception. GPT scores highest (4.10) despite not fol
 
 High bridging scores are not achieved by avoiding positions, they are achieved by taking positions that are reachable from multiple value starting points. The persona scoring reflects genuine ideological content in the responses rather than methodological artefacts, and the differences between models on the same prompts are driven by identifiable differences in framing, vocabulary choice, and commitment strength rather than response length or formatting.
 
+</details>
+
 ---
 
 
 ## Results: Run 3 — 36 Prompts, 6 Models
+
+<details>
+<summary>Discussion</summary>
 
 ### Bridging Scores by Model
 
@@ -173,9 +181,14 @@ Model rankings are stable across λ = 0.25, 0.50, and 0.75 for all six models, c
 
 Mistral Large serves as both a response model and the persona rater model in this run. Its bridging scores may be influenced by the rater having seen similar training
 
+</details>
+
 ---
 
 ## Ongoing Findings
+
+<details>
+<summary>Discussion</summary>
 
 > Observations noted during development for future documentation and analysis. These will be incorporated into formal results sections as the dataset expands.
 
@@ -195,10 +208,15 @@ A parallel run using Llama 3.3 70B as the persona rater model (with identical pr
 
 Earlier runs that asked responses to be 3–5 sentences rather than max 80 words which revealed that response length has a measurable but selective effect on bridging scores. The overall model ranking (Claude > GPT > Grok) and the core progressive lean finding are stable across both conditions, confirming these are structural properties of the models rather than artefacts of response length. Topic group difficulty is also selectively affected: Global vs national identity scores are essentially unchanged across both runs, confirming that group's hardness is structural, while Individual vs collective rights and Technology and progress both become harder at 80 words. The one notable exception is AI and values, where Claude's score rises substantially (2.97 → 3.58), the largest single shift between the two runs, suggesting Claude produces more pluralistically acceptable AI governance responses when forced to be concise.
 
+</details>
+
 ---
 
 ## Human Validation
  
+<details>
+<summary>Discussion</summary>
+
 The AI persona panel is the engine of this evaluation, but its core assumption — that personas of opposing worldviews behave like real humans of those worldviews — is not self-evidently true. To test it, a small web platform was built to recruit real participants, assign them a primary value persona through a short questionnaire, and ask them to rate the same model responses the AI personas had rated. The validation was conducted against the Run 1 prompt set; Run 3 inherits this validation for the questions carried over from Run 1, and adds further questions whose persona scores are plausible but not directly human-validated.
  
 The recruited panel comprised 74 participants producing 656 ratings across 18 prompts and 3 models. Persona coverage is uneven — Secularist participants are over-represented at 228 ratings, Tech Optimists thin at 16, and no Religious participants were recruited — so per-persona results carry varying confidence and the smaller cells should be read cautiously.
@@ -235,10 +253,15 @@ The bridging score rests on the assumption that opposing persona pairs disagree.
  
 The economic axis (Libertarian vs Collectivist) shows the cleanest opposition in both AI and human data: AI r = –0.65, human r = –0.33 (N = 25). The identity axis (Nationalist vs Globalist) shows strong AI opposition (–0.35) but near-zero human opposition (–0.06), suggesting the AI personas overstate identity-axis polarisation. The technology axis (Tech Optimist vs Tech Sceptic) flips sign: AI r = –0.27, human r = +0.30. The human result is fragile (N = 13 shared responses, only 3 Tech Optimist participants) but striking — taken at face value it suggests Tech Optimists and Tech Sceptics broadly agree on what counts as a reasonable response even when their underlying values diverge. The Religious vs Secularist axis cannot be evaluated; no Religious participants were recruited.
 
+</details>
+
 ---
 
 ## What does and doesn't transfer
  
+<details>
+<summary>Discussion</summary>
+
 | Value axis | Persona pair | AI pair r | Human pair r | Same-persona agreement | Verdict |
 |---|---|---|---|---|---|
 | Economic | Libertarian vs Collectivist | –0.65 | –0.33 (N=25) | Lib +0.45, Coll +0.18 | **Validates** |
@@ -252,7 +275,12 @@ The economic axis is the only one that cleanly validates against humans, and eve
  
 Across all axes the AI personas score responses more extremely than humans of the same persona — the delta is consistently in the direction of "AI Libertarian dislikes the response more than a real Libertarian would, AI Collectivist approves more than a real Collectivist would." This means bridging scores computed from AI personas overstate response-level polarisation. Anyone using AI-persona disagreement as a proxy for "polarising content" should treat the magnitude with caution.
 
+</details>
+
 ## Limitations
+
+<details>
+<summary>Discussion</summary>
 
 - **LLM personas are imperfect proxies for real human value diversity.** The rater personas are prompts applied to a single model (Mistral) and may not faithfully represent the worldviews they describe. Whether LLM persona scores correlate with real human ratings from people who hold those values is an open empirical question and a planned extension of this project.
 - **The bridging score penalises all variance equally.** A response that is divisive because it takes a principled position scores the same as one that is divisive because it is poorly reasoned. The score measures pluralistic acceptability, not quality.
@@ -261,9 +289,14 @@ Across all axes the AI personas score responses more extremely than humans of th
 - **The rater panel has structural limitations on two of three axes.** The Nationalist persona shows IQR compression around 3 and the technology axis pair correlates at only -0.25, meaning bridging scores on global identity and technology prompts are less reliable than those on economic prompts.
 - **Mistral serves as both rater model and response model in run_3.** Its bridging scores may be influenced by the rater having seen similar training data to the responses it is rating.
 
+</details>
+
 ---
 
 ## Planned Extensions
+
+<details>
+<summary>Discussion</summary>
 
 ### Human validation
 The most important next step is validating whether LLM persona scores correlate with real human ratings. A web interface is planned that presents model responses to real users, collects a short values questionnaire to loosely assign them to a persona cluster, and records their reasonableness ratings. The correlation between LLM persona scores and human persona scores is the key empirical question this project has not yet answered.
@@ -282,3 +315,5 @@ The human validation website raises a sybil attack problem, what stops a motivat
 
 ### Reinforcement learning from community feedback
 The longer term vision is using validated bridging scores as a training signal, rewarding models for producing outputs that bridge value-diverse groups rather than optimising for majority approval. This would require a human validation dataset large enough to fine-tune a model, but the evaluation framework built here is a natural precursor to that work.
+
+</details>
