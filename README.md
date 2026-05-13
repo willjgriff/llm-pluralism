@@ -212,7 +212,7 @@ Earlier runs that asked responses to be 3–5 sentences rather than max 80 words
 
 ## Results: Human Validation — 74 Participants, 656 Ratings
 
-A web-based survey collects reasonableness ratings from real human participants on the same response set evaluated by the AI personas, then compares each human persona group's ratings to its corresponding AI persona scores. Headline result: every same-axis correlation between human and AI ratings is positive (mean r = +0.27, range +0.12 to +0.45), the rank order of group-level mean ratings is preserved between humans and AI, and the AI personas produce more polarised scores than their human counterparts.
+A __[web-based survey](https://github.com/willjgriff/llm-pluralism-web)__ collected reasonableness ratings from real human participants on the same response set evaluated by the AI personas, then compares each human persona group's ratings to its corresponding AI persona scores. Headline result: every same-axis correlation between human and AI ratings is positive (mean r = +0.27, range +0.12 to +0.45), the rank order of group-level mean ratings is preserved between humans and AI, and the AI personas produce more polarised scores than their human counterparts.
 
 </summary>
 
