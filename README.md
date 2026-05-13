@@ -2,11 +2,11 @@
  
 Frontier AI models are trained to please the majority, but whose majority? Standard RLHF uses a relatively small, culturally homogeneous group of human labellers to define what "good" responses look like. The result is models that appear balanced and helpful to people who share those values, but may feel biased, dismissive, or alienating to people who don't.
  
-This project takes a different approach, inspired by Audrey Tang's argument that __[AI alignment cannot be top-down](https://ai-frontiers.org/articles/ai-alignment-cannot-be-top-down)__, and by the __[Community Notes](https://communitynotes.x.com/guide/en/about/introduction)__ bridging algorithm. Rather than asking "do most people approve of this response", it asks "do people with genuinely different values all find this response at least acceptable?" That is a harder bar to meet and a more meaningful one.
+This project takes a different approach, inspired by Audrey Tang's argument that [AI alignment cannot be top-down](https://ai-frontiers.org/articles/ai-alignment-cannot-be-top-down), and by the [Community Notes](https://communitynotes.x.com/guide/en/about/introduction) bridging algorithm. Rather than asking "do most people approve of this response", it asks "do people with genuinely different values all find this response at least acceptable?" That is a harder bar to meet and a more meaningful one.
  
 The framework uses a panel of ideologically diverse AI personas as raters and a bridging score that penalises polarisation. Across six frontier models it finds a consistent progressive lean. A follow-up human study with 74 participants and 656 ratings validates parts of the methodology against real raters: every same-axis correlation between human and AI personas is positive, the rank order of group-level mean ratings is preserved between humans and AI, and the AI personas produce more polarised scores than their human counterparts.
  
-For setup and execution instructions see __[SETUP.md](https://github.com/willjgriff/llm-pluralism/blob/main/SETUP.md)__.
+For setup and execution instructions see [SETUP.md](https://github.com/willjgriff/llm-pluralism/blob/main/SETUP.md).
 
 ## Methodology
 
@@ -212,7 +212,7 @@ Earlier runs that asked responses to be 3–5 sentences rather than max 80 words
 
 ## Results: Human Validation — 74 Participants, 656 Ratings
 
-A __[web-based survey](https://github.com/willjgriff/llm-pluralism-web)__ collected reasonableness ratings from real human participants on the same response set evaluated by the AI personas, then compares each human persona group's ratings to its corresponding AI persona scores. Headline result: every same-axis correlation between human and AI ratings is positive (mean r = +0.27, range +0.12 to +0.45), the rank order of group-level mean ratings is preserved between humans and AI, and the AI personas produce more polarised scores than their human counterparts.
+A [web-based survey](https://github.com/willjgriff/llm-pluralism-web) collected reasonableness ratings from real human participants on the same response set evaluated by the AI personas, then compares each human persona group's ratings to its corresponding AI persona scores. Headline result: every same-axis correlation between human and AI ratings is positive (mean r = +0.27, range +0.12 to +0.45), the rank order of group-level mean ratings is preserved between humans and AI, and the AI personas produce more polarised scores than their human counterparts.
 
 </summary>
 
