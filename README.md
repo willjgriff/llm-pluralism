@@ -207,6 +207,59 @@ Earlier runs that asked responses to be 3–5 sentences rather than max 80 words
 
 </details>
 
+<details>
+<summary>
+
+## Results: Human Validation — 74 Participants, 656 Ratings
+
+A web-based survey collects reasonableness ratings from real human participants on the same response set evaluated by the AI personas, then compares each human persona group's ratings to its corresponding AI persona scores. Headline result: every same-axis correlation between human and AI ratings is positive (mean r = +0.27, range +0.12 to +0.45), the rank order of group-level mean ratings is preserved between humans and AI, and the AI personas produce more polarised scores than their human counterparts.
+
+</summary>
+
+### Sample
+
+74 participants completed the survey, contributing 656 ratings in total. After excluding 2 sessions with no ratings, 72 eligible participants remain. A further 2 Centrist participants (all four axis scores below 2) are excluded from group-level analysis because there is no AI Centrist persona to compare against, leaving 624 ratings across 7 human persona groups. Each participant is assigned to a single persona based on their dominant questionnaire axis. The Religious group has zero participants under this scheme and is shown as the empty column in the heatmap. Per-group participant counts: Secularist (27), Tech Sceptic (12), Collectivist (10), Libertarian (8), Nationalist (8), Globalist (3), Tech Optimist (3).
+
+### Human rating distribution by persona
+ 
+![Human rating distribution by persona](docs/run_1/output/analysis/survey/human_score_distribution_by_persona.png)
+ 
+Three things stand out. First, the progressive lean visible in the AI evaluation is far weaker in the human data: Libertarian and Nationalist medians sit at 3 with IQRs reaching down to 2, while Collectivist, Globalist, and Tech Sceptic medians sit at 4 with IQRs of 3–5. The direction matches the AI finding but the gap is smaller. Second, human Nationalists and Libertarians use the full 1–5 range — they discriminate between responses — whereas the AI Nationalist persona's scores were clustered tightly around 3 with limited discrimination. The AI persona's calibration problem is not a feature of the nationalist worldview, it is a model limitation. Third, the Secularist row mirrors its AI counterpart: median 4, narrow upper-half spread, an approval-heavy bias even with N=228.
+
+### Same-axis correlations: do humans rate like their AI counterpart?
+
+For each persona, the mean human rating per response is correlated with the AI persona's score on that same response, across all responses rated by participants in the human group. All seven testable diagonal correlations are positive, ranging from +0.12 (Secularist) to +0.45 (Libertarian), with a mean of +0.27.
+
+![Diagonal correlations](docs/human_validation/01_diagonal_correlations.png)
+
+The four strongest cells (Libertarian +0.45, Nationalist +0.37, Tech Sceptic +0.33, Tech Optimist +0.30) exceed the threshold for distinguishing from chance at this sample size; the three weaker cells (Collectivist +0.18, Globalist +0.14, Secularist +0.12) cannot be distinguished from noise. For scale, the framework's own AI-vs-AI persona correlations sit in the −0.66 to +0.72 range, so a same-axis diagonal of +0.45 is moderate by the framework's internal yardstick. The Religious axis cannot be tested with this data.
+
+### Full persona correlation matrix
+
+The full 7 × 8 heatmap shows how each human persona group correlates with each AI persona. The diagonal cells (bordered) are the same-axis match; the off-diagonal cells are descriptive and should be interpreted with caution because the stratified response selection enriches each row for variance on the row's axis only.
+
+![Full heatmap](docs/human_validation/02_full_heatmap.png)
+
+Two patterns are notable in the off-diagonals:
+
+- **AI Nationalist correlates positively with multiple human groups** (Libertarian +0.38, Nationalist +0.37, Secularist +0.41). The AI Nationalist persona may not be cleanly separating nationalism from a more general response-style signal that several human groups share.
+- **Opposing-axis directionality holds on the economic axis.** Human Libertarian and AI Collectivist correlate at −0.39, and human Tech Optimist and AI Collectivist at −0.68 (N=15, treat cautiously). Outside the economic axis the expected sign-flip pattern between opposing personas is less consistent.
+
+### Mean rating per persona: humans vs AI personas
+
+Comparing group-level mean ratings between humans and the corresponding AI personas directly tests whether the framework's group-level claims survive contact with real raters.
+
+![Mean rating per persona: human group vs AI persona](docs/human_validation/04_mean_rating_comparison_primary.png)
+
+The rank order of group means is broadly preserved: Libertarian and Nationalist humans rate AI responses lowest (3.23 and 3.22 respectively), Secularist and Tech Sceptic rate highest (3.99 and 4.03), and the AI personas produce the same ordering at the extremes — AI Libertarian (2.24) and AI Religious (1.72) are the harshest AI raters, AI Secularist (4.67) and AI Globalist (4.15) are the most generous. This replicates the original AI-evaluation finding with human data: the conservative-leaning human groups give the lowest mean ratings, consistent with a progressive lean in frontier model outputs.
+
+The chart also exposes a systematic gap: AI personas are more polarised than their human counterparts. AI Libertarian is harsher than human Libertarians by ~1 point, AI Religious would likely be much harsher than its absent human counterpart, and AI Secularist and Globalist are more generous than their human groups. The AI personas push further toward the 1 and 5 extremes than humans do, which means the bridging score's variance penalty is calibrated against AI disagreement that is wider than real human disagreement on the same responses.
+
+### What this validates and what it does not
+
+The persona model represents human raters directionally on every axis where the data allows a test, and the same-axis correlations are statistically credible for Libertarian, Nationalist, Tech Sceptic, and Tech Optimist. Group-level mean ratings rank in the same order between humans and AI personas, and the headline progressive-lean finding from the AI evaluation reproduces with humans. The AI personas are not interchangeable substitutes for human raters: agreement is moderate rather than strong (r ≈ 0.3–0.45 on the strongest axes), and the AI personas produce more polarised scores than humans do. The Religious axis is untested because no participants completed the survey with a Religious primary persona, and the Globalist and Tech Optimist groups have only 3 participants each so their per-group statistics are tentative.
+
+</details>
 
 ## Limitations
 
