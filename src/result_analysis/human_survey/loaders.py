@@ -25,11 +25,14 @@ class SurveyFrames:
         ai_scores: Per-response AI persona ratings with columns
             ``question_id``, ``ai_model``, ``ai_persona``, ``ai_score``,
             ``group_name``.
+        persona_responses_raw: Full ``persona_responses.csv`` frame (original
+            column names) for charts that need per-rating CIs on AI scores.
     """
 
     humans: pd.DataFrame
     human_means: pd.DataFrame
     ai_scores: pd.DataFrame
+    persona_responses_raw: pd.DataFrame
 
 
 def load_survey_frames(
@@ -47,16 +50,25 @@ def load_survey_frames(
             ``persona_responses.csv``).
 
     Returns:
-        A :class:`SurveyFrames` with humans, human_means, and ai_scores.
+        A :class:`SurveyFrames` with humans, human_means, ai_scores, and
+        ``persona_responses_raw``.
     """
     ratings = pd.read_csv(ratings_csv)
     sessions = pd.read_csv(sessions_csv)
     ai_responses = pd.read_csv(persona_responses_csv)
+    persona_responses_raw = ai_responses.copy()
+
+    rating_counts = ratings.groupby("session_id").size().rename("n_ratings")
+    sessions = sessions.merge(
+        rating_counts, left_on="id", right_index=True, how="left"
+    ).fillna({"n_ratings": 0})
+    eligible_sessions = sessions[sessions["n_ratings"] > 0]
 
     humans = ratings.merge(
-        sessions[["id", "primary_persona"]],
+        eligible_sessions[["id", "primary_persona"]],
         left_on="session_id",
         right_on="id",
+        how="inner",
         suffixes=("", "_session"),
     )
     humans = humans.rename(
@@ -85,6 +97,7 @@ def load_survey_frames(
         humans=humans,
         human_means=human_means,
         ai_scores=ai_scores,
+        persona_responses_raw=persona_responses_raw,
     )
 
 

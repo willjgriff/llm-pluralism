@@ -68,7 +68,7 @@ Debug: `**.vscode/launch.json`** has launch configs that call `src/run.py` with 
 | `output/persona_responses.csv`                                     | Persona scores per response                      |
 | `output/analysis/bridging_scores.csv` / `persona_correlations.csv` | Computed metrics                                 |
 | `output/analysis/*.png`                                            | Model-persona charts                             |
-| `output/analysis/survey/`                                          | Human survey charts |
+| `output/analysis/survey/`                                          | Human survey charts (distribution, agreement heatmap, diagonal r, mean comparison) |
 
 
 Column names match the writers in `src/model_query/query_pipeline.py`. Extra λ columns on bridging scores are documented in `src/result_analysis/model_personas/scoring/bridging_score.py` (`LAMBDA_VALUES`).

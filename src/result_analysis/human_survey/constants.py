@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+# Low-N thresholds (aligned with human-validation figure scripts).
+SURVEY_LOW_N_RESPONSES: int = 20
+SURVEY_LOW_N_PARTICIPANTS: int = 5
+
 PERSONA_ORDER: tuple[str, ...] = (
     "Libertarian",
     "Collectivist",

@@ -11,6 +11,12 @@ import matplotlib.pyplot as plt
 from result_analysis.chart_common.style import DPI
 
 
+def hide_top_right_spines(ax: plt.Axes) -> None:
+    """Hide the top and right spines so only left and bottom axis lines remain."""
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+
 def save_and_close(
     fig: plt.Figure,
     output_path: Path,
@@ -18,6 +24,7 @@ def save_and_close(
     tight_layout_rect: tuple[float, float, float, float] | None = None,
     after_tight_layout: Callable[[plt.Figure], None] | None = None,
     subplots_adjust_kwargs: dict[str, float] | None = None,
+    savefig_kwargs: dict | None = None,
 ) -> None:
     """Lay out the figure, optionally run a hook (e.g. footnotes), then save and close.
 
@@ -30,6 +37,8 @@ def save_and_close(
             elements such as figure-level footnotes in reserved margins.
         subplots_adjust_kwargs: Optional keyword arguments for ``fig.subplots_adjust``,
             applied after ``tight_layout`` (e.g. ``{"bottom": 0.22}`` for extra margin).
+        savefig_kwargs: Extra keyword arguments forwarded to ``fig.savefig`` (e.g.
+            ``{"bbox_inches": "tight"}`` to include legend and annotations in the crop).
     """
     if tight_layout_rect is None:
         fig.tight_layout()
@@ -39,7 +48,8 @@ def save_and_close(
         after_tight_layout(fig)
     if subplots_adjust_kwargs is not None:
         fig.subplots_adjust(**subplots_adjust_kwargs)
-    fig.savefig(output_path, dpi=DPI)
+    extra = dict(savefig_kwargs or {})
+    fig.savefig(output_path, dpi=DPI, **extra)
     plt.close(fig)
 
 

@@ -4,7 +4,7 @@ Frontier AI models are trained to please the majority, but whose majority? Stand
  
 This project takes a different approach, inspired by Audrey Tang's argument that __[AI alignment cannot be top-down](https://ai-frontiers.org/articles/ai-alignment-cannot-be-top-down)__, and by the __[Community Notes](https://communitynotes.x.com/guide/en/about/introduction)__ bridging algorithm. Rather than asking "do most people approve of this response", it asks "do people with genuinely different values all find this response at least acceptable?" That is a harder bar to meet and a more meaningful one.
  
-The framework uses a panel of ideologically diverse AI personas as raters and a bridging score that penalises polarisation. Across six frontier models it finds a consistent progressive lean. A follow-up human study with 74 participants and 656 ratings validates parts of the methodology against real raters: the economic value axis is the best-validated of the four, the identity axis is weak in humans, the technology axis appears to flip sign, and the AI personas systematically over-discriminate relative to humans.
+The framework uses a panel of ideologically diverse AI personas as raters and a bridging score that penalises polarisation. Across six frontier models it finds a consistent progressive lean. A follow-up human study with 74 participants and 656 ratings validates parts of the methodology against real raters: every same-axis correlation between human and AI personas is positive, the rank order of group-level mean ratings is preserved between humans and AI, and the AI personas produce more polarised scores than their human counterparts.
  
 For setup and execution instructions see __[SETUP.md](https://github.com/willjgriff/llm-pluralism/blob/main/SETUP.md)__.
 
@@ -49,7 +49,7 @@ The model and group heatmap reveals interaction effects that the aggregate score
 
 ### Persona Correlations
 
-The persona correlation heatmap validates the core methodological assumption that personas disagree with each other in the expected directions. The strongest opposition is between Libertarian and Collectivist (-0.66), confirming the economic axis is the most cleanly captured by the rater panel. Globalist and Collectivist show strong positive correlation (0.72), confirming progressive persona alignment. The technology axis is weakest, Tech Optimist and Tech Sceptic correlate at only -0.27, meaning bridging scores on technology prompts should be interpreted with more caution than those on economic or identity prompts. Human validation later found this pair correlates positively among real participants, see the Human Validation section.
+The persona correlation heatmap validates the core methodological assumption that personas disagree with each other in the expected directions. The strongest opposition is between Libertarian and Collectivist (-0.66), confirming the economic axis is the most cleanly captured by the rater panel. Globalist and Collectivist show strong positive correlation (0.72), confirming progressive persona alignment. The technology axis is weakest, Tech Optimist and Tech Sceptic correlate at only -0.27, meaning bridging scores on technology prompts should be interpreted with more caution than those on economic or identity prompts. Human validation later found that the Tech Sceptic and Tech Optimist diagonal correlations between humans and their AI counterparts are both positive (+0.33 and +0.30 respectively), suggesting the AI tech personas track real human worldviews directionally even though the opposition between them is weak. See the Human Validation section.
 
 ![Persona Rating Correlations](docs/run_1/output/analysis/persona_correlations.png)
 
@@ -230,7 +230,7 @@ Three things stand out. First, the progressive lean visible in the AI evaluation
 
 For each persona, the mean human rating per response is correlated with the AI persona's score on that same response, across all responses rated by participants in the human group. All seven testable diagonal correlations are positive, ranging from +0.12 (Secularist) to +0.45 (Libertarian), with a mean of +0.27.
 
-![Diagonal correlations](docs/human_validation/01_diagonal_correlations.png)
+![Diagonal correlations](docs/run_1/output/analysis/survey/same_axis_human_ai_persona_correlations.png)
 
 The four strongest cells (Libertarian +0.45, Nationalist +0.37, Tech Sceptic +0.33, Tech Optimist +0.30) exceed the threshold for distinguishing from chance at this sample size; the three weaker cells (Collectivist +0.18, Globalist +0.14, Secularist +0.12) cannot be distinguished from noise. For scale, the framework's own AI-vs-AI persona correlations sit in the −0.66 to +0.72 range, so a same-axis diagonal of +0.45 is moderate by the framework's internal yardstick. The Religious axis cannot be tested with this data.
 
@@ -238,7 +238,7 @@ The four strongest cells (Libertarian +0.45, Nationalist +0.37, Tech Sceptic +0.
 
 The full 7 × 8 heatmap shows how each human persona group correlates with each AI persona. The diagonal cells (bordered) are the same-axis match; the off-diagonal cells are descriptive and should be interpreted with caution because the stratified response selection enriches each row for variance on the row's axis only.
 
-![Full heatmap](docs/human_validation/02_full_heatmap.png)
+![Full heatmap](docs/run_1/output/analysis/survey/ai_human_agreement_matrix.png)
 
 Two patterns are notable in the off-diagonals:
 
@@ -249,7 +249,7 @@ Two patterns are notable in the off-diagonals:
 
 Comparing group-level mean ratings between humans and the corresponding AI personas directly tests whether the framework's group-level claims survive contact with real raters.
 
-![Mean rating per persona: human group vs AI persona](docs/human_validation/04_mean_rating_comparison_primary.png)
+![Mean rating per persona: human group vs AI persona](docs/run_1/output/analysis/survey/human_vs_ai_persona_mean_scores.png)
 
 The rank order of group means is broadly preserved: Libertarian and Nationalist humans rate AI responses lowest (3.23 and 3.22 respectively), Secularist and Tech Sceptic rate highest (3.99 and 4.03), and the AI personas produce the same ordering at the extremes — AI Libertarian (2.24) and AI Religious (1.72) are the harshest AI raters, AI Secularist (4.67) and AI Globalist (4.15) are the most generous. This replicates the original AI-evaluation finding with human data: the conservative-leaning human groups give the lowest mean ratings, consistent with a progressive lean in frontier model outputs.
 
@@ -263,7 +263,7 @@ The persona model represents human raters directionally on every axis where the 
 
 ## Limitations
 
-- **LLM personas are imperfect proxies for real human value diversity, and the validation of how good a proxy varies by axis.** Human validation confirms the economic axis transfers partially (human pair r = –0.33 vs AI r = –0.65), the identity axis is weak (–0.06 vs –0.35), the technology axis flips sign (+0.30 vs –0.27), and the religious/secular axis is untested. Across all tested axes the AI personas score more extremely than humans of the same worldview, meaning bridging scores overstate response-level polarisation.
+- **LLM personas are imperfect proxies for real human value diversity, and validation strength varies by axis.** Human validation finds positive same-axis correlations on every testable axis but their strength varies: Libertarian (+0.45) and Nationalist (+0.37) are the best-validated, Tech Sceptic (+0.33) and Tech Optimist (+0.30) sit just behind, and Collectivist (+0.18), Globalist (+0.14), and Secularist (+0.12) are too weak to distinguish from chance at the current sample size. The religious/secular axis cannot be tested because no Religious-primary participants enrolled. Across all tested axes the AI personas score more extremely than humans of the same worldview, meaning bridging scores overstate response-level polarisation.
 - **The bridging score penalises all variance equally.** A response that is divisive because it takes a principled position scores the same as one that is divisive because it is poorly reasoned. The score measures pluralistic acceptability, not quality.
 - **Six response models may still be insufficient for robust model ranking.** All six models in run_3 score within a narrow band (2.44–2.65) with overlapping error bars, meaning no model can be said to definitively outperform another at this sample size.
 - **The prompt set reflects the designer's assumptions about what counts as contested.** The 36 evaluation prompts span six topic groups and may not represent the most important axes of value disagreement globally.
@@ -273,16 +273,16 @@ The persona model represents human raters directionally on every axis where the 
 ## Planned Extensions
 
 ### Larger human validation panel
-The most impactful next step is recruiting more participants, especially Religious participants to enable testing the fourth value axis, and more Tech Optimists to firm up the fragile sign-flip finding on the technology axis. A larger panel would also let the bridging-score-vs-human-mean correlation cross conventional statistical significance thresholds.
+The most impactful next step is recruiting more participants, especially Religious participants to enable testing the fourth value axis, and more Tech Optimists and Globalists to firm up two diagonals currently driven by N=3 participants each. A larger panel would also let the same-axis correlations on the weaker diagonals (Collectivist, Globalist, Secularist) cross conventional statistical significance thresholds.
 
 ### Matrix factorisation bridging score
-The current bridging score formula is a simple proxy. The Community Notes algorithm uses matrix factorisation to discover which raters cluster together ideologically from the data itself, rather than relying on predefined opposing pairs. Human validation revealed that the AI persona scheme doesn't cleanly separate real human raters along its declared axes. For example, human Libertarians correlate with AI Nationalist almost as strongly as with AI Libertarian, suggesting matrix factorisation could discover better axes from the data itself.
+The current bridging score formula is a simple proxy. The Community Notes algorithm uses matrix factorisation to discover which raters cluster together ideologically from the data itself, rather than relying on predefined opposing pairs. Human validation revealed that the AI persona scheme doesn't cleanly separate real human raters along its declared axes. For example, human Libertarians correlate with AI Nationalist at +0.38, close to their +0.45 correlation with AI Libertarian. AI Nationalist also correlates positively with human Secularists (+0.41), suggesting it may be picking up a more general response-style signal rather than nationalism specifically. Matrix factorisation could discover better axes from the data itself.
 
 ### Expanded model coverage
 Future runs should include more models from non-Western labs and models trained with different alignment approaches, particularly those with less aggressive RLHF filtering, to test whether the progressive lean finding holds across a broader landscape.
 
 ### Improved persona coverage and calibration
-Human validation revealed specific failure modes that need addressing: the religious/secular axis is uncalibrated in the AI panel and untested in the human panel, the technology axis flips sign between AI and humans suggesting the persona prompts may capture something other than the underlying worldview, and the AI Nationalist persona under-discriminates relative to its human counterpart. Future work should explore alternative value axes that produce cleaner opposition and should incorporate non-Western cultural perspectives to make the evaluation more genuinely global.
+Human validation revealed specific failure modes that need addressing: the religious/secular axis is uncalibrated in the AI panel and untested in the human panel because no Religious-primary participants enrolled, the AI Nationalist persona under-discriminates relative to its human counterpart and shows broad cross-axis correlations suggesting it may not be capturing nationalism specifically, and the AI personas are systematically more polarised than humans on the same responses, meaning the bridging score's variance penalty is calibrated against wider disagreement than actually exists. Future work should explore alternative value axes that produce cleaner opposition and should incorporate non-Western cultural perspectives to make the evaluation more genuinely global.
 
 ### Reinforcement learning from community feedback
 The longer term vision is using validated bridging scores as a training signal, rewarding models for producing outputs that bridge value-diverse groups rather than optimising for majority approval. This would require a human validation dataset orders of magnitude larger than the current 656 ratings, but the evaluation framework built here is a natural precursor to that work.

@@ -1,5 +1,5 @@
 id,created_at,is_repeat,primary_persona,primary_axis,economic_score,identity_score,technology_score,society_score,economic_persona,identity_persona,technology_persona,society_persona,questionnaire_answers,traffic_source
-336ba343-9c82-4b16-8c70-d2a10bbe8570,2026-04-08 12:09:49.996523,False,Libertarian,economic,3,1,-2,-2,Libertarian,Nationalist,Tech Sceptic,Secularist,"[2, 5, 4, 3, 5, 3, 2, 4]",trusted
+336ba343-9c82-4b16-8c70-d2a10bbe8570,2026-04-08 12:09:49.996523,True,Libertarian,economic,3,1,-2,-2,Libertarian,Nationalist,Tech Sceptic,Secularist,"[2, 5, 4, 3, 5, 3, 2, 4]",trusted
 d4d52d79-2adc-47c6-932e-6ddce875b0a9,2026-04-08 14:29:28.587937,False,Tech Optimist,technology,-2,0,3,-2,Collectivist,Neutral,Tech Optimist,Secularist,"[4, 2, 3, 3, 1, 4, 2, 4]",trusted
 e0ef5c9e-c63e-403d-88ad-8723025cbfdc,2026-04-08 14:29:33.317877,False,Tech Optimist,technology,0,0,4,-4,Neutral,Neutral,Tech Optimist,Secularist,"[3, 3, 4, 4, 1, 5, 1, 5]",trusted
 557ee3eb-a848-42ef-915d-f4fb90df5e3b,2026-04-08 18:56:30.246962,False,Nationalist,identity,-2,3,-1,-1,Collectivist,Nationalist,Tech Sceptic,Secularist,"[5, 3, 5, 2, 4, 3, 3, 4]",trusted

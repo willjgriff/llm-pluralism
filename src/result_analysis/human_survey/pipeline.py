@@ -6,7 +6,9 @@ from pathlib import Path
 
 from result_analysis.human_survey.charts import (
     chart_human_ai_agreement_matrix,
+    chart_human_ai_persona_mean_scores,
     chart_human_score_distribution_by_persona,
+    chart_same_axis_diagonal_correlations,
 )
 from result_analysis.human_survey.loaders import load_survey_frames
 
@@ -21,7 +23,8 @@ def generate_survey_analysis(
     """Run the full survey analysis pipeline and write charts.
 
     Loads human ratings (sessions + ratings export) and AI persona ratings;
-    generates two charts comparing human and AI evaluations.
+    writes four PNGs under ``output_dir``: distribution, full agreement
+    heatmap, same-axis diagonal correlations, and human vs AI mean scores.
 
     Parameters:
         sessions_csv: Path to ``survey_responses_sessions.csv``.
@@ -47,10 +50,21 @@ def generate_survey_analysis(
     chart_human_score_distribution_by_persona(
         frames.humans, output_dir / "human_score_distribution_by_persona.png"
     )
-    chart_human_ai_agreement_matrix(
-        frames.human_means,
+    correlation_frame, count_frame = chart_human_ai_agreement_matrix(
+        frames.humans,
         frames.ai_scores,
         output_dir / "ai_human_agreement_matrix.png",
+    )
+    chart_same_axis_diagonal_correlations(
+        correlation_frame,
+        count_frame,
+        frames.humans,
+        output_dir / "same_axis_human_ai_persona_correlations.png",
+    )
+    chart_human_ai_persona_mean_scores(
+        frames.humans,
+        frames.persona_responses_raw,
+        output_dir / "human_vs_ai_persona_mean_scores.png",
     )
 
     print(f"[survey_response_analyse] Wrote charts to {output_dir}")
