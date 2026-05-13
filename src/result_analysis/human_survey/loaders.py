@@ -1,4 +1,4 @@
-"""Load and join the four CSVs used by survey (human-vs-AI) analysis."""
+"""Load and join the CSVs used by survey (human-vs-AI) analysis."""
 
 from __future__ import annotations
 
@@ -25,14 +25,11 @@ class SurveyFrames:
         ai_scores: Per-response AI persona ratings with columns
             ``question_id``, ``ai_model``, ``ai_persona``, ``ai_score``,
             ``group_name``.
-        bridging: Bridging score table with ``ai_model`` column (renamed from
-            ``response_model``), ``bridging_score`` and ``group_name``.
     """
 
     humans: pd.DataFrame
     human_means: pd.DataFrame
     ai_scores: pd.DataFrame
-    bridging: pd.DataFrame
 
 
 def load_survey_frames(
@@ -40,24 +37,21 @@ def load_survey_frames(
     sessions_csv: Path,
     ratings_csv: Path,
     persona_responses_csv: Path,
-    bridging_scores_csv: Path,
 ) -> SurveyFrames:
-    """Read the four input CSVs and return cleaned, joined dataframes.
+    """Read the three input CSVs and return cleaned, joined dataframes.
 
     Parameters:
         sessions_csv: Path to ``survey_responses_sessions.csv``.
         ratings_csv: Path to ``survey_responses_ratings.csv``.
         persona_responses_csv: Path to AI persona ratings CSV (e.g.
             ``persona_responses.csv``).
-        bridging_scores_csv: Path to per-response bridging score CSV.
 
     Returns:
-        A :class:`SurveyFrames` with humans, human_means, ai_scores, bridging.
+        A :class:`SurveyFrames` with humans, human_means, and ai_scores.
     """
     ratings = pd.read_csv(ratings_csv)
     sessions = pd.read_csv(sessions_csv)
     ai_responses = pd.read_csv(persona_responses_csv)
-    bridging = pd.read_csv(bridging_scores_csv)
 
     humans = ratings.merge(
         sessions[["id", "primary_persona"]],
@@ -87,13 +81,10 @@ def load_survey_frames(
         }
     )[["question_id", "ai_model", "ai_persona", "ai_score", "group_name"]]
 
-    bridging = bridging.rename(columns={"response_model": "ai_model"})
-
     return SurveyFrames(
         humans=humans,
         human_means=human_means,
         ai_scores=ai_scores,
-        bridging=bridging,
     )
 
 

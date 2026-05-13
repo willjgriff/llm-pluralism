@@ -207,65 +207,6 @@ Earlier runs that asked responses to be 3–5 sentences rather than max 80 words
 
 </details>
 
-<details>
-<summary>
-
-## Human Validation
-
-A 74-participant web study testing whether the AI persona panel's ratings actually predict how value-diverse humans rate the same model responses, covering 656 ratings across the Run 1 prompt set. Headline result: the economic value axis is the only one that partially transfers to real humans, the identity axis is weak, the technology axis appears to flip sign, and the AI personas systematically over-discriminate relative to humans of the same worldview.
-
-</summary>
-
-The validation was conducted against the Run 1 prompt set, so Run 3 inherits this validation only for the questions carried over from Run 1; further Run 3 questions have persona scores that are plausible but not directly human-validated. Persona coverage is also uneven - Secularist participants are over-represented at 228 ratings, Tech Optimists thin at 16, and no Religious participants were recruited - so per-persona results carry varying confidence and the smaller cells should be read cautiously.
- 
-### Human rating distribution by persona
- 
-![Human rating distribution by persona](docs/run_1/output/analysis/survey/human_score_distribution_by_persona.png)
- 
-Three things stand out. First, the progressive lean visible in the AI evaluation is far weaker in the human data: Libertarian and Nationalist medians sit at 3 with IQRs reaching down to 2, while Collectivist, Globalist, and Tech Sceptic medians sit at 4 with IQRs of 3–5. The direction matches the AI finding but the gap is smaller. Second, human Nationalists and Libertarians use the full 1–5 range — they discriminate between responses — whereas the AI Nationalist persona's scores were clustered tightly around 3 with limited discrimination. The AI persona's calibration problem is not a feature of the nationalist worldview, it is a model limitation. Third, the Secularist row mirrors its AI counterpart: median 4, narrow upper-half spread, an approval-heavy bias even with N=228.
- 
-### Does the bridging score predict human consensus?
- 
-The bridging score is the central artefact of the AI evaluation. If it captures something real, it should predict how a balanced cross-section of humans react to a response.
- 
-![AI bridging score vs mean human rating](docs/run_1/output/analysis/survey/bridging_vs_human_mean.png)
- 
-Pearson r = +0.23 (p = 0.111, N = 51 responses with ratings from three or more persona groups). The trend is positive but not statistically significant at conventional thresholds. The bridging score directionally predicts human consensus but the relationship is too noisy to make a strong claim at this sample size — a larger human panel would be needed to determine whether the bridging score is a meaningful predictor of human agreement or merely correlated by chance with the dataset's response distribution.
- 
-### Agreement between human and AI persona ratings
- 
-If AI personas are good proxies for their human counterparts, the diagonal of a human-persona × AI-persona correlation matrix should light up.
- 
-![Agreement matrix](docs/run_1/output/analysis/survey/ai_human_agreement_matrix.png)
- 
-The diagonal is positive and ranges from r = +0.12 (Secularist) to r = +0.45 (Libertarian). Libertarian and Nationalist same-persona agreement is the strongest in the matrix (r = +0.45 and +0.37 respectively), partially validating those personas as proxies for their human counterparts. Tech Optimist diagonal agreement is +0.30 but rests on only 15 ratings.
- 
-Two off-diagonal patterns are worth noting. Human Libertarians correlate with AI Nationalist (+0.38) almost as strongly as with AI Libertarian — the AI Libertarian and Nationalist personas may not be cleanly distinguishable from a human-Libertarian perspective. And the Tech Optimist row contains the strongest signals in the matrix in absolute terms (+0.54 with AI Libertarian, –0.68 with AI Collectivist, +0.54 with AI Religious) but with only 15 ratings these are noise candidates rather than findings.
- 
-### Persona pair opposition
- 
-The bridging score rests on the assumption that opposing persona pairs disagree. How well does that hold up among humans?
- 
-![Persona pair opposition](docs/run_1/output/analysis/survey/persona_pair_opposition_ai_vs_human.png)
- 
-The economic axis (Libertarian vs Collectivist) shows the cleanest opposition in both AI and human data: AI r = –0.65, human r = –0.33 (N = 25). The identity axis (Nationalist vs Globalist) shows strong AI opposition (–0.35) but near-zero human opposition (–0.06), suggesting the AI personas overstate identity-axis polarisation. The technology axis (Tech Optimist vs Tech Sceptic) flips sign: AI r = –0.27, human r = +0.30. The human result is fragile (N = 13 shared responses, only 3 Tech Optimist participants) but striking — taken at face value it suggests Tech Optimists and Tech Sceptics broadly agree on what counts as a reasonable response even when their underlying values diverge. The Religious vs Secularist axis cannot be evaluated; no Religious participants were recruited.
-
-### What does and doesn't transfer
- 
-| Value axis | Persona pair | AI pair r | Human pair r | Same-persona agreement | Verdict |
-|---|---|---|---|---|---|
-| Economic | Libertarian vs Collectivist | –0.65 | –0.33 (N=25) | Lib +0.45, Coll +0.18 | **Validates** |
-| Identity | Nationalist vs Globalist | –0.35 | –0.06 (N=31) | Nat +0.37, Glob +0.14 | **Partial** |
-| Technology | Tech Optimist vs Tech Sceptic | –0.27 | +0.30 (N=13) | TO +0.30, TS +0.33 | **Fragile / contradictory** |
-| Society | Religious vs Secularist | –0.48 | n/a (N=0) | n/a, Sec +0.12 | **Untested** |
- 
-*Verdict thresholds: "Validates" requires human pair r < –0.3 and same-persona agreement > 0.2 on at least one side; "Partial" requires either condition; "Fragile / contradictory" indicates the human pair correlation has the opposite sign to the AI pair, or rests on too few raters to support a verdict; "Untested" indicates insufficient data. Thresholds are heuristic.*
- 
-The economic axis is the only one that cleanly validates against humans, and even there the human opposition (r = –0.33) is weaker than the AI opposition (r = –0.65) — the same over-discrimination pattern that appears throughout the dataset. For uses of this framework that focus on economic-policy prompts the AI persona panel is a defensible stand-in for a real human panel, with the caveat that absolute score differences will be overstated.
- 
-Across all axes the AI personas score responses more extremely than humans of the same persona — the delta is consistently in the direction of "AI Libertarian dislikes the response more than a real Libertarian would, AI Collectivist approves more than a real Collectivist would." This means bridging scores computed from AI personas overstate response-level polarisation. Anyone using AI-persona disagreement as a proxy for "polarising content" should treat the magnitude with caution.
-
-</details>
 
 ## Limitations
 

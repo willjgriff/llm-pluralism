@@ -105,7 +105,6 @@ def main() -> None:
             sessions_csv=config.SURVEY_SESSIONS_PATH,
             ratings_csv=config.SURVEY_RATINGS_PATH,
             persona_responses_csv=config.PERSONA_QUERY_OUTPUT_PATH,
-            bridging_scores_csv=config.BRIDGING_SCORE_OUTPUT_PATH,
             output_dir=config.SURVEY_ANALYSIS_OUTPUT_DIR,
         )
 

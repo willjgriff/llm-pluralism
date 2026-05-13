@@ -45,7 +45,7 @@ Useful one-liners:
 python src/run.py                                          # full pipeline
 python src/run.py --mode persona_response_analyse          # charts from existing persona CSV
 python src/run.py --mode survey_query                      # refresh survey CSVs only
-python src/run.py --mode survey_response_analyse           # needs survey CSVs + bridging_scores.csv
+python src/run.py --mode survey_response_analyse           # needs survey CSVs + persona_responses.csv
 ```
 
 **There are dependencies between stages and with a blank project the different modes need to be run in order.**
@@ -53,6 +53,7 @@ python src/run.py --mode survey_response_analyse           # needs survey CSVs +
 ## Troubleshooting
 
 - Missing API key errors come from `model_query` when a model uses that provider.
+- **`survey_response_analyse`** needs `output/persona_responses.csv` (from `persona_query`) plus the survey session/rating CSVs.
 - `**survey_query` fails (401 / network)** — check `EXPORT_PASSWORD` and `SURVEY_EXPORT_URL` in `config.py`.
 - `**SKIP_ERRORS = True`** — failed calls become `[ERROR] ...` in CSVs; downstream numbers may be meaningless.
 
@@ -67,7 +68,7 @@ Debug: `**.vscode/launch.json`** has launch configs that call `src/run.py` with 
 | `output/persona_responses.csv`                                     | Persona scores per response                      |
 | `output/analysis/bridging_scores.csv` / `persona_correlations.csv` | Computed metrics                                 |
 | `output/analysis/*.png`                                            | Model-persona charts                             |
-| `output/analysis/survey/`                                          | Human survey charts + `what_transfers_summary.*` |
+| `output/analysis/survey/`                                          | Human survey charts |
 
 
 Column names match the writers in `src/model_query/query_pipeline.py`. Extra λ columns on bridging scores are documented in `src/result_analysis/model_personas/scoring/bridging_score.py` (`LAMBDA_VALUES`).
