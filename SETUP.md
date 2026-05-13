@@ -6,9 +6,9 @@ How to install dependencies, configure keys, and run `[src/run.py](src/run.py)` 
 
 - **Python** 3.10+ recommended.
 - **Packages:** `pip install -r requirements.txt` (includes `openai`, `requests`, `pandas`, `matplotlib`, `scipy`, etc.).
-- `**.env`** in the repo root (copy from `.env.example`):
-  - `**OPENAI_API_KEY`** / `**OPENROUTER_API_KEY**` — needed when any configured model uses that provider (`openai` or `openrouter` only; see `src/model_query/models.py`).
-  - `**EXPORT_PASSWORD**` — only for `**survey_query**` (HTTP Basic user `admin`).
+- **`.env`** in the repo root (copy from `.env.example`):
+  - `OPENAI_API_KEY` / `OPENROUTER_API_KEY` — needed when any configured model uses that provider (`openai` or `openrouter` only; see `src/model_query/models.py`).
+  - `EXPORT_PASSWORD` — only for `survey_query` (HTTP Basic user `admin`).
 
 ## Install
 
@@ -19,7 +19,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Fill in the keys you need, then edit defaults in `**src/config.py**` (models, paths, toggles). There is no separate CLI for configuration.
+Fill in the keys you need, then edit defaults in **`src/config.py`** (models, paths, toggles). There is no separate CLI for configuration.
 
 ## Run
 
@@ -54,10 +54,10 @@ python src/run.py --mode survey_response_analyse           # needs survey CSVs +
 
 - Missing API key errors come from `model_query` when a model uses that provider.
 - **`survey_response_analyse`** needs `output/persona_responses.csv` (from `persona_query`) plus the survey session/rating CSVs.
-- `**survey_query` fails (401 / network)** — check `EXPORT_PASSWORD` and `SURVEY_EXPORT_URL` in `config.py`.
-- `**SKIP_ERRORS = True`** — failed calls become `[ERROR] ...` in CSVs; downstream numbers may be meaningless.
+- **`survey_query`** fails (401 / network) — check `EXPORT_PASSWORD` and `SURVEY_EXPORT_URL` in `config.py`.
+- **`SKIP_ERRORS = True`** — failed calls become `[ERROR] ...` in CSVs; downstream numbers may be meaningless.
 
-Debug: `**.vscode/launch.json`** has launch configs that call `src/run.py` with different `--mode` values.
+Debug: **`.vscode/launch.json`** has launch configs that call `src/run.py` with different `--mode` values.
 
 ## Outputs (where to look)
 
