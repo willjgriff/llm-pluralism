@@ -10,7 +10,7 @@ For setup and execution instructions see __[SETUP.md](https://github.com/willjgr
 
 ## Methodology
 
-A set of contested prompts spanning six value-laden topic groups are submitted to multiple frontier LLMs. Each response is then evaluated by a panel of value-diverse persona raters, LLMs prompted to inhabit specific ideological perspectives, who score each response for reasonableness from their own worldview. Responses are constrained to 80 words maximum to force clearer ideological commitments and make evaluation more tractable for human raters in future validation work. These scores are aggregated into a bridging score that rewards high average approval and penalises high variance across disagreeing personas. A response that everyone finds adequate scores higher than one that half the personas love and half hate, even if the raw average is the same.
+A set of contested prompts spanning six value-laden topic groups are submitted to multiple frontier LLMs. Each response is then evaluated by a panel of value-diverse persona raters, LLMs prompted to inhabit specific ideological perspectives, who score each response for reasonableness from their own worldview. Responses are constrained to 80 words maximum to force clearer ideological commitments and make evaluation more tractable for human raters in future validation work. These scores are aggregated into a bridging score that rewards high average approval and penalises high variance across disagreeing personas. A response that everyone finds adequate scores higher than one that half the personas love and half hate, even if the raw average is the same. Formally: bridging score = mean(scores) − λ × std(scores), where λ is a polarisation penalty weight.
 
 The rater panel currently consists of six personas across three opposing pairs: Libertarian vs Collectivist, Nationalist vs Globalist, and Tech Optimist vs Tech Sceptic. Two personas, Religious and Secularist, were excluded after three independent runs proved that they were unable to discriminate between categories of responses, which would create artificially high variance on every response. This leaves the religious/secular axis underrepresented in the evaluated responses, and the human validation study compounds this gap because no Religious participants were recruited.
 
@@ -216,7 +216,7 @@ A 74-participant web study testing whether the AI persona panel's ratings actual
 
 </summary>
 
-The validation was conducted against the Run 1 prompt set, so Run 3 inherits this validation only for the questions carried over from Run 1; further Run 3 questions have persona scores that are plausible but not directly human-validated. Persona coverage is also uneven - Secularist participants are over-represented at 228 ratings, Tech Optimists thin at 16, and no Religious participants were recruited — so per-persona results carry varying confidence and the smaller cells should be read cautiously.
+The validation was conducted against the Run 1 prompt set, so Run 3 inherits this validation only for the questions carried over from Run 1; further Run 3 questions have persona scores that are plausible but not directly human-validated. Persona coverage is also uneven - Secularist participants are over-represented at 228 ratings, Tech Optimists thin at 16, and no Religious participants were recruited - so per-persona results carry varying confidence and the smaller cells should be read cautiously.
  
 ### Human rating distribution by persona
  
