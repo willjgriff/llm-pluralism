@@ -217,8 +217,9 @@ The current write-up will be updated once the final set of ratings is collected.
 A web-based survey [llm-pluralism-web](https://github.com/willjgriff/llm-pluralism-web) collected reasonableness ratings from real human participants on the same response set evaluated by the AI personas, then compares each human persona group's ratings to its corresponding AI persona scores. Headline result: every same-axis correlation between human and AI ratings is positive (mean r = +0.28, range +0.08 to +0.47), the rank order of group-level mean ratings is preserved between humans and AI on the conservative-leaning axes, and the AI personas produce more polarised scores than their human counterparts.
  
 </summary>
+
 ### Sample and persona reassignment
- 
+
 74 participants completed the survey, contributing 656 ratings in total. After excluding sessions with no ratings and Centrist participants (all four axis scores below 2), 64 eligible participants remain, contributing 572 ratings used in the analysis.
  
 **Society-axis reassignment.** Because the Religious and Secularist AI personas were excluded from the evaluation panel (see [Methodology](#methodology)), the society axis cannot provide a same-axis validation signal. Participants whose primary dimension is the society axis are therefore reassigned to their second-strongest axis, or dropped as Centrists if that axis is also below the centrist threshold. This affected 28 originally Secularist-primary participants. Per-group participant counts after reassignment: Collectivist (20), Tech Sceptic (14), Libertarian (11), Nationalist (9), Globalist (5), Tech Optimist (5).
