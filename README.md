@@ -290,8 +290,8 @@ Human validation revealed specific failure modes that need addressing: the relig
 ### Reinforcement learning from community feedback
 The longer term vision is using validated bridging scores as a training signal, rewarding models for producing outputs that bridge value-diverse groups rather than optimising for majority approval. This would require a human validation dataset orders of magnitude larger than the current 656 ratings, but the evaluation framework built here is a natural precursor to that work.
 
-### Eval pipeline migration to Inspect AI
-Future runs should migrate to Inspect AI, the open-source eval framework from the UK AI Security Institute. The bespoke orchestration scripts would be replaced by Inspect's dataset, solver, and scorer primitives, with multi-model fan-out and reproducible logging handled by the framework. The persona panel maps directly onto its LLM-as-judge scoring pattern.
+### Eval pipeline migration to Inspect AI and others
+Future runs could migrate to Inspect AI, an open-source eval framework from UK AISI. The bespoke orchestration scripts would be replaced by Inspect's functions, with multi-model logging handled by the framework. The persona panel maps directly onto its LLM-as-judge scoring pattern. The EleutherAI LM Evaluation Harness is also worth considering for any extensions that require comparison against standard academic benchmarks. Promptfoo is worth noting for persona prompt development specifically, given the calibration difficulties encountered in this project. Its prompt A/B testing workflow would accelerate iteration on persona prompts before committing to full runs.
 
 <details>
 <summary>
