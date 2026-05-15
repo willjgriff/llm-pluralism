@@ -290,6 +290,9 @@ Human validation revealed specific failure modes that need addressing: the relig
 ### Reinforcement learning from community feedback
 The longer term vision is using validated bridging scores as a training signal, rewarding models for producing outputs that bridge value-diverse groups rather than optimising for majority approval. This would require a human validation dataset orders of magnitude larger than the current 656 ratings, but the evaluation framework built here is a natural precursor to that work.
 
+### Eval pipeline migration to Inspect AI
+Future runs should migrate to Inspect AI, the open-source eval framework from the UK AI Security Institute. The bespoke orchestration scripts would be replaced by Inspect's dataset, solver, and scorer primitives, with multi-model fan-out and reproducible logging handled by the framework. The persona panel maps directly onto its LLM-as-judge scoring pattern.
+
 <details>
 <summary>
 
