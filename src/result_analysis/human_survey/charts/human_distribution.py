@@ -11,7 +11,11 @@ import pandas as pd
 
 from result_analysis.chart_common.figure_utils import save_and_close
 from result_analysis.chart_common.style import LABEL_SIZE, TICK_SIZE, TITLE_SIZE
-from result_analysis.human_survey.constants import PERSONA_COLORS, PERSONA_ORDER
+from result_analysis.human_survey.constants import (
+    PERSONA_COLORS,
+    PERSONA_ORDER,
+    SOCIETY_REASSIGNMENT_SUBTITLE,
+)
 
 _JITTER_SEED = 42
 _JITTER_SCALE = 0.07
@@ -71,7 +75,7 @@ def chart_human_score_distribution_by_persona(
     ax.set_ylabel("Reasonableness rating (1–5)", fontsize=LABEL_SIZE)
     ax.set_title(
         "Distribution of human ratings by participant persona\n"
-        "(box = IQR, strip = individual ratings)",
+        f"(box = IQR, strip = individual ratings)  |  {SOCIETY_REASSIGNMENT_SUBTITLE}",
         fontsize=TITLE_SIZE,
     )
     ax.set_ylim(0.5, 5.5)

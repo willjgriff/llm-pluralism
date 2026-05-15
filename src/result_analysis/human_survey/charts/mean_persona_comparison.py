@@ -17,7 +17,8 @@ from result_analysis.chart_common.figure_utils import (
 )
 from result_analysis.chart_common.style import LABEL_SIZE, TICK_SIZE, TITLE_SIZE
 from result_analysis.human_survey.constants import (
-    PERSONA_ORDER,
+    ANALYSIS_PERSONA_ORDER,
+    SOCIETY_REASSIGNMENT_SUBTITLE,
     SURVEY_LOW_N_PARTICIPANTS,
 )
 
@@ -103,16 +104,17 @@ def chart_human_ai_persona_mean_scores(
     """
     human_stats = human_group_rating_stats(humans).set_index("persona")
     ai_stats = ai_persona_rating_stats(persona_responses_raw).set_index("persona")
-    human_reindexed = human_stats.reindex(list(PERSONA_ORDER))
-    ai_reindexed = ai_stats.reindex(list(PERSONA_ORDER))
+    chart_personas = list(ANALYSIS_PERSONA_ORDER)
+    human_reindexed = human_stats.reindex(chart_personas)
+    ai_reindexed = ai_stats.reindex(chart_personas)
 
     figure, axes = plt.subplots(figsize=(12, 6))
     hide_top_right_spines(axes)
-    y_positions = np.arange(len(PERSONA_ORDER))
+    y_positions = np.arange(len(chart_personas))
     bar_half_width = 0.38
 
     human_colours: list[str] = []
-    for persona_name in PERSONA_ORDER:
+    for persona_name in chart_personas:
         mean_value = human_reindexed.loc[persona_name, "mean"]
         if pd.isna(mean_value):
             human_colours.append("#dddddd")
@@ -143,7 +145,7 @@ def chart_human_ai_persona_mean_scores(
     )
 
     axes.set_yticks(y_positions)
-    axes.set_yticklabels(list(PERSONA_ORDER))
+    axes.set_yticklabels(chart_personas)
     axes.invert_yaxis()
     axes.set_xlim(1, 5)
     axes.axvline(3, color="#888", linestyle=":", linewidth=1)
@@ -152,14 +154,15 @@ def chart_human_ai_persona_mean_scores(
         fontsize=LABEL_SIZE,
     )
     axes.set_title(
-        "Mean rating per persona: human group vs corresponding AI persona",
+        "Mean rating per persona: human group vs corresponding AI persona\n"
+        f"{SOCIETY_REASSIGNMENT_SUBTITLE}",
         fontsize=TITLE_SIZE,
         pad=12,
     )
     axes.tick_params(axis="x", labelsize=TICK_SIZE)
     axes.tick_params(axis="y", labelsize=TICK_SIZE)
 
-    for index, persona_name in enumerate(PERSONA_ORDER):
+    for index, persona_name in enumerate(chart_personas):
         human_mean = human_reindexed.loc[persona_name, "mean"]
         if pd.notna(human_mean):
             participant_n = int(human_reindexed.loc[persona_name, "n_participants"])
@@ -196,35 +199,38 @@ def chart_human_ai_persona_mean_scores(
         subset=["question_id", "source_model"]
     ).shape[0]
 
-    legend_handles = [
-        Patch(
-            facecolor="#5a8a4a",
-            edgecolor="black",
-            label=(
-                f"Human group (N ≥ {SURVEY_LOW_N_PARTICIPANTS} participants)"
-            ),
+    human_legend_labels = {
+        "#5a8a4a": (
+            f"Human group (N ≥ {SURVEY_LOW_N_PARTICIPANTS} participants)"
         ),
-        Patch(
-            facecolor="#b8d0b0",
-            edgecolor="black",
-            label=(
-                f"Human group (N < {SURVEY_LOW_N_PARTICIPANTS} participants, "
-                "low confidence)"
-            ),
+        "#b8d0b0": (
+            f"Human group (N < {SURVEY_LOW_N_PARTICIPANTS} participants, "
+            "low confidence)"
         ),
+        "#dddddd": "Human group (no data after reassignment)",
+    }
+    legend_handles: list[Patch] = []
+    for bar_colour in dict.fromkeys(human_colours):
+        label = human_legend_labels.get(bar_colour)
+        if label is None:
+            continue
+        legend_handles.append(
+            Patch(facecolor=bar_colour, edgecolor="black", label=label)
+        )
+    legend_handles.append(
         Patch(
             facecolor="#7a4eb5",
             edgecolor="black",
             label=(
                 f"AI persona ({n_evaluation_responses} evaluation responses scored)"
             ),
-        ),
-    ]
+        )
+    )
     axes.legend(
         handles=legend_handles,
         loc="upper center",
         bbox_to_anchor=(0.5, -0.10),
-        ncol=3,
+        ncol=2,
         frameon=False,
         fontsize=9,
     )

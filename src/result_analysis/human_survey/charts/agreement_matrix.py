@@ -17,6 +17,7 @@ from result_analysis.chart_common.figure_utils import save_and_close
 from result_analysis.chart_common.style import ANNOTATION_SIZE, LABEL_SIZE, TICK_SIZE, TITLE_SIZE
 from result_analysis.human_survey.constants import (
     PERSONA_ORDER,
+    SOCIETY_REASSIGNMENT_SUBTITLE,
     SURVEY_LOW_N_RESPONSES,
 )
 
@@ -197,12 +198,12 @@ def _render_full_agreement_heatmap(
     axes.set_yticks(range(len(correlation_frame.index)))
     axes.set_yticklabels(list(correlation_frame.index))
     axes.set_xlabel("AI persona", fontsize=LABEL_SIZE)
-    axes.set_ylabel("Human persona group (primary axis)", fontsize=LABEL_SIZE)
+    axes.set_ylabel("Human persona group (analysis axis)", fontsize=LABEL_SIZE)
     axes.tick_params(axis="x", labelsize=TICK_SIZE)
     axes.tick_params(axis="y", labelsize=TICK_SIZE)
     axes.set_title(
         "Human persona group vs AI persona: Pearson r across rated responses\n"
-        "Bordered cells = same-axis match (the validation diagonal)",
+        f"Bordered cells = same-axis match  |  {SOCIETY_REASSIGNMENT_SUBTITLE}",
         fontsize=TITLE_SIZE,
         pad=12,
     )

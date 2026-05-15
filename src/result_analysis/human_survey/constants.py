@@ -6,6 +6,14 @@ from __future__ import annotations
 SURVEY_LOW_N_RESPONSES: int = 20
 SURVEY_LOW_N_PARTICIPANTS: int = 5
 
+# Minimum |axis score| for a non-society reassignment (matches survey web app).
+CENTRIST_THRESHOLD: int = 2
+
+# Shown on charts that use society-axis reassignment (see persona_assignment.py).
+SOCIETY_REASSIGNMENT_SUBTITLE: str = (
+    "Society-axis participants reassigned to second-strongest axis"
+)
+
 PERSONA_ORDER: tuple[str, ...] = (
     "Libertarian",
     "Collectivist",
@@ -15,6 +23,16 @@ PERSONA_ORDER: tuple[str, ...] = (
     "Tech Sceptic",
     "Religious",
     "Secularist",
+)
+
+# Six personas used in bridging analysis (Religious/Secularist excluded from AI panel).
+ANALYSIS_PERSONA_ORDER: tuple[str, ...] = (
+    "Libertarian",
+    "Collectivist",
+    "Nationalist",
+    "Globalist",
+    "Tech Optimist",
+    "Tech Sceptic",
 )
 
 PERSONA_COLORS: dict[str, str] = {

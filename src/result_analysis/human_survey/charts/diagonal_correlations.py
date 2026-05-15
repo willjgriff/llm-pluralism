@@ -8,7 +8,6 @@ from result_analysis.chart_common import _backend  # noqa: F401
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from matplotlib.patches import Patch
 
 from result_analysis.chart_common.figure_utils import (
     hide_top_right_spines,
@@ -16,6 +15,7 @@ from result_analysis.chart_common.figure_utils import (
 )
 from result_analysis.chart_common.style import LABEL_SIZE, TICK_SIZE, TITLE_SIZE
 from result_analysis.human_survey.constants import (
+    SOCIETY_REASSIGNMENT_SUBTITLE,
     SURVEY_LOW_N_RESPONSES,
 )
 
@@ -96,16 +96,12 @@ def chart_same_axis_diagonal_correlations(
         "Pearson r  (human-group mean rating  vs  AI-persona score)",
         fontsize=LABEL_SIZE,
     )
-    title_lines = [
-        "Same-axis correlation: human persona group vs corresponding AI persona",
-    ]
-    if all(value > 0 for value in correlation_values):
-        n_bars = len(correlation_values)
-        if n_bars == 7:
-            title_lines.append("All seven correlations are positive")
-        else:
-            title_lines.append(f"All {n_bars} correlations shown are positive")
-    axes.set_title("\n".join(title_lines), fontsize=TITLE_SIZE, pad=12)
+    axes.set_title(
+        "Same-axis correlation: human persona group vs corresponding AI persona\n"
+        f"{SOCIETY_REASSIGNMENT_SUBTITLE}",
+        fontsize=TITLE_SIZE,
+        pad=12,
+    )
     axes.set_xlim(-0.2, 0.6)
     axes.tick_params(axis="x", labelsize=TICK_SIZE)
     axes.tick_params(axis="y", labelsize=TICK_SIZE)
@@ -125,32 +121,10 @@ def chart_same_axis_diagonal_correlations(
             fontsize=10,
         )
 
-    legend_handles = [
-        Patch(
-            facecolor="#3a6ea5",
-            edgecolor="black",
-            label=f"N ≥ {SURVEY_LOW_N_RESPONSES} responses",
-        ),
-        Patch(
-            facecolor="#9e9e9e",
-            edgecolor="black",
-            label=f"N < {SURVEY_LOW_N_RESPONSES} responses (low confidence)",
-        ),
-    ]
-    axes.legend(
-        handles=legend_handles,
-        loc="upper center",
-        bbox_to_anchor=(0.5, -0.13),
-        ncol=2,
-        frameon=False,
-        fontsize=9,
-    )
     axes.invert_yaxis()
 
     save_and_close(
         figure,
         output_path,
-        tight_layout_rect=(0, 0.12, 1, 1),
-        subplots_adjust_kwargs={"bottom": 0.18},
         savefig_kwargs={"bbox_inches": "tight"},
     )

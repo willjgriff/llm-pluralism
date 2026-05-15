@@ -9,6 +9,7 @@ import pandas as pd
 
 import config
 from result_analysis.chart_common.plot_utils import display_model_name
+from result_analysis.human_survey.persona_assignment import assign_analysis_persona
 
 
 @dataclass(frozen=True)
@@ -16,7 +17,9 @@ class SurveyFrames:
     """Cleaned and joined frames used across every survey chart.
 
     Attributes:
-        humans: One row per human rating with session persona joined in.
+        humans: One row per human rating with analysis persona joined in.
+            Society-primary participants are reassigned to their
+            second-strongest non-society axis; Centrist rows are excluded.
             Columns include ``session_id``, ``question_id``, ``ai_model``,
             ``model_short``, ``human_persona``, ``score``.
         human_means: Mean human ``score`` per ``(question_id, ai_model,
@@ -63,17 +66,20 @@ def load_survey_frames(
         rating_counts, left_on="id", right_index=True, how="left"
     ).fillna({"n_ratings": 0})
     eligible_sessions = sessions[sessions["n_ratings"] > 0]
+    eligible_sessions = eligible_sessions.copy()
+    eligible_sessions["human_persona"] = eligible_sessions.apply(
+        assign_analysis_persona, axis=1
+    )
 
     humans = ratings.merge(
-        eligible_sessions[["id", "primary_persona"]],
+        eligible_sessions[["id", "human_persona"]],
         left_on="session_id",
         right_on="id",
         how="inner",
         suffixes=("", "_session"),
     )
-    humans = humans.rename(
-        columns={"primary_persona": "human_persona", "model": "ai_model"}
-    )
+    humans = humans.rename(columns={"model": "ai_model"})
+    humans = humans[humans["human_persona"] != "Centrist"].copy()
     humans["model_short"] = humans["ai_model"].map(
         lambda model_string: display_model_name(model_string)
     )
