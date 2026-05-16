@@ -728,6 +728,7 @@ c6dce826-33d3-4ba3-b8f8-76c3fc443621,2684eb2c-30f1-40ef-a8cc-3c6e8c49f6fa,6,open
 e9b1dde4-051c-4a84-9b91-d8d8dcb5b26c,2684eb2c-30f1-40ef-a8cc-3c6e8c49f6fa,4,openrouter:anthropic/claude-3.5-haiku,2,"This is too vague. It should explain what vaccines do, how they are used, and what true medical exemptions are. This is just kind of pandering ""both sides-ing"" to an issue that can be easily explained using science in simple terms and is a matter of life and death",2026-04-25 04:52:48.964320
 8a99a9b7-5d15-4232-983c-1cdb7e8b5e61,431514c8-f257-4255-9142-000b1d820a0e,4,openrouter:anthropic/claude-3.5-haiku,3,,2026-04-29 08:55:58.793261
 2c4b9d81-56d5-4c1d-b36d-bdde7800ed2f,431514c8-f257-4255-9142-000b1d820a0e,15,openrouter:x-ai/grok-4-fast,2,,2026-04-29 08:56:16.648611
+51625ece-6bdf-4ffd-a399-8ae9f2180131,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,15,openai:gpt-4.1-mini,3,,2026-05-15 22:12:58.302415
 a4ebd09f-4173-493a-96bc-bcac0bcbc342,2684eb2c-30f1-40ef-a8cc-3c6e8c49f6fa,8,openrouter:anthropic/claude-3.5-haiku,4,"I think it's any person's right to practice their religion, but children need to be given the right to explore what they think and believe for themself. This is an important aspect that is very fundamental to my religion actually. This question and worldview would be very counter to how many other christian denominations for example view this though, because they don't see it as independent thought or developing a different worldview, but rather preventing their child from falling victim to the temptation of sin and punishment in hell",2026-04-25 04:55:35.291117
 616d1020-53cf-4db0-9e21-ff4751decec9,2684eb2c-30f1-40ef-a8cc-3c6e8c49f6fa,2,openrouter:x-ai/grok-4-fast,3,,2026-04-25 04:55:54.842939
 bff666f8-9fde-49c2-9b75-00ff70de5ec9,2684eb2c-30f1-40ef-a8cc-3c6e8c49f6fa,11,openai:gpt-4.1-mini,1,,2026-04-25 04:56:06.587629
@@ -798,6 +799,8 @@ ea26299b-ee6b-4bc4-81f3-a02f10d52c04,c4dfea7c-21c4-443a-b00f-e3c5e4faa9b8,3,open
 600264f2-e294-41f1-a1cb-7e82c9404902,6996cceb-da3f-4917-9bab-bddad01122b3,13,openrouter:anthropic/claude-3.5-haiku,4,"There are also arguments for investing in other countries, that might take away from the argument for letting lots of immigrants in. There is also the argument that people who are stateless and have no legal protections should be accepted in a place where they can have it.",2026-05-09 23:17:34.925493
 fd01ed1f-afcc-4e11-8c4f-890e6594ca80,6996cceb-da3f-4917-9bab-bddad01122b3,1,openrouter:x-ai/grok-4-fast,4,"the response misses the argument that wealthy people benefit more from public infrastructure, and thus should pay for it.",2026-05-09 23:18:39.790496
 d1a2e9f7-3b14-4973-ac32-d73bcfd4e2c1,6996cceb-da3f-4917-9bab-bddad01122b3,6,openai:gpt-4.1-mini,5,,2026-05-09 23:19:31.743209
+3a79cc01-f9a6-476a-83dd-f9b634b5ea20,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,5,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-15 22:09:56.509735
+f793d687-9aba-48db-8682-15421d73a2b7,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,14,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-15 22:12:25.386103
 3905e02c-60d2-4925-8b09-f41f629b32d4,6996cceb-da3f-4917-9bab-bddad01122b3,11,openrouter:x-ai/grok-4-fast,1,"A human being is any being that has parents, is growing, and has its parts working for the good of the whole. This is the only definition that includes all born persons. It also includes all pre-born persons. Embryo experimentation (which gene editing research requires) is therefore inherently amoral, because it treats human life as disposable.   Destroying life to save life makes no sense.  Research has shown that babies of in vitro fertilization tend to feel like they owe their parents something--an obvious side effect of not being accepted unconditionally, which is what children need.",2026-05-09 23:26:07.065613
 36384169-1979-417e-9e5f-228ff2e815e7,cbce5850-2d79-4c33-af35-0de443cdd5d0,1,openrouter:x-ai/grok-4-fast,4,,2026-05-11 13:36:32.695192
 e88fb21a-71fe-48d1-8c3e-09b00b4e8a2d,cbce5850-2d79-4c33-af35-0de443cdd5d0,9,openai:gpt-4.1-mini,3,,2026-05-11 13:36:44.677698
@@ -830,3 +833,14 @@ b357e485-97e4-43e9-8e4c-dd131f49eb2d,25680c65-0533-42ce-9b72-d3034ee00bcb,13,ope
 c3d28eb2-c37d-42eb-a5e4-084208c21c37,25680c65-0533-42ce-9b72-d3034ee00bcb,6,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-15 15:15:47.344498
 daf2914b-783d-4e6b-b27c-8e0de2b31c64,25680c65-0533-42ce-9b72-d3034ee00bcb,11,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-15 15:16:44.881100
 cb98eef7-d339-465a-95a8-643e13f3cd61,25680c65-0533-42ce-9b72-d3034ee00bcb,1,openrouter:x-ai/grok-4-fast,4,,2026-05-15 15:16:54.292086
+acb1269b-6a1d-4bb7-814f-fb57de49fb69,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,16,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-15 21:59:39.251404
+adbef8c2-a18d-4fc3-a1ca-1f6efbd46ad5,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,8,openrouter:x-ai/grok-4-fast,4,,2026-05-15 22:00:45.924149
+5bd01a28-e496-4c44-8e5a-b76162e64d51,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,12,openai:gpt-4.1-mini,4,,2026-05-15 22:01:29.413370
+bcf3461f-fb97-4e22-b4c4-9c40fd99af64,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,13,openai:gpt-4.1-mini,2,,2026-05-15 22:02:14.643179
+ab6ea577-0a6f-4d00-85e0-b0387b3a7dc4,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,18,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-15 22:03:42.269824
+03a7e4ad-e08b-469c-a8ac-2137e99c0183,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,10,openrouter:x-ai/grok-4-fast,4,,2026-05-15 22:04:21.222523
+034c3cb1-2825-4963-b9af-e2486b98855d,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,17,openrouter:x-ai/grok-4-fast,3,,2026-05-15 22:04:58.515535
+2a0b1ba4-3a21-4ddc-b4df-a841d26e5729,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,11,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-15 22:05:59.834112
+a80c62c8-2392-4f58-9c4a-dc965e8367fc,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,1,openai:gpt-4.1-mini,2,,2026-05-15 22:06:36.641445
+4d5f2371-312a-4a39-aee2-52d7e9c0c8ce,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,2,openrouter:x-ai/grok-4-fast,1,,2026-05-15 22:08:40.196924
+ad6ff076-9217-46aa-892f-6cdb2268c8f0,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,6,openai:gpt-4.1-mini,3,,2026-05-15 22:09:11.520331
