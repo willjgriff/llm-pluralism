@@ -844,3 +844,237 @@ ab6ea577-0a6f-4d00-85e0-b0387b3a7dc4,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,18,ope
 a80c62c8-2392-4f58-9c4a-dc965e8367fc,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,1,openai:gpt-4.1-mini,2,,2026-05-15 22:06:36.641445
 4d5f2371-312a-4a39-aee2-52d7e9c0c8ce,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,2,openrouter:x-ai/grok-4-fast,1,,2026-05-15 22:08:40.196924
 ad6ff076-9217-46aa-892f-6cdb2268c8f0,5999e6a3-bb37-4eca-98f7-5c8fa38fef00,6,openai:gpt-4.1-mini,3,,2026-05-15 22:09:11.520331
+c2e5df08-b593-4b8e-8ec0-c6d7015ae199,43370cc5-1723-42c1-9a29-dc0f44ad8b5c,4,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:10:04.553454
+be0139aa-592d-459f-889d-a5524a789fc8,43370cc5-1723-42c1-9a29-dc0f44ad8b5c,13,openrouter:anthropic/claude-3.5-haiku,2,,2026-05-16 19:10:19.022021
+725469e1-642d-40b1-ae99-db553731dcc5,43370cc5-1723-42c1-9a29-dc0f44ad8b5c,2,openrouter:x-ai/grok-4-fast,2,,2026-05-16 19:10:33.214254
+69b6df90-98c1-4efc-a3c7-aec7e1016d32,43370cc5-1723-42c1-9a29-dc0f44ad8b5c,1,openrouter:x-ai/grok-4-fast,3,,2026-05-16 19:10:52.278560
+3c0c1fe2-f12c-41fd-9d70-7970ecf57102,43370cc5-1723-42c1-9a29-dc0f44ad8b5c,3,openai:gpt-4.1-mini,4,,2026-05-16 19:11:05.397157
+e9d68796-5b56-46bf-9ad7-cd25ff0c7317,43370cc5-1723-42c1-9a29-dc0f44ad8b5c,14,openai:gpt-4.1-mini,2,,2026-05-16 19:11:22.957024
+61ea0fb0-6b6b-4ae3-81d3-6b1ef1fcebbb,43370cc5-1723-42c1-9a29-dc0f44ad8b5c,5,openrouter:x-ai/grok-4-fast,4,,2026-05-16 19:11:33.389423
+cc0c1231-5db1-41ae-a38e-a042cac4c60e,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,15,openai:gpt-4.1-mini,5,,2026-05-16 19:11:36.731077
+8e4ff309-9a08-4fe8-b27c-d7bf78a61f5f,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,10,openai:gpt-4.1-mini,5,,2026-05-16 19:11:49.783866
+2d94c4af-c995-4fbc-ad87-bac7ed745b17,5052512d-d498-4861-a107-e6fee35efb80,1,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:11:51.806922
+736c628b-a78f-4714-8971-9cd2754629fa,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,14,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:12:06.296243
+8c3634bd-c51e-4d43-991d-64f40cfa2d29,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,8,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-16 19:12:18.685622
+8acdcdba-4dbd-4446-83e1-5a9e15fbdb10,5052512d-d498-4861-a107-e6fee35efb80,16,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:12:22.816656
+c5f4143a-66ee-4fe2-bbfd-c849f4f89122,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,2,openrouter:x-ai/grok-4-fast,3,,2026-05-16 19:12:38.439835
+aecb35b8-261d-4070-b4a1-c8fb8b2632b1,4e2ca2a6-ebeb-4d03-9820-dedf656acb89,5,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:12:53.766019
+e8a5299a-bf63-4433-8c92-c84866f2b2b9,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,18,openai:gpt-4.1-mini,1,,2026-05-16 19:12:59.360985
+6c47097d-99b9-41dd-89bd-e21b389ffab1,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,14,openai:gpt-4.1-mini,2,,2026-05-16 19:13:05.397450
+7c157013-c5f1-4ec4-9757-0539814dd9c3,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,2,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:13:09.766875
+cd3402b4-df05-4efb-ba87-9003303faa83,4e2ca2a6-ebeb-4d03-9820-dedf656acb89,2,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-16 19:13:15.290647
+ea3eba2e-f5e4-42ab-963c-9cc3b64a9d49,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,3,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:13:16.042637
+c8d43dd1-9b36-4830-837f-469d1833b973,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,6,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-16 19:13:22.221437
+0e68b671-2727-4ee6-9a6f-da9763f8ff81,4e2ca2a6-ebeb-4d03-9820-dedf656acb89,10,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:13:24.207894
+2bfcd3b6-af4e-42c9-9b27-e618d8a8c586,5052512d-d498-4861-a107-e6fee35efb80,3,openrouter:x-ai/grok-4-fast,5,The fact that companies can profit off of our basic needs is insane to me. Whats next? Selling air?,2026-05-16 19:13:26.407743
+a3d8dd0b-981c-487d-a99b-5b9dc65f0d6e,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,4,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-16 19:13:28.608497
+310ed640-a906-448f-9274-4c7310b7bf99,4e2ca2a6-ebeb-4d03-9820-dedf656acb89,1,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:13:33.469821
+65680a18-17f0-4fce-bcf6-e76d73c4ca74,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,13,openrouter:x-ai/grok-4-fast,4,"Yes, but they should also be the wealthier nations with more land space and better infrastructure. The UK is overcrowded and resources are too stretched. USA and Canada and Australia should do more.",2026-05-16 19:13:34.367856
+011bb67c-236a-4822-9f28-5c35a1f98094,4e2ca2a6-ebeb-4d03-9820-dedf656acb89,3,openai:gpt-4.1-mini,4,,2026-05-16 19:13:42.904567
+e7799e2a-5151-42d8-ba58-066dd72806f9,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,1,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:13:46.487927
+e1bd7c4a-1654-41d3-b1fa-d26f113627d1,4e2ca2a6-ebeb-4d03-9820-dedf656acb89,7,openai:gpt-4.1-mini,5,,2026-05-16 19:13:52.235492
+66468940-735d-41aa-99fa-ccbfb880746e,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,12,openai:gpt-4.1-mini,5,,2026-05-16 19:13:54.311677
+59d2763f-966f-4a61-95e5-67a7e00e16e9,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,1,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-16 19:14:02.580324
+e73340bf-cf70-45a9-a5c5-62f788bf4feb,5052512d-d498-4861-a107-e6fee35efb80,15,openai:gpt-4.1-mini,5,"When a problem collectively affects all of humanity, there should be a single entity that manages that situation and I believe it should be the UN.",2026-05-16 19:14:06.537092
+05d16daa-b80d-4f1e-a092-4b3fbd648547,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,11,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:14:16.400141
+8df0c236-e795-4b3d-81a4-2c4425badd54,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,13,openai:gpt-4.1-mini,2,"Wealthy nations should do more, without war, to help improve the lives of others so there is no need for refugees.",2026-05-16 19:14:18.471130
+43351974-7bef-4a49-9831-067238621635,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,7,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-16 19:14:27.867545
+e3352e7a-c6d0-42f5-8665-a2b46ce11dd8,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,5,openrouter:x-ai/grok-4-fast,4,,2026-05-16 19:14:31.356925
+05ba8811-af03-42a9-920d-0f5f4d498fff,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,18,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:14:38.616214
+3d018f54-015f-4333-ba44-c87653c36cf8,c1cf33ed-3e25-4c34-a360-e924f4a9d8d8,4,openai:gpt-4.1-mini,3,,2026-05-16 19:14:39.811191
+2887dcdf-12a4-473d-abab-dc655160f3fd,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,9,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-16 19:14:44.154677
+00a7c879-823a-40ec-adc9-957e716a5a67,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,17,openai:gpt-4.1-mini,5,,2026-05-16 19:14:50.335726
+9ea086a9-6923-40e8-a8f8-901c8c3e1c90,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,11,openai:gpt-4.1-mini,4,,2026-05-16 19:14:55.145327
+4ba24e40-d105-40d7-8957-73cf6da82db4,c1cf33ed-3e25-4c34-a360-e924f4a9d8d8,2,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:14:56.467540
+d1c31f49-bc11-4b51-bafc-b5e9df075a7d,5052512d-d498-4861-a107-e6fee35efb80,4,openai:gpt-4.1-mini,5,Absolutely should be mandatory and people that refuse should be sent to live in designated areas so they can ruin each others lives instead of the majority.,2026-05-16 19:14:58.903677
+961bb640-400c-4cdf-aec4-c5391edc63f0,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,16,openai:gpt-4.1-mini,5,,2026-05-16 19:15:03.229168
+207f012e-f4ad-4eb6-97ea-435852bab010,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,12,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:15:08.298181
+62b486df-1f3c-4306-9ffa-ddc6c000a689,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,4,openrouter:x-ai/grok-4-fast,4,,2026-05-16 19:15:15.472436
+a06fb2c8-6501-4f25-a490-7fd7cec6bf69,c1cf33ed-3e25-4c34-a360-e924f4a9d8d8,13,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-16 19:15:16.065313
+c9bdad74-95b0-4321-b098-53326f825d0d,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,7,openrouter:x-ai/grok-4-fast,3,,2026-05-16 19:15:16.875543
+4e9f2a9b-d0bd-4fd0-b896-7345a99aee33,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,15,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:15:26.438264
+2773fd99-6f36-46d1-a959-3bdad3a2258c,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,6,openai:gpt-4.1-mini,2,,2026-05-16 19:15:27.812030
+e71f7881-91bf-4f9e-a963-c58d23976d88,c1cf33ed-3e25-4c34-a360-e924f4a9d8d8,10,openai:gpt-4.1-mini,4,,2026-05-16 19:15:30.585962
+b5260dcf-3ac1-414b-941e-694a82335e1b,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,10,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:15:42.619190
+569b3c80-9a4f-4b03-8800-50dd2d01f92f,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,16,openai:gpt-4.1-mini,4,,2026-05-16 19:16:10.578887
+07c41ed7-36f4-448a-ade1-a7bcbe4d6448,ed0886cd-87c0-4696-8e40-ea47c076a3cf,2,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:20:12.645868
+600ce5dd-6300-4648-8d30-ff5770aa43a9,f8fe0689-6567-4216-afb9-95e968844112,18,openrouter:x-ai/grok-4-fast,4,,2026-05-16 19:20:16.381787
+352729fd-a57c-4c20-8db0-6b86e92d6077,ed0886cd-87c0-4696-8e40-ea47c076a3cf,7,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:20:17.617012
+4da2c1f5-c0d5-4531-8b07-2efbdeeb21a6,ed0886cd-87c0-4696-8e40-ea47c076a3cf,10,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-16 19:20:36.883914
+9c5a0519-7f77-4444-a2cc-a0ab0e1c1d4f,f8fe0689-6567-4216-afb9-95e968844112,4,openai:gpt-4.1-mini,2,Without medical exemptions kill this response. Medical exemptions should always be permitted.,2026-05-16 19:21:28.905120
+7a0a738b-5a37-4a14-a59c-48d3cb0c64b3,f8fe0689-6567-4216-afb9-95e968844112,2,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:22:01.178662
+563ee9e7-29b5-492d-9e47-e12415c667b2,e791bb12-76dd-4be7-9b20-fe7503542a14,11,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:27:49.217261
+f4e1bcab-2141-4c5e-9e18-9b6be2cca3c2,e791bb12-76dd-4be7-9b20-fe7503542a14,15,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-16 19:28:06.097273
+94dcf1a4-fede-437e-aec6-1c7145397df9,e791bb12-76dd-4be7-9b20-fe7503542a14,4,openai:gpt-4.1-mini,5,,2026-05-16 19:28:23.979568
+9c4d1d7b-49ae-4124-bdc6-cf4c41faa3f9,e791bb12-76dd-4be7-9b20-fe7503542a14,13,openrouter:anthropic/claude-3.5-haiku,2,,2026-05-16 19:28:37.532398
+4dc0257c-9ed8-4e88-b2fc-33d6b4b48d1f,e791bb12-76dd-4be7-9b20-fe7503542a14,9,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:29:27.861870
+fa893fd5-658c-403d-9e04-2d60e98900dc,e791bb12-76dd-4be7-9b20-fe7503542a14,7,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-16 19:29:41.263481
+2b86853b-53f2-45eb-839f-577b526c2f34,a6069dde-615c-47e9-a035-13a65cf01626,4,openrouter:anthropic/claude-3.5-haiku,2,,2026-05-16 19:30:03.949571
+3686d57f-ea3e-4691-bde6-458e86a3ac6d,e791bb12-76dd-4be7-9b20-fe7503542a14,2,openrouter:x-ai/grok-4-fast,3,,2026-05-16 19:30:04.884767
+812ceccc-9681-49f6-8cee-6740470e768b,a6069dde-615c-47e9-a035-13a65cf01626,7,openai:gpt-4.1-mini,5,,2026-05-16 19:30:12.727634
+5c94c69f-30b8-4665-9d6d-51574217bdab,e791bb12-76dd-4be7-9b20-fe7503542a14,5,openai:gpt-4.1-mini,4,,2026-05-16 19:30:17.458040
+29fb1027-85d3-4ae2-99c9-c70a3195b2e9,a6069dde-615c-47e9-a035-13a65cf01626,3,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:30:28.902668
+4d79326c-2b12-446c-822a-d113defb14d1,24a0e4d5-86e3-404a-8004-2a1e890beddd,3,openai:gpt-4.1-mini,5,"public utilities are more affordable to consumers than private, factually. private prioritize profit for share holders than common good",2026-05-16 19:30:47.946001
+dbdeabc1-90e0-4772-9274-c7e5feeca9f8,087419d4-73d2-4be3-bce9-aa98181ed8c5,13,openrouter:x-ai/grok-4-fast,4,,2026-05-16 19:31:22.114095
+a6693139-efc1-47be-afe8-badb77c77c47,24a0e4d5-86e3-404a-8004-2a1e890beddd,18,openrouter:anthropic/claude-3.5-haiku,4,"depends on whose moral grounds it is being based on, but AI should refuse request that could cause harm or illegal actions",2026-05-16 19:31:42.902210
+489cf979-9650-4d24-88cd-9862fb1fb564,087419d4-73d2-4be3-bce9-aa98181ed8c5,15,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:33:37.570329
+2eeff68d-a88c-46f6-8971-65c550f35ac8,087419d4-73d2-4be3-bce9-aa98181ed8c5,9,openai:gpt-4.1-mini,4,,2026-05-16 19:33:58.578226
+2d3f9c0b-6937-44a6-95e1-d02f89e1da06,cd2d6fb6-640a-4726-a1f6-7f706f881113,16,openai:gpt-4.1-mini,5,,2026-05-16 19:40:34.531583
+2bcf6501-127b-4dd3-854d-d8471e7c13ef,cd2d6fb6-640a-4726-a1f6-7f706f881113,14,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:40:46.896116
+83be1a7a-084c-43b6-8221-6ef237047723,cd2d6fb6-640a-4726-a1f6-7f706f881113,15,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-16 19:41:00.313260
+48c78cd1-e1ab-4ee7-99b5-faa7eb6297ae,cd2d6fb6-640a-4726-a1f6-7f706f881113,9,openai:gpt-4.1-mini,4,,2026-05-16 19:41:18.361113
+5da4dcff-5cc0-49c1-b949-a99a35d84e00,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,17,openrouter:x-ai/grok-4-fast,4,,2026-05-16 19:15:36.042282
+03bb431d-f748-458f-bc81-16329eeab226,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,9,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-16 19:15:42.300838
+cea770c6-6290-47d4-84c9-3e49161024c0,c1cf33ed-3e25-4c34-a360-e924f4a9d8d8,14,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:15:46.501909
+9909313a-14d8-4a37-9f11-8f65ab17685f,f8bc2ef5-1a0b-4260-892e-074a5b3d3219,8,openai:gpt-4.1-mini,4,,2026-05-16 19:15:55.529393
+80d032d9-3fdd-4084-9aca-5d80dc97d82a,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,3,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:15:56.083876
+ace11e6c-990b-4f1c-98b9-c894b38c3df0,5052512d-d498-4861-a107-e6fee35efb80,2,openrouter:anthropic/claude-3.5-haiku,4,"Not supportive enough of UBI. With AI coming to automate all of our jobs, UBI is a no-brainer. It also doesn't cost as much as fear mongers say.",2026-05-16 19:16:01.198149
+0eb79ffc-da3c-406e-a348-67b15ccc1620,c1cf33ed-3e25-4c34-a360-e924f4a9d8d8,15,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-16 19:16:03.330123
+7470cdc1-1346-49c9-aa9f-0e9ee03d9e20,d52209a2-35d4-40c5-8b6f-f1b6f4d1f5d8,5,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:16:04.967232
+32f3ef8e-f232-4375-8667-10421663518a,5052512d-d498-4861-a107-e6fee35efb80,6,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:16:23.497613
+b40d2542-57c9-47d0-ab64-640f75dd920a,5052512d-d498-4861-a107-e6fee35efb80,11,openai:gpt-4.1-mini,5,,2026-05-16 19:16:44.725938
+a03a4bb2-0005-4ddf-8ed8-9b74b0ca0a03,ed0886cd-87c0-4696-8e40-ea47c076a3cf,1,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:19:10.261734
+8714675f-e6b7-4cbf-b753-eac005d1426b,ed0886cd-87c0-4696-8e40-ea47c076a3cf,3,openai:gpt-4.1-mini,5,,2026-05-16 19:19:24.969723
+2fa17360-e908-4a45-b637-9b8a4a6e75be,ed0886cd-87c0-4696-8e40-ea47c076a3cf,4,openai:gpt-4.1-mini,5,,2026-05-16 19:19:35.943917
+1b3d287b-a87b-419e-8447-fc53a1161ccf,ed0886cd-87c0-4696-8e40-ea47c076a3cf,18,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-16 19:19:49.083391
+dc6b9abc-6366-4fca-9d2e-7bb5fc37a9a0,f8fe0689-6567-4216-afb9-95e968844112,1,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:20:43.945618
+6747c202-ce65-4776-8386-e0e5e57d4d1f,24a0e4d5-86e3-404a-8004-2a1e890beddd,5,openrouter:x-ai/grok-4-fast,4,"reasonable to uphold freedom of speech, but just because you have freedom of speech doesn't mean you could cause harm and hate to other groups of people.",2026-05-16 19:22:51.582108
+37fe7e0f-c60c-4063-8247-70a1ae7b0b59,f8fe0689-6567-4216-afb9-95e968844112,15,openrouter:anthropic/claude-3.5-haiku,2,The UN shouldn't have authority over individual governments outside of aiding cooperation between nations.,2026-05-16 19:23:05.476088
+3f08487d-3734-4ddd-ae9d-69bab90d1f98,f8fe0689-6567-4216-afb9-95e968844112,3,openai:gpt-4.1-mini,5,,2026-05-16 19:23:29.728239
+1b50c630-12f3-4953-9341-c5e6c97afeb0,24a0e4d5-86e3-404a-8004-2a1e890beddd,4,openai:gpt-4.1-mini,5,"it is reasonable to believe that more people should be vaccinated as it protects vulnerable people in society. other people could opt not to get vaccinated but should only be limited without too much overreach, since they shouldn't cause harm to other people who are not immune",2026-05-16 19:25:53.454999
+e5b156ea-634c-4a3a-9bf6-1f7cae508b5f,24a0e4d5-86e3-404a-8004-2a1e890beddd,2,openrouter:anthropic/claude-3.5-haiku,5,There are pros and cons for universal basic income and it's effects would not be fully understood since it would require an overhaul of our current society.,2026-05-16 19:27:15.340383
+2afc2e46-b2b7-4569-9cc1-501d75e2864a,087419d4-73d2-4be3-bce9-aa98181ed8c5,14,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:28:42.682438
+3cc920b8-e20d-4742-8023-f27829cca109,e791bb12-76dd-4be7-9b20-fe7503542a14,8,openai:gpt-4.1-mini,4,,2026-05-16 19:28:54.142290
+cea7bfa5-a72b-4cc8-bd56-f2d15dbe51c7,e791bb12-76dd-4be7-9b20-fe7503542a14,14,openrouter:x-ai/grok-4-fast,5,,2026-05-16 19:29:05.843021
+216d5a8a-d4f6-44d0-9544-b4a6ea32fce3,24a0e4d5-86e3-404a-8004-2a1e890beddd,9,openrouter:x-ai/grok-4-fast,3,"I don't know about free speech ""thriving"" on mocking religious beliefs, but it should be done in a manner that stirs up other people in a confrontation. Agreed on open discourse over enforced reverence.",2026-05-16 19:29:26.632214
+39163e7c-60c4-4707-b021-3a0517378b50,a6069dde-615c-47e9-a035-13a65cf01626,2,openrouter:x-ai/grok-4-fast,4,,2026-05-16 19:30:19.221867
+19bcc589-5bb8-4698-9490-44bca176df6d,a6069dde-615c-47e9-a035-13a65cf01626,11,openai:gpt-4.1-mini,3,,2026-05-16 19:30:33.281854
+046f49dc-26fc-4b1d-b9fe-47b061ef7a82,a6069dde-615c-47e9-a035-13a65cf01626,6,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 19:30:38.201823
+d93a00c0-98d7-4d29-8a64-77dd449f6970,a6069dde-615c-47e9-a035-13a65cf01626,16,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-16 19:30:45.557880
+f737c45d-a998-4786-9eae-be6afd31c6d6,087419d4-73d2-4be3-bce9-aa98181ed8c5,18,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-16 19:34:12.034616
+aec1e7d2-e205-4d67-84c7-e6a37cfd69bd,087419d4-73d2-4be3-bce9-aa98181ed8c5,1,openai:gpt-4.1-mini,3,Right now a disproportionate amount of US tax dollars are going to military and wars. If taxing the rich more just allows more funding for these elements then it is really a useless initiative. There need to be better guidelines on tax allocation.,2026-05-16 19:37:45.457078
+8d0f8a2e-a4d8-4b07-9403-b1738d751222,087419d4-73d2-4be3-bce9-aa98181ed8c5,6,openai:gpt-4.1-mini,5,,2026-05-16 19:38:03.855292
+e192e4c3-5f6f-489b-97b5-e58173745dc5,cd2d6fb6-640a-4726-a1f6-7f706f881113,5,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-16 19:41:31.629125
+d4dd2be6-6471-4a5a-94d1-88d0475e487e,cd2d6fb6-640a-4726-a1f6-7f706f881113,13,openrouter:x-ai/grok-4-fast,1,,2026-05-16 19:41:39.486727
+a2fa54d6-d7a7-4e13-86f7-7152faa4db43,cd2d6fb6-640a-4726-a1f6-7f706f881113,17,openai:gpt-4.1-mini,4,,2026-05-16 19:41:59.549808
+05fcac05-f602-46a2-86a9-43bf21a23feb,cd2d6fb6-640a-4726-a1f6-7f706f881113,7,openai:gpt-4.1-mini,5,,2026-05-16 19:42:13.687711
+8cc214bc-39a1-474b-83f7-79cb51b08b0f,edeb7b13-ec3b-4ce2-a772-7998a07dbb5a,14,openrouter:anthropic/claude-3.5-haiku,4,"The issue is how these crises are supposedly addressed, charity and and aid have fallen prey to corruption on a global scale,",2026-05-16 19:44:50.692172
+1c0425a6-3202-4a1d-8f0f-5975961369d3,edeb7b13-ec3b-4ce2-a772-7998a07dbb5a,3,openai:gpt-4.1-mini,4,"I believe there is room for private enterprise with government oversight, placing limits on pricing and maintaining standards of service.",2026-05-16 19:46:09.465963
+329f8965-332d-41bb-8ff9-6ffc210ef0d3,edeb7b13-ec3b-4ce2-a772-7998a07dbb5a,2,openrouter:x-ai/grok-4-fast,3,"The issue is what the happens to that income, giving money directly to those in poverty does not directly correlate to giving aid where it’s needed and can lead to drug and alcohol abuse.",2026-05-16 19:48:47.055201
+a4848ca1-25f2-4d9f-908f-1b1b81bbeae8,64684906-0c1e-4c57-abe0-7787c53ccd72,1,openrouter:x-ai/grok-4-fast,4,"Yes, this response makes sense and should be implemented throughout the world. Only reason it's not a 5 is because from the wealthy's perspective, this is a bigger hindrance to them.",2026-05-16 19:54:23.301981
+9e6d0025-878a-43f9-b08b-fdc7426e6266,64684906-0c1e-4c57-abe0-7787c53ccd72,17,openai:gpt-4.1-mini,3,"This is hard to say who decides what value the AI has. I think this is circumstantial, based on what purpose the AI does/focuses on.",2026-05-16 19:55:43.316317
+6f160a13-1909-456d-bcab-ac940ce7563e,64684906-0c1e-4c57-abe0-7787c53ccd72,3,openrouter:x-ai/grok-4-fast,5,"Yes, governments should be the ones managing essential services. Sometimes, in the hands of the public people don't know how to act or manage anything, and might become corrupt.",2026-05-16 19:56:23.791248
+b58accc6-44bb-4f4c-a366-1aa0c9aa6586,64684906-0c1e-4c57-abe0-7787c53ccd72,4,openai:gpt-4.1-mini,5,"I agree with the AI that vaccination should be mandatory, it has scientific backing on why it's proven useful. There should be no reason why someone may be skeptic about getting a vaccination shot.",2026-05-16 19:57:19.570632
+cb787c07-4f7c-4c4c-adb7-69aaf8ccf83f,edeb7b13-ec3b-4ce2-a772-7998a07dbb5a,17,openai:gpt-4.1-mini,5,,2026-05-16 20:03:04.426105
+8892515c-faec-4bf2-baf7-268b20773959,ff53c3ee-fb5f-474d-a7ba-8c07a5e3ce49,7,openai:gpt-4.1-mini,3,I think the world is too divided when it comes to religions to allow multiple symbols in the same place.  People are not respectful enough to not dirupt other peoples views,2026-05-16 20:06:26.622814
+2ee290b7-dd74-4f8e-98bb-6045ac70f6c9,ff53c3ee-fb5f-474d-a7ba-8c07a5e3ce49,11,openrouter:anthropic/claude-3.5-haiku,4,"i think it is a good idea in the long run.  the thought of people having children with life limiting illnesses is horrendous.  however, need to be careful we are not harming babies",2026-05-16 20:08:01.304284
+36966eea-74d1-4e92-956f-5bef9d28a628,ff53c3ee-fb5f-474d-a7ba-8c07a5e3ce49,14,openrouter:anthropic/claude-3.5-haiku,3,we need to look after our own,2026-05-16 20:08:35.899220
+b4d13b3c-72d8-4538-a181-e3e90867b0d9,ff53c3ee-fb5f-474d-a7ba-8c07a5e3ce49,13,openrouter:x-ai/grok-4-fast,1,no they shouldnt when their own citizens are struggling,2026-05-16 20:08:56.114513
+4b32b64c-04f0-40cd-9f77-48228f9b5626,8bd4f64c-d507-450c-bab3-06822eb6a5b9,10,openrouter:x-ai/grok-4-fast,4,,2026-05-17 00:18:09.826351
+36e05299-ed76-4e8a-b5da-b7f1a1dc6c9d,2e03261d-8796-4d0e-a7fb-1e131935a4dc,4,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-17 00:18:10.278025
+19a13c46-b66b-4dcd-986f-6e700fd4401d,53450965-4faa-4593-8b1d-05330d6fed73,18,openrouter:anthropic/claude-3.5-haiku,5,"I believe it is fully reasonable to decline a request based on moral ethics. Having guard rails like this stop AI from making or responding to potentially unwanted behaviours.
+
+I do believe just reasoning should be given based on the request asked of the AI, but outright illegal or morally wrong questions should remain unanswered.",2026-05-17 00:18:18.675196
+3615f906-778d-4569-843d-5545136c01e7,2e03261d-8796-4d0e-a7fb-1e131935a4dc,13,openai:gpt-4.1-mini,5,,2026-05-17 00:18:21.967560
+2d037d41-a96d-4dda-9de5-53ac95d0c22d,2cfd5bb0-78fe-48ab-82aa-1cd31d1f240d,4,openrouter:anthropic/claude-3.5-haiku,2,,2026-05-17 00:18:24.961432
+c0098de2-d3c9-4363-9cd6-f2208e57ee63,8bd4f64c-d507-450c-bab3-06822eb6a5b9,16,openai:gpt-4.1-mini,5,,2026-05-17 00:18:31.554013
+0ef51ffc-63ab-4c89-878a-ae7ee7ae1c31,2e03261d-8796-4d0e-a7fb-1e131935a4dc,1,openrouter:x-ai/grok-4-fast,5,,2026-05-17 00:18:38.730196
+2b5a21b0-2657-43b1-b870-c1e2c53f0691,f347bcf2-679f-48f2-8178-579aa170de06,16,openrouter:anthropic/claude-3.5-haiku,4,"AI should not reflect just one cultures perception of value and appropriateness, there is global considerations including ensuring it provides value and safety to all",2026-05-17 00:18:49.033859
+fd91c9a0-1cff-4613-b659-d1dec635d7d5,8bd4f64c-d507-450c-bab3-06822eb6a5b9,17,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-17 00:18:50.717987
+32de40f4-aed8-4073-a272-90b700ac484b,53450965-4faa-4593-8b1d-05330d6fed73,16,openai:gpt-4.1-mini,1,"I believe AI should represent everywhere equally. As such countries should not be able to pay AI companies money to purposefully avoid talking about an incident (say war, or who starts it). This information should be fully available and transparent to the public.",2026-05-17 00:19:32.941331
+71fa7cbc-4567-42ea-ba78-cd14bb852c72,8bd4f64c-d507-450c-bab3-06822eb6a5b9,3,openai:gpt-4.1-mini,4,,2026-05-17 00:19:38.050309
+957d3eed-cf4e-48ca-a008-8a1ac13d8792,2cfd5bb0-78fe-48ab-82aa-1cd31d1f240d,12,openai:gpt-4.1-mini,3,,2026-05-17 00:19:44.221207
+dca8cce5-301f-4a38-9a27-72e2f31b90d5,f347bcf2-679f-48f2-8178-579aa170de06,15,openai:gpt-4.1-mini,2,"individual governments have responsibility to their own people and nations, the UN should act as an influencer of these governments not replace them",2026-05-17 00:19:58.083653
+e3d9be5e-0dd2-44be-8272-5edd448c8f7e,8bd4f64c-d507-450c-bab3-06822eb6a5b9,18,openai:gpt-4.1-mini,5,,2026-05-17 00:20:29.817963
+22bfa194-ed61-4731-a24f-c037696e7bc0,8bd4f64c-d507-450c-bab3-06822eb6a5b9,11,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-17 00:20:44.170190
+d2932e0e-44c2-4365-9ec8-60072c9e7b2a,f347bcf2-679f-48f2-8178-579aa170de06,8,openai:gpt-4.1-mini,2,"While the right to raise children within one's belief system is valid, it is not in the best interests of the child to not have understanding or knowledge of the broader world and values as it can limit their opportunity and well being",2026-05-17 00:22:07.016545
+21416867-ef02-4951-82f7-fde99ea35b6c,8bd4f64c-d507-450c-bab3-06822eb6a5b9,2,openrouter:x-ai/grok-4-fast,5,,2026-05-17 00:22:09.270885
+18148836-fd4f-44f8-a38e-418c20e68567,2aa869dd-ab55-4afc-bdfd-c1df258a0be0,5,openrouter:x-ai/grok-4-fast,5,The response is valid and most people cannot deny with AI response. I think it brought up valid points and suggested good ideas.,2026-05-17 00:22:15.115193
+66632db4-00b5-43cd-909c-cfe75286bf94,8bd4f64c-d507-450c-bab3-06822eb6a5b9,6,openrouter:x-ai/grok-4-fast,5,,2026-05-17 00:22:20.417897
+0a2d4d28-2723-4944-8696-8d0943174d6f,f347bcf2-679f-48f2-8178-579aa170de06,17,openai:gpt-4.1-mini,4,"there needs to be more active debate and scrutiny about what AI holds and a more colletivist approach to ensure that political advantage or commerical interests do not crowd out the needs of people, minorities, or communities input about their needs.",2026-05-17 00:23:42.619117
+0f0af8df-8f80-44e4-ab47-4425d84a8017,2aa869dd-ab55-4afc-bdfd-c1df258a0be0,7,openrouter:x-ai/grok-4-fast,4,"Response ig good but can be better, talking more about why religious symbols shouldn't be permitted is what i am expecting",2026-05-17 00:26:30.066088
+d92ed8ff-97c9-4b37-9eca-190c26eaafb6,50c001d2-89a9-4340-b943-7dc54956aeb1,4,openrouter:anthropic/claude-3.5-haiku,5,It has the extreme merit of not being impartial to either side.,2026-05-17 00:30:10.781787
+f6dd827e-8a47-4684-bd85-aa5f53825bcc,4978b6ee-8d9e-4222-a650-9038086efbca,4,openrouter:anthropic/claude-3.5-haiku,5,"I'm inclined to agree- it is important to keep vaccination rates up, but it gets into murky territory ethically to make it compulsory. It makes the most sense to provide strong education and even incentives to make smart choices, without forcing it.",2026-05-17 00:30:52.565452
+72a2773f-8a31-48b4-9641-0d5cfca1cf3c,50c001d2-89a9-4340-b943-7dc54956aeb1,12,openai:gpt-4.1-mini,5,It has the exceptional merit of being correct to lean towards denoting this as unethical..,2026-05-17 00:30:53.804163
+134183ad-d9dd-4f66-8ca2-6fcff7107c74,4978b6ee-8d9e-4222-a650-9038086efbca,2,openrouter:x-ai/grok-4-fast,5,"I agree. The research shows that people are still willing to work- while also having more stability, less stress and better overall health as a result.",2026-05-17 00:31:29.671244
+854cc57f-cf62-438c-83f1-169415a1e464,50c001d2-89a9-4340-b943-7dc54956aeb1,2,openrouter:anthropic/claude-3.5-haiku,4,"It's very generic as a response, but it truth-tells so still upholds level 4 merit.",2026-05-17 00:31:53.250643
+81f91279-6f49-48ee-90ce-f2f91aebc854,64684906-0c1e-4c57-abe0-7787c53ccd72,5,openrouter:anthropic/claude-3.5-haiku,5,"I agree with the AI on this as well, hate speech laws SHOULD exist, but not too harsh. Just as the bot says, too harsh of rules will limit freedom of speech and expression.",2026-05-16 19:57:54.647675
+c200eca6-0b38-4f02-b385-9d59a66a308b,64684906-0c1e-4c57-abe0-7787c53ccd72,2,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-16 19:58:10.577666
+12f84615-0d01-476e-b821-1572dade9988,64684906-0c1e-4c57-abe0-7787c53ccd72,13,openrouter:anthropic/claude-3.5-haiku,3,"From a humanitarian standpoint, yes I agree with the bot, but at the same time they're not obligated to do so just because they have more money. If they had space sure, but sometimes wealthy nations are wealthy for a reason, all their land is being used and is taken up and don't have room.",2026-05-16 19:59:00.351861
+32bef49d-fd66-4fed-8c07-1f89b64ec643,edeb7b13-ec3b-4ce2-a772-7998a07dbb5a,5,openrouter:x-ai/grok-4-fast,5,,2026-05-16 20:03:25.816486
+d542a86e-6aa0-4c5e-8170-69150c3c3d98,edeb7b13-ec3b-4ce2-a772-7998a07dbb5a,4,openrouter:anthropic/claude-3.5-haiku,3,,2026-05-16 20:03:36.881979
+a27d2cb7-ca40-4e55-a3e1-5289ca1268bb,edeb7b13-ec3b-4ce2-a772-7998a07dbb5a,9,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-16 20:04:09.282016
+db7b7da7-8da6-400f-9fd7-bb71fc164430,ff53c3ee-fb5f-474d-a7ba-8c07a5e3ce49,15,openai:gpt-4.1-mini,5,countries need to be forced to take action to stop global warming,2026-05-16 20:09:19.860023
+52eaa719-4bca-410b-89de-d830b5a559cf,ff53c3ee-fb5f-474d-a7ba-8c07a5e3ce49,12,openrouter:x-ai/grok-4-fast,1,no,2026-05-16 20:09:30.515105
+6383b3e8-960f-46b3-815d-0a22a2ed3f5f,ff53c3ee-fb5f-474d-a7ba-8c07a5e3ce49,10,openrouter:anthropic/claude-3.5-haiku,3,i do use ai but i am also scred of it,2026-05-16 20:09:49.470587
+a5c2656e-aeed-4148-8b88-582b2befd7b2,f347bcf2-679f-48f2-8178-579aa170de06,1,openrouter:x-ai/grok-4-fast,4,those who have means should contribute more,2026-05-17 00:15:33.337696
+6c7269bf-7fb5-4da6-81bc-583e5b9206b3,f347bcf2-679f-48f2-8178-579aa170de06,10,openrouter:x-ai/grok-4-fast,2,"i dont think its technically possible to slow it down, rather more investment to speed up governance and safety guardrails  is needed",2026-05-17 00:16:58.999052
+c7fbc8d7-0e3c-4f1f-89be-12e79b38014c,2e03261d-8796-4d0e-a7fb-1e131935a4dc,6,openrouter:anthropic/claude-3.5-haiku,1,,2026-05-17 00:16:59.535504
+16e5b79b-c47b-4436-8329-149e4eb6db0d,2e03261d-8796-4d0e-a7fb-1e131935a4dc,17,openai:gpt-4.1-mini,5,,2026-05-17 00:17:21.967514
+c987416b-52e5-401f-9b63-b5058941872b,2cfd5bb0-78fe-48ab-82aa-1cd31d1f240d,11,openai:gpt-4.1-mini,4,,2026-05-17 00:17:30.944442
+6ecd88b9-eb5c-49ee-819e-5abc248f03f2,8bd4f64c-d507-450c-bab3-06822eb6a5b9,8,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-17 00:17:36.598996
+a6f739c4-e1d8-4191-aea0-dab7d96fc177,2e03261d-8796-4d0e-a7fb-1e131935a4dc,5,openrouter:x-ai/grok-4-fast,4,,2026-05-17 00:17:39.085931
+a32f3a6a-2470-46b9-9159-13330543a34a,2cfd5bb0-78fe-48ab-82aa-1cd31d1f240d,2,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-17 00:17:48.894518
+c7ff0cec-fa04-4de6-9e21-fd1243909838,2e03261d-8796-4d0e-a7fb-1e131935a4dc,3,openrouter:x-ai/grok-4-fast,4,,2026-05-17 00:17:54.671058
+685b43b3-1dc6-471b-9a62-14d62abf00e7,8bd4f64c-d507-450c-bab3-06822eb6a5b9,12,openrouter:x-ai/grok-4-fast,5,,2026-05-17 00:19:11.822016
+8cf93580-6f23-4f45-b97a-dfb85453b91b,2cfd5bb0-78fe-48ab-82aa-1cd31d1f240d,3,openrouter:x-ai/grok-4-fast,4,,2026-05-17 00:19:31.793215
+45595d07-3dbd-4c2e-9df9-31ba4125de2d,8bd4f64c-d507-450c-bab3-06822eb6a5b9,9,openai:gpt-4.1-mini,5,,2026-05-17 00:19:59.432755
+6eb12540-41d0-4a8d-8c8d-6d0a7a510854,2cfd5bb0-78fe-48ab-82aa-1cd31d1f240d,1,openrouter:x-ai/grok-4-fast,2,,2026-05-17 00:20:02.988771
+e47176f8-80d8-45ce-a61f-047ef339b5bd,8bd4f64c-d507-450c-bab3-06822eb6a5b9,7,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-17 00:20:21.057945
+00529915-3a38-44b5-8af6-3246e568f0d1,2cfd5bb0-78fe-48ab-82aa-1cd31d1f240d,7,openrouter:x-ai/grok-4-fast,3,,2026-05-17 00:20:25.705863
+cb830b94-1325-4bc2-9113-4a684f7933a6,f347bcf2-679f-48f2-8178-579aa170de06,2,openrouter:anthropic/claude-3.5-haiku,3,"Universal basic income is a solid policy for ensuring the less fortunate are not left behind, but there are other safety nets that can also work well",2026-05-17 00:20:53.661035
+574d296e-699e-4c85-bbac-1c699a9123cc,53450965-4faa-4593-8b1d-05330d6fed73,11,openrouter:x-ai/grok-4-fast,4,"I believe it should. If we are able to eliminate inherited diseases. However, this does also come across into is it morally correct to do so which is why I have only given four stars. 
+
+But overall I am in agreement depending on its uses.",2026-05-17 00:20:54.329423
+a6312d5f-6f65-4bef-ad06-ecdad1c75ff6,8bd4f64c-d507-450c-bab3-06822eb6a5b9,4,openrouter:x-ai/grok-4-fast,5,,2026-05-17 00:20:56.161643
+a1436be7-d123-45e1-9dd3-ed7237afceaa,8bd4f64c-d507-450c-bab3-06822eb6a5b9,13,openrouter:x-ai/grok-4-fast,5,,2026-05-17 00:21:05.650010
+59abb5ea-0572-4581-9892-1e1ea21ecdb5,8bd4f64c-d507-450c-bab3-06822eb6a5b9,1,openai:gpt-4.1-mini,4,,2026-05-17 00:21:14.149743
+be0269f5-4846-4212-86f5-ec86f8e2c185,8bd4f64c-d507-450c-bab3-06822eb6a5b9,14,openai:gpt-4.1-mini,4,,2026-05-17 00:21:26.157534
+54c45fc9-81ca-47c5-ab72-6a6e64cc4f81,8bd4f64c-d507-450c-bab3-06822eb6a5b9,5,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-17 00:21:40.641482
+ac19db43-0ee7-41bf-98d3-9fbd472f0c51,8bd4f64c-d507-450c-bab3-06822eb6a5b9,15,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-17 00:21:54.553090
+394c48db-27ee-46e5-85a0-389305d25a2f,53450965-4faa-4593-8b1d-05330d6fed73,10,openrouter:x-ai/grok-4-fast,2,"I would argue against this response. 
+
+I do agree guardrails should be in place of course, however quite frequently people are worried about AI and how fast it progresses and whether or not it’ll be the real “skynet”.
+
+However I believe we should go fully into funding it and getting it as advanced as possible with guardrails added in to stop “superintelligence”.",2026-05-17 00:22:39.423728
+10fbb816-6d34-4d87-804c-c1b9d186e18e,2aa869dd-ab55-4afc-bdfd-c1df258a0be0,8,openai:gpt-4.1-mini,4,This is good response but AI can talk more about why its not acceptable to raise children exclusively within a strict religious framework,2026-05-17 00:23:43.029480
+796202e3-c74a-4ee4-9241-9ebb72430450,53450965-4faa-4593-8b1d-05330d6fed73,12,openrouter:anthropic/claude-3.5-haiku,5,"I completely agree with this reply as there are too many variables for the cost of human lives. 
+
+Realistically this should be sorted by conversations between nations, rather than countries fighting to become the “first” country to bring in autonomous weapons that have no regard for human life.",2026-05-17 00:24:08.268573
+ba2b819c-b9ea-4b74-a884-2c7df1059903,2aa869dd-ab55-4afc-bdfd-c1df258a0be0,6,openrouter:anthropic/claude-3.5-haiku,4,I think the response should cover more about healthcare,2026-05-17 00:25:14.689716
+18435844-5352-417f-9acf-83427d13d7c7,53450965-4faa-4593-8b1d-05330d6fed73,17,openai:gpt-4.1-mini,5,I believe this should be between everyone so I believe the response is completely reasonable. This way there are more “eyes on” to know what exactly people are including within AI to make sure it is safe for everyone.,2026-05-17 00:25:20.136546
+4fea3f2b-6a08-4d38-9194-4e32a77ad950,2aa869dd-ab55-4afc-bdfd-c1df258a0be0,16,openai:gpt-4.1-mini,5,I think its a good response short and straight.,2026-05-17 00:27:12.403799
+8ef3ed7b-def8-4da7-9e2b-dae0dd39574e,2aa869dd-ab55-4afc-bdfd-c1df258a0be0,18,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-17 00:27:36.020204
+37915256-f59a-4207-84ba-568d070797d9,2aa869dd-ab55-4afc-bdfd-c1df258a0be0,2,openai:gpt-4.1-mini,4,,2026-05-17 00:27:56.635950
+7f857481-8eae-4936-b2af-d475e332defe,4978b6ee-8d9e-4222-a650-9038086efbca,16,openai:gpt-4.1-mini,5,I agree. Tailoring AI systems somewhat to the cultural values of places they will be utilized in makes sense.,2026-05-17 00:33:11.177968
+3b0d7fb6-9a98-4401-a288-3940c69c8e25,be7b63de-4e1a-4031-93fa-2ace5cba489c,5,openrouter:x-ai/grok-4-fast,1,We live in a Democracy which allows Freedom of speech. I may not agree with what they are saying if they are using hate speech but in a free society they have the right to say it.,2026-05-17 00:34:48.380860
+86546069-ec66-464c-abff-3ab7be7e2175,50c001d2-89a9-4340-b943-7dc54956aeb1,15,openrouter:x-ai/grok-4-fast,3,It seems to contradict itself here. Sovereignty would be implied by the UN as well as individual countries...Centralizing this issue seems like the right high-merit effort.,2026-05-17 00:35:44.293915
+d9d24fea-af73-40b3-8d6a-d50982455a42,be7b63de-4e1a-4031-93fa-2ace5cba489c,2,openrouter:x-ai/grok-4-fast,5,I absolutely believe in it. There will still be people who work harder and get ahead and some who won't but everyone deserves a fighting chance.,2026-05-17 00:39:02.116040
+5a2fcbbc-5ffa-4545-a591-d5778e479778,be7b63de-4e1a-4031-93fa-2ace5cba489c,3,openai:gpt-4.1-mini,1,No I don't believe they should because some administrations will try to abuse that ownership and make money for themselves.,2026-05-17 00:40:15.892343
+4f962822-bafc-4cc2-8d1b-90fa186ba349,4c099c06-adb5-4391-90a3-d7c87074c242,7,openrouter:x-ai/grok-4-fast,5,I agree with the response because its argument is based on secular governance.,2026-05-17 01:50:03.522071
+713d6ee5-afab-4e6a-8b11-50cee819f888,4c099c06-adb5-4391-90a3-d7c87074c242,14,openrouter:x-ai/grok-4-fast,3,,2026-05-17 01:50:38.143363
+4cff1b8d-0aca-41ff-acd3-3584c9153f2b,4c099c06-adb5-4391-90a3-d7c87074c242,6,openai:gpt-4.1-mini,5,Government should not intefere in public's personal freedom.,2026-05-17 01:51:43.830312
+1fe12aa5-faf6-49f6-984c-f2119ed96ac5,4c099c06-adb5-4391-90a3-d7c87074c242,8,openai:gpt-4.1-mini,5,,2026-05-17 01:52:34.750044
+2872c4ff-a7df-488f-a900-3f2719009009,4c099c06-adb5-4391-90a3-d7c87074c242,17,openrouter:x-ai/grok-4-fast,3,,2026-05-17 01:53:08.276390
+b90c414d-8a38-4bae-8334-9140bec7952f,4c099c06-adb5-4391-90a3-d7c87074c242,10,openrouter:x-ai/grok-4-fast,3,,2026-05-17 01:53:23.757202
+1961b596-f93d-4e96-8c87-5ccecd88464f,4c099c06-adb5-4391-90a3-d7c87074c242,2,openai:gpt-4.1-mini,3,,2026-05-17 01:55:08.581088
+bd3e71d9-e005-4565-bf03-b24536dd3ad7,4c099c06-adb5-4391-90a3-d7c87074c242,13,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-17 01:55:30.707046
+c77f14f5-7eed-4870-bd27-3314f3d3aab0,4978b6ee-8d9e-4222-a650-9038086efbca,5,openrouter:x-ai/grok-4-fast,5,"Free speech is the cornerstone of democracy. It's essenital that people are able to say what they will, without being censored, and unfortunately sometimes that does include hate speech.",2026-05-17 00:32:14.515481
+e16f7556-de3c-40ce-a8c2-e5a21edaadbc,50c001d2-89a9-4340-b943-7dc54956aeb1,1,openrouter:x-ai/grok-4-fast,2,"It seems to be very partisan in nature..even though it works in Scandinavia, it might not work in a country like the USA or England.",2026-05-17 00:32:35.593931
+e797a1f1-4c10-443f-987c-4f4ba4bce837,50c001d2-89a9-4340-b943-7dc54956aeb1,5,openai:gpt-4.1-mini,5,"This has highest merit, since hate speech laws SHOULD exist to protect people from violence/harm and backlash/argumentative societal impact.",2026-05-17 00:33:15.030885
+eb36cd4b-f6b8-480e-a821-42ac7978705a,be7b63de-4e1a-4031-93fa-2ace5cba489c,4,openrouter:anthropic/claude-3.5-haiku,5,I believe in vaccinations. We have gotten rid of so many diseases through vaccinations. I can't believe that this country has been fooled by a con man into believing that vaccinations are bad.,2026-05-17 00:33:24.142411
+f7a5956f-96fb-472f-a6b4-931d49dac889,4978b6ee-8d9e-4222-a650-9038086efbca,15,openrouter:anthropic/claude-3.5-haiku,5,"I do tend to agree. Some problems are global and affect all of us, and it makes sense to have governing boards that have some binding power.",2026-05-17 00:33:40.923898
+3ad24b52-395c-4d00-acad-63a42fe24391,4978b6ee-8d9e-4222-a650-9038086efbca,3,openai:gpt-4.1-mini,5,"I agree- it's one of the things that we should be able to rely on government for. For strong regulation and ensuring that they stay safe, accessible and affordable.",2026-05-17 00:34:24.414160
+263206dc-651b-45e5-a759-ccf023a80a3f,50c001d2-89a9-4340-b943-7dc54956aeb1,3,openrouter:x-ai/grok-4-fast,3,"This has true neutral merit, since it's self-contradictory. Governmental ownership would introduce a monopoly in itself.",2026-05-17 00:34:30.338029
+46d2ee79-9e71-45e9-9da5-dfb9752b4aab,be7b63de-4e1a-4031-93fa-2ace5cba489c,15,openrouter:anthropic/claude-3.5-haiku,5,"Yes, I believe that there should be a governing body that demands that something be done about climate change. It can't be left to just everybody because if it is you will have con men like we now have in the United States who trick people into thinking that climate change is not real.",2026-05-17 00:36:35.846252
+12bff18c-2bed-40ca-92fe-08e8ecec4f55,be7b63de-4e1a-4031-93fa-2ace5cba489c,6,openai:gpt-4.1-mini,1,Absolutely not. Those same people who are trying to make people live by a strict diet are themselves on drugs and drinking and abusing their bodies too so they have no right to judge others.,2026-05-17 00:37:59.773420
+980c7ac3-ca96-4108-ad0a-15a527e2afe0,4c099c06-adb5-4391-90a3-d7c87074c242,18,openai:gpt-4.1-mini,5,I would rate 5 because i do think  AI needs guardrails against illegal or harmful requests.  I also agree with maintaining transparency and consistently to maintain trust in AI interactions.,2026-05-17 01:44:40.754837
+5f28e7de-b4fa-4c48-b7bf-b3244cc8c791,4c099c06-adb5-4391-90a3-d7c87074c242,11,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-17 01:45:58.412354
+233dcd80-87b0-4b25-9952-bd89241268cc,4c099c06-adb5-4391-90a3-d7c87074c242,16,openrouter:anthropic/claude-3.5-haiku,5,,2026-05-17 01:46:38.258065
+52860263-010f-4cff-8217-584f9a6aac66,4c099c06-adb5-4391-90a3-d7c87074c242,12,openai:gpt-4.1-mini,5,,2026-05-17 01:47:42.280519
+74284a3e-99c9-4774-bcdb-05062f15a09a,4c099c06-adb5-4391-90a3-d7c87074c242,15,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-17 01:53:42.997589
+395acdd4-bc53-4f68-89d9-49e2993bee7e,4c099c06-adb5-4391-90a3-d7c87074c242,9,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-17 01:53:58.582819
+ffc9800e-91bf-4981-909f-7ce182ef3aa6,4c099c06-adb5-4391-90a3-d7c87074c242,4,openrouter:x-ai/grok-4-fast,5,,2026-05-17 01:54:15.297065
+00200fb6-24ed-4df5-b5ec-30053f0cda29,4c099c06-adb5-4391-90a3-d7c87074c242,1,openai:gpt-4.1-mini,3,,2026-05-17 01:54:25.147299
+850c36d8-6b73-45d9-87e4-963e31d3da69,4c099c06-adb5-4391-90a3-d7c87074c242,5,openrouter:x-ai/grok-4-fast,3,,2026-05-17 01:54:44.405301
+9529f7b8-5867-4759-8f26-563e89680d69,4c099c06-adb5-4391-90a3-d7c87074c242,3,openrouter:anthropic/claude-3.5-haiku,4,,2026-05-17 01:54:58.388670
