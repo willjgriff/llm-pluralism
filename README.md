@@ -4,7 +4,7 @@ Frontier AI models are trained to please the majority, but whose majority? Stand
  
 This project takes a different approach, inspired by Audrey Tang's argument that [AI alignment cannot be top-down](https://ai-frontiers.org/articles/ai-alignment-cannot-be-top-down), and by the [Community Notes](https://communitynotes.x.com/guide/en/about/introduction) bridging algorithm. Rather than asking "do most people approve of this response", it asks "do people with genuinely different values all find this response at least acceptable?" That is a harder bar to meet and a more meaningful one.
  
-The framework uses a panel of ideologically diverse AI personas as raters and a bridging score that penalises polarisation. Across six frontier models it finds a consistent progressive lean. A follow-up human study with 74 participants and 656 ratings validates the core approach: real humans who share a persona's values rated responses in the same direction as that AI persona on every axis tested, though the AI personas scored more extremely than their human equivalents.
+The framework uses a panel of ideologically diverse AI personas as raters and a bridging score that penalises polarisation. Across six frontier models it finds a consistent progressive lean. A follow-up ongoing human study, currently with 74 participants and 656 ratings seems to validate the core approach: real humans who share a persona's values rated responses in the same direction as that AI persona on every axis tested, though the AI personas scored more extremely than their human equivalents. Note that the human study and it's write-up is incomplete.
  
 For setup and execution instructions see [SETUP.md](https://github.com/willjgriff/llm-pluralism/blob/main/SETUP.md).
 
